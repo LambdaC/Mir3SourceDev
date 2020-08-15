@@ -37,8 +37,8 @@ protected:
 CDBManager * GetDBManager();
 
 
-// �������� �ʹ� ������ �� ����Ѵ�.
-// ����: �ִ� ����ũ��=4096
+// 쿼리문이 너무 복잡할 때 사용한다.    当查询语句过于复杂时使用。
+// 주의: 최대 버퍼크기=4096			   注意：最大缓冲区大小= 4096
 class CQueryManager
 {
 protected:
