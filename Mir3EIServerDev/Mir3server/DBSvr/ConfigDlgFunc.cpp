@@ -25,6 +25,7 @@ BOOL CALLBACK ConfigDlgFunc(HWND hWndDlg, UINT uMsg, WPARAM wParam, LPARAM lPara
 			ZeroMemory(szDatabase, sizeof(szDatabase));
 
 			jRegGetKey(_DB_SERVER_REGISTRY, _TEXT("Device"), (LPBYTE)szDatabase);
+            _tprintf(TEXT("ConfigDlgFunc.cpp szDatbase = %s\n"), szDatabase);
 			SetWindowText(GetDlgItem(hWndDlg, IDC_DBMS_DEVICE), szDatabase);
 
 			break;

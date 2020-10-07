@@ -1,4 +1,4 @@
-//Microsoft Developer Studio generated resource script.
+// Microsoft Visual C++ generated resource script.
 //
 #include "resource.h"
 
@@ -13,13 +13,11 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Korean resources
+// 벴刀(벴벌) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
-#ifdef _WIN32
 LANGUAGE LANG_KOREAN, SUBLANG_DEFAULT
 #pragma code_page(949)
-#endif //_WIN32
 
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
@@ -27,18 +25,18 @@ LANGUAGE LANG_KOREAN, SUBLANG_DEFAULT
 // TEXTINCLUDE
 //
 
-1 TEXTINCLUDE DISCARDABLE 
+1 TEXTINCLUDE 
 BEGIN
     "resource.h\0"
 END
 
-2 TEXTINCLUDE DISCARDABLE 
+2 TEXTINCLUDE 
 BEGIN
     "#include ""afxres.h""\r\n"
     "\0"
 END
 
-3 TEXTINCLUDE DISCARDABLE 
+3 TEXTINCLUDE 
 BEGIN
     "\r\n"
     "\0"
@@ -52,7 +50,8 @@ END
 // Bitmap
 //
 
-IDB_TOOLBAR             BITMAP  DISCARDABLE     ".\\Res\\toolbar.bmp"
+IDB_TOOLBAR             BITMAP                  ".\\Res\\toolbar.bmp"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -61,14 +60,15 @@ IDB_TOOLBAR             BITMAP  DISCARDABLE     ".\\Res\\toolbar.bmp"
 
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
-IDI_MIR2                ICON    DISCARDABLE     ".\\Res\\MIR2.ICO"
+IDI_MIR2                ICON                    ".\\Res\\MIR2.ICO"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
 // Menu
 //
 
-IDR_MAINMENU MENU DISCARDABLE 
+IDR_MAINMENU MENU
 BEGIN
     POPUP "&Service"
     BEGIN
@@ -89,16 +89,15 @@ END
 // Dialog
 //
 
-IDD_CONFIGDLG DIALOG DISCARDABLE  0, 0, 343, 285
-STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+IDD_CONFIGDLG DIALOG 0, 0, 343, 285
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 CAPTION "Game Server Configuration"
 FONT 9, "굴림"
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,228,264,50,14
     PUSHBUTTON      "Cancel",IDCANCEL,286,264,50,14
     LTEXT           "Game Server Index : ",IDC_STATIC,23,24,70,8
-    CONTROL         "IPAddress1",IDC_DBSVR_IP,"SysIPAddress32",WS_TABSTOP,65,
-                    130,90,11
+    CONTROL         "IPAddress1",IDC_DBSVR_IP,"SysIPAddress32",WS_TABSTOP,65,130,90,11
     EDITTEXT        IDC_DBSRV_PORT,65,144,28,12,ES_AUTOHSCROLL | ES_NUMBER
     LTEXT           "Address :",IDC_STATIC,29,132,35,8
     GROUPBOX        "Database Server Information",IDC_STATIC,15,116,158,48
@@ -109,18 +108,15 @@ BEGIN
     LTEXT           "Start Gold :",IDC_STATIC,99,76,37,8
     EDITTEXT        IDC_STARTLEVEL,69,73,19,14,ES_AUTOHSCROLL
     EDITTEXT        IDC_STARTGOLD,142,74,19,14,ES_AUTOHSCROLL
-    CONTROL         "Test Server",IDC_CHECK_TESTSRV,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,26,93,53,10
+    CONTROL         "Test Server",IDC_CHECK_TESTSRV,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,93,53,10
     LTEXT           "Game Server Name :",IDC_STATIC,120,24,70,8
     LTEXT           "Game Server Number :",IDC_STATIC,15,41,76,8
     EDITTEXT        IDC_SRVNUMBER,94,38,17,14,ES_AUTOHSCROLL | ES_NUMBER
-    EDITTEXT        IDC_SRVNAME,193,21,40,14,ES_CENTER | ES_AUTOHSCROLL | 
-                    WS_DISABLED
+    EDITTEXT        IDC_SRVNAME,193,21,40,14,ES_CENTER | ES_AUTOHSCROLL | WS_DISABLED
     GROUPBOX        "File Location Information",IDC_STATIC,178,58,149,40
     LTEXT           "Map :",IDC_STATIC,186,74,20,8
     EDITTEXT        IDC_MAPFILE_LOC,209,72,108,14,ES_AUTOHSCROLL
-    CONTROL         "IPAddress1",IDC_DBMS_IP,"SysIPAddress32",WS_TABSTOP,65,
-                    185,90,11
+    CONTROL         "IPAddress1",IDC_DBMS_IP,"SysIPAddress32",WS_TABSTOP,65,185,90,11
     EDITTEXT        IDC_DBMS_PORT,65,199,28,12,ES_AUTOHSCROLL | ES_NUMBER
     LTEXT           "Address :",IDC_STATIC,29,187,35,8
     GROUPBOX        "DBMS Information",IDC_STATIC,15,171,158,83
@@ -128,8 +124,7 @@ BEGIN
     LTEXT           "ID : ",IDC_STATIC,30,237,14,8
     EDITTEXT        IDC_DBMS_ID,46,234,28,14,ES_AUTOHSCROLL
     LTEXT           "Password :",IDC_STATIC,82,237,38,8
-    EDITTEXT        IDC_DBMS_PASSWORD,123,234,40,14,ES_PASSWORD | 
-                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_DBMS_PASSWORD,123,234,40,14,ES_PASSWORD | ES_AUTOHSCROLL
     LTEXT           "Database :",IDC_STATIC,25,216,36,8
     EDITTEXT        IDC_DBMS_DEVICE,65,214,82,14,ES_AUTOHSCROLL
 END
@@ -141,7 +136,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO DISCARDABLE 
+GUIDELINES DESIGNINFO
 BEGIN
     IDD_CONFIGDLG, DIALOG
     BEGIN
@@ -159,26 +154,27 @@ END
 // String Table
 //
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE
 BEGIN
-    IDS_NOTWINNT            "이 프로그램은 Microsoft Windows 2000 이상의 버젼에서 만 실행 할 수 있습니다."
-    IDS_LVS_LABEL1          "날짜"
-    IDS_LVS_LABEL2          "시간"
-    IDS_LVS_LABEL3          "메세지"
-    IDS_STARTSERVICE        "미르의 전설 2 게임 서버 서비스를 시작 했습니다."
-    IDS_STOPSERVICE         "미르의 전설 2 게임 서버 서비스를 중지 했습니다."
-    IDS_FETCH_MAGICDATA     "기본 마법 정보 ( %d 개 ) 를 읽었습니다."
-    IDS_DISCONNECT_LOGINSERVER "로그인 서버와 접속이 끊겼습니다."
-    IDS_PROGRAM_QUIT        "미르의 전설 2 게임 서버를 종료 하시겠습니까 ?"
-    IDS_PROGRAM_TITLE       "미르의 전설2 - 게임 서버"
-    IDS_LOAD_ADMINCOMMAND   "INFO : 운영자 명령어 (%d 개) 를 읽었습니다."
-    IDS_CONFLVS_LABEL1      "서버명"
+    IDS_NOTWINNT            "이 프로그램은 Microsoft Windows 2000 이상의 버젼에서 만 실행 할 수 있습니다.[This program can only be run on Microsoft Windows 2000 or later versions.]"
+    IDS_LVS_LABEL1          "날짜[date]"
+    IDS_LVS_LABEL2          "시간[time]"
+    IDS_LVS_LABEL3          "메세지[message]"
+    IDS_STARTSERVICE        "미르의 전설 2 게임 서버 서비스를 시작 했습니다.[The Legend of Mir 2 game server service has started.]"
+    IDS_STOPSERVICE         "미르의 전설 2 게임 서버 서비스를 중지 했습니다.[The Legend of Mir 2 game server service has started.]"
+    IDS_FETCH_MAGICDATA     "기본 마법 정보 ( %d 개 ) 를 읽었습니다.[You have read the basic magic information ( pieces).]"
+    IDS_DISCONNECT_LOGINSERVER 
+                            "로그인 서버와 접속이 끊겼습니다.[The connection to the login server has been lost.]"
+    IDS_PROGRAM_QUIT        "미르의 전설 2 게임 서버를 종료 하시겠습니까 ?[Do you want to shut down the Legend of Mir 2 game server?]"
+    IDS_PROGRAM_TITLE       "미르의 전설2 - 게임 서버[The Legend of Mir 2-Game Server]"
+    IDS_LOAD_ADMINCOMMAND   "INFO : 운영자 명령어 (%d 개) 를 읽었습니다.[INFO: The operator command () has been read.]"
+    IDS_CONFLVS_LABEL1      "서버명[Server name]"
     IDS_CONFLVS_LABEL2      "타이틀"
     IDS_CONFLVS_LABEL3      "로그인 게이트 내부 IP 주소"
     IDS_CONFLVS_LABEL4      "로그인 게이트 외부 IP 주소"
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE
 BEGIN
     IDS_CONFLVS_LABEL5      "게임 게이트 외부 IP 주소"
     IDS_TAB_LABEL1          "서버 설정"
@@ -189,12 +185,12 @@ BEGIN
     IDS_CLOSE_GATE          "%d 번 게이트의 접속이 종료 되었습니다."
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE
 BEGIN
     IDS_CONNECT_DBSERVER    "INFO : 데이터베이스 서버에 접속 되었습니다."
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE
 BEGIN
     IDS_LOADMAPFILE_GOOD    "맵 파일 (%s) 정보를 읽었습니다."
     IDS_LOADMAPFILE_FAIL    "ERROR : 맵 파일 (%s) 정보를 읽을 수 없습니다."
@@ -213,7 +209,7 @@ BEGIN
     IDS_NOTALLOW_WIDEHIT    "반월검법을 사용하지 않습니다."
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE
 BEGIN
     IDS_ALLOW_FIREHIT       "당신의 무기가 불의 기운으로 달아올랐습니다."
     IDS_NOTALLOW_FIREHIT    "기를 모으는데 실패하였습니다."
@@ -228,7 +224,7 @@ BEGIN
     IDS_FETCH_STDITEMACCESSORY "INFO : 특수 아이템 정보 (%d 개)를 읽었습니다."
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE
 BEGIN
     IDS_JOBNAME_W           "전사"
     IDS_JOBNAME_S           "술사"
@@ -248,7 +244,7 @@ BEGIN
     IDS_USERCMD_DONTEXNG    "교환거부"
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE
 BEGIN
     IDS_USERCMD_ACPTGUILD   "문파가입"
     IDS_USERCMD_ALOWPARTY   "동맹허용"
@@ -267,7 +263,7 @@ BEGIN
     IDS_FEMALE_WEAR         "여자 옷입니다."
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE
 BEGIN
     IDS_NOTENOUGH_VALUE     "착용할 수 없습니다."
     IDS_NOTENOUGH_WEIGHT    "너무 무겁습니다. "
@@ -278,7 +274,7 @@ BEGIN
     IDS_CAPTURE_OFF         "갈무리 끝"
 END
 
-#endif    // Korean resources
+#endif    // 벴刀(벴벌) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

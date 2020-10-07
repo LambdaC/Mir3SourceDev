@@ -43,6 +43,11 @@ TBBUTTON tbButtons[] =
 
 // **************************************************************************************
 
+int main() 
+{
+    return WinMain(GetModuleHandle(NULL), NULL, GetCommandLineA(), SW_NORMAL);
+}
+
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
     MSG msg;
@@ -179,6 +184,8 @@ BOOL InitInstance(HANDLE hInstance, int nCmdShow)
 	if (WSAStartup(MAKEWORD(2, 2), &g_wsd) != 0)
 		return (FALSE);
 
+    /***
+    // 这里通过registry的方式来配置数据库，先注释掉。直接在代码里配置算了。
 	BYTE	btInstalled;
 
 	if (!jRegGetKey(_DB_SERVER_REGISTRY, _TEXT("Installed"), (LPBYTE)&btInstalled))
@@ -190,10 +197,16 @@ BOOL InitInstance(HANDLE hInstance, int nCmdShow)
 	jRegGetKey(_DB_SERVER_REGISTRY, _TEXT("Device"), (LPBYTE)wszDatabase);
 	WideCharToMultiByte(CP_ACP, 0, wszDatabase, -1, szDatabase, sizeof(szDatabase), NULL, NULL);
 
-	GetDBManager()->Init( InsertLogMsg, szDatabase, "sa", "prg" );
+    _tprintf(TEXT("DBSvr.cpp szDatabase = %s\n", saDatebase));
+    */
+
+    char szDatabase[256] = "LEGENDOFMIR";
+//	GetDBManager()->Init( InsertLogMsg, szDatabase, "sa", "prg" );
+	GetDBManager()->Init( InsertLogMsg, szDatabase, "sa", "678169" );
 
 	// 테이블 읽  读表 Table read
-	CConnection *pConn = GetDBManager()->m_dbMain.CreateConnection( "Mir2_Common", "sa", "prg" );
+	// CConnection *pConn = GetDBManager()->m_dbMain.CreateConnection( "Mir2_Common", "sa", "prg" );
+	CConnection *pConn = GetDBManager()->m_dbMain.CreateConnection( "LEGENDOFMIR", "sa", "678169" );
 	if ( pConn )
 	{
 		if ( !GetTblStartPoint()->Init( pConn ) )

@@ -182,7 +182,8 @@ BOOL InitInstance(HANDLE hInstance, int nCmdShow)
 	if (WSAStartup(MAKEWORD(2, 2), &g_wsd) != 0)
 		return (FALSE);
 
-	GetDBManager()->Init( InsertLogMsg, "Mir2_Account", "sa", "prg" );
+	//GetDBManager()->Init( InsertLogMsg, "Mir2_Account", "sa", "prg" );
+	GetDBManager()->Init(InsertLogMsg, "LEGENDOFMIR", "sa", "678169");
 
 	//
 	BYTE	btInstalled;

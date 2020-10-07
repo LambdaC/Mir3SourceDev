@@ -2,6 +2,7 @@
 
 #include "stdafx.h"
 #include "database.h"
+#include <stdio.h>
 
 
 /*
@@ -167,13 +168,25 @@ bool CConnection::Init( SQLHENV hEnv, char *pDSN, char *pID, char *pPassword )
 						  (byte *) pDSN, SQL_NTS, 
 						  (byte *) pID, SQL_NTS, 
 						  (byte *) pPassword, SQL_NTS );
+
 	if ( nResult != SQL_SUCCESS )
 	{
+        SQLWCHAR       SqlState[6], SQLStmt[100], Msg[SQL_MAX_MESSAGE_LENGTH];
+        SQLINTEGER    NativeError;
+        SQLSMALLINT   i, MsgLen;
+        SQLRETURN     rc1, rc2;
+        SQLHSTMT      hstmt;
+        SQLLEN numRecs = 0;
+
+        i = 1;
+        SQLGetDiagRec(SQL_HANDLE_DBC, m_hDBConn, i, SqlState, &NativeError, Msg, sizeof(Msg), &MsgLen);
+        wprintf(L"%s", Msg);
+
 		CDatabase::DiagRec( SQL_HANDLE_DBC, m_hDBConn );
 
 		if ( nResult != SQL_SUCCESS_WITH_INFO )
 			return false;
-	}
+    }
 
 	return true;
 }
@@ -181,7 +194,8 @@ bool CConnection::Init( SQLHENV hEnv, char *pDSN, char *pID, char *pPassword )
 
 void CConnection::Uninit()
 {
-	if ( m_hDBConn )
+	// 不连接数据库会直接导致this为空
+	if ( this != nullptr && m_hDBConn )
 	{
 		SQLDisconnect( m_hDBConn );
 		SQLFreeHandle( SQL_HANDLE_DBC, m_hDBConn );
@@ -196,11 +210,11 @@ CRecordset * CConnection::CreateRecordset()
 	if ( pRec == NULL )
 		return NULL;
 
-/*	if ( pRec->Init( m_hDBConn ) == false )
+	if ( pRec->Init( m_hDBConn ) == false )
 	{
 		delete pRec;
 		return NULL;
-	}*/
+	}
 
 	return pRec;
 }

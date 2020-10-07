@@ -136,34 +136,35 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_NOTWINNT            "이 프로그램은 Microsoft Windows 2000 이상의 버젼에서 만 실행 할 수 있습니다."
-    IDS_LVS_LABEL1          "날짜"
-    IDS_LVS_LABEL2          "시간"
-    IDS_LVS_LABEL3          "메세지"
-    IDS_STARTSERVICE        "데이터베이스 서버 서비스를 시작 했습니다."
-    IDS_STOPSERVICE         "데이터베이스 서버 서비스를 중지 했습니다."
-    IDS_CONNECT_LOGINSERVER "셀렉트 게이트 서버와 접속 되었습니다."
-    IDS_DISCONNECT_LOGINSERVER "로그인 서버와 접속이 끊겼습니다."
-    IDS_PROGRAM_QUIT        "데이터베이스 서버를 종료 하시겠습니까 ?"
-    IDS_PROGRAM_TITLE       "미르의 전설2 - 로그인 서버"
-    IDS_CANT_CONNECT        "로그인 서버에 접속 할 수 없습니다. 10초 후 재 접속을 시도 합니다."
-    IDS_CONFLVS_LABEL1      "서버명"
-    IDS_CONFLVS_LABEL2      "타이틀"
-    IDS_CONFLVS_LABEL3      "로그인 게이트 내부 IP 주소"
-    IDS_CONFLVS_LABEL4      "로그인 게이트 외부 IP 주소"
+    IDS_NOTWINNT            "This program can only be run on Microsoft Windows 2000 or later versions.  //이 프로그램은 Microsoft Windows 2000 이상의 버젼에서 만 실행 할 수 있습니다."
+    IDS_LVS_LABEL1          "date //날짜"
+    IDS_LVS_LABEL2          "time //시간"
+    IDS_LVS_LABEL3          "message //메세지"
+    IDS_STARTSERVICE        "Database Server service started. //데이터베이스 서버 서비스를 시작 했습니다."
+    IDS_STOPSERVICE         "The database server service has stopped. //데이터베이스 서버 서비스를 중지 했습니다."
+    IDS_CONNECT_LOGINSERVER "You are connected to the Select Gate server. //셀렉트 게이트 서버와 접속 되었습니다."
+    IDS_DISCONNECT_LOGINSERVER 
+                            "The connection to the login server has been lost. //로그인 서버와 접속이 끊겼습니다."
+    IDS_PROGRAM_QUIT        "Are you sure you want to shut down the database server?  //데이터베이스 서버를 종료 하시겠습니까 ?"
+    IDS_PROGRAM_TITLE       "Legend of Mir 2-Login Server  //미르의 전설2 - 로그인 서버"
+    IDS_CANT_CONNECT        "I cannot connect to the login server. Try to reconnect after 10 seconds. //로그인 서버에 접속 할 수 없습니다. 10초 후 재 접속을 시도 합니다."
+    IDS_CONFLVS_LABEL1      "Server name //서버명"
+    IDS_CONFLVS_LABEL2      "title //타이틀"
+    IDS_CONFLVS_LABEL3      "IP address inside login gate //로그인 게이트 내부 IP 주소"
+    IDS_CONFLVS_LABEL4      "Login gate external IP address //로그인 게이트 외부 IP 주소"
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE
 BEGIN
-    IDS_CONFLVS_LABEL5      "게임 게이트 외부 IP 주소"
-    IDS_TAB_LABEL1          "서버 설정"
-    IDS_ACCEPT_GATESERVER   "게임 서버 (%s) 가 접속 되었습니다."
-    IDS_OPEN_USER           "클라이언트 (%s) 가 접속을 시도 했습니다. "
-    IDS_CLOSE_USER          "클라이언트 (%s) 가 접속을 종료 했습니다."
-    IDS_CONNECTDB           "미르의 전설 2 데이터베이스에 접속 되었습니다."
-    IDS_LOADACCOUNTRECORDS  "사용자 계정 정보 레코드를 읽는 중입니다."
-    IDS_BOUNDACCOUNTRECORDS "%d 개의 사용자 계정 정보 레코드를 읽었습니다."
-    IDS_COMPLETENEWUSER     "사용자 ID [ %s ] 를 생성 했습니다."
+    IDS_CONFLVS_LABEL5      "Game gate external IP address //게임 게이트 외부 IP 주소"
+    IDS_TAB_LABEL1          "Server settings //서버 설정"
+    IDS_ACCEPT_GATESERVER   "Game server (%s) is connected. //게임 서버 (%s) 가 접속 되었습니다."
+    IDS_OPEN_USER           "The client (%s) tried to connect. //클라이언트 (%s) 가 접속을 시도 했습니다. "
+    IDS_CLOSE_USER          "The client (%s) has closed the connection. //클라이언트 (%s) 가 접속을 종료 했습니다."
+    IDS_CONNECTDB           "You are connected to the Legend of Mir 2 database. //미르의 전설 2 데이터베이스에 접속 되었습니다."
+    IDS_LOADACCOUNTRECORDS  "Reading user account information records. //사용자 계정 정보 레코드를 읽는 중입니다."
+    IDS_BOUNDACCOUNTRECORDS "%d user account info records were read. //%d 개의 사용자 계정 정보 레코드를 읽었습니다."
+    IDS_COMPLETENEWUSER     "User ID [%s] has been created. //사용자 ID [ %s ] 를 생성 했습니다."
 END
 
 #endif    // Korean resources

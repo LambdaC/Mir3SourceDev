@@ -98,8 +98,9 @@ void OnCommand(WPARAM wParam, LPARAM lParam)
 		{
 			g_fTerminated = FALSE;
 
-			if (!jRegGetKey(_DB_SERVER_REGISTRY, _TEXT("LocalPort"), (LPBYTE)&nPort))
-				nPort = 5000;
+            if (!jRegGetKey(_DB_SERVER_REGISTRY, _TEXT("LocalPort"), (LPBYTE)&nPort))
+                //nPort = 5000;
+                nPort = 1433;
 	
 			LoadCharacterRecords();
 

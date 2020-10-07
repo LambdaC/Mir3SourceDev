@@ -3,6 +3,15 @@
 
 .vscode/
 
+Mir3EIServerDev/Mir3server/_Bin/
+Mir3EIServerDev/Mir3server/_Obj_Debug/
+Mir3EIClientDev/bin/
+Mir3EIClientDev/Debug/
+Mir3EIClientDev/WindHorn/Debug/
+Mir3EIClientDev/Mir3EIClient/Debug
+
+*.aps
+
 # Compiled Object files
 *.slo
 *.lo
