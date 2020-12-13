@@ -30,6 +30,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 {
     MSG	msg;
 
+	// ÂàõÂª∫‰∏Ä‰∏™Ê∏∏ÊàèÁ™óÂè£
 	g_xMainWnd.Create(hInstance, "Legend Of Mir 3", NULL, MAKEINTRESOURCE(IDI_ICON), _DXG_SCREENMODE_WINDOW, _DXG_DEVICEMODE_PRIMARY|_DXG_DEVICEMODE_D3D|_DXG_DEVICEMODE_ZBUFFER);
 	ShowWindow(g_xMainWnd.GetSafehWnd(), SW_HIDE);
 
@@ -39,10 +40,10 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 	g_xChatEditBox.Create(g_xMainWnd.GetSafehInstance(), g_xMainWnd.GetSafehWnd(), 0, 0, 0, 0);
 	ShowWindow(g_xChatEditBox.GetSafehWnd(), SW_HIDE);
 
-	//  Random Seed√ ±‚»≠.
+	//  Random Seed.
 	srand((unsigned)time(NULL));
 
-	// Windows Socket DLL¿ª √ ±‚»≠«—¥Ÿ.
+	// Windows Socket DLL.
 	WSAData wsd;
 	if( WSAStartup( MAKEWORD(2, 2), &wsd ) != 0 )
 		return -1;
@@ -52,7 +53,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 	g_xLoginProc.Load();
 	g_bProcState = _LOGIN_PROC;
 
-	g_nVersion = 20030704;//∞Ê±æ∫≈
+	g_nVersion = 20030704;//ÁâàÊú¨Âè∑
 
 
 	DWORD dwLastTime, dwTime, dwDelay;

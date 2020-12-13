@@ -1,4 +1,4 @@
-
+ï»¿
 
 #pragma once
 
@@ -8,14 +8,14 @@
 
 #define DEFSPEED					14
 
-#define _CHAT_COLOR1				0			//RGB(  0,   0,   0); // Åõ°ú»ö.
-#define _CHAT_COLOR2				1			//RGB( 10,  10,  10); // °ËÁ¤»ö.
-#define _CHAT_COLOR3				2			//RGB(255, 255, 255); // Èò»ö.
-#define _CHAT_COLOR4				3			//RGB(255,   0,   0); // »¡°­.
-#define _CHAT_COLOR5				4			//RGB(  0, 255,   0); // ³ì»ö.
-#define _CHAT_COLOR6				5			//RGB(  0,   0, 255); // Çª¸¥»ö
-#define _CHAT_COLOR7				6			//RGB(255, 255,   0); // ³ë¶û»ö.
-#define _CHAT_COLOR8				7			//RGB(255, 128,   0); // ÁÖÈ²»ö
+#define _CHAT_COLOR1				0			//RGB(  0,   0,   0); // íˆ¬ê³¼ìƒ‰.
+#define _CHAT_COLOR2				1			//RGB( 10,  10,  10); // ê²€ì •ìƒ‰.
+#define _CHAT_COLOR3				2			//RGB(255, 255, 255); // í°ìƒ‰.
+#define _CHAT_COLOR4				3			//RGB(255,   0,   0); // ë¹¨ê°•.
+#define _CHAT_COLOR5				4			//RGB(  0, 255,   0); // ë…¹ìƒ‰.
+#define _CHAT_COLOR6				5			//RGB(  0,   0, 255); // í‘¸ë¥¸ìƒ‰
+#define _CHAT_COLOR7				6			//RGB(255, 255,   0); // ë…¸ë‘ìƒ‰.
+#define _CHAT_COLOR8				7			//RGB(255, 128,   0); // ì£¼í™©ìƒ‰
 
 #define DR_UP						0
 #define DR_UPRIGHT					1
@@ -45,7 +45,7 @@
 #define STATE_BUBBLEDEFENCEUP		11
 
 #define	STATE_STONE_MODE			0x00000001;
-#define	STATE_OPENHEATH				0x00000002;  //Ã¼·Â °ø°³»óÅÂ
+#define	STATE_OPENHEATH				0x00000002;  //ì²´ë ¥ ê³µê°œìƒíƒœ
 
 class CCharObject;
 class CMirMap;
@@ -146,7 +146,7 @@ public:
 	WORD	m_wEarth;
 };
 
-class CObjectAddAbility	// ¾ÆÀÌÅÛ Âø¿ëÀ¸·Î ´Ã¾î³ª´Â ´É·ÂÄ¡
+class CObjectAddAbility	// ì•„ì´í…œ ì°©ìš©ìœ¼ë¡œ ëŠ˜ì–´ë‚˜ëŠ” ëŠ¥ë ¥ì¹˜
 {
 public:
 	WORD	HP;
@@ -162,9 +162,9 @@ public:
 	WORD	PoisonRecover;
 	WORD	HealthRecover;
 	WORD	SpellRecover;
-	WORD	AntiMagic;			//¸¶¹ı È¸ÇÇÀ²
-	BYTE	Luck;				//Çà¿î Æ÷ÀÎÆ®
-	BYTE	UnLuck;				//ºÒÇà Æ÷ÀÎÆ®
+	WORD	AntiMagic;			//ë§ˆë²• íšŒí”¼ìœ¨
+	BYTE	Luck;				//í–‰ìš´ í¬ì¸íŠ¸
+	BYTE	UnLuck;				//ë¶ˆí–‰ í¬ì¸íŠ¸
 	BYTE	WeaponStrong;
 	short	HitSpeed;
 };

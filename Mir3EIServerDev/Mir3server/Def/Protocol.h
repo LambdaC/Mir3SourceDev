@@ -1,4 +1,4 @@
-
+ï»¿
 #ifndef _LEGENDOFMIR2_PROTCOL
 #define _LEGENDOFMIR2_PROTCOL
 
@@ -410,21 +410,21 @@ typedef struct tag_TGENITEMRCD
 
 typedef struct tag_TSTANDARDITEM
 {
-	char		szName[20];			// ¾ÆÀÌÅÛ ÀÌ¸§ (ÃµÇÏÁ¦ÀÏ°Ë)
+	char		szName[20];			// ì•„ì´í…œ ì´ë¦„ (ì²œí•˜ì œì¼ê²€)
 	char		szPrefixName[20];
 	BYTE		btStdMode;          //
-	BYTE		btShape;            // ÇüÅÂº° ÀÌ¸§ (Ã¶°Ë)
-	BYTE		btWeight;           // ¹«°Ô
-	BYTE		btAniCount;         // 1º¸´Ù Å©¸é ¾Ö´Ï¸ÞÀÌ¼Ç µÇ´Â ¾ÆÀÌÅÛ
-	BYTE		btSource;           // ÀçÁú (0Àº ±âº», 1º¸´Ù Å©¸é ´õ ´Ü´ÜÇÔ)
-	BYTE		btNeedIdentify;     // $01 (¾ÆÀÌ´íÆ¼ÆÄÀÌ ¾È µÈ °Í)
-	WORD		wLooks;             // ±×¸² ¹øÈ£
+	BYTE		btShape;            // í˜•íƒœë³„ ì´ë¦„ (ì² ê²€)
+	BYTE		btWeight;           // ë¬´ê²Œ
+	BYTE		btAniCount;         // 1ë³´ë‹¤ í¬ë©´ ì• ë‹ˆë©”ì´ì…˜ ë˜ëŠ” ì•„ì´í…œ
+	BYTE		btSource;           // ìž¬ì§ˆ (0ì€ ê¸°ë³¸, 1ë³´ë‹¤ í¬ë©´ ë” ë‹¨ë‹¨í•¨)
+	BYTE		btNeedIdentify;     // $01 (ì•„ì´ëŒ„í‹°íŒŒì´ ì•ˆ ëœ ê²ƒ)
+	WORD		wLooks;             // ê·¸ë¦¼ ë²ˆí˜¸
 	WORD		wDuraMax;
-	WORD		wAC;				// ¹æ¾î·Â
-	WORD		wMAC;				// ¸¶Ç×·Â
-	WORD		wDC;				// µ¥¹ÌÁö
-	WORD		wMC;				// ¼ú»çÀÇ ¸¶¹ý ÆÄ¿ö
-	WORD		wSC;				// µµ»çÀÇ Á¤½Å·Â
+	WORD		wAC;				// ë°©ì–´ë ¥
+	WORD		wMAC;				// ë§ˆí•­ë ¥
+	WORD		wDC;				// ë°ë¯¸ì§€
+	WORD		wMC;				// ìˆ ì‚¬ì˜ ë§ˆë²• íŒŒì›Œ
+	WORD		wSC;				// ë„ì‚¬ì˜ ì •ì‹ ë ¥
 	BYTE		btNeed;             // 0:Level, 1:DC, 2:MC, 3:SC
 	BYTE		btNeedLevel;        // 1..60 level value...
 	UINT		nPrice;

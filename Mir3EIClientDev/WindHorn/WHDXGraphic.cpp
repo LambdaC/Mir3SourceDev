@@ -1,11 +1,11 @@
 /******************************************************************************************************************
                                                                                                                    
-	¸ğµâ¸í:																											
+	ëª¨ë“ˆëª…:																											
 																													
-	ÀÛ¼ºÀÚ:																											
-	ÀÛ¼ºÀÏ:																											
+	ì‘ì„±ì:																											
+	ì‘ì„±ì¼:																											
 																													
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤ ³»¿ë																						
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì • ë‚´ìš©																						
                                                                                                                    
 *******************************************************************************************************************/
 
@@ -42,18 +42,18 @@ CWHDXGraphicWindow* GetDXGWindowPtr()
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CWHDXGraphicWindow::CWHDXGraphicWindow()
+	í•¨ìˆ˜ëª… : CWHDXGraphicWindow::CWHDXGraphicWindow()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : WORD wWidth
+	ëª©ì    : 
+	ì…ë ¥   : WORD wWidth
 	         WORD wHeight
 	         WORD wBpp
-	Ãâ·Â   : 
+	ì¶œë ¥   : 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 CWHDXGraphicWindow::CWHDXGraphicWindow(WORD wWidth, WORD wHeight, WORD wBpp)
@@ -65,7 +65,9 @@ CWHDXGraphicWindow::CWHDXGraphicWindow(WORD wWidth, WORD wHeight, WORD wBpp)
 	m_pddsZBuffer		= NULL;
     m_pddsFrontBuffer	= NULL;
     m_pddsBackBuffer	= NULL;
-//	¿¡µğÆ®À©µµ¿ì Ãâ·ÂÀ» À§ÇØ¼­ Å¬¸®ÆÛ¸¦ ¼¼ÆÃÇÑ´Ù.
+//	ì—ë””íŠ¸ìœˆë„ìš° ì¶œë ¥ì„ ìœ„í•´ì„œ í´ë¦¬í¼ë¥¼ ì„¸íŒ…í•œë‹¤.
+//  Set the clipper for the edit window output.
+//  è®¾ç½®è£å‰ªå™¨ä»¥æ‰“å°ç¼–è¾‘çª—å£
 	m_lpcClipper		= NULL;
 
 	m_stDisplayInfo.wWidth	= wWidth;
@@ -109,15 +111,15 @@ VOID CWHDXGraphicWindow::UsedAndFreeMemoryCheck()
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CWHDXGraphicWindow::~CWHDXGraphicWindow()
+	í•¨ìˆ˜ëª… : CWHDXGraphicWindow::~CWHDXGraphicWindow()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	Ãâ·Â   : 
+	ëª©ì    : 
+	ì¶œë ¥   : 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 CWHDXGraphicWindow::~CWHDXGraphicWindow()
@@ -132,19 +134,19 @@ CWHDXGraphicWindow::~CWHDXGraphicWindow()
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CWHDXGraphicWindow::Create()
+	í•¨ìˆ˜ëª…[Function name] : CWHDXGraphicWindow::Create()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì[Writer] : 
+	ì‘ì„±ì¼[Date Created] : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : LPTSTR lpCaption
-	         CHAR *pszMenuName
-	         BYTE bScreenModeFlag
-	         BYTE bDeviceModeFlag
-	Ãâ·Â   : BOOL 
+	ëª©ì [purpose][ä½œç”¨]   : 
+	ì…ë ¥[input]   : LPTSTR lpCaption
+	         		CHAR *pszMenuName
+	         		BYTE bScreenModeFlag
+	         		BYTE bDeviceModeFlag
+	ì¶œë ¥[output]   : BOOL 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì[Date]][ìˆ˜ì •ì[Modifier]] : ìˆ˜ì •ë‚´ìš©[Correction contents]
 
 *******************************************************************************************************************/
 BOOL CWHDXGraphicWindow::Create(HINSTANCE hInst, LPTSTR lpCaption, CHAR *pszMenuName, CHAR* pszIconName, BYTE bScreenModeFlag, BYTE bDeviceModeFlag)
@@ -162,7 +164,7 @@ BOOL CWHDXGraphicWindow::Create(HINSTANCE hInst, LPTSTR lpCaption, CHAR *pszMenu
 
 	if ( m_bScreenModeFlag & _DXG_SCREENMODE_WINDOW )
 	{
-		dwStyle  = GetWindowStyle(m_hWnd);
+		dwStyle  = GetWindowStyle(m_hWnd); // è·å–windowç°åœ¨çš„style, è¯¦æƒ…å¯å»æŸ¥çœ‹Window Style
 		dwStyle &= ~WS_POPUP;
 		dwStyle |= WS_POPUP;//WS_OVERLAPPED | WS_CAPTION | WS_THICKFRAME | WS_MINIMIZEBOX | WS_SYSMENU;
 		SetWindowLong(m_hWnd, GWL_STYLE, dwStyle);
@@ -198,19 +200,19 @@ BOOL CWHDXGraphicWindow::Create(HINSTANCE hInst, LPTSTR lpCaption, CHAR *pszMenu
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CWHDXGraphicWindow::MainWndProcDXG()
+	í•¨ìˆ˜ëª… : CWHDXGraphicWindow::MainWndProcDXG()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : HWND hWnd
+	ëª©ì    : 
+	ì…ë ¥   : HWND hWnd
 	         UINT uMsg
 	         WPARAM wParam
 	         LPARAM lParam
-	Ãâ·Â   : LRESULT 
+	ì¶œë ¥   : LRESULT 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 LRESULT CWHDXGraphicWindow::MainWndProcDXG(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
@@ -281,17 +283,17 @@ LRESULT CWHDXGraphicWindow::OnSetCursor()
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CWHDXGraphicWindow::OnSize()
+	í•¨ìˆ˜ëª… : CWHDXGraphicWindow::OnSize()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : WPARAM wParam
+	ëª©ì    : 
+	ì…ë ¥   : WPARAM wParam
 	         LPARAM lParam
-	Ãâ·Â   : LRESULT 
+	ì¶œë ¥   : LRESULT 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 LRESULT CWHDXGraphicWindow::OnSize(WPARAM wParam, LPARAM lParam)
@@ -309,17 +311,17 @@ LRESULT CWHDXGraphicWindow::OnSize(WPARAM wParam, LPARAM lParam)
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CWHDXGraphicWindow::OnMove()
+	í•¨ìˆ˜ëª… : CWHDXGraphicWindow::OnMove()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : WPARAM wParam
+	ëª©ì    : 
+	ì…ë ¥   : WPARAM wParam
 	         LPARAM lParam
-	Ãâ·Â   : LRESULT 
+	ì¶œë ¥   : LRESULT 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 LRESULT CWHDXGraphicWindow::OnMove(WPARAM wParam, LPARAM lParam)
@@ -331,15 +333,15 @@ LRESULT CWHDXGraphicWindow::OnMove(WPARAM wParam, LPARAM lParam)
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CWHDXGraphicWindow::OnDestroy()
+	í•¨ìˆ˜ëª… : CWHDXGraphicWindow::OnDestroy()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	Ãâ·Â   : BOOL 
+	ëª©ì    : 
+	ì¶œë ¥   : BOOL 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 LRESULT CWHDXGraphicWindow::OnDestroy()
@@ -350,17 +352,17 @@ LRESULT CWHDXGraphicWindow::OnDestroy()
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CWHDXGraphicWindow::OnSysKeyDown()
+	í•¨ìˆ˜ëª… : CWHDXGraphicWindow::OnSysKeyDown()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : WPARAM wParam
+	ëª©ì    : 
+	ì…ë ¥   : WPARAM wParam
 	         LPARAM lParam
-	Ãâ·Â   : LRESULT 
+	ì¶œë ¥   : LRESULT 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 LRESULT CWHDXGraphicWindow::OnSysKeyDown(WPARAM wParam, LPARAM lParam)
@@ -400,15 +402,15 @@ LRESULT CWHDXGraphicWindow::OnSysKeyDown(WPARAM wParam, LPARAM lParam)
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CWHDXGraphicWindow::FindDriverAndDevice()
+	í•¨ìˆ˜ëª… : CWHDXGraphicWindow::FindDriverAndDevice()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	Ãâ·Â   : DWORD 
+	ëª©ì    : 
+	ì¶œë ¥   : DWORD 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 BYTE CWHDXGraphicWindow::FindDriverAndDevice()
@@ -431,7 +433,7 @@ BYTE CWHDXGraphicWindow::FindDriverAndDevice()
 	{
 		for ( bCnt = g_bNumDevices-1; bCnt >= 0; bCnt-- )
 		{
-			// ºñµğ¿À Ä«µå°¡ 2°³ÀÌ»ó
+			// ë¹„ë””ì˜¤ ì¹´ë“œê°€ 2ê°œì´ìƒ
 			if( g_bNumDevices > 2 )
 			{
 				if ( g_stDXGEnumDeviceInfo[0].dwNumModes != g_stDXGEnumDeviceInfo[bCnt].dwNumModes )
@@ -458,15 +460,15 @@ BYTE CWHDXGraphicWindow::FindDriverAndDevice()
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CWHDXGraphicWindow::DestroyDXGObjects()
+	í•¨ìˆ˜ëª… : CWHDXGraphicWindow::DestroyDXGObjects()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	Ãâ·Â   : HRESULT 
+	ëª©ì    : 
+	ì¶œë ¥   : HRESULT 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 HRESULT CWHDXGraphicWindow::DestroyDXGObjects()
@@ -496,7 +498,7 @@ HRESULT CWHDXGraphicWindow::DestroyDXGObjects()
     SAFE_RELEASE(m_pddsBackBuffer);
     SAFE_RELEASE(m_pddsFrontBuffer);
     SAFE_RELEASE(m_pddsZBuffer);
-//	¿¡µğÆ®À©µµ¿ì Ãâ·ÂÀ» À§ÇØ¼­ Å¬¸®ÆÛ¸¦ ¼¼ÆÃÇÑ´Ù.
+//	ì—ë””íŠ¸ìœˆë„ìš° ì¶œë ¥ì„ ìœ„í•´ì„œ í´ë¦¬í¼ë¥¼ ì„¸íŒ…í•œë‹¤.
 	SAFE_RELEASE(m_lpcClipper);
     SAFE_RELEASE(m_pD3D);
 
@@ -521,15 +523,15 @@ HRESULT CWHDXGraphicWindow::DestroyDXGObjects()
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CWHDXGraphicWindow::FreeDXGEnumModeResources()
+	í•¨ìˆ˜ëª… : CWHDXGraphicWindow::FreeDXGEnumModeResources()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	Ãâ·Â   : VOID 
+	ëª©ì    : 
+	ì¶œë ¥   : VOID 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 VOID CWHDXGraphicWindow::FreeDXGEnumModeResources()
@@ -543,15 +545,15 @@ VOID CWHDXGraphicWindow::FreeDXGEnumModeResources()
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CWHDXGraphicWindow::CreateDXG()
+	í•¨ìˆ˜ëª… : CWHDXGraphicWindow::CreateDXG()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	Ãâ·Â   : HRESULT 
+	ëª©ì    : 
+	ì¶œë ¥   : HRESULT 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 HRESULT CWHDXGraphicWindow::CreateDXG() 
@@ -620,20 +622,20 @@ HRESULT CWHDXGraphicWindow::CreateDXG()
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CDXGraphic::ResetDXG()
+	í•¨ìˆ˜ëª… : CDXGraphic::ResetDXG()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : WORD wWidth
+	ëª©ì    : 
+	ì…ë ¥   : WORD wWidth
 	         WORD wHeight
 	         WORD wBPP
 	         BYTE bScreenModeFlag
 	         BYTE bDeviceModeFlag
-	Ãâ·Â   : HRESULT 
+	ì¶œë ¥   : HRESULT 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 HRESULT CWHDXGraphicWindow::ResetDXG(WORD wWidth, WORD wHeight, WORD wBPP, BYTE bScreenModeFlag, BYTE bDeviceModeFlag)
@@ -686,15 +688,15 @@ HRESULT CWHDXGraphicWindow::ResetDXG(WORD wWidth, WORD wHeight, WORD wBPP, BYTE 
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CWHDXGraphicWindow::CreatePrimarySurface()
+	í•¨ìˆ˜ëª… : CWHDXGraphicWindow::CreatePrimarySurface()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	Ãâ·Â   : HRESULT 
+	ëª©ì    : 
+	ì¶œë ¥   : HRESULT 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 HRESULT CWHDXGraphicWindow::CreatePrimarySurface()
@@ -712,27 +714,27 @@ HRESULT CWHDXGraphicWindow::CreatePrimarySurface()
 
 	    GetWindowRect(m_hWnd, &rcTemp);
 		
-		// Å¬¶óÀÌ¾ğÆ®¿µ¿ªÀÇ Å©±â¸¦ Àâ´ÂºÎºĞÀº À©µµ¿ìÀÇ »ı¼º°ú °ü·ÃÀÌ ÀÖ´Ù.
-		// È­¸éÇØ»óµµ Áï, Å¬¶óÀÌ¾ğÆ® »ç°¢Çü ¿µ¿ªÀÇ Å©±â¸¦ ¾ò¾î¿Â´Ù.
+		// í´ë¼ì´ì–¸íŠ¸ì˜ì—­ì˜ í¬ê¸°ë¥¼ ì¡ëŠ”ë¶€ë¶„ì€ ìœˆë„ìš°ì˜ ìƒì„±ê³¼ ê´€ë ¨ì´ ìˆë‹¤.
+		// í™”ë©´í•´ìƒë„ ì¦‰, í´ë¼ì´ì–¸íŠ¸ ì‚¬ê°í˜• ì˜ì—­ì˜ í¬ê¸°ë¥¼ ì–»ì–´ì˜¨ë‹¤.
 		SetRect(&rcTemp, 0, 0, m_stDisplayInfo.wWidth, m_stDisplayInfo.wHeight);
 
-		// Å¬¶óÀÌ¾ğÆ® »ç°¢Çü ¿µ¿ªÅ©±â¿¡¼­ À©µµ¿ì ÀüÃ¼¿µ¿ªÀÇ Å©±â·Î º¯È¯ÇÑ´Ù.
+		// í´ë¼ì´ì–¸íŠ¸ ì‚¬ê°í˜• ì˜ì—­í¬ê¸°ì—ì„œ ìœˆë„ìš° ì „ì²´ì˜ì—­ì˜ í¬ê¸°ë¡œ ë³€í™˜í•œë‹¤.
 		AdjustWindowRectEx(&rcTemp, GetWindowStyle(m_hWnd), GetMenu(m_hWnd) != NULL, GetWindowExStyle(m_hWnd));
 
-		// À©µµ¿ì ÀüÃ¼¿µ¿ªÅ©±â·Î À©µµ¿ì¸¦ ¼¼ÆÃÇÑ´Ù. ´Ü ½ÃÀÛÁÂÇ¥´Â ¹«½ÃµÈ´Ù.
+		// ìœˆë„ìš° ì „ì²´ì˜ì—­í¬ê¸°ë¡œ ìœˆë„ìš°ë¥¼ ì„¸íŒ…í•œë‹¤. ë‹¨ ì‹œì‘ì¢Œí‘œëŠ” ë¬´ì‹œëœë‹¤.
 		SetWindowPos(m_hWnd, NULL, 0, 0, rcTemp.right-rcTemp.left, rcTemp.bottom-rcTemp.top,
 					 SWP_NOMOVE | SWP_NOZORDER | SWP_NOACTIVATE);
 
-		// HWND_NOTOPMOST¸¦ ¼¼ÆÃÇÏ±â À§ÇØ¼­ÀÌ´Ù.
+		// HWND_NOTOPMOSTë¥¼ ì„¸íŒ…í•˜ê¸° ìœ„í•´ì„œì´ë‹¤.
 		SetWindowPos(m_hWnd, HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE | SWP_NOACTIVATE);
 
-		// ¹ÙÅÁÈ­¸é¿µ¿ªÀÇ Å©±â¸¦ ¾ò¾î¿Â´Ù..
+		// ë°”íƒ•í™”ë©´ì˜ì—­ì˜ í¬ê¸°ë¥¼ ì–»ì–´ì˜¨ë‹¤..
 		SystemParametersInfo(SPI_GETWORKAREA, 0, &rcWork, 0);
 		GetWindowRect(m_hWnd, &rcTemp);
 		if ( rcTemp.left < rcWork.left )		rcTemp.left = rcWork.left;
 		if ( rcTemp.top  < rcWork.top )			rcTemp.top  = rcWork.top;
 
-		// À©µµ¿ìÀÇ ½ÃÀÛÁÂÇ¥¸¦ ¼¼ÆÃÇÑ´Ù.
+		// ìœˆë„ìš°ì˜ ì‹œì‘ì¢Œí‘œë¥¼ ì„¸íŒ…í•œë‹¤.
 		SetWindowPos(m_hWnd, NULL, rcTemp.left, rcTemp.top, 0, 0, SWP_NOSIZE | SWP_NOZORDER | SWP_NOACTIVATE);
     
 		ddsd.dwFlags        = DDSD_CAPS;
@@ -769,7 +771,7 @@ HRESULT CWHDXGraphicWindow::CreatePrimarySurface()
 			return E_FAIL;
 	}
 
-//	¿¡µğÆ®À©µµ¿ì Ãâ·ÂÀ» À§ÇØ¼­ Å¬¸®ÆÛ¸¦ ¼¼ÆÃÇÑ´Ù.////////////////////////////////////////////////////////////////
+//	ì—ë””íŠ¸ìœˆë„ìš° ì¶œë ¥ì„ ìœ„í•´ì„œ í´ë¦¬í¼ë¥¼ ì„¸íŒ…í•œë‹¤.////////////////////////////////////////////////////////////////
 	if ( FAILED(hr = m_pDD->CreateClipper(0, &m_lpcClipper, NULL)) )						return E_FAIL;
 	if ( FAILED(hr = m_lpcClipper->SetHWnd(0, m_hWnd)) )
 	{
@@ -790,15 +792,15 @@ HRESULT CWHDXGraphicWindow::CreatePrimarySurface()
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CWHDXGraphicWindow::UpdateBoundsWnd()
+	í•¨ìˆ˜ëª… : CWHDXGraphicWindow::UpdateBoundsWnd()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	Ãâ·Â   : VOID 
+	ëª©ì    : 
+	ì¶œë ¥   : VOID 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 VOID CWHDXGraphicWindow::UpdateBoundsWnd()
@@ -818,16 +820,16 @@ VOID CWHDXGraphicWindow::UpdateBoundsWnd()
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CWHDXGraphicWindow::CreateZBuffer()
+	í•¨ìˆ˜ëª… : CWHDXGraphicWindow::CreateZBuffer()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : GUID* pDeviceGUID
-	Ãâ·Â   : HRESULT 
+	ëª©ì    : 
+	ì…ë ¥   : GUID* pDeviceGUID
+	ì¶œë ¥   : HRESULT 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 HRESULT CWHDXGraphicWindow::CreateZBuffer(GUID* pDeviceGUID)
@@ -877,7 +879,7 @@ HRESULT CWHDXGraphicWindow::Init3DDeviceObjects()
     // Set the transform matrices
     D3DMATRIX matWorld, matView, matProj;
 
-	// ÇöÀç 800*600È­¸é¿¡ ¸Â°Ô 3D ÁÂÇ¥°è¸¦ ¼³Á¤ÇÑ´Ù.
+	// í˜„ì¬ 800*600í™”ë©´ì— ë§ê²Œ 3D ì¢Œí‘œê³„ë¥¼ ì„¤ì •í•œë‹¤.
  	D3DVECTOR vEyePt    = D3DVECTOR(0, 0, -300.0f);
     D3DVECTOR vLookatPt = D3DVECTOR(0, 0, 0);
     D3DVECTOR vUpVec    = D3DVECTOR(0, 1, 0);
@@ -885,7 +887,7 @@ HRESULT CWHDXGraphicWindow::Init3DDeviceObjects()
     D3DUtil_SetViewMatrix(matView, vEyePt, vLookatPt, vUpVec);
     D3DUtil_SetProjectionMatrix(matProj, g_PI/2, float(600.0f/800.0f), -1.0f, 1.0f);
 
-	// MATRIALÀÇ ÃÊ±âÈ­¸¦ ¼³Á¤ÇÑ´Ù.
+	// MATRIALì˜ ì´ˆê¸°í™”ë¥¼ ì„¤ì •í•œë‹¤.
     D3DMATERIAL7 mtrl;
 	ZeroMemory(&mtrl, sizeof(mtrl));
 	mtrl.diffuse.r = mtrl.diffuse.g = mtrl.diffuse.b = 0.1f;
@@ -899,7 +901,7 @@ HRESULT CWHDXGraphicWindow::Init3DDeviceObjects()
     m_pd3dDevice->SetTransform(D3DTRANSFORMSTATE_VIEW,       &matView);
     m_pd3dDevice->SetTransform(D3DTRANSFORMSTATE_PROJECTION, &matProj);
 
-	// RenderStateÀÇ ÃÊ±â°ª ¼³Á¤.
+	// RenderStateì˜ ì´ˆê¸°ê°’ ì„¤ì •.
 	m_pd3dDevice->SetRenderState(D3DRENDERSTATE_AMBIENT, 0xFFFFFFFF);
     m_pd3dDevice->SetRenderState(D3DRENDERSTATE_DITHERENABLE, FALSE); 
 	m_pd3dDevice->SetRenderState(D3DRENDERSTATE_CULLMODE, D3DCULL_NONE); 	
@@ -908,7 +910,7 @@ HRESULT CWHDXGraphicWindow::Init3DDeviceObjects()
 //	m_pd3dDevice->SetRenderState(D3DRENDERSTATE_FILLMODE, D3DFILL_WIREFRAME);
 //	m_pd3dDevice->SetRenderState(D3DRENDERSTATE_SHADEMODE, D3DSHADE_GOURAUD);
 	
-    // TextureStageStateÀÇ ÃÊ±â°ª ¼³Á¤.
+    // TextureStageStateì˜ ì´ˆê¸°ê°’ ì„¤ì •.
 	m_pd3dDevice->SetTextureStageState(0, D3DTSS_COLORARG1, D3DTA_TEXTURE);
     m_pd3dDevice->SetTextureStageState(0, D3DTSS_COLORARG2, D3DTA_DIFFUSE); 
     m_pd3dDevice->SetTextureStageState(0, D3DTSS_COLOROP,   D3DTOP_MODULATE);
@@ -922,26 +924,26 @@ HRESULT CWHDXGraphicWindow::Init3DDeviceObjects()
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CWHDXGraphicWindow::CreateGameFont()
+	í•¨ìˆ˜ëª… : CWHDXGraphicWindow::CreateGameFont()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : LPCSTR szFontName
+	ëª©ì    : 
+	ì…ë ¥   : LPCSTR szFontName
 	         INT nXsize
 	         INT nYsize
 	         BYTE bFontType
-	Ãâ·Â   : VOID 
+	ì¶œë ¥   : VOID 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 HFONT CWHDXGraphicWindow::CreateGameFont(LPCSTR szFontName, INT nHeight, INT nWidth, INT nWeight, BOOL bItalic, BOOL bULine, BOOL bStrikeOut, DWORD dwCharSet)
 {
 	INT nYsize;
 
-	// ÆùÆ®Å©±â ¸ÂÃß±â.
+	// í°íŠ¸í¬ê¸° ë§ì¶”ê¸°.
 	if ( m_pddsBackBuffer )
 	{
 		HDC hDC;
@@ -957,14 +959,14 @@ HFONT CWHDXGraphicWindow::CreateGameFont(LPCSTR szFontName, INT nHeight, INT nWi
 }
 VOID CWHDXGraphicWindow::CreateDefFont()
 {
-	// ÀÌ¹Ì ±âº»ÆùÆ®°¡ »ı¼ºµÇ¾î ÀÖÀ¸¸é »õ·Î ¸¸µé¼ö ÀÖµµ·Ï Clear.
+	// ì´ë¯¸ ê¸°ë³¸í°íŠ¸ê°€ ìƒì„±ë˜ì–´ ìˆìœ¼ë©´ ìƒˆë¡œ ë§Œë“¤ìˆ˜ ìˆë„ë¡ Clear.
 	if ( m_hDefGameFont != NULL )
 	{
 		DeleteObject(m_hDefGameFont); 
 		m_hDefGameFont = NULL;
 	}
 
-	m_hDefGameFont	= CreateGameFont("ËÎÌå", 9);
+	m_hDefGameFont	= CreateGameFont("èŠ¥ç«Ÿ", 9);
 }
 
 
@@ -1005,22 +1007,22 @@ CHAR* CWHDXGraphicWindow::IntToStr(INT nNum)
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CWHDXGraphicWindow::PutsHan()
+	í•¨ìˆ˜ëª… : CWHDXGraphicWindow::PutsHan()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : LPDIRECTDRAWSURFACE7 pSurface
+	ëª©ì    : 
+	ì…ë ¥   : LPDIRECTDRAWSURFACE7 pSurface
 	         INT nX
 	         INT nY
 	         COLORREF foreColor
 	         COLORREF backColor
 	         CHAR* szFormat
 	         ...
-	Ãâ·Â   : VOID 
+	ì¶œë ¥   : VOID 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 VOID CWHDXGraphicWindow::PutsHan(LPDIRECTDRAWSURFACE7 pSurface, INT nX, INT nY, COLORREF foreColor, COLORREF backColor, CHAR* szText, HFONT hFont)
@@ -1059,22 +1061,22 @@ VOID CWHDXGraphicWindow::PutsHan(LPDIRECTDRAWSURFACE7 pSurface, INT nX, INT nY, 
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CWHDXGraphicWindow::PutsHan()
+	í•¨ìˆ˜ëª… : CWHDXGraphicWindow::PutsHan()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : LPDIRECTDRAWSURFACE7 pSurface
+	ëª©ì    : 
+	ì…ë ¥   : LPDIRECTDRAWSURFACE7 pSurface
 	         INT nX
 	         INT nY
 	         COLORREF foreColor
 	         COLORREF backColor
 	         CHAR* szFormat
 	         ...
-	Ãâ·Â   : VOID 
+	ì¶œë ¥   : VOID 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 VOID CWHDXGraphicWindow::PutsHan(LPDIRECTDRAWSURFACE7 pSurface, RECT rc, COLORREF foreColor, COLORREF backColor, CHAR* szText, HFONT hFont)
@@ -1170,18 +1172,18 @@ SIZE CWHDXGraphicWindow::GetStrLength(LPDIRECTDRAWSURFACE7 pSurface, HFONT hFont
 			ZeroMemory(szTmpCheck, MAX_PATH);
 			nEndLen = nCnt+1;
 
-			// ÇöÀçºÎºĞ±îÁöÀÇ ¹®ÀÚ¿­À» ÀĞ´Â´Ù.
+			// í˜„ì¬ë¶€ë¶„ê¹Œì§€ì˜ ë¬¸ìì—´ì„ ì½ëŠ”ë‹¤.
 			memcpy(&szTmpCheck, &szSrc[nStartLen], nEndLen-nStartLen);
 			INT nsLen;
 			nsLen = strlen(szTmpCheck);
 
-			// ÇöÀç±îÁö ÀĞ¾î¿Â ºÎºĞÀÌ Çã¿ë³ĞÀÌ¸¦ ³Ñ¾î¼¹À»¶§.
+			// í˜„ì¬ê¹Œì§€ ì½ì–´ì˜¨ ë¶€ë¶„ì´ í—ˆìš©ë„“ì´ë¥¼ ë„˜ì–´ì„°ì„ë•Œ.
 			if (nsLen > nDivideLen )
 			{
-				// ÇöÀç 2¹ÙÀÌÆ® ¹®ÀÚ¶ó¸é. 
+				// í˜„ì¬ 2ë°”ì´íŠ¸ ë¬¸ìë¼ë©´. 
 				if ( szSrc[nEndLen-1] < 0 )
 				{
-					// ÇöÀç ¾Õ¿¡¹®ÀÚ°¡ 2¹ÙÀÌÆ® ¹®ÀÚ°¡ ¾Æ´Ï¶ó¸é
+					// í˜„ì¬ ì•ì—ë¬¸ìê°€ 2ë°”ì´íŠ¸ ë¬¸ìê°€ ì•„ë‹ˆë¼ë©´
 					if ( !(nWordCheck%2) )
 					{
 						nStartLen += strlen(szTmpCheck)-1;
@@ -1208,8 +1210,8 @@ SIZE CWHDXGraphicWindow::GetStrLength(LPDIRECTDRAWSURFACE7 pSurface, HFONT hFont
 						nWordCheck--;
 					}
 				}
-				// 1¹ÙÀÌÆ® ¹®ÀÚ. 
-				// ÇöÀçº¸´Ù ÇÑ¹ÙÀÌÆ®¾ÕºÎºĞ±îÁö¸¸ °í·ÁÇØÁÖ¸é µÈ´Ù.
+				// 1ë°”ì´íŠ¸ ë¬¸ì. 
+				// í˜„ì¬ë³´ë‹¤ í•œë°”ì´íŠ¸ì•ë¶€ë¶„ê¹Œì§€ë§Œ ê³ ë ¤í•´ì£¼ë©´ ëœë‹¤.
 				else
 				{
 					nStartLen += strlen(szTmpCheck)-1;
@@ -1223,7 +1225,7 @@ SIZE CWHDXGraphicWindow::GetStrLength(LPDIRECTDRAWSURFACE7 pSurface, HFONT hFont
 					nDividedLine++;
 				}
 			}
-			else if(szSrc[nEndLen-1]=='\n')	// °­Á¦°³Çà     \nÀ¸·ÎÇÏ¸é  Error ????
+			else if(szSrc[nEndLen-1]=='\n')	// ê°•ì œê°œí–‰     \nìœ¼ë¡œí•˜ë©´  Error ????
 			{
 				nStartLen += strlen(szTmpCheck)-1;
 				CHAR* pszNewLine;
@@ -1282,26 +1284,26 @@ BOOL CWHDXGraphicWindow::StringDivide(INT nDivideWidth, INT& nDividedLine, CHAR*
 
 			nEndLen = nCnt+1;
 
-			// ¸¸¾à¿¡ ±ÛÀÚÅ©±â°¡ ÃÖ´ë ±ÛÀÚÅ©±â¸¦ ³Ñ¾î°¡¸é ÃÖ´ëÄ¡·Î ¸ÂÃçÁØ´Ù.
+			// ë§Œì•½ì— ê¸€ìí¬ê¸°ê°€ ìµœëŒ€ ê¸€ìí¬ê¸°ë¥¼ ë„˜ì–´ê°€ë©´ ìµœëŒ€ì¹˜ë¡œ ë§ì¶°ì¤€ë‹¤.
 			if ( nEndLen >= MAX_PATH * 2 )
 			{
 				szResult[MAX_PATH-1] = NULL;
 				break;
 			}
 
-			// ÇöÀçºÎºĞ±îÁöÀÇ ¹®ÀÚ¿­À» ÀĞ´Â´Ù.
+			// í˜„ì¬ë¶€ë¶„ê¹Œì§€ì˜ ë¬¸ìì—´ì„ ì½ëŠ”ë‹¤.
 			memcpy(&szTmpCheck, &szSrc[nStartLen], nEndLen-nStartLen);
 
 			SIZE sizeLen;
 			sizeLen = GetStrLength(NULL, NULL, szTmpCheck);
 
-			// ÇöÀç±îÁö ÀĞ¾î¿Â ºÎºĞÀÌ Çã¿ë³ĞÀÌ¸¦ ³Ñ¾î¼¹À»¶§.
+			// í˜„ì¬ê¹Œì§€ ì½ì–´ì˜¨ ë¶€ë¶„ì´ í—ˆìš©ë„“ì´ë¥¼ ë„˜ì–´ì„°ì„ë•Œ.
 			if ( sizeLen.cx > nDivideWidth )
 			{
-				// ÇöÀç 2¹ÙÀÌÆ® ¹®ÀÚ¶ó¸é. 
+				// í˜„ì¬ 2ë°”ì´íŠ¸ ë¬¸ìë¼ë©´. 
 				if ( szSrc[nEndLen-1] < 0 )
 				{
-					// ÇöÀç ¾Õ¿¡¹®ÀÚ°¡ 2¹ÙÀÌÆ® ¹®ÀÚ°¡ ¾Æ´Ï¶ó¸é
+					// í˜„ì¬ ì•ì—ë¬¸ìê°€ 2ë°”ì´íŠ¸ ë¬¸ìê°€ ì•„ë‹ˆë¼ë©´
 					if ( !(nWordCheck%2) )
 					{
 						nStartLen += strlen(szTmpCheck)-1;
@@ -1319,8 +1321,8 @@ BOOL CWHDXGraphicWindow::StringDivide(INT nDivideWidth, INT& nDividedLine, CHAR*
 						nWordCheck--;
 					}
 				}
-				// 1¹ÙÀÌÆ® ¹®ÀÚ. 
-				// ÇöÀçº¸´Ù ÇÑ¹ÙÀÌÆ®¾ÕºÎºĞ±îÁö¸¸ °í·ÁÇØÁÖ¸é µÈ´Ù.
+				// 1ë°”ì´íŠ¸ ë¬¸ì. 
+				// í˜„ì¬ë³´ë‹¤ í•œë°”ì´íŠ¸ì•ë¶€ë¶„ê¹Œì§€ë§Œ ê³ ë ¤í•´ì£¼ë©´ ëœë‹¤.
 				else
 				{
 					nStartLen += strlen(szTmpCheck)-1;
@@ -1348,16 +1350,16 @@ BOOL CWHDXGraphicWindow::StringDivide(INT nDivideWidth, INT& nDividedLine, CHAR*
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CWHDXGraphicWindow::GetRGBMaskInfoIN16Bits()
+	í•¨ìˆ˜ëª… : CWHDXGraphicWindow::GetRGBMaskInfoIN16Bits()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : LPDIRECTDRAWSURFACE7 pSurface
-	Ãâ·Â   : DXG_MASKINFO 
+	ëª©ì    : 
+	ì…ë ¥   : LPDIRECTDRAWSURFACE7 pSurface
+	ì¶œë ¥   : DXG_MASKINFO 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 DXG_MASKINFO CWHDXGraphicWindow::GetRGBMaskInfoIN16Bits(LPDIRECTDRAWSURFACE7 pSurface)
@@ -1404,7 +1406,7 @@ DXG_MASKINFO CWHDXGraphicWindow::GetRGBMaskInfoIN16Bits(LPDIRECTDRAWSURFACE7 pSu
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// ±×¸®´Â ÇÔ¼öµé ¸ğÀ½.
+// ê·¸ë¦¬ëŠ” í•¨ìˆ˜ë“¤ ëª¨ìŒ.
 
 WORD CWHDXGraphicWindow::ConvertColor24To16(COLORREF dwColor)
 {
@@ -1425,20 +1427,20 @@ WORD CWHDXGraphicWindow::ConvertColor24To16(COLORREF dwColor)
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CWHDXGraphicWindow::DrawWithGDI()
+	í•¨ìˆ˜ëª… : CWHDXGraphicWindow::DrawWithGDI()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : RECT rc
+	ëª©ì    : 
+	ì…ë ¥   : RECT rc
 	         LPDIRECTDRAWSURFACE7 pSurface
 	         DWORD dwColor
 	         DWORD dwPenStyleFlg
 	         BYTE bKind
-	Ãâ·Â   : HRESULT 
+	ì¶œë ¥   : HRESULT 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 HRESULT CWHDXGraphicWindow::DrawWithGDI(RECT rc, LPDIRECTDRAWSURFACE7 pSurface, DWORD dwColor, BYTE bKind)
@@ -1513,20 +1515,20 @@ HRESULT CWHDXGraphicWindow::DrawWithGDI(RECT rc, LPDIRECTDRAWSURFACE7 pSurface, 
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CWHDXGraphicWindow::DrawSprite()
+	í•¨ìˆ˜ëª… : CWHDXGraphicWindow::DrawSprite()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : ÀÏ¹İÀûÀÎ ±×¸®±â. ÇÑÇÈ¼¿¾¿ ±×¸°´Ù. ½ºÅ©¸°¿µ¿ª Å¬¸®ÇÎ, ¼Ò½º¿µ¿ª Å¬¸®ÇÎ
-	ÀÔ·Â   : INT nX
+	ëª©ì    : ì¼ë°˜ì ì¸ ê·¸ë¦¬ê¸°. í•œí”½ì…€ì”© ê·¸ë¦°ë‹¤. ìŠ¤í¬ë¦°ì˜ì—­ í´ë¦¬í•‘, ì†ŒìŠ¤ì˜ì—­ í´ë¦¬í•‘
+	ì…ë ¥   : INT nX
 	         INT nY
 	         INT nXSize
 	         INT nYSize
 	         WORD* pwSrc
-	Ãâ·Â   : VOID 
+	ì¶œë ¥   : VOID 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 BOOL CWHDXGraphicWindow::DrawWithImage(INT nX, INT nY, INT nXSize, INT nYSize, WORD* pwSrc)
@@ -1657,18 +1659,18 @@ BOOL CWHDXGraphicWindow::DrawWithImagePerLineClipRgn(INT nX, INT nY, INT nXSize,
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CWHDXGraphicWindow::DrawWithSurface()
+	í•¨ìˆ˜ëª… : CWHDXGraphicWindow::DrawWithSurface()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : LPDIRECTDRAWSURFACE7 pddsSrc
+	ëª©ì    : 
+	ì…ë ¥   : LPDIRECTDRAWSURFACE7 pddsSrc
 	         RECT* prcSrc
 	         RECT* prcDst
-	Ãâ·Â   : BOOL 
+	ì¶œë ¥   : BOOL 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 BOOL CWHDXGraphicWindow::DrawWithSurface(INT nX, INT nY, INT nXSize, INT nYSize, LPDIRECTDRAWSURFACE7 pddsSrc)
@@ -1771,7 +1773,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompMemToMem(INT nX, INT nY, INT nXSize
 			BYTE  bRedWantedColor, bGreenWantedColor, bBlueWantedColor;
 			WORD  wPixel;
 
-			// yÃà Å¬¸®ÇÎ.
+			// yì¶• í´ë¦¬í•‘.
 			for ( nYCnt=0 ; nYCnt < rc.top ; nYCnt++ )
 			{
 				nWidthEnd += pwSrc[nWidthStart];
@@ -1780,14 +1782,14 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompMemToMem(INT nX, INT nY, INT nXSize
 				nWidthStart	= nWidthEnd;
 			}
 
-			// yÃà¿¡ ´ëÇØ¼­ ½ÇÁ¦·Î ·çÇÎ½ÃÅ³ Count¸¸À» Á¤ÇÑ´Ù.
+			// yì¶•ì— ëŒ€í•´ì„œ ì‹¤ì œë¡œ ë£¨í•‘ì‹œí‚¬ Countë§Œì„ ì •í•œë‹¤.
 			for ( nYCnt=rc.top ; nYCnt < rc.bottom ; nYCnt++ )
 			{
-				// ÇÑ¶óÀÎÀÇ ±æÀÌ¸¦ ¾ò¾î¿Â´Ù.(´ÜÀ§´Â ¿öµå)
+				// í•œë¼ì¸ì˜ ê¸¸ì´ë¥¼ ì–»ì–´ì˜¨ë‹¤.(ë‹¨ìœ„ëŠ” ì›Œë“œ)
 				nWidthEnd += pwSrc[nWidthStart];
 				nWidthStart++;
 
-				// ¶óÀÎÀÇ ±æÀÌ¸¸Å­ È­¸é¿¡ »Ñ·ÁÁØ´Ù.
+				// ë¼ì¸ì˜ ê¸¸ì´ë§Œí¼ í™”ë©´ì— ë¿Œë ¤ì¤€ë‹¤.
 				for ( INT x = nWidthStart; x < nWidthEnd ; )
 				{
 					if ( pwSrc[x] == 0xC0 )
@@ -1812,14 +1814,14 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompMemToMem(INT nX, INT nY, INT nXSize
 						}
 						else
 						{
-							// rc.leftÁ¡À» ±âÁØÀ¸·Î Ä«ÇÇÇÒ ¿µ¿ªÀÌ °É¸° °æ¿ì.
+							// rc.leftì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¹´í”¼í•  ì˜ì—­ì´ ê±¸ë¦° ê²½ìš°.
 							if ( nLastWidth < rc.left && rc.left <= nCurrWidth )
 							{
 								x += (rc.left-nLastWidth);
 								memcpy(&pwDst[((nYCnt+nY) * nDstXSize) + (rc.left+nX)], &pwSrc[x], sizeof(WORD)*(nCurrWidth-rc.left));
 								x += (nCurrWidth-rc.left);
 							}
-							// rc.rightÁ¡À» ±âÁØÀ¸·Î Ä«ÇÇÇÒ ¿µ¿ªÀÌ °É¸° °æ¿ì.
+							// rc.rightì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¹´í”¼í•  ì˜ì—­ì´ ê±¸ë¦° ê²½ìš°.
 							else if ( nLastWidth <= rc.right && rc.right < nCurrWidth )
 							{
 								memcpy(&pwDst[((nYCnt+nY) * nDstXSize) + (nLastWidth+nX)], &pwSrc[x], sizeof(WORD)*(rc.right-nLastWidth));
@@ -1858,7 +1860,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompMemToMem(INT nX, INT nY, INT nXSize
 						}
 						else
 						{
-							// rc.leftÁ¡À» ±âÁØÀ¸·Î Ä«ÇÇÇÒ ¿µ¿ªÀÌ °É¸° °æ¿ì.
+							// rc.leftì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¹´í”¼í•  ì˜ì—­ì´ ê±¸ë¦° ê²½ìš°.
 							if ( nLastWidth < rc.left && rc.left <= nCurrWidth )
 							{
 								x += (rc.left-nLastWidth);
@@ -1895,7 +1897,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompMemToMem(INT nX, INT nY, INT nXSize
 								}
 								x += (nCurrWidth-rc.left);
 							}
-							// rc.rightÁ¡À» ±âÁØÀ¸·Î Ä«ÇÇÇÒ ¿µ¿ªÀÌ °É¸° °æ¿ì.
+							// rc.rightì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¹´í”¼í•  ì˜ì—­ì´ ê±¸ë¦° ê²½ìš°.
 							else if ( nLastWidth <= rc.right && rc.right < nCurrWidth )
 							{
 								for ( INT nCheck = 0; nCheck < rc.right-nLastWidth; nCheck++ )
@@ -1969,7 +1971,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompMemToMem(INT nX, INT nY, INT nXSize
 						}
 					}	
 				}
-				// ¶óÀÎÀÇ ³¡À» ´ÙÀ½ ¶óÀÎÀÇ ½ÃÀÛÀ¸·Î ¿Å°ÜÁØ´Ù.
+				// ë¼ì¸ì˜ ëì„ ë‹¤ìŒ ë¼ì¸ì˜ ì‹œì‘ìœ¼ë¡œ ì˜®ê²¨ì¤€ë‹¤.
 				nWidthEnd++;
 
 				nWidthStart	= nWidthEnd;
@@ -2043,7 +2045,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForComp(INT nX, INT nY, RECT rcSrc, WORD* 
 			BYTE  bRedWantedColor, bGreenWantedColor, bBlueWantedColor;
 			WORD  wPixel;
 
-			// yÃà Å¬¸®ÇÎ.
+			// yì¶• í´ë¦¬í•‘.
 			for ( nYCnt=0 ; nYCnt < rc.top ; nYCnt++ )
 			{
 				nWidthEnd += pwSrc[nWidthStart];
@@ -2052,14 +2054,14 @@ BOOL CWHDXGraphicWindow::DrawWithImageForComp(INT nX, INT nY, RECT rcSrc, WORD* 
 				nWidthStart	= nWidthEnd;
 			}
 
-			// yÃà¿¡ ´ëÇØ¼­ ½ÇÁ¦·Î ·çÇÎ½ÃÅ³ Count¸¸À» Á¤ÇÑ´Ù.
+			// yì¶•ì— ëŒ€í•´ì„œ ì‹¤ì œë¡œ ë£¨í•‘ì‹œí‚¬ Countë§Œì„ ì •í•œë‹¤.
 			for ( nYCnt=rc.top ; nYCnt < rc.bottom ; nYCnt++ )
 			{
-				// ÇÑ¶óÀÎÀÇ ±æÀÌ¸¦ ¾ò¾î¿Â´Ù.(´ÜÀ§´Â ¿öµå)
+				// í•œë¼ì¸ì˜ ê¸¸ì´ë¥¼ ì–»ì–´ì˜¨ë‹¤.(ë‹¨ìœ„ëŠ” ì›Œë“œ)
 				nWidthEnd += pwSrc[nWidthStart];
 				nWidthStart++;
 
-				// ¶óÀÎÀÇ ±æÀÌ¸¸Å­ È­¸é¿¡ »Ñ·ÁÁØ´Ù.
+				// ë¼ì¸ì˜ ê¸¸ì´ë§Œí¼ í™”ë©´ì— ë¿Œë ¤ì¤€ë‹¤.
 				for ( INT x = nWidthStart; x < nWidthEnd ; )
 				{
 					if ( pwSrc[x] == 0xC0 )
@@ -2084,14 +2086,14 @@ BOOL CWHDXGraphicWindow::DrawWithImageForComp(INT nX, INT nY, RECT rcSrc, WORD* 
 						}
 						else
 						{
-							// rc.leftÁ¡À» ±âÁØÀ¸·Î Ä«ÇÇÇÒ ¿µ¿ªÀÌ °É¸° °æ¿ì.
+							// rc.leftì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¹´í”¼í•  ì˜ì—­ì´ ê±¸ë¦° ê²½ìš°.
 							if ( nLastWidth < rc.left && rc.left <= nCurrWidth )
 							{
 								x += (rc.left-nLastWidth);
 								memcpy(&pwdDst[((nYCnt+nY) * (ddsd.lPitch >> 1)) + (rc.left+nX)], &pwSrc[x], sizeof(WORD)*(nCurrWidth-rc.left));
 								x += (nCurrWidth-rc.left);
 							}
-							// rc.rightÁ¡À» ±âÁØÀ¸·Î Ä«ÇÇÇÒ ¿µ¿ªÀÌ °É¸° °æ¿ì.
+							// rc.rightì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¹´í”¼í•  ì˜ì—­ì´ ê±¸ë¦° ê²½ìš°.
 							else if ( nLastWidth <= rc.right && rc.right < nCurrWidth )
 							{
 								memcpy(&pwdDst[((nYCnt+nY) * (ddsd.lPitch >> 1)) + (nLastWidth+nX)], &pwSrc[x], sizeof(WORD)*(rc.right-nLastWidth));
@@ -2130,7 +2132,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForComp(INT nX, INT nY, RECT rcSrc, WORD* 
 						}
 						else
 						{
-							// rc.leftÁ¡À» ±âÁØÀ¸·Î Ä«ÇÇÇÒ ¿µ¿ªÀÌ °É¸° °æ¿ì.
+							// rc.leftì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¹´í”¼í•  ì˜ì—­ì´ ê±¸ë¦° ê²½ìš°.
 							if ( nLastWidth < rc.left && rc.left <= nCurrWidth )
 							{
 								x += (rc.left-nLastWidth);
@@ -2167,7 +2169,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForComp(INT nX, INT nY, RECT rcSrc, WORD* 
 								}
 								x += (nCurrWidth-rc.left);
 							}
-							// rc.rightÁ¡À» ±âÁØÀ¸·Î Ä«ÇÇÇÒ ¿µ¿ªÀÌ °É¸° °æ¿ì.
+							// rc.rightì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¹´í”¼í•  ì˜ì—­ì´ ê±¸ë¦° ê²½ìš°.
 							else if ( nLastWidth <= rc.right && rc.right < nCurrWidth )
 							{
 								for ( INT nCheck = 0; nCheck < rc.right-nLastWidth; nCheck++ )
@@ -2241,7 +2243,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForComp(INT nX, INT nY, RECT rcSrc, WORD* 
 						}
 					}	
 				}
-				// ¶óÀÎÀÇ ³¡À» ´ÙÀ½ ¶óÀÎÀÇ ½ÃÀÛÀ¸·Î ¿Å°ÜÁØ´Ù.
+				// ë¼ì¸ì˜ ëì„ ë‹¤ìŒ ë¼ì¸ì˜ ì‹œì‘ìœ¼ë¡œ ì˜®ê²¨ì¤€ë‹¤.
 				nWidthEnd++;
 
 				nWidthStart	= nWidthEnd;
@@ -2314,7 +2316,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForComp(INT nX, INT nY, INT nXSize, INT nY
 			BYTE  bRedWantedColor, bGreenWantedColor, bBlueWantedColor;
 			WORD  wPixel;
 
-			// yÃà Å¬¸®ÇÎ.
+			// yì¶• í´ë¦¬í•‘.
 			for ( nYCnt=0 ; nYCnt < rc.top ; nYCnt++ )
 			{
 				nWidthEnd += pwSrc[nWidthStart];
@@ -2323,20 +2325,20 @@ BOOL CWHDXGraphicWindow::DrawWithImageForComp(INT nX, INT nY, INT nXSize, INT nY
 				nWidthStart	= nWidthEnd;
 			}
 
-			// yÃà¿¡ ´ëÇØ¼­ ½ÇÁ¦·Î ·çÇÎ½ÃÅ³ Count¸¸À» Á¤ÇÑ´Ù.
+			// yì¶•ì— ëŒ€í•´ì„œ ì‹¤ì œë¡œ ë£¨í•‘ì‹œí‚¬ Countë§Œì„ ì •í•œë‹¤.
 			for ( nYCnt=rc.top ; nYCnt < rc.bottom ; nYCnt++ )
 			{
-				// ÇÑ¶óÀÎÀÇ ±æÀÌ¸¦ ¾ò¾î¿Â´Ù.(´ÜÀ§´Â ¿öµå)
+				// í•œë¼ì¸ì˜ ê¸¸ì´ë¥¼ ì–»ì–´ì˜¨ë‹¤.(ë‹¨ìœ„ëŠ” ì›Œë“œ)
 				nWidthEnd += pwSrc[nWidthStart];
 				nWidthStart++;
 
-				// ¶óÀÎÀÇ ±æÀÌ¸¸Å­ È­¸é¿¡ »Ñ·ÁÁØ´Ù.
+				// ë¼ì¸ì˜ ê¸¸ì´ë§Œí¼ í™”ë©´ì— ë¿Œë ¤ì¤€ë‹¤.
 				for ( INT x = nWidthStart; x < nWidthEnd ; )
 				{
 					if ( pwSrc[x] == 0xC0 )
 					{
 						x++;
-						nCntCopyWord = pwSrc[x];//ÖØ¸´µ¥ÔªÊı
+						nCntCopyWord = pwSrc[x];//è·¯ë¦¿ë°ç¦±é‘’
 						x++;
 						nCurrWidth += nCntCopyWord;
 					}
@@ -2355,14 +2357,14 @@ BOOL CWHDXGraphicWindow::DrawWithImageForComp(INT nX, INT nY, INT nXSize, INT nY
 						}
 						else
 						{
-							// rc.leftÁ¡À» ±âÁØÀ¸·Î Ä«ÇÇÇÒ ¿µ¿ªÀÌ °É¸° °æ¿ì.
+							// rc.leftì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¹´í”¼í•  ì˜ì—­ì´ ê±¸ë¦° ê²½ìš°.
 							if ( nLastWidth < rc.left && rc.left <= nCurrWidth )
 							{
 								x += (rc.left-nLastWidth);
 								memcpy(&pwdDst[((nYCnt+nY) * (ddsd.lPitch >> 1)) + (rc.left+nX)], &pwSrc[x], sizeof(WORD)*(nCurrWidth-rc.left));
 								x += (nCurrWidth-rc.left);
 							}
-							// rc.rightÁ¡À» ±âÁØÀ¸·Î Ä«ÇÇÇÒ ¿µ¿ªÀÌ °É¸° °æ¿ì.
+							// rc.rightì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¹´í”¼í•  ì˜ì—­ì´ ê±¸ë¦° ê²½ìš°.
 							else if ( nLastWidth <= rc.right && rc.right < nCurrWidth )
 							{
 								memcpy(&pwdDst[((nYCnt+nY) * (ddsd.lPitch >> 1)) + (nLastWidth+nX)], &pwSrc[x], sizeof(WORD)*(rc.right-nLastWidth));
@@ -2401,7 +2403,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForComp(INT nX, INT nY, INT nXSize, INT nY
 						}
 						else
 						{
-							// rc.leftÁ¡À» ±âÁØÀ¸·Î Ä«ÇÇÇÒ ¿µ¿ªÀÌ °É¸° °æ¿ì.
+							// rc.leftì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¹´í”¼í•  ì˜ì—­ì´ ê±¸ë¦° ê²½ìš°.
 							if ( nLastWidth < rc.left && rc.left <= nCurrWidth )
 							{
 								x += (rc.left-nLastWidth);
@@ -2438,7 +2440,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForComp(INT nX, INT nY, INT nXSize, INT nY
 								}
 								x += (nCurrWidth-rc.left);
 							}
-							// rc.rightÁ¡À» ±âÁØÀ¸·Î Ä«ÇÇÇÒ ¿µ¿ªÀÌ °É¸° °æ¿ì.
+							// rc.rightì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¹´í”¼í•  ì˜ì—­ì´ ê±¸ë¦° ê²½ìš°.
 							else if ( nLastWidth <= rc.right && rc.right < nCurrWidth )
 							{
 								for ( INT nCheck = 0; nCheck < rc.right-nLastWidth; nCheck++ )
@@ -2512,7 +2514,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForComp(INT nX, INT nY, INT nXSize, INT nY
 						}
 					}	
 				}
-				// ¶óÀÎÀÇ ³¡À» ´ÙÀ½ ¶óÀÎÀÇ ½ÃÀÛÀ¸·Î ¿Å°ÜÁØ´Ù.
+				// ë¼ì¸ì˜ ëì„ ë‹¤ìŒ ë¼ì¸ì˜ ì‹œì‘ìœ¼ë¡œ ì˜®ê²¨ì¤€ë‹¤.
 				nWidthEnd++;
 
 				nWidthStart	= nWidthEnd;
@@ -2585,7 +2587,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompClipRgnBase(INT nX, INT nY, INT nXS
 			BYTE  bRedWantedColor, bGreenWantedColor, bBlueWantedColor;
 			WORD  wPixel;
 
-			// yÃà Å¬¸®ÇÎ.
+			// yì¶• í´ë¦¬í•‘.
   			for ( nYCnt=0 ; nYCnt < rc.top ; nYCnt++ )
 			{
 				nWidthEnd += pwSrc[nWidthStart];
@@ -2594,14 +2596,14 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompClipRgnBase(INT nX, INT nY, INT nXS
 				nWidthStart	= nWidthEnd;
 			}
 
-			// yÃà¿¡ ´ëÇØ¼­ ½ÇÁ¦·Î ·çÇÎ½ÃÅ³ Count¸¸À» Á¤ÇÑ´Ù.
+			// yì¶•ì— ëŒ€í•´ì„œ ì‹¤ì œë¡œ ë£¨í•‘ì‹œí‚¬ Countë§Œì„ ì •í•œë‹¤.
 			for ( nYCnt=rc.top ; nYCnt < rc.bottom ; nYCnt++ )
 			{
-				// ÇÑ¶óÀÎÀÇ ±æÀÌ¸¦ ¾ò¾î¿Â´Ù.(´ÜÀ§´Â ¿öµå)
+				// í•œë¼ì¸ì˜ ê¸¸ì´ë¥¼ ì–»ì–´ì˜¨ë‹¤.(ë‹¨ìœ„ëŠ” ì›Œë“œ)
 				nWidthEnd += pwSrc[nWidthStart];
 				nWidthStart++;
 
-				// ¶óÀÎÀÇ ±æÀÌ¸¸Å­ È­¸é¿¡ »Ñ·ÁÁØ´Ù.
+				// ë¼ì¸ì˜ ê¸¸ì´ë§Œí¼ í™”ë©´ì— ë¿Œë ¤ì¤€ë‹¤.
 				for ( INT x = nWidthStart; x < nWidthEnd ; )
 				{
 					if ( pwSrc[x] == 0xC0 )
@@ -2626,14 +2628,14 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompClipRgnBase(INT nX, INT nY, INT nXS
 						}
 						else
 						{
-							// rc.leftÁ¡À» ±âÁØÀ¸·Î Ä«ÇÇÇÒ ¿µ¿ªÀÌ °É¸° °æ¿ì.
+							// rc.leftì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¹´í”¼í•  ì˜ì—­ì´ ê±¸ë¦° ê²½ìš°.
 							if ( nLastWidth < rc.left && rc.left <= nCurrWidth )
 							{
 								x += (rc.left-nLastWidth);
 								memcpy(&pwdDst[((nYCnt+nY) * (ddsd.lPitch >> 1)) + (rc.left+nX)], &pwSrc[x], sizeof(WORD)*(nCurrWidth-rc.left));
 								x += (nCurrWidth-rc.left);
 							}
-							// rc.rightÁ¡À» ±âÁØÀ¸·Î Ä«ÇÇÇÒ ¿µ¿ªÀÌ °É¸° °æ¿ì.
+							// rc.rightì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¹´í”¼í•  ì˜ì—­ì´ ê±¸ë¦° ê²½ìš°.
 							else if ( nLastWidth <= rc.right && rc.right < nCurrWidth )
 							{
 								memcpy(&pwdDst[((nYCnt+nY) * (ddsd.lPitch >> 1)) + (nLastWidth+nX)], &pwSrc[x], sizeof(WORD)*(rc.right-nLastWidth));
@@ -2672,7 +2674,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompClipRgnBase(INT nX, INT nY, INT nXS
 						}
 						else
 						{
-							// rc.leftÁ¡À» ±âÁØÀ¸·Î Ä«ÇÇÇÒ ¿µ¿ªÀÌ °É¸° °æ¿ì.
+							// rc.leftì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¹´í”¼í•  ì˜ì—­ì´ ê±¸ë¦° ê²½ìš°.
 							if ( nLastWidth < rc.left && rc.left <= nCurrWidth )
 							{
 								x += (rc.left-nLastWidth);
@@ -2709,7 +2711,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompClipRgnBase(INT nX, INT nY, INT nXS
 								}
 								x += (nCurrWidth-rc.left);
 							}
-							// rc.rightÁ¡À» ±âÁØÀ¸·Î Ä«ÇÇÇÒ ¿µ¿ªÀÌ °É¸° °æ¿ì.
+							// rc.rightì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¹´í”¼í•  ì˜ì—­ì´ ê±¸ë¦° ê²½ìš°.
 							else if ( nLastWidth <= rc.right && rc.right < nCurrWidth )
 							{
 								for ( INT nCheck = 0; nCheck < rc.right-nLastWidth; nCheck++ )
@@ -2783,7 +2785,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompClipRgnBase(INT nX, INT nY, INT nXS
 						}
 					}	
 				}
-				// ¶óÀÎÀÇ ³¡À» ´ÙÀ½ ¶óÀÎÀÇ ½ÃÀÛÀ¸·Î ¿Å°ÜÁØ´Ù.
+				// ë¼ì¸ì˜ ëì„ ë‹¤ìŒ ë¼ì¸ì˜ ì‹œì‘ìœ¼ë¡œ ì˜®ê²¨ì¤€ë‹¤.
 				nWidthEnd++;
 
 				nWidthStart	= nWidthEnd;
@@ -2862,7 +2864,7 @@ BOOL CWHDXGraphicWindow::DrawWithABlendCompDataWithBackBuffer(INT nX, INT nY,
 			WORD wPixel;
 			FLOAT rBlueRate, rGreenRate, bRedRate;
 
-			// yÃà Å¬¸®ÇÎ.
+			// yì¶• í´ë¦¬í•‘.
   			for ( nYCnt=0 ; nYCnt < rc.top ; nYCnt++ )
 			{
 				nWidthEnd += pwSrc[nWidthStart];
@@ -2871,14 +2873,14 @@ BOOL CWHDXGraphicWindow::DrawWithABlendCompDataWithBackBuffer(INT nX, INT nY,
 				nWidthStart	= nWidthEnd;
 			}
 
-			// yÃà¿¡ ´ëÇØ¼­ ½ÇÁ¦·Î ·çÇÎ½ÃÅ³ Count¸¸À» Á¤ÇÑ´Ù.
+			// yì¶•ì— ëŒ€í•´ì„œ ì‹¤ì œë¡œ ë£¨í•‘ì‹œí‚¬ Countë§Œì„ ì •í•œë‹¤.
 			for ( nYCnt=rc.top ; nYCnt < rc.bottom ; nYCnt++ )
 			{
-				// ÇÑ¶óÀÎÀÇ ±æÀÌ¸¦ ¾ò¾î¿Â´Ù.(´ÜÀ§´Â ¿öµå)
+				// í•œë¼ì¸ì˜ ê¸¸ì´ë¥¼ ì–»ì–´ì˜¨ë‹¤.(ë‹¨ìœ„ëŠ” ì›Œë“œ)
 				nWidthEnd += pwSrc[nWidthStart];
 				nWidthStart++;
 
-				// ¶óÀÎÀÇ ±æÀÌ¸¸Å­ È­¸é¿¡ »Ñ·ÁÁØ´Ù.
+				// ë¼ì¸ì˜ ê¸¸ì´ë§Œí¼ í™”ë©´ì— ë¿Œë ¤ì¤€ë‹¤.
 				for ( INT x = nWidthStart; x < nWidthEnd ; )
 				{
 					if ( pwSrc[x] == 0xC0 )
@@ -2903,7 +2905,7 @@ BOOL CWHDXGraphicWindow::DrawWithABlendCompDataWithBackBuffer(INT nX, INT nY,
 						}
 						else
 						{
-							// rc.leftÁ¡À» ±âÁØÀ¸·Î Ä«ÇÇÇÒ ¿µ¿ªÀÌ °É¸° °æ¿ì.
+							// rc.leftì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¹´í”¼í•  ì˜ì—­ì´ ê±¸ë¦° ê²½ìš°.
 							if ( nLastWidth < rc.left && rc.left <= nCurrWidth )
 							{
 								x += (rc.left-nLastWidth);
@@ -2929,7 +2931,7 @@ BOOL CWHDXGraphicWindow::DrawWithABlendCompDataWithBackBuffer(INT nX, INT nY,
 								}
 								x += (nCurrWidth-rc.left);
 							}
-							// rc.rightÁ¡À» ±âÁØÀ¸·Î Ä«ÇÇÇÒ ¿µ¿ªÀÌ °É¸° °æ¿ì.
+							// rc.rightì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¹´í”¼í•  ì˜ì—­ì´ ê±¸ë¦° ê²½ìš°.
 							else if ( nLastWidth <= rc.right && rc.right < nCurrWidth )
 							{
 								for ( INT nCheck = 0; nCheck < rc.right-nLastWidth; nCheck++ )
@@ -3005,7 +3007,7 @@ BOOL CWHDXGraphicWindow::DrawWithABlendCompDataWithBackBuffer(INT nX, INT nY,
 						}
 						else
 						{
-							// rc.leftÁ¡À» ±âÁØÀ¸·Î Ä«ÇÇÇÒ ¿µ¿ªÀÌ °É¸° °æ¿ì.
+							// rc.leftì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¹´í”¼í•  ì˜ì—­ì´ ê±¸ë¦° ê²½ìš°.
 							if ( nLastWidth < rc.left && rc.left <= nCurrWidth )
 							{
 								x += (rc.left-nLastWidth);
@@ -3052,7 +3054,7 @@ BOOL CWHDXGraphicWindow::DrawWithABlendCompDataWithBackBuffer(INT nX, INT nY,
 								}
 								x += (nCurrWidth-rc.left);
 							}
-							// rc.rightÁ¡À» ±âÁØÀ¸·Î Ä«ÇÇÇÒ ¿µ¿ªÀÌ °É¸° °æ¿ì.
+							// rc.rightì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¹´í”¼í•  ì˜ì—­ì´ ê±¸ë¦° ê²½ìš°.
 							else if ( nLastWidth <= rc.right && rc.right < nCurrWidth )
 							{
 								for ( INT nCheck = 0; nCheck < rc.right-nLastWidth; nCheck++ )
@@ -3146,7 +3148,7 @@ BOOL CWHDXGraphicWindow::DrawWithABlendCompDataWithBackBuffer(INT nX, INT nY,
 						}
 					}	
 				}
-				// ¶óÀÎÀÇ ³¡À» ´ÙÀ½ ¶óÀÎÀÇ ½ÃÀÛÀ¸·Î ¿Å°ÜÁØ´Ù.
+				// ë¼ì¸ì˜ ëì„ ë‹¤ìŒ ë¼ì¸ì˜ ì‹œì‘ìœ¼ë¡œ ì˜®ê²¨ì¤€ë‹¤.
 				nWidthEnd++;
 
 				nWidthStart	= nWidthEnd;
@@ -3161,12 +3163,12 @@ BOOL CWHDXGraphicWindow::DrawWithABlendCompDataWithBackBuffer(INT nX, INT nY,
 }
 
 
-// nX, nY´Â Áß½ÉÁ¡ÀÇ ÁÂÇ¥ÀÌ´Ù.
+// nX, nYëŠ” ì¤‘ì‹¬ì ì˜ ì¢Œí‘œì´ë‹¤.
 BOOL CWHDXGraphicWindow::DrawWithShadowABlend(INT nX, INT nY, INT nXSize, INT nYSize, WORD* pwSrc, WORD wClipWidth, WORD wClipHeight,
 											  WORD* pwShadowClrSrc, BOOL bBlend, BYTE bShadowType, BYTE bOpa)
 
 {
-	// ÂïÁö ¾Ê´Â ±×¸²ÀÚ.
+	// ì°ì§€ ì•ŠëŠ” ê·¸ë¦¼ì.
 	if ( bShadowType == 48 )
 		return FALSE;
 
@@ -3221,10 +3223,10 @@ BOOL CWHDXGraphicWindow::DrawWithShadowABlend(INT nX, INT nY, INT nXSize, INT nY
 			SetRect(&rcScrnShadow, nX, nY, nX+nWidth, nY+nHeight);
 		}
 
-		// yÃà¿¡ ´ëÇØ¼­ ½ÇÁ¦·Î ·çÇÎ½ÃÅ³ Count¸¸À» Á¤ÇÑ´Ù.
+		// yì¶•ì— ëŒ€í•´ì„œ ì‹¤ì œë¡œ ë£¨í•‘ì‹œí‚¬ Countë§Œì„ ì •í•œë‹¤.
 		for ( nYCnt=rc.top ; nYCnt < rc.bottom ; nYCnt++ )
 		{
-			// ÇÑ¶óÀÎÀÇ ±æÀÌ¸¦ ¾ò¾î¿Â´Ù.(´ÜÀ§´Â ¿öµå)
+			// í•œë¼ì¸ì˜ ê¸¸ì´ë¥¼ ì–»ì–´ì˜¨ë‹¤.(ë‹¨ìœ„ëŠ” ì›Œë“œ)
 			nWidthEnd += pwSrc[nWidthStart];
 			nWidthStart++;
 
@@ -3239,14 +3241,14 @@ BOOL CWHDXGraphicWindow::DrawWithShadowABlend(INT nX, INT nY, INT nXSize, INT nY
 
 			if ( nDstYPos < 0 || nDstYPos >= wClipHeight || (bShadowType==49 && nYCnt%2) )
 			{
-				// ¶óÀÎÀÇ ³¡À» ´ÙÀ½ ¶óÀÎÀÇ ½ÃÀÛÀ¸·Î ¿Å°ÜÁØ´Ù.
+				// ë¼ì¸ì˜ ëì„ ë‹¤ìŒ ë¼ì¸ì˜ ì‹œì‘ìœ¼ë¡œ ì˜®ê²¨ì¤€ë‹¤.
 				nWidthEnd++;
 				nWidthStart	= nWidthEnd;
 				nCurrWidth = 0;
 				continue;
 			}
 
-			// ¶óÀÎÀÇ ±æÀÌ¸¸Å­ È­¸é¿¡ »Ñ·ÁÁØ´Ù.
+			// ë¼ì¸ì˜ ê¸¸ì´ë§Œí¼ í™”ë©´ì— ë¿Œë ¤ì¤€ë‹¤.
 			for ( INT x = nWidthStart; x < nWidthEnd ; )
 			{
 				if ( pwSrc[x] == 0xC0 )
@@ -3276,7 +3278,7 @@ BOOL CWHDXGraphicWindow::DrawWithShadowABlend(INT nX, INT nY, INT nXSize, INT nY
 
 					if ( !bBlend ) 
 					{
-						// ¿ŞÂÊ °É¸±¶§.
+						// ì™¼ìª½ ê±¸ë¦´ë•Œ.
 						if ( nDstXPos < 0 && nDstXPos+nCntCopyWord >= 0 )
 						{
 							for ( INT nCheck = 0; nCheck < nCntCopyWord; nCheck++ )
@@ -3289,7 +3291,7 @@ BOOL CWHDXGraphicWindow::DrawWithShadowABlend(INT nX, INT nY, INT nXSize, INT nY
 							}
 							x += nCntCopyWord;
 						}
-						// ¿À¸¥ÂÊ °É¸±¶§.
+						// ì˜¤ë¥¸ìª½ ê±¸ë¦´ë•Œ.
 						else if ( nDstXPos < wClipWidth && nDstXPos+nCntCopyWord >= wClipWidth )
 						{
 							for ( INT nCheck = 0; nCheck < nCntCopyWord; nCheck++ )
@@ -3302,7 +3304,7 @@ BOOL CWHDXGraphicWindow::DrawWithShadowABlend(INT nX, INT nY, INT nXSize, INT nY
 							}
 							x += nCntCopyWord;
 						}
-						// ¾È°É¸±¶§.
+						// ì•ˆê±¸ë¦´ë•Œ.
 						else if ( nDstXPos >= 0 && nDstXPos+nCntCopyWord < wClipWidth )
 						{
 							memcpy(&pwdDst[(nDstYPos * (ddsd.lPitch >> 1)) + nDstXPos], pwShadowClrSrc, sizeof(WORD)*nCntCopyWord);
@@ -3316,7 +3318,7 @@ BOOL CWHDXGraphicWindow::DrawWithShadowABlend(INT nX, INT nY, INT nXSize, INT nY
 					}
 					else
 					{
-						// ¿ŞÂÊ °É¸±¶§.
+						// ì™¼ìª½ ê±¸ë¦´ë•Œ.
 						if ( nDstXPos < 0 && nDstXPos+nCntCopyWord >= 0 )
 						{
 							for ( INT nCheck = 0; nCheck < nCntCopyWord; nCheck++ )
@@ -3345,7 +3347,7 @@ BOOL CWHDXGraphicWindow::DrawWithShadowABlend(INT nX, INT nY, INT nXSize, INT nY
 							}
 							x += nCntCopyWord;
 						}
-						// ¿À¸¥ÂÊ °É¸±¶§.
+						// ì˜¤ë¥¸ìª½ ê±¸ë¦´ë•Œ.
 						else if ( nDstXPos < wClipWidth && nDstXPos+nCntCopyWord >= wClipWidth )
 						{
 							for ( INT nCheck = 0; nCheck < nCntCopyWord; nCheck++ )
@@ -3376,7 +3378,7 @@ BOOL CWHDXGraphicWindow::DrawWithShadowABlend(INT nX, INT nY, INT nXSize, INT nY
 							}
 							x += nCntCopyWord;
 						}
-						// ¾È°É¸±¶§.
+						// ì•ˆê±¸ë¦´ë•Œ.
 						else if ( nDstXPos >= 0 && nDstXPos+nCntCopyWord < wClipWidth )
 						{
 	//						memset(&pwdDst[(nDstYPos * (ddsd.lPitch >> 1)) + nDstXPos], wSahdowColor, sizeof(WORD)*nCntCopyWord);
@@ -3413,7 +3415,7 @@ BOOL CWHDXGraphicWindow::DrawWithShadowABlend(INT nX, INT nY, INT nXSize, INT nY
 					}
 				}
 			}
-			// ¶óÀÎÀÇ ³¡À» ´ÙÀ½ ¶óÀÎÀÇ ½ÃÀÛÀ¸·Î ¿Å°ÜÁØ´Ù.
+			// ë¼ì¸ì˜ ëì„ ë‹¤ìŒ ë¼ì¸ì˜ ì‹œì‘ìœ¼ë¡œ ì˜®ê²¨ì¤€ë‹¤.
 			nWidthEnd++;
 
 			nWidthStart	= nWidthEnd;
@@ -3436,9 +3438,9 @@ VOID CWHDXGraphicWindow::DrawWithShadowABlend(INT nX, INT nY, INT nXSize, INT nY
 #define _HALF_CELL_WIDTH	24
 #define _HALF_CELL_HEIGHT	16
 
-//  È­¸é(800*600)¿¡¼­ ±×¸²ÀÚ°¡ ÂïÈú »çÀÌÁî¸¦ ±¸ÇÑ´Ù.
+//  í™”ë©´(800*600)ì—ì„œ ê·¸ë¦¼ìê°€ ì°í ì‚¬ì´ì¦ˆë¥¼ êµ¬í•œë‹¤.
 	
-	// È­¸é(800*600)¿¡¼­ÀÇ ¼¿½ÃÀÛÁÂÇ¥°¡ ¾Æ´Ñ ½ÇÁ¦ Áß½ÉÁ¡ ÁÂÇ¥(¼¿À§ Á¤Áß¾ÓÁ¡ÀÌ´Ù.)
+	// í™”ë©´(800*600)ì—ì„œì˜ ì…€ì‹œì‘ì¢Œí‘œê°€ ì•„ë‹Œ ì‹¤ì œ ì¤‘ì‹¬ì  ì¢Œí‘œ(ì…€ìœ„ ì •ì¤‘ì•™ì ì´ë‹¤.)
 	INT		nScrnCenterX = nX - nPX + 24;//_HALF_CELL_WIDTH;
 	INT		nScrnCenterY = nY - nPY + 16;//_HALF_CELL_HEIGHT;
 	INT		nRealCenterX = nX - nScrnCenterX;
@@ -3482,7 +3484,7 @@ VOID CWHDXGraphicWindow::DrawWithShadowABlend(INT nX, INT nY, INT nXSize, INT nY
 					m_pddsBackBuffer->Unlock(NULL);
 					return;
 				}
-				// yÃà Å¬¸®ÇÎ¹× ÇÑÁÙ¾¿ °Ç³Ê¶Ù±â.
+				// yì¶• í´ë¦¬í•‘ë° í•œì¤„ì”© ê±´ë„ˆë›°ê¸°.
 				if ( nYCnt%2 == 0 ||  nDstYPos < 0 )
 				{
 					nWidthEnd += pwSrc[nWidthStart];
@@ -3494,11 +3496,11 @@ VOID CWHDXGraphicWindow::DrawWithShadowABlend(INT nX, INT nY, INT nXSize, INT nY
 				}
 				else
 				{
-					// ÇÑ¶óÀÎÀÇ ±æÀÌ¸¦ ¾ò¾î¿Â´Ù.(´ÜÀ§´Â ¿öµå)
+					// í•œë¼ì¸ì˜ ê¸¸ì´ë¥¼ ì–»ì–´ì˜¨ë‹¤.(ë‹¨ìœ„ëŠ” ì›Œë“œ)
 					nWidthEnd += pwSrc[nWidthStart];
 					nWidthStart++;
 
-					// ¶óÀÎÀÇ ±æÀÌ¸¸Å­ È­¸é¿¡ »Ñ·ÁÁØ´Ù.
+					// ë¼ì¸ì˜ ê¸¸ì´ë§Œí¼ í™”ë©´ì— ë¿Œë ¤ì¤€ë‹¤.
 					for ( INT x = nWidthStart; x < nWidthEnd ; )
 					{
 						if ( pwSrc[x] == 0xC0 )
@@ -3576,7 +3578,7 @@ VOID CWHDXGraphicWindow::DrawWithShadowABlend(INT nX, INT nY, INT nXSize, INT nY
 							x += nCntCopyWord;
 						}
 					}
-					// ¶óÀÎÀÇ ³¡À» ´ÙÀ½ ¶óÀÎÀÇ ½ÃÀÛÀ¸·Î ¿Å°ÜÁØ´Ù.
+					// ë¼ì¸ì˜ ëì„ ë‹¤ìŒ ë¼ì¸ì˜ ì‹œì‘ìœ¼ë¡œ ì˜®ê²¨ì¤€ë‹¤.
 					nWidthEnd++;
 
 					nWidthStart	= nWidthEnd;
@@ -3653,7 +3655,7 @@ BOOL CWHDXGraphicWindow::DrawWithABlendCompDataWithLightedColor(INT nX, INT nY,
 			WORD wDyingKind, wChooseColor;
 			FLOAT rBlueRate, rGreenRate, bRedRate;
 
-			// yÃà Å¬¸®ÇÎ.
+			// yì¶• í´ë¦¬í•‘.
   			for ( nYCnt=0 ; nYCnt < rc.top ; nYCnt++ )
 			{
 				nWidthEnd += pwSrc[nWidthStart];
@@ -3662,14 +3664,14 @@ BOOL CWHDXGraphicWindow::DrawWithABlendCompDataWithLightedColor(INT nX, INT nY,
 				nWidthStart	= nWidthEnd;
 			}
 
-			// yÃà¿¡ ´ëÇØ¼­ ½ÇÁ¦·Î ·çÇÎ½ÃÅ³ Count¸¸À» Á¤ÇÑ´Ù.
+			// yì¶•ì— ëŒ€í•´ì„œ ì‹¤ì œë¡œ ë£¨í•‘ì‹œí‚¬ Countë§Œì„ ì •í•œë‹¤.
 			for ( nYCnt=rc.top ; nYCnt < rc.bottom ; nYCnt++ )
 			{
-				// ÇÑ¶óÀÎÀÇ ±æÀÌ¸¦ ¾ò¾î¿Â´Ù.(´ÜÀ§´Â ¿öµå)
+				// í•œë¼ì¸ì˜ ê¸¸ì´ë¥¼ ì–»ì–´ì˜¨ë‹¤.(ë‹¨ìœ„ëŠ” ì›Œë“œ)
 				nWidthEnd += pwSrc[nWidthStart];
 				nWidthStart++;
 
-				// ¶óÀÎÀÇ ±æÀÌ¸¸Å­ È­¸é¿¡ »Ñ·ÁÁØ´Ù.
+				// ë¼ì¸ì˜ ê¸¸ì´ë§Œí¼ í™”ë©´ì— ë¿Œë ¤ì¤€ë‹¤.
 				for ( INT x = nWidthStart; x < nWidthEnd ; )
 				{
 					if ( pwSrc[x] == 0xC0 )
@@ -3694,7 +3696,7 @@ BOOL CWHDXGraphicWindow::DrawWithABlendCompDataWithLightedColor(INT nX, INT nY,
 						}
 						else
 						{
-							// rc.leftÁ¡À» ±âÁØÀ¸·Î Ä«ÇÇÇÒ ¿µ¿ªÀÌ °É¸° °æ¿ì.
+							// rc.leftì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¹´í”¼í•  ì˜ì—­ì´ ê±¸ë¦° ê²½ìš°.
 							if ( nLastWidth < rc.left && rc.left <= nCurrWidth )
 							{
 								x += (rc.left-nLastWidth);
@@ -3726,7 +3728,7 @@ BOOL CWHDXGraphicWindow::DrawWithABlendCompDataWithLightedColor(INT nX, INT nY,
 								}
 								x += (nCurrWidth-rc.left);
 							}
-							// rc.rightÁ¡À» ±âÁØÀ¸·Î Ä«ÇÇÇÒ ¿µ¿ªÀÌ °É¸° °æ¿ì.
+							// rc.rightì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¹´í”¼í•  ì˜ì—­ì´ ê±¸ë¦° ê²½ìš°.
 							else if ( nLastWidth <= rc.right && rc.right < nCurrWidth )
 							{
 								for ( INT nCheck = 0; nCheck < rc.right-nLastWidth; nCheck++ )
@@ -3814,7 +3816,7 @@ BOOL CWHDXGraphicWindow::DrawWithABlendCompDataWithLightedColor(INT nX, INT nY,
 						}
 						else
 						{
-							// rc.leftÁ¡À» ±âÁØÀ¸·Î Ä«ÇÇÇÒ ¿µ¿ªÀÌ °É¸° °æ¿ì.
+							// rc.leftì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¹´í”¼í•  ì˜ì—­ì´ ê±¸ë¦° ê²½ìš°.
 							if ( nLastWidth < rc.left && rc.left <= nCurrWidth )
 							{
 								x += (rc.left-nLastWidth);
@@ -3870,7 +3872,7 @@ BOOL CWHDXGraphicWindow::DrawWithABlendCompDataWithLightedColor(INT nX, INT nY,
 								}
 								x += (nCurrWidth-rc.left);
 							}
-							// rc.rightÁ¡À» ±âÁØÀ¸·Î Ä«ÇÇÇÒ ¿µ¿ªÀÌ °É¸° °æ¿ì.
+							// rc.rightì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¹´í”¼í•  ì˜ì—­ì´ ê±¸ë¦° ê²½ìš°.
 							else if ( nLastWidth <= rc.right && rc.right < nCurrWidth )
 							{
 								for ( INT nCheck = 0; nCheck < rc.right-nLastWidth; nCheck++ )
@@ -3982,7 +3984,7 @@ BOOL CWHDXGraphicWindow::DrawWithABlendCompDataWithLightedColor(INT nX, INT nY,
 						}
 					}	
 				}
-				// ¶óÀÎÀÇ ³¡À» ´ÙÀ½ ¶óÀÎÀÇ ½ÃÀÛÀ¸·Î ¿Å°ÜÁØ´Ù.
+				// ë¼ì¸ì˜ ëì„ ë‹¤ìŒ ë¼ì¸ì˜ ì‹œì‘ìœ¼ë¡œ ì˜®ê²¨ì¤€ë‹¤.
 				nWidthEnd++;
 
 				nWidthStart	= nWidthEnd;
@@ -4058,7 +4060,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompClipRgnColor(INT nX, INT nY, INT nX
 			FLOAT rBlueRate, rGreenRate, rRedRate;
 			FLOAT rbLightRate = 0.0f;
 
-			// yÃà Å¬¸®ÇÎ.
+			// yì¶• í´ë¦¬í•‘.
   			for ( nYCnt=0 ; nYCnt < rc.top ; nYCnt++ )
 			{
 				nWidthEnd += pwSrc[nWidthStart];
@@ -4067,14 +4069,14 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompClipRgnColor(INT nX, INT nY, INT nX
 				nWidthStart	= nWidthEnd;
 			}
 
-			// yÃà¿¡ ´ëÇØ¼­ ½ÇÁ¦·Î ·çÇÎ½ÃÅ³ Count¸¸À» Á¤ÇÑ´Ù.
+			// yì¶•ì— ëŒ€í•´ì„œ ì‹¤ì œë¡œ ë£¨í•‘ì‹œí‚¬ Countë§Œì„ ì •í•œë‹¤.
 			for ( nYCnt=rc.top ; nYCnt < rc.bottom ; nYCnt++ )
 			{
-				// ÇÑ¶óÀÎÀÇ ±æÀÌ¸¦ ¾ò¾î¿Â´Ù.(´ÜÀ§´Â ¿öµå)
+				// í•œë¼ì¸ì˜ ê¸¸ì´ë¥¼ ì–»ì–´ì˜¨ë‹¤.(ë‹¨ìœ„ëŠ” ì›Œë“œ)
 				nWidthEnd += pwSrc[nWidthStart];
 				nWidthStart++;
 
-				// ¶óÀÎÀÇ ±æÀÌ¸¸Å­ È­¸é¿¡ »Ñ·ÁÁØ´Ù.
+				// ë¼ì¸ì˜ ê¸¸ì´ë§Œí¼ í™”ë©´ì— ë¿Œë ¤ì¤€ë‹¤.
 				for ( INT x = nWidthStart; x < nWidthEnd ; )
 				{
 					if ( pwSrc[x] == 0xC0 )
@@ -4099,7 +4101,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompClipRgnColor(INT nX, INT nY, INT nX
 						}
 						else
 						{
-							// rc.leftÁ¡À» ±âÁØÀ¸·Î Ä«ÇÇÇÒ ¿µ¿ªÀÌ °É¸° °æ¿ì.
+							// rc.leftì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¹´í”¼í•  ì˜ì—­ì´ ê±¸ë¦° ê²½ìš°.
 							if ( nLastWidth < rc.left && rc.left <= nCurrWidth )
 							{
 								x += (rc.left-nLastWidth);
@@ -4115,7 +4117,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompClipRgnColor(INT nX, INT nY, INT nX
 									bGreenSrc = (BYTE)((wPixel & m_stBitsMaskInfo.dwGMask) >> m_stBitsMaskInfo.bGShift);
 									bRedSrc   = (BYTE)((wPixel & m_stBitsMaskInfo.dwRMask) >> m_stBitsMaskInfo.bRShift);
 
-									// Focus¿©ºÎ.
+									// Focusì—¬ë¶€.
 									if ( bFocused )			rbLightRate = 0.6f;
 									else					rbLightRate = 0.0f;
 
@@ -4169,7 +4171,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompClipRgnColor(INT nX, INT nY, INT nX
 								}
 								x += (nCurrWidth-rc.left);
 							}
-							// rc.rightÁ¡À» ±âÁØÀ¸·Î Ä«ÇÇÇÒ ¿µ¿ªÀÌ °É¸° °æ¿ì.
+							// rc.rightì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¹´í”¼í•  ì˜ì—­ì´ ê±¸ë¦° ê²½ìš°.
 							else if ( nLastWidth <= rc.right && rc.right < nCurrWidth )
 							{
 								for ( INT nCheck = 0; nCheck < rc.right-nLastWidth; nCheck++ )
@@ -4184,7 +4186,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompClipRgnColor(INT nX, INT nY, INT nX
 									bGreenSrc = (BYTE)((wPixel & m_stBitsMaskInfo.dwGMask) >> m_stBitsMaskInfo.bGShift);
 									bRedSrc   = (BYTE)((wPixel & m_stBitsMaskInfo.dwRMask) >> m_stBitsMaskInfo.bRShift);
 
-									// Focus¿©ºÎ.
+									// Focusì—¬ë¶€.
 									if ( bFocused )			rbLightRate = 0.6f;
 									else					rbLightRate = 0.0f;
 
@@ -4252,7 +4254,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompClipRgnColor(INT nX, INT nY, INT nX
 									bGreenSrc = (BYTE)((wPixel & m_stBitsMaskInfo.dwGMask) >> m_stBitsMaskInfo.bGShift);
 									bRedSrc   = (BYTE)((wPixel & m_stBitsMaskInfo.dwRMask) >> m_stBitsMaskInfo.bRShift);
 
-									// Focus¿©ºÎ.
+									// Focusì—¬ë¶€.
 									if ( bFocused )			rbLightRate = 0.6f;
 									else					rbLightRate = 0.0f;
 
@@ -4309,7 +4311,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompClipRgnColor(INT nX, INT nY, INT nX
 						}
 					}
 				}
-				// ¶óÀÎÀÇ ³¡À» ´ÙÀ½ ¶óÀÎÀÇ ½ÃÀÛÀ¸·Î ¿Å°ÜÁØ´Ù.
+				// ë¼ì¸ì˜ ëì„ ë‹¤ìŒ ë¼ì¸ì˜ ì‹œì‘ìœ¼ë¡œ ì˜®ê²¨ì¤€ë‹¤.
 				nWidthEnd++;
 
 				nWidthStart	= nWidthEnd;
@@ -4393,7 +4395,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompClipRgnColor(INT nX, INT nY, INT nX
 			BYTE  bRedWantedColor, bGreenWantedColor, bBlueWantedColor;
 			WORD  wPixel;
 
-			// yÃà Å¬¸®ÇÎ.
+			// yì¶• í´ë¦¬í•‘.
 			for ( nYCnt=0 ; nYCnt < rc.top ; nYCnt++ )
 			{
 				nWidthEnd += pwSrc[nWidthStart];
@@ -4402,14 +4404,14 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompClipRgnColor(INT nX, INT nY, INT nX
 				nWidthStart	= nWidthEnd;
 			}
 
-			// yÃà¿¡ ´ëÇØ¼­ ½ÇÁ¦·Î ·çÇÎ½ÃÅ³ Count¸¸À» Á¤ÇÑ´Ù.
+			// yì¶•ì— ëŒ€í•´ì„œ ì‹¤ì œë¡œ ë£¨í•‘ì‹œí‚¬ Countë§Œì„ ì •í•œë‹¤.
 			for ( nYCnt=rc.top ; nYCnt < rc.bottom ; nYCnt++ )
 			{
-				// ÇÑ¶óÀÎÀÇ ±æÀÌ¸¦ ¾ò¾î¿Â´Ù.(´ÜÀ§´Â ¿öµå)
+				// í•œë¼ì¸ì˜ ê¸¸ì´ë¥¼ ì–»ì–´ì˜¨ë‹¤.(ë‹¨ìœ„ëŠ” ì›Œë“œ)
 				nWidthEnd += pwSrc[nWidthStart];
 				nWidthStart++;
 
-				// ¶óÀÎÀÇ ±æÀÌ¸¸Å­ È­¸é¿¡ »Ñ·ÁÁØ´Ù.
+				// ë¼ì¸ì˜ ê¸¸ì´ë§Œí¼ í™”ë©´ì— ë¿Œë ¤ì¤€ë‹¤.
 				for ( INT x = nWidthStart; x < nWidthEnd ; )
 				{
 					if ( pwSrc[x] == 0xC0 )
@@ -4422,7 +4424,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompClipRgnColor(INT nX, INT nY, INT nX
 					else if ( pwSrc[x] == 0xC1 )
 					{
 						x++;
-						nCntCopyWord = pwSrc[x];	// °¹¼ö
+						nCntCopyWord = pwSrc[x];	// ê°¯ìˆ˜
 						x++;
 
 						nLastWidth = nCurrWidth;
@@ -4430,11 +4432,11 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompClipRgnColor(INT nX, INT nY, INT nX
 
 						if ( rc.left > nCurrWidth || rc.right < nLastWidth )
 						{
-							x += nCntCopyWord;		// ¾óÅä ´çÅä ¾ÊÀº °æ¿ì
+							x += nCntCopyWord;		// ì–¼í†  ë‹¹í†  ì•Šì€ ê²½ìš°
 						}
 						else
 						{
-							// rc.leftÁ¡À» ±âÁØÀ¸·Î Ä«ÇÇÇÒ ¿µ¿ªÀÌ °É¸° °æ¿ì.
+							// rc.leftì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¹´í”¼í•  ì˜ì—­ì´ ê±¸ë¦° ê²½ìš°.
 							if ( nLastWidth < rc.left && rc.left <= nCurrWidth )
 							{
 								x += (rc.left-nLastWidth);
@@ -4462,7 +4464,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompClipRgnColor(INT nX, INT nY, INT nX
 
 								x += (nCurrWidth-rc.left);
 							}
-							// rc.rightÁ¡À» ±âÁØÀ¸·Î Ä«ÇÇÇÒ ¿µ¿ªÀÌ °É¸° °æ¿ì.
+							// rc.rightì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¹´í”¼í•  ì˜ì—­ì´ ê±¸ë¦° ê²½ìš°.
 							else if ( nLastWidth <= rc.right && rc.right < nCurrWidth )
 							{
 								for(WORD i = 0 ; i < (sizeof(WORD)*(rc.right-nLastWidth));i++)
@@ -4540,7 +4542,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompClipRgnColor(INT nX, INT nY, INT nX
 						}
 						else
 						{
-							// rc.leftÁ¡À» ±âÁØÀ¸·Î Ä«ÇÇÇÒ ¿µ¿ªÀÌ °É¸° °æ¿ì.
+							// rc.leftì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¹´í”¼í•  ì˜ì—­ì´ ê±¸ë¦° ê²½ìš°.
 							if ( nLastWidth < rc.left && rc.left <= nCurrWidth )
 							{
 								x += (rc.left-nLastWidth);
@@ -4589,7 +4591,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompClipRgnColor(INT nX, INT nY, INT nX
 								}
 								x += (nCurrWidth-rc.left);
 							}
-							// rc.rightÁ¡À» ±âÁØÀ¸·Î Ä«ÇÇÇÒ ¿µ¿ªÀÌ °É¸° °æ¿ì.
+							// rc.rightì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¹´í”¼í•  ì˜ì—­ì´ ê±¸ë¦° ê²½ìš°.
 							else if ( nLastWidth <= rc.right && rc.right < nCurrWidth )
 							{
 								for ( INT nCheck = 0; nCheck < rc.right-nLastWidth; nCheck++ )
@@ -4687,7 +4689,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompClipRgnColor(INT nX, INT nY, INT nX
 						}
 					}	
 				}
-				// ¶óÀÎÀÇ ³¡À» ´ÙÀ½ ¶óÀÎÀÇ ½ÃÀÛÀ¸·Î ¿Å°ÜÁØ´Ù.
+				// ë¼ì¸ì˜ ëì„ ë‹¤ìŒ ë¼ì¸ì˜ ì‹œì‘ìœ¼ë¡œ ì˜®ê²¨ì¤€ë‹¤.
 				nWidthEnd++;
 
 				nWidthStart	= nWidthEnd;
@@ -4771,7 +4773,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompClipRgnGray(INT nX, INT nY, INT nXS
 			BYTE  bRedWantedColor, bGreenWantedColor, bBlueWantedColor;
 			WORD  wPixel;
 
-			// yÃà Å¬¸®ÇÎ.
+			// yì¶• í´ë¦¬í•‘.
 			for ( nYCnt=0 ; nYCnt < rc.top ; nYCnt++ )
 			{
 				nWidthEnd += pwSrc[nWidthStart];
@@ -4780,14 +4782,14 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompClipRgnGray(INT nX, INT nY, INT nXS
 				nWidthStart	= nWidthEnd;
 			}
 
-			// yÃà¿¡ ´ëÇØ¼­ ½ÇÁ¦·Î ·çÇÎ½ÃÅ³ Count¸¸À» Á¤ÇÑ´Ù.
+			// yì¶•ì— ëŒ€í•´ì„œ ì‹¤ì œë¡œ ë£¨í•‘ì‹œí‚¬ Countë§Œì„ ì •í•œë‹¤.
 			for ( nYCnt=rc.top ; nYCnt < rc.bottom ; nYCnt++ )
 			{
-				// ÇÑ¶óÀÎÀÇ ±æÀÌ¸¦ ¾ò¾î¿Â´Ù.(´ÜÀ§´Â ¿öµå)
+				// í•œë¼ì¸ì˜ ê¸¸ì´ë¥¼ ì–»ì–´ì˜¨ë‹¤.(ë‹¨ìœ„ëŠ” ì›Œë“œ)
 				nWidthEnd += pwSrc[nWidthStart];
 				nWidthStart++;
 
-				// ¶óÀÎÀÇ ±æÀÌ¸¸Å­ È­¸é¿¡ »Ñ·ÁÁØ´Ù.
+				// ë¼ì¸ì˜ ê¸¸ì´ë§Œí¼ í™”ë©´ì— ë¿Œë ¤ì¤€ë‹¤.
 				for ( INT x = nWidthStart; x < nWidthEnd ; )
 				{
 					if ( pwSrc[x] == 0xC0 )
@@ -4800,7 +4802,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompClipRgnGray(INT nX, INT nY, INT nXS
 					else if ( pwSrc[x] == 0xC1 )
 					{
 						x++;
-						nCntCopyWord = pwSrc[x];	// °¹¼ö
+						nCntCopyWord = pwSrc[x];	// ê°¯ìˆ˜
 						x++;
 
 						nLastWidth = nCurrWidth;
@@ -4808,11 +4810,11 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompClipRgnGray(INT nX, INT nY, INT nXS
 
 						if ( rc.left > nCurrWidth || rc.right < nLastWidth )
 						{
-							x += nCntCopyWord;		// ¾óÅä ´çÅä ¾ÊÀº °æ¿ì
+							x += nCntCopyWord;		// ì–¼í†  ë‹¹í†  ì•Šì€ ê²½ìš°
 						}
 						else
 						{
-							// rc.leftÁ¡À» ±âÁØÀ¸·Î Ä«ÇÇÇÒ ¿µ¿ªÀÌ °É¸° °æ¿ì.
+							// rc.leftì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¹´í”¼í•  ì˜ì—­ì´ ê±¸ë¦° ê²½ìš°.
 							if ( nLastWidth < rc.left && rc.left <= nCurrWidth )
 							{
 								x += (rc.left-nLastWidth);
@@ -4837,7 +4839,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompClipRgnGray(INT nX, INT nY, INT nXS
 
 								x += (nCurrWidth-rc.left);
 							}
-							// rc.rightÁ¡À» ±âÁØÀ¸·Î Ä«ÇÇÇÒ ¿µ¿ªÀÌ °É¸° °æ¿ì.
+							// rc.rightì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¹´í”¼í•  ì˜ì—­ì´ ê±¸ë¦° ê²½ìš°.
 							else if ( nLastWidth <= rc.right && rc.right < nCurrWidth )
 							{
 								for(WORD i = 0 ; i < (sizeof(WORD)*(rc.right-nLastWidth));i++)
@@ -4909,7 +4911,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompClipRgnGray(INT nX, INT nY, INT nXS
 						}
 						else
 						{
-							// rc.leftÁ¡À» ±âÁØÀ¸·Î Ä«ÇÇÇÒ ¿µ¿ªÀÌ °É¸° °æ¿ì.
+							// rc.leftì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¹´í”¼í•  ì˜ì—­ì´ ê±¸ë¦° ê²½ìš°.
 							if ( nLastWidth < rc.left && rc.left <= nCurrWidth )
 							{
 								x += (rc.left-nLastWidth);
@@ -4954,7 +4956,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompClipRgnGray(INT nX, INT nY, INT nXS
 								}
 								x += (nCurrWidth-rc.left);
 							}
-							// rc.rightÁ¡À» ±âÁØÀ¸·Î Ä«ÇÇÇÒ ¿µ¿ªÀÌ °É¸° °æ¿ì.
+							// rc.rightì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¹´í”¼í•  ì˜ì—­ì´ ê±¸ë¦° ê²½ìš°.
 							else if ( nLastWidth <= rc.right && rc.right < nCurrWidth )
 							{
 								for ( INT nCheck = 0; nCheck < rc.right-nLastWidth; nCheck++ )
@@ -5044,7 +5046,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompClipRgnGray(INT nX, INT nY, INT nXS
 						}
 					}	
 				}
-				// ¶óÀÎÀÇ ³¡À» ´ÙÀ½ ¶óÀÎÀÇ ½ÃÀÛÀ¸·Î ¿Å°ÜÁØ´Ù.
+				// ë¼ì¸ì˜ ëì„ ë‹¤ìŒ ë¼ì¸ì˜ ì‹œì‘ìœ¼ë¡œ ì˜®ê²¨ì¤€ë‹¤.
 				nWidthEnd++;
 
 				nWidthStart	= nWidthEnd;
@@ -5104,14 +5106,14 @@ VOID CWHDXGraphicWindow::DrawWithGrayBackBuffer()
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CWHDXGraphicWindow::DrawWithImageForCompClipRgnToMem()
+	í•¨ìˆ˜ëª… : CWHDXGraphicWindow::DrawWithImageForCompClipRgnToMem()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : ¾ĞÃàµÈ ¼Ò½º ÀÌ¹ÌÁöÀÇ ¿øÇÏ´Â »çÀÌÁî ¾ĞÃàÀ» Ç®Àº »óÅÂ·Î Àü´Ş¹ŞÀº ¸Ş¸ğ¸®(pwDst)¿¡ Ä«ÇÇÇÑ´Ù.
+	ëª©ì    : ì••ì¶•ëœ ì†ŒìŠ¤ ì´ë¯¸ì§€ì˜ ì›í•˜ëŠ” ì‚¬ì´ì¦ˆ ì••ì¶•ì„ í’€ì€ ìƒíƒœë¡œ ì „ë‹¬ë°›ì€ ë©”ëª¨ë¦¬(pwDst)ì— ì¹´í”¼í•œë‹¤.
 
-	ÀÔ·Â   : INT nStartX
+	ì…ë ¥   : INT nStartX
 	         INT nStartY
 	         INT nWantedXSize
 	         INT nWantedYSize
@@ -5120,9 +5122,9 @@ VOID CWHDXGraphicWindow::DrawWithGrayBackBuffer()
 	         WORD wClipHeight
 	         WORD wChooseColor1
 	         WORD wChooseColor2
-	Ãâ·Â   : BOOL
+	ì¶œë ¥   : BOOL
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 BOOL CWHDXGraphicWindow::DrawWithImageForCompColorToMem(RECT rcWanted, WORD* pwSrc, WORD wColor, WORD* pwDst)
@@ -5138,7 +5140,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompColorToMem(RECT rcWanted, WORD* pwS
 	INT nYCnt			= 0;
 	INT nLastWidth		= 0;
 
-	// yÃà Å¬¸®ÇÎ.
+	// yì¶• í´ë¦¬í•‘.
   	for ( nYCnt=0 ; nYCnt < rcWanted.top ; nYCnt++ )
 	{
  		nWidthEnd += pwSrc[nWidthStart];
@@ -5154,14 +5156,14 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompColorToMem(RECT rcWanted, WORD* pwS
 	BYTE  bRedStateColor, bGreenStateColor, bBlueStateColor;
 	WORD  wPixel;
 
-	// yÃà¿¡ ´ëÇØ¼­ ½ÇÁ¦·Î ·çÇÎ½ÃÅ³ Count¸¸À» Á¤ÇÑ´Ù.
+	// yì¶•ì— ëŒ€í•´ì„œ ì‹¤ì œë¡œ ë£¨í•‘ì‹œí‚¬ Countë§Œì„ ì •í•œë‹¤.
 	for ( nYCnt=rcWanted.top ; nYCnt < rcWanted.bottom ; nYCnt++ )
 	{
-		// ÇÑ¶óÀÎÀÇ ±æÀÌ¸¦ ¾ò¾î¿Â´Ù.(´ÜÀ§´Â ¿öµå)
+		// í•œë¼ì¸ì˜ ê¸¸ì´ë¥¼ ì–»ì–´ì˜¨ë‹¤.(ë‹¨ìœ„ëŠ” ì›Œë“œ)
 		nWidthEnd += pwSrc[nWidthStart];
 		nWidthStart++;
 
-		// ¶óÀÎÀÇ ±æÀÌ¸¸Å­ È­¸é¿¡ »Ñ·ÁÁØ´Ù.
+		// ë¼ì¸ì˜ ê¸¸ì´ë§Œí¼ í™”ë©´ì— ë¿Œë ¤ì¤€ë‹¤.
 		for ( INT x = nWidthStart; x < nWidthEnd ; )
 		{
 			if ( pwSrc[x] == 0xC0 )
@@ -5172,7 +5174,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompColorToMem(RECT rcWanted, WORD* pwS
 				nLastWidth = nCurrWidth;
 				nCurrWidth += nCntCopyWord;
 
-				// rcWanted.leftÁ¡À» ±âÁØÀ¸·Î Ä«ÇÇÇÒ ¿µ¿ªÀÌ °É¸° °æ¿ì.
+				// rcWanted.leftì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¹´í”¼í•  ì˜ì—­ì´ ê±¸ë¦° ê²½ìš°.
 				if ( nLastWidth <= rcWanted.left && nCurrWidth >= rcWanted.right )
 				{
 					memset(&pwDst[((nYCnt-rcWanted.top) * (rcWanted.right-rcWanted.left))  + nNewCurrWidth], 0, sizeof(WORD)*(rcWanted.right-rcWanted.left));
@@ -5188,7 +5190,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompColorToMem(RECT rcWanted, WORD* pwS
 					memset(&pwDst[((nYCnt-rcWanted.top) * (rcWanted.right-rcWanted.left))  + nNewCurrWidth], 0, sizeof(WORD)*(nCntCopyWord));
 					nNewCurrWidth += nCntCopyWord;
 				}
-				// rcWanted.rightÁ¡À» ±âÁØÀ¸·Î Ä«ÇÇÇÒ ¿µ¿ªÀÌ °É¸° °æ¿ì.
+				// rcWanted.rightì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¹´í”¼í•  ì˜ì—­ì´ ê±¸ë¦° ê²½ìš°.
 				else if ( nLastWidth < rcWanted.right && nCurrWidth > rcWanted.right )
 				{
 					memset(&pwDst[((nYCnt-rcWanted.top) * (rcWanted.right-rcWanted.left)) + nNewCurrWidth], 0, sizeof(WORD)*(rcWanted.right-nLastWidth));
@@ -5210,7 +5212,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompColorToMem(RECT rcWanted, WORD* pwS
 				}
 				else
 				{
-					// rcWanted.leftÁ¡À» ±âÁØÀ¸·Î Ä«ÇÇÇÒ ¿µ¿ªÀÌ °É¸° °æ¿ì.
+					// rcWanted.leftì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¹´í”¼í•  ì˜ì—­ì´ ê±¸ë¦° ê²½ìš°.
 					if ( nLastWidth <= rcWanted.left && nCurrWidth >= rcWanted.right )
 					{
 						x += (rcWanted.left-nLastWidth);
@@ -5360,7 +5362,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompColorToMem(RECT rcWanted, WORD* pwS
 						nNewCurrWidth += nCntCopyWord;
 						x += nCntCopyWord;
 					}
-					// rcWanted.rightÁ¡À» ±âÁØÀ¸·Î Ä«ÇÇÇÒ ¿µ¿ªÀÌ °É¸° °æ¿ì.
+					// rcWanted.rightì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¹´í”¼í•  ì˜ì—­ì´ ê±¸ë¦° ê²½ìš°.
 					else if ( nLastWidth < rcWanted.right && nCurrWidth > rcWanted.right )
 					{
 						for ( INT nCheck = 0; nCheck < rcWanted.right-nLastWidth; nCheck++ )
@@ -5416,7 +5418,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompColorToMem(RECT rcWanted, WORD* pwS
 				}
 			}	
 		}
-		// ¶óÀÎÀÇ ³¡À» ´ÙÀ½ ¶óÀÎÀÇ ½ÃÀÛÀ¸·Î ¿Å°ÜÁØ´Ù.
+		// ë¼ì¸ì˜ ëì„ ë‹¤ìŒ ë¼ì¸ì˜ ì‹œì‘ìœ¼ë¡œ ì˜®ê²¨ì¤€ë‹¤.
 		nWidthEnd++;
 
 		nWidthStart	= nWidthEnd;
@@ -5442,7 +5444,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompToMem(RECT rcWanted, WORD* pwSrc, W
 	INT nYCnt			= 0;
 	INT nLastWidth		= 0;
 
-	// yÃà Å¬¸®ÇÎ.
+	// yì¶• í´ë¦¬í•‘.
   	for ( nYCnt=0 ; nYCnt < rcWanted.top ; nYCnt++ )
 	{
  		nWidthEnd += pwSrc[nWidthStart];
@@ -5458,14 +5460,14 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompToMem(RECT rcWanted, WORD* pwSrc, W
 	BYTE  bRedWantedColor, bGreenWantedColor, bBlueWantedColor;
 	WORD  wPixel;
 
-	// yÃà¿¡ ´ëÇØ¼­ ½ÇÁ¦·Î ·çÇÎ½ÃÅ³ Count¸¸À» Á¤ÇÑ´Ù.
+	// yì¶•ì— ëŒ€í•´ì„œ ì‹¤ì œë¡œ ë£¨í•‘ì‹œí‚¬ Countë§Œì„ ì •í•œë‹¤.
 	for ( nYCnt=rcWanted.top ; nYCnt < rcWanted.bottom ; nYCnt++ )
 	{
-		// ÇÑ¶óÀÎÀÇ ±æÀÌ¸¦ ¾ò¾î¿Â´Ù.(´ÜÀ§´Â ¿öµå)
+		// í•œë¼ì¸ì˜ ê¸¸ì´ë¥¼ ì–»ì–´ì˜¨ë‹¤.(ë‹¨ìœ„ëŠ” ì›Œë“œ)
 		nWidthEnd += pwSrc[nWidthStart];
 		nWidthStart++;
 
-		// ¶óÀÎÀÇ ±æÀÌ¸¸Å­ È­¸é¿¡ »Ñ·ÁÁØ´Ù.
+		// ë¼ì¸ì˜ ê¸¸ì´ë§Œí¼ í™”ë©´ì— ë¿Œë ¤ì¤€ë‹¤.
 		for ( INT x = nWidthStart; x < nWidthEnd ; )
 		{
 			if ( pwSrc[x] == 0xC0 )
@@ -5476,7 +5478,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompToMem(RECT rcWanted, WORD* pwSrc, W
 				nLastWidth = nCurrWidth;
 				nCurrWidth += nCntCopyWord;
 
-				// rcWanted.leftÁ¡À» ±âÁØÀ¸·Î Ä«ÇÇÇÒ ¿µ¿ªÀÌ °É¸° °æ¿ì.
+				// rcWanted.leftì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¹´í”¼í•  ì˜ì—­ì´ ê±¸ë¦° ê²½ìš°.
 				if ( nLastWidth <= rcWanted.left && nCurrWidth >= rcWanted.right )
 				{
 					memset(&pwDst[((nYCnt-rcWanted.top) * (rcWanted.right-rcWanted.left))  + nNewCurrWidth], 0, sizeof(WORD)*(rcWanted.right-rcWanted.left));
@@ -5492,7 +5494,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompToMem(RECT rcWanted, WORD* pwSrc, W
 					memset(&pwDst[((nYCnt-rcWanted.top) * (rcWanted.right-rcWanted.left))  + nNewCurrWidth], 0, sizeof(WORD)*(nCntCopyWord));
 					nNewCurrWidth += nCntCopyWord;
 				}
-				// rcWanted.rightÁ¡À» ±âÁØÀ¸·Î Ä«ÇÇÇÒ ¿µ¿ªÀÌ °É¸° °æ¿ì.
+				// rcWanted.rightì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¹´í”¼í•  ì˜ì—­ì´ ê±¸ë¦° ê²½ìš°.
 				else if ( nLastWidth < rcWanted.right && nCurrWidth > rcWanted.right )
 				{
 					memset(&pwDst[((nYCnt-rcWanted.top) * (rcWanted.right-rcWanted.left)) + nNewCurrWidth], 0, sizeof(WORD)*(rcWanted.right-nLastWidth));
@@ -5514,7 +5516,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompToMem(RECT rcWanted, WORD* pwSrc, W
 				}
 				else
 				{
-					// rcWanted.leftÁ¡À» ±âÁØÀ¸·Î Ä«ÇÇÇÒ ¿µ¿ªÀÌ °É¸° °æ¿ì.
+					// rcWanted.leftì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¹´í”¼í•  ì˜ì—­ì´ ê±¸ë¦° ê²½ìš°.
 					if ( nLastWidth <= rcWanted.left && nCurrWidth >= rcWanted.right )
 					{
 						x += (rcWanted.left-nLastWidth);
@@ -5535,7 +5537,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompToMem(RECT rcWanted, WORD* pwSrc, W
 						nNewCurrWidth += nCntCopyWord;
 						x += nCntCopyWord;
 					}
-					// rcWanted.rightÁ¡À» ±âÁØÀ¸·Î Ä«ÇÇÇÒ ¿µ¿ªÀÌ °É¸° °æ¿ì.
+					// rcWanted.rightì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¹´í”¼í•  ì˜ì—­ì´ ê±¸ë¦° ê²½ìš°.
 					else if ( nLastWidth < rcWanted.right && nCurrWidth > rcWanted.right )
 					{
 						memcpy(&pwDst[((nYCnt-rcWanted.top) * (rcWanted.right-rcWanted.left)) + nNewCurrWidth], &pwSrc[x], sizeof(WORD)*(rcWanted.right-nLastWidth));
@@ -5574,7 +5576,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompToMem(RECT rcWanted, WORD* pwSrc, W
 				}
 				else
 				{
-					// rcWanted.leftÁ¡À» ±âÁØÀ¸·Î Ä«ÇÇÇÒ ¿µ¿ªÀÌ °É¸° °æ¿ì.
+					// rcWanted.leftì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¹´í”¼í•  ì˜ì—­ì´ ê±¸ë¦° ê²½ìš°.
 					if ( nLastWidth <= rcWanted.left && nCurrWidth >= rcWanted.right )
 					{
 						x += (rcWanted.left-nLastWidth);
@@ -5685,7 +5687,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompToMem(RECT rcWanted, WORD* pwSrc, W
 						nNewCurrWidth += nCntCopyWord;
 						x += nCntCopyWord;
 					}
-					// rcWanted.rightÁ¡À» ±âÁØÀ¸·Î Ä«ÇÇÇÒ ¿µ¿ªÀÌ °É¸° °æ¿ì.
+					// rcWanted.rightì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¹´í”¼í•  ì˜ì—­ì´ ê±¸ë¦° ê²½ìš°.
 					else if ( nLastWidth < rcWanted.right && nCurrWidth > rcWanted.right )
 					{
 						for ( INT nCheck = 0; nCheck < rcWanted.right-nLastWidth; nCheck++ )
@@ -5730,7 +5732,7 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompToMem(RECT rcWanted, WORD* pwSrc, W
 				}
 			}	
 		}
-		// ¶óÀÎÀÇ ³¡À» ´ÙÀ½ ¶óÀÎÀÇ ½ÃÀÛÀ¸·Î ¿Å°ÜÁØ´Ù.
+		// ë¼ì¸ì˜ ëì„ ë‹¤ìŒ ë¼ì¸ì˜ ì‹œì‘ìœ¼ë¡œ ì˜®ê²¨ì¤€ë‹¤.
 		nWidthEnd++;
 
 		nWidthStart	= nWidthEnd;
@@ -5745,27 +5747,27 @@ BOOL CWHDXGraphicWindow::DrawWithImageForCompToMem(RECT rcWanted, WORD* pwSrc, W
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CWHDXGraphicWindow::DrawWithABlendForIntersectCompData()
+	í•¨ìˆ˜ëª… : CWHDXGraphicWindow::DrawWithABlendForIntersectCompData()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : INT nX					: ¹é¹öÆÛ»óÀÇ ±×¸²½ÃÀÛÀ§Ä¡.
+	ëª©ì    : 
+	ì…ë ¥   : INT nX					: ë°±ë²„í¼ìƒì˜ ê·¸ë¦¼ì‹œì‘ìœ„ì¹˜.
 	         INT nY					
-	         INT nSrcXSize			: ¿øº»±×¸²ÀÇ »çÀÌÁî.
+	         INT nSrcXSize			: ì›ë³¸ê·¸ë¦¼ì˜ ì‚¬ì´ì¦ˆ.
 	         INT nSrcYSize
-	         WORD* pwSrc			: ¿øº»±×¸²ÀÇ µ¥ÀÌÅ¸.
-	         INT nDstXSize			: Å¸°Ù±×¸²ÀÇ »çÀÌÁî.
+	         WORD* pwSrc			: ì›ë³¸ê·¸ë¦¼ì˜ ë°ì´íƒ€.
+	         INT nDstXSize			: íƒ€ê²Ÿê·¸ë¦¼ì˜ ì‚¬ì´ì¦ˆ.
 	         INT nDstYSize
-	         WORD* pwDst			: Å¸°Ù±×¸²ÀÇ µ¥ÀÌÅ¸.
-	         WORD wSrcChooseColor1	: ¿øº»±×¸²ÀÇ ¿°»ö ÀÌ¹ÌÁö1 ÄÃ·¯.
+	         WORD* pwDst			: íƒ€ê²Ÿê·¸ë¦¼ì˜ ë°ì´íƒ€.
+	         WORD wSrcChooseColor1	: ì›ë³¸ê·¸ë¦¼ì˜ ì—¼ìƒ‰ ì´ë¯¸ì§€1 ì»¬ëŸ¬.
 	         WORD wSrcChooseColor2
-	         WORD wDstChooseColor1	: Å¸°Ù±×¸²ÀÇ ¿°»ö ÀÌ¹ÌÁö1 ÄÃ·¯.
+	         WORD wDstChooseColor1	: íƒ€ê²Ÿê·¸ë¦¼ì˜ ì—¼ìƒ‰ ì´ë¯¸ì§€1 ì»¬ëŸ¬.
 	         WORD wDstChooseColor2
-	Ãâ·Â   : BOOL 
+	ì¶œë ¥   : BOOL 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 BOOL CWHDXGraphicWindow::DrawWithABlendForIntersectCompData(INT nSrcX, INT nSrcY, 
@@ -5804,7 +5806,7 @@ BOOL CWHDXGraphicWindow::DrawWithABlendForIntersectCompData(INT nSrcX, INT nSrcY
 
 	if ( m_pddsBackBuffer != NULL )
 	{
-		// SourceÀÇ È­¸éÅ¬¸®ÇÎÇÑ ¿µ¿ª.
+		// Sourceì˜ í™”ë©´í´ë¦¬í•‘í•œ ì˜ì—­.
 		if ( nSrcX < nStartX )
 		{ 
 			nXSrcOffset	= nStartX - nSrcX;
@@ -5822,13 +5824,13 @@ BOOL CWHDXGraphicWindow::DrawWithABlendForIntersectCompData(INT nSrcX, INT nSrcY
 
 		if ( (nSrcWidth > 0) && (nSrcHeight > 0) )
 		{
-			// Source¿µ¿ªÀÇ ¼³Á¤.
+			// Sourceì˜ì—­ì˜ ì„¤ì •.
 			rcSrc.left		= nXSrcOffset;
 			rcSrc.right		= nXSrcOffset+nSrcWidth;
 			rcSrc.top		= nYSrcOffset;
 			rcSrc.bottom	= nYSrcOffset+nSrcHeight;
 
-			// DestinationÀÇ È­¸éÅ¬¸®ÇÎÇÑ ¿µ¿ª.
+			// Destinationì˜ í™”ë©´í´ë¦¬í•‘í•œ ì˜ì—­.
 			if ( nDstX < nStartX )
 			{ 
 				nXDstOffset	= nStartX - nDstX;
@@ -5846,31 +5848,31 @@ BOOL CWHDXGraphicWindow::DrawWithABlendForIntersectCompData(INT nSrcX, INT nSrcY
 
 			if ( (nDstWidth > 0) && (nDstHeight > 0) )
 			{
-				// Destination¿µ¿ªÀÇ ¼³Á¤.
+				// Destinationì˜ì—­ì˜ ì„¤ì •.
 				rcDst.left		= nXDstOffset;
 				rcDst.right		= nXDstOffset+nDstWidth;
 				rcDst.top		= nYDstOffset;
 				rcDst.bottom	= nYDstOffset+nDstHeight;
 
-				// µÎÀÌ¹ÌÁöÀÇ °ãÄ¡´Â ¿µ¿ªÀ» ±¸ÇÑ´Ù.
+				// ë‘ì´ë¯¸ì§€ì˜ ê²¹ì¹˜ëŠ” ì˜ì—­ì„ êµ¬í•œë‹¤.
 				RECT rcTemp;
 
-				// ¼Ò½º¿µ¿ª¿¡ »ó´ëÀûÀÎ µ¥½ºÆ®¿µ¿ªÀ» ±¸ÇÑ´Ù.
+				// ì†ŒìŠ¤ì˜ì—­ì— ìƒëŒ€ì ì¸ ë°ìŠ¤íŠ¸ì˜ì—­ì„ êµ¬í•œë‹¤.
 				rcTemp.left = rcDst.left + (nDstX-nSrcX);
 				rcTemp.top = rcDst.top + (nDstY-nSrcY);
 				rcTemp.right = rcDst.right + (nDstX-nSrcX);
 				rcTemp.bottom = rcDst.bottom + (nDstY-nSrcY);
 
-				// ¼Ò½º ·ºÆ®¿µ¿ªÀ» ±âÁØÀ¸·Î ÇÑ µÎ »ç°¢ÇüÀÇ ±³Â÷»ç°¢ÇüÀ» ±¸ÇÑ´Ù.
+				// ì†ŒìŠ¤ ë ‰íŠ¸ì˜ì—­ì„ ê¸°ì¤€ìœ¼ë¡œ í•œ ë‘ ì‚¬ê°í˜•ì˜ êµì°¨ì‚¬ê°í˜•ì„ êµ¬í•œë‹¤.
 				IntersectRect(&rcSrcIntersect, &rcSrc, &rcTemp);
 
-				// µ¥½ºÆ®¿µ¿ª¿¡ »ó´ëÀûÀÎ ¼Ò½º¿µ¿ªÀ» ±¸ÇÑ´Ù.
+				// ë°ìŠ¤íŠ¸ì˜ì—­ì— ìƒëŒ€ì ì¸ ì†ŒìŠ¤ì˜ì—­ì„ êµ¬í•œë‹¤.
 				rcTemp.left = rcSrc.left + (nSrcX-nDstX);
 				rcTemp.top = rcSrc.top + (nSrcY-nDstY);
 				rcTemp.right = rcSrc.right + (nSrcX-nDstX);
 				rcTemp.bottom = rcSrc.bottom + (nSrcY-nDstY);
 
-				// µ¥½ºÆ® ·ºÆ®¿µ¿ªÀ» ±âÁØÀ¸·Î ÇÑ µÎ »ç°¢ÇüÀÇ ±³Â÷»ç°¢ÇüÀ» ±¸ÇÑ´Ù.
+				// ë°ìŠ¤íŠ¸ ë ‰íŠ¸ì˜ì—­ì„ ê¸°ì¤€ìœ¼ë¡œ í•œ ë‘ ì‚¬ê°í˜•ì˜ êµì°¨ì‚¬ê°í˜•ì„ êµ¬í•œë‹¤.
 				IntersectRect(&rcDstIntersect, &rcTemp, &rcDst);
 
 				ddsd.dwSize	= sizeof(DDSURFACEDESC2);
@@ -5936,7 +5938,7 @@ BOOL CWHDXGraphicWindow::DrawWithABlendForIntersectCompData(INT nSrcX, INT nSrcY
 							if ( bRedSrc > (m_stBitsMaskInfo.dwRMask>>m_stBitsMaskInfo.bRShift) )
 								bRedSrc = (BYTE)(m_stBitsMaskInfo.dwRMask>>m_stBitsMaskInfo.bRShift);
 
-							// Æ÷Ä¿½º°¡ µÆÀ»¶§ Opacity°ªÀ» ³ô¿©ÁØ´Ù.
+							// í¬ì»¤ìŠ¤ê°€ ëì„ë•Œ Opacityê°’ì„ ë†’ì—¬ì¤€ë‹¤.
 							bOpa = 40;
 						}
 
@@ -5971,18 +5973,18 @@ BOOL CWHDXGraphicWindow::DrawWithABlendForIntersectCompData(INT nSrcX, INT nSrcY
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CWHDXGraphicWindow::Present()
+	í•¨ìˆ˜ëª… : CWHDXGraphicWindow::Present()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : LPRECT lprcDest
+	ëª©ì    : 
+	ì…ë ¥   : LPRECT lprcDest
 	         LPRECT lprcSrc
 	         BYTE bCntRgn
-	Ãâ·Â   : HRESULT 
+	ì¶œë ¥   : HRESULT 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 HRESULT CWHDXGraphicWindow::Present()
@@ -5998,7 +6000,7 @@ HRESULT CWHDXGraphicWindow::Present()
 	{
 		if ( m_bScreenModeFlag & _DXG_SCREENMODE_WINDOW )
 		{
-		 //¿¡µğÆ®À©µµ¿ì Ãâ·ÂÀ» À§ÇØ¼­ Å¬¸®ÆÛ¸¦ ¼¼ÆÃÇÑ´Ù.
+		 //ì—ë””íŠ¸ìœˆë„ìš° ì¶œë ¥ì„ ìœ„í•´ì„œ í´ë¦¬í¼ë¥¼ ì„¸íŒ…í•œë‹¤.
 			m_pddsFrontBuffer->SetClipper(m_lpcClipper);
 			hr = m_pddsFrontBuffer->Blt(&m_rcWindow, m_pddsBackBuffer, NULL, DDBLT_WAIT, NULL);
 		}
@@ -6022,15 +6024,15 @@ HRESULT CWHDXGraphicWindow::Present()
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : RestoreSurfaces()
+	í•¨ìˆ˜ëª… : RestoreSurfaces()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	Ãâ·Â   : HRESULT 
+	ëª©ì    : 
+	ì¶œë ¥   : HRESULT 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 HRESULT CWHDXGraphicWindow::RestoreSurfaces()
@@ -6067,20 +6069,20 @@ HRESULT CWHDXGraphicWindow::RestoreSurfaces()
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : WINAPI DXGDriverEnumCallbackEx()
+	í•¨ìˆ˜ëª… : WINAPI DXGDriverEnumCallbackEx()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : GUID *pGUID
+	ëª©ì    : 
+	ì…ë ¥   : GUID *pGUID
 	         LPSTR szDesc
 	         LPSTR szName
 	         LPVOID pContext
 	         HMONITOR hm
-	Ãâ·Â   : static BOOL 
+	ì¶œë ¥   : static BOOL 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 static BOOL WINAPI DXGDriverEnumCallbackEx(GUID *pGUID, LPSTR szDesc, LPSTR szName, LPVOID pContext, HMONITOR hm)
@@ -6138,17 +6140,17 @@ static BOOL WINAPI DXGDriverEnumCallbackEx(GUID *pGUID, LPSTR szDesc, LPSTR szNa
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : WINAPI DXGEnumDisplayModeCallback()
+	í•¨ìˆ˜ëª… : WINAPI DXGEnumDisplayModeCallback()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : DDSURFACEDESC2* pddsd
+	ëª©ì    : 
+	ì…ë ¥   : DDSURFACEDESC2* pddsd
 	         VOID* pParentInfo
-	Ãâ·Â   : static HRESULT 
+	ì¶œë ¥   : static HRESULT 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 static HRESULT WINAPI DXGEnumDisplayModeCallback(DDSURFACEDESC2* pddsd, VOID* pParentInfo)
@@ -6168,17 +6170,17 @@ static HRESULT WINAPI DXGEnumDisplayModeCallback(DDSURFACEDESC2* pddsd, VOID* pP
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : DXGModesSortCallback()
+	í•¨ìˆ˜ëª… : DXGModesSortCallback()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : const VOID* arg1
+	ëª©ì    : 
+	ì…ë ¥   : const VOID* arg1
 	         const VOID* arg2
-	Ãâ·Â   : static int 
+	ì¶œë ¥   : static int 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 static int DXGModesSortCallback(const VOID* arg1, const VOID* arg2)
@@ -6201,19 +6203,19 @@ static int DXGModesSortCallback(const VOID* arg1, const VOID* arg2)
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : WINAPI DXG3DDeviceEnumCallback()
+	í•¨ìˆ˜ëª… : WINAPI DXG3DDeviceEnumCallback()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : TCHAR* szDesc
+	ëª©ì    : 
+	ì…ë ¥   : TCHAR* szDesc
 	         TCHAR* szName
 	         D3DDEVICEDESC7* pDesc
 	         VOID* pParentInfo
-	Ãâ·Â   : static HRESULT 
+	ì¶œë ¥   : static HRESULT 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 static HRESULT WINAPI DXG3DDeviceEnumCallback(TCHAR* szDesc, TCHAR* szName, D3DDEVICEDESC7* pDesc, VOID* pParentInfo)
@@ -6270,17 +6272,17 @@ static HRESULT WINAPI DXG3DDeviceEnumCallback(TCHAR* szDesc, TCHAR* szName, D3DD
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : WINAPI DXGEnumZBufferFormatsCallback()
+	í•¨ìˆ˜ëª… : WINAPI DXGEnumZBufferFormatsCallback()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : DDPIXELFORMAT* pddpf
+	ëª©ì    : 
+	ì…ë ¥   : DDPIXELFORMAT* pddpf
 	         VOID* pContext
-	Ãâ·Â   : static HRESULT 
+	ì¶œë ¥   : static HRESULT 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 static HRESULT WINAPI DXGEnumZBufferFormatsCallback(DDPIXELFORMAT* pddpf, VOID* pContext)

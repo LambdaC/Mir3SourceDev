@@ -1,4 +1,4 @@
-
+﻿
 
 // ORZ:
 #include "../def/staticArray.h"

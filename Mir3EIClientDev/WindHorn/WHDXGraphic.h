@@ -13,17 +13,21 @@ typedef struct tagDXG_DISPLAYINFO
 {
 	WORD			wWidth;
 	WORD			wHeight;
-	WORD			wBPP;
+	WORD			wBPP;	//Bits Per Pixel?
 }DXG_DISPLAYINFO, *LPDXG_DISPLAYINFO;
 
 typedef struct DXG_ENUM_DEVICEINFO
 {
-    // 3D µğ¹ÙÀÌ½º Á¤º¸.
+    // 3D ë””ë°”ì´ìŠ¤ ì •ë³´.
+	// 3D device information.
+	// 3Dè®¾å¤‡ä¿¡æ¯ã€‚
     TCHAR			szDeviceDesc[256];
     GUID*			pDeviceGUID;
     D3DDEVICEDESC7	ddDeviceDesc;
     BOOL			f3DHardware;
-    // µå·Î¿ì µå¶óÀÌ¹ö Á¤º¸.
+    // ë“œë¡œìš° ë“œë¼ì´ë²„ ì •ë³´.
+	// Draw driver information.
+	// ç»˜åˆ¶é©±åŠ¨ç¨‹åºä¿¡æ¯ã€‚
 	TCHAR			szDriverDesc[256];
     GUID*			pDriverGUID;
     DDCAPS			ddDriverCaps;
@@ -70,24 +74,28 @@ protected:
 	HFONT					m_hDefGameFont;
 ///////<---------------------------------------------------------------------------------------------------------------------------
 
+	/* æ§åˆ¶æ¸¸æˆçª—å£æ˜¯å…¨å±æ¨¡å¼è¿˜æ˜¯çª—å£æ¨¡å¼, é€‰é¡¹è§WHEngine::_DXG_SCREENMODE_XXX */
 	BYTE					m_bScreenModeFlag;
+	/* æ§åˆ¶è®¾å¤‡ä½¿ç”¨ä»€ä¹ˆé€‰é¡¹? è§WHEngine::_DXG_DEVICEMODE_XXX */
     BYTE					m_bDeviceModeFlag;
 
 public:
-	DWORD					m_dwTextureTotal;	// ÀüÃ¼ »ç¿ëÇÒ¼ö ÀÖ´Â ¸Ş¸ğ¸®.
-	DWORD					m_dwTextureFree;    // ÇöÀç ³²Àº ¸Ş¸ğ¸®.
-	DWORD					m_dwVideoTotal; 	// vram ÀüÃ¼ ¸Ş¸ğ¸®.
-	DWORD					m_dwVideoFree;      // ÇöÀç ³²Àº vram ¸Ş¸ğ¸® .
+	DWORD					m_dwTextureTotal;	// ì „ì²´ ì‚¬ìš©í• ìˆ˜ ìˆëŠ” ë©”ëª¨ë¦¬.
+	DWORD					m_dwTextureFree;    // í˜„ì¬ ë‚¨ì€ ë©”ëª¨ë¦¬.
+	DWORD					m_dwVideoTotal; 	// vram ì „ì²´ ë©”ëª¨ë¦¬.
+	DWORD					m_dwVideoFree;      // í˜„ì¬ ë‚¨ì€ vram ë©”ëª¨ë¦¬ .
 
 	BOOL					m_bIsWindowActive;
 	BOOL					m_bIsWindowReady;
 
     RECT					m_rcWindow;
-	DXG_DISPLAYINFO			m_stDisplayInfo;
+	DXG_DISPLAYINFO			m_stDisplayInfo;	// Displayæ•°æ®ï¼Œé•¿å®½åŠä½æ·±
 	DXG_MASKINFO			m_stBitsMaskInfo;
 
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	// ÇÁ·Î¼¼½º¸¦ ³ª´©±âÀ§ÇÑ º¯¼ö¼±¾ğ.
+	// í”„ë¡œì„¸ìŠ¤ë¥¼ ë‚˜ëˆ„ê¸°ìœ„í•œ ë³€ìˆ˜ì„ ì–¸.
+	// Declaration of variables to divide the process.
+	// å£°æ˜å˜é‡ä»¥åˆ’åˆ†è¿‡ç¨‹ã€‚
 	static CWHDXGraphicWindow*	m_pxDXGWnd;
 	CWHDefProcess*				m_pxDefProcess;
 
@@ -144,21 +152,21 @@ public:
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	WORD					ConvertColor24To16(COLORREF dwColor);
-	// ·»´õ¸µ ÇÔ¼ö¸ğÀ½.
-	// 1. GDI¿ë ±×¸®±â ÇÔ¼ö.(¼±, »ç°¢ÇüµîÀ» ¹é¼­ÇÇ½º¿¡ ±×¸°´Ù.)
+	// ë Œë”ë§ í•¨ìˆ˜ëª¨ìŒ.
+	// 1. GDIìš© ê·¸ë¦¬ê¸° í•¨ìˆ˜.(ì„ , ì‚¬ê°í˜•ë“±ì„ ë°±ì„œí”¼ìŠ¤ì— ê·¸ë¦°ë‹¤.)
 	HRESULT					DrawWithGDI(RECT rc, LPDIRECTDRAWSURFACE7 pSurface, DWORD dwColor, BYTE bKind);
-	// 2. WORDÇü µ¥ÀÌÅ¸ ±×¸®±â ÇÔ¼ö.(ÇÈ¼¿´ÜÀ§·Î ÄÃ·¯Å°¸¦ °Ë»çÇÏ¸é¼­ ¹é¼­ÇÇ½º¿¡ ±×¸°´Ù.)
+	// 2. WORDí˜• ë°ì´íƒ€ ê·¸ë¦¬ê¸° í•¨ìˆ˜.(í”½ì…€ë‹¨ìœ„ë¡œ ì»¬ëŸ¬í‚¤ë¥¼ ê²€ì‚¬í•˜ë©´ì„œ ë°±ì„œí”¼ìŠ¤ì— ê·¸ë¦°ë‹¤.)
 	BOOL					DrawWithImage(INT nX, INT nY, INT nXSize, INT nYSize, WORD* pwSrc);
-	// 3. WORDÇü µ¥ÀÌÅ¸ ±×¸®±â ÇÔ¼ö.(¶óÀÎ´ÜÀ§·Î ÄÃ·¯Å°¸¦ °í·ÁÇÏÁö ¾Ê°í ¹é¼­ÇÇ½ºÀÇ Å¬¸®ÇÎ ³»ºÎ¿µ¿ª¿¡¸¸ ±×¸°´Ù.)
+	// 3. WORDí˜• ë°ì´íƒ€ ê·¸ë¦¬ê¸° í•¨ìˆ˜.(ë¼ì¸ë‹¨ìœ„ë¡œ ì»¬ëŸ¬í‚¤ë¥¼ ê³ ë ¤í•˜ì§€ ì•Šê³  ë°±ì„œí”¼ìŠ¤ì˜ í´ë¦¬í•‘ ë‚´ë¶€ì˜ì—­ì—ë§Œ ê·¸ë¦°ë‹¤.)
 	BOOL					DrawWithImagePerLineClipRgn(INT nX, INT nY, INT nXSize, INT nYSize, WORD* pwSrc, WORD wClipWidth, WORD wClipHeight);
-	// 4. SurfaceÇü µ¥ÀÌÅ¸ ±×¸®±â ÇÔ¼ö.(¼Ò½ºÀÇ ÄÃ·¯Å°¸¦ °í·ÁÇÏ¸é¼­ ¹é¼­ÇÇ½º¿¡ ±×¸°´Ù.)
+	// 4. Surfaceí˜• ë°ì´íƒ€ ê·¸ë¦¬ê¸° í•¨ìˆ˜.(ì†ŒìŠ¤ì˜ ì»¬ëŸ¬í‚¤ë¥¼ ê³ ë ¤í•˜ë©´ì„œ ë°±ì„œí”¼ìŠ¤ì— ê·¸ë¦°ë‹¤.)
 	BOOL					DrawWithSurface(INT nX, INT nY, INT nXSize, INT nYSize, LPDIRECTDRAWSURFACE7 pddsSrc);
 
-	// wChooseColor1Àº ¿°»ö¿Ê(0xC2)¿¡ ´ëÇØ¼­, wChooseColor2(0xC3)´Â ¸Ó¸®µî(Ä®, ±âÅ¸ º¯ÇÏ´Â»ö)ÀÇ ¿°»öÀ¸·Î ¾´´Ù.
-	// 5. ¾ĞÃà(0¹ø)¹× ¿°»öµÈ WORDÇü µ¥ÀÌÅ¸ ±×¸®±â ÇÔ¼ö.(¹é¼­ÇÇ½º¿¡ ±×¸°´Ù.)
+	// wChooseColor1ì€ ì—¼ìƒ‰ì˜·(0xC2)ì— ëŒ€í•´ì„œ, wChooseColor2(0xC3)ëŠ” ë¨¸ë¦¬ë“±(ì¹¼, ê¸°íƒ€ ë³€í•˜ëŠ”ìƒ‰)ì˜ ì—¼ìƒ‰ìœ¼ë¡œ ì“´ë‹¤.
+	// 5. ì••ì¶•(0ë²ˆ)ë° ì—¼ìƒ‰ëœ WORDí˜• ë°ì´íƒ€ ê·¸ë¦¬ê¸° í•¨ìˆ˜.(ë°±ì„œí”¼ìŠ¤ì— ê·¸ë¦°ë‹¤.)
 	BOOL					DrawWithImageForComp(INT nX, INT nY, RECT rcSrc, WORD* pwSrc, WORD wChooseColor1 = 0XFFFF, WORD wChooseColor2 = 0XFFFF);
 	BOOL					DrawWithImageForComp(INT nX, INT nY, INT nXSize, INT nYSize, WORD* pwSrc, WORD wChooseColor1 = 0XFFFF, WORD wChooseColor2 = 0XFFFF);
-	// 6. ¾ĞÃà(0¹ø)¹× ¿°»öµÈ WORDÇü µ¥ÀÌÅ¸ ±×¸®±â ÇÔ¼ö.(¹é¼­ÇÇ½ºÀÇ Å¬¸®ÇÎ ³»ºÎ¿µ¿ª¿¡¸¸ ±×¸°´Ù.)
+	// 6. ì••ì¶•(0ë²ˆ)ë° ì—¼ìƒ‰ëœ WORDí˜• ë°ì´íƒ€ ê·¸ë¦¬ê¸° í•¨ìˆ˜.(ë°±ì„œí”¼ìŠ¤ì˜ í´ë¦¬í•‘ ë‚´ë¶€ì˜ì—­ì—ë§Œ ê·¸ë¦°ë‹¤.)
 	BOOL					DrawWithImageForCompClipRgnBase(INT nX, INT nY, INT nXSize, INT nYSize, WORD* pwSrc, WORD wClipWidth, WORD wClipHeight, WORD wChooseColor1 = 0XFFFF, WORD wChooseColor2 = 0XFFFF);
 	__inline VOID			DrawWithImageForCompClipRgn(INT nX, INT nY, INT nXSize, INT nYSize, WORD* pwSrc, WORD wClipWidth, WORD wClipHeight, WORD wChooseColor1 = 0XFFFF, WORD wChooseColor2 = 0XFFFF, BOOL bLighted = FALSE)
 	{
@@ -167,12 +175,12 @@ public:
 	}
 
 
-	// 7. ¾ĞÃà(0¹ø)¹× ¿°»öµÈ WORDÇü µ¥ÀÌÅ¸ ±×¸®±â ÇÔ¼ö.(¼Ò½º¸Ş¸ğ¸®ÀÇ ¿µ¿ª¿¡¼­ µ¥½ºÆ®¿µ¿ª¸Ş¸ğ¸®·Î ±×¸°´Ù.)
+	// 7. ì••ì¶•(0ë²ˆ)ë° ì—¼ìƒ‰ëœ WORDí˜• ë°ì´íƒ€ ê·¸ë¦¬ê¸° í•¨ìˆ˜.(ì†ŒìŠ¤ë©”ëª¨ë¦¬ì˜ ì˜ì—­ì—ì„œ ë°ìŠ¤íŠ¸ì˜ì—­ë©”ëª¨ë¦¬ë¡œ ê·¸ë¦°ë‹¤.)
 	BOOL					DrawWithImageForCompMemToMem(INT nX, INT nY, INT nXSize, INT nYSize, WORD* pwSrc, INT nDstXSize, INT nDstYSize, WORD* pwDst, WORD wChooseColor1 = 0XFFFF, WORD wChooseColor2 = 0XFFFF);
-	// 8. ¾ĞÃà(0¹ø)¹× ¿°»öµÈ WORDÇü µ¥ÀÌÅ¸ ±×¸®±â ÇÔ¼ö.(¾ĞÃàµÈ µ¥ÀÌÅ¸ÀÇ ¼Ò½º¸Ş¸ğ¸®ÀÇ ¿µ¿ª¿¡¼­ ÀÏºÎ·ºÆ®¿µ¿ª¸¸À» µ¥½ºÆ®¿µ¿ª¸Ş¸ğ¸®·Î ±×¸°´Ù.)
+	// 8. ì••ì¶•(0ë²ˆ)ë° ì—¼ìƒ‰ëœ WORDí˜• ë°ì´íƒ€ ê·¸ë¦¬ê¸° í•¨ìˆ˜.(ì••ì¶•ëœ ë°ì´íƒ€ì˜ ì†ŒìŠ¤ë©”ëª¨ë¦¬ì˜ ì˜ì—­ì—ì„œ ì¼ë¶€ë ‰íŠ¸ì˜ì—­ë§Œì„ ë°ìŠ¤íŠ¸ì˜ì—­ë©”ëª¨ë¦¬ë¡œ ê·¸ë¦°ë‹¤.)
 	BOOL					DrawWithImageForCompToMem(RECT rcWanted, WORD* pwSrc, WORD wChooseColor1, WORD wChooseColor2, WORD* pwDst);
 	BOOL					DrawWithImageForCompColorToMem(RECT rcWanted, WORD* pwSrc, WORD wColor, WORD* pwDst);
-	// 9. ¾ĞÃà(0¹ø)¹× ¿°»öµÈ WORDÇü µ¥ÀÌÅ¸ ±×¸®±â ÇÔ¼ö.(¾ĞÃàµÈ µ¥ÀÌÅ¸ÀÇ ¼Ò½º¿µ¿ª°ú µ¥½ºÆ®¿µ¿ªÀÇ ±³Â÷·ºÆ®¸¦ ¾ËÆÄºí·»µùÇØ¼­ ¹é¼­ÇÇ½º¿¡±×¸°´Ù.)
+	// 9. ì••ì¶•(0ë²ˆ)ë° ì—¼ìƒ‰ëœ WORDí˜• ë°ì´íƒ€ ê·¸ë¦¬ê¸° í•¨ìˆ˜.(ì••ì¶•ëœ ë°ì´íƒ€ì˜ ì†ŒìŠ¤ì˜ì—­ê³¼ ë°ìŠ¤íŠ¸ì˜ì—­ì˜ êµì°¨ë ‰íŠ¸ë¥¼ ì•ŒíŒŒë¸”ë Œë”©í•´ì„œ ë°±ì„œí”¼ìŠ¤ì—ê·¸ë¦°ë‹¤.)
 	BOOL					DrawWithABlendForIntersectCompData(INT nSrcX, INT nSrcY, 
 															   INT nSrcXSize, INT nSrcYSize, WORD* pwSrc,
 															   INT nDstX, INT nDstY,
@@ -182,18 +190,18 @@ public:
 															   WORD wSrcChooseColor1 = 0XFFFF, WORD wSrcChooseColor2 = 0XFFFF,
 															   WORD wDstChooseColor1 = 0XFFFF, WORD wDstChooseColor2 = 0XFFFF,
 															   WORD wSrcColor = 0XFFFF, WORD wDstColor = 0XFFFF);
-	// 10. ¾ĞÃà(0¹ø)¹× ¿°»öµÈ WORDÇü µ¥ÀÌÅ¸ ±×¸®±â ÇÔ¼ö.(¾ĞÃàµÈ µ¥ÀÌÅ¸ÀÇ ¼Ò½º¿µ¿ªÀ» ¹é¼­ÇÇ½º¿Í ¾ËÆÄºí·»µùÇÑ´Ù.)
+	// 10. ì••ì¶•(0ë²ˆ)ë° ì—¼ìƒ‰ëœ WORDí˜• ë°ì´íƒ€ ê·¸ë¦¬ê¸° í•¨ìˆ˜.(ì••ì¶•ëœ ë°ì´íƒ€ì˜ ì†ŒìŠ¤ì˜ì—­ì„ ë°±ì„œí”¼ìŠ¤ì™€ ì•ŒíŒŒë¸”ë Œë”©í•œë‹¤.)
 	BOOL					DrawWithABlendCompDataWithBackBuffer(INT nX, INT nY, 
 																 INT nXSize, INT nYSize, WORD* pwSrc,
 																 WORD wClipWidth, WORD wClipHeight,
 																 WORD wChooseColor1 = 0XFFFF, WORD wChooseColor2 = 0XFFFF, BYTE bOpa = 50);
-	// 11. ¾ĞÃà(0¹ø)¹× ¿°»öµÈ WORDÇü µ¥ÀÌÅ¸ ±×¸®±â ÇÔ¼ö.(¾ĞÃàµÈ µ¥ÀÌÅ¸ÀÇ ¼Ò½º¿µ¿ªÀ» ¿øÇÏ´Â ÄÃ·¯·Î ¶óÀÌÆÃ »óÅÂ·Î(¹à°Ô) ¹é¼­ÇÇ½º¿¡ ±×¸°´Ù.)
+	// 11. ì••ì¶•(0ë²ˆ)ë° ì—¼ìƒ‰ëœ WORDí˜• ë°ì´íƒ€ ê·¸ë¦¬ê¸° í•¨ìˆ˜.(ì••ì¶•ëœ ë°ì´íƒ€ì˜ ì†ŒìŠ¤ì˜ì—­ì„ ì›í•˜ëŠ” ì»¬ëŸ¬ë¡œ ë¼ì´íŒ… ìƒíƒœë¡œ(ë°ê²Œ) ë°±ì„œí”¼ìŠ¤ì— ê·¸ë¦°ë‹¤.)
 	BOOL					DrawWithABlendCompDataWithLightedColor(INT nX, INT nY, 
 																   INT nXSize, INT nYSize, WORD* pwSrc,
 																   WORD wClipWidth, WORD wClipHeight,
 																   WORD wChooseColor1 = 0XFFFF, WORD wChooseColor2 = 0XFFFF);
-	// ±×¸²ÀÚ ±×¸®±â ÇÔ¼ö.
-	// 12. ¾ĞÃà(0¹ø)¹× ¿°»öµÈ WORDÇü µ¥ÀÌÅ¸ ±×¸®±â ÇÔ¼ö.(¾ĞÃàµÈ µ¥ÀÌÅ¸ÀÇ ¼Ò½º¿µ¿ªÀÇ ±×¸²ÀÚ¸¦ ¹é¼­ÇÇ½º¿¡ ¾ËÆÄºí·»µùÇÑ´Ù. ±×¸²ÀÚ´Â ³ôÀÌ°¡ Àı¹İÀ¸·Î ÁÙ¾îµé°í ³ĞÀÌ´Â YSize¸¸Å­ ´Ã¾î³ª¼­ ±â¿ï¿© ¹é¼­ÇÇ½º¿¡ ÂïÈù´Ù.)
+	// ê·¸ë¦¼ì ê·¸ë¦¬ê¸° í•¨ìˆ˜.
+	// 12. ì••ì¶•(0ë²ˆ)ë° ì—¼ìƒ‰ëœ WORDí˜• ë°ì´íƒ€ ê·¸ë¦¬ê¸° í•¨ìˆ˜.(ì••ì¶•ëœ ë°ì´íƒ€ì˜ ì†ŒìŠ¤ì˜ì—­ì˜ ê·¸ë¦¼ìë¥¼ ë°±ì„œí”¼ìŠ¤ì— ì•ŒíŒŒë¸”ë Œë”©í•œë‹¤. ê·¸ë¦¼ìëŠ” ë†’ì´ê°€ ì ˆë°˜ìœ¼ë¡œ ì¤„ì–´ë“¤ê³  ë„“ì´ëŠ” YSizeë§Œí¼ ëŠ˜ì–´ë‚˜ì„œ ê¸°ìš¸ì—¬ ë°±ì„œí”¼ìŠ¤ì— ì°íŒë‹¤.)
 	BOOL					DrawWithShadowABlend(INT nX, INT nY, 
 												 INT nXSize, INT nYSize, WORD* pwSrc,
 												 WORD wClipWidth, WORD wClipHeight, WORD* pwShadowClrSrc,
@@ -201,13 +209,13 @@ public:
 	VOID					DrawWithShadowABlend(INT nX, INT nY, INT nXSize, INT nYSize, 
 		                                         INT nPX, INT nPY, WORD* pwSrc, WORD wClipWidth, WORD wClipHeight, WORD* pwShadowClrSrc,
 												 BOOL bBlend = FALSE, BYTE bOpa = 50);
-	// ÄÃ·¯Ã³¸®.
+	// ì»¬ëŸ¬ì²˜ë¦¬.
 	// 13.
 	BOOL					DrawWithImageForCompClipRgnColor(INT nX, INT nY, INT nXSize, INT nYSize, WORD* pwSrc, WORD wClipWidth, WORD wClipHeight, WORD wColor, BOOL bFocused = FALSE, BOOL bBlend = FALSE);
 	BOOL					DrawWithImageForCompClipRgnColor(INT nX, INT nY, INT nXSize, INT nYSize, WORD* pwSrc, WORD wClipWidth, WORD wClipHeight, WORD wColor, WORD wChooseColor1 = 0XFFFF, WORD wChooseColor2 = 0XFFFF);
 	// 14.
 	BOOL					DrawWithImageForCompClipRgnGray(INT nX, INT nY, INT nXSize, INT nYSize, WORD* pwSrc , WORD wClipWidth, WORD wClipHeight, WORD wChooseColor1 = 0XFFFF, WORD wChooseColor2 = 0XFFFF);
-	// Èæ¹éÃ³¸®.
+	// í‘ë°±ì²˜ë¦¬.
 	// 15.
 	VOID					DrawWithGrayBackBuffer();
 

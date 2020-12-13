@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 
 #define _MSG_GOOD		"+GOOD/"
 #define _MSG_FAIL		"+FAIL/"
@@ -79,7 +79,7 @@ BOOL CPlayerObject::IsProperTarget(CCharObject* pTargetObject)
              if MyGuild <> nil then begin
                 if TGuild(MyGuild).IsMember(target.UserName) then
                    Result := FALSE;
-                if BoGuildWarArea and (target.MyGuild <> nil) then begin  //¹®ÆÄÀü,°ø¼ºÀü Áö¿ª¿¡ ÀÖÀ½
+                if BoGuildWarArea and (target.MyGuild <> nil) then begin  //ë¬¸íŒŒì „,ê³µì„±ì „ ì§€ì—­ì— ìˆìŒ
                    if TGuild(MyGuild).IsAllyGuild(TGuild(target.MyGuild)) then
                       Result := FALSE;
                 end;
@@ -91,11 +91,11 @@ BOOL CPlayerObject::IsProperTarget(CCharObject* pTargetObject)
           if not ((target.RaceServer >= RC_NPC) and (target.RaceServer <= RC_PEACENPC)) then
              Result := TRUE;
           if target.RaceServer = RC_USERHUMAN then
-             if self.PKLevel >= 2 then begin  //°ø°İÇÏ´Â ÀÚ°¡ »¡°»ÀÌ
+             if self.PKLevel >= 2 then begin  //ê³µê²©í•˜ëŠ” ìê°€ ë¹¨ê°±ì´
                 if target.PKLevel < 2 then Result := TRUE
                 else Result := FALSE;
              end else begin
-                //°ø°İÇÏ´Â ÀÚ°¡ ÈòµÕÀÌ
+                //ê³µê²©í•˜ëŠ” ìê°€ í°ë‘¥ì´
                 if target.PKLevel >= 2 then Result := TRUE
                 else Result := FALSE;
              end;
@@ -108,24 +108,24 @@ BOOL CPlayerObject::IsProperTarget(CCharObject* pTargetObject)
            Result := FALSE;
         end;
 
-        if not target.BoInFreePKArea then begin  //°ø¼ºÀü Áö¿ª¿¡¼­´Â Á¦¿Ü µÈ´Ù.
-           if (PKLevel >= 2) and (Abil.Level > 10) then begin //°í·¦ »¡°»ÀÌµé
-              if (target.Abil.Level <= 10) and (target.PKLevel < 2) then //Àú·¾ ÂøÇÑ ÃÊº¸¸¦ °ø°İ ¸øÇÑ´Ù.
+        if not target.BoInFreePKArea then begin  //ê³µì„±ì „ ì§€ì—­ì—ì„œëŠ” ì œì™¸ ëœë‹¤.
+           if (PKLevel >= 2) and (Abil.Level > 10) then begin //ê³ ë© ë¹¨ê°±ì´ë“¤
+              if (target.Abil.Level <= 10) and (target.PKLevel < 2) then //ì €ë ™ ì°©í•œ ì´ˆë³´ë¥¼ ê³µê²© ëª»í•œë‹¤.
                  Result := FALSE;
            end;
-           if (Abil.Level <= 10) and (PKLevel < 2) then begin //Àú·¾ ÂøÇÑ ÃÊº¸
-              if (target.PKLevel >= 2) and (target.Abil.Level > 10) then //°í·¾ »¡°»ÀÌµéÀ» °ø°İ¸øÇÑ´Ù.
+           if (Abil.Level <= 10) and (PKLevel < 2) then begin //ì €ë ™ ì°©í•œ ì´ˆë³´
+              if (target.PKLevel >= 2) and (target.Abil.Level > 10) then //ê³ ë ™ ë¹¨ê°±ì´ë“¤ì„ ê³µê²©ëª»í•œë‹¤.
                  Result := FALSE;
            end;
         end;
 
-        //¸Ê ÀÌµ¿ÈÄ 3ÃÊ µ¿¾ÈÀº °ø°İ ¸øÇÏ°í ¾È ´çÇÔ
+        //ë§µ ì´ë™í›„ 3ì´ˆ ë™ì•ˆì€ ê³µê²© ëª»í•˜ê³  ì•ˆ ë‹¹í•¨
         if (GetTickCount - MapMoveTime < 3000) or (GetTickCount - target.MapMoveTime < 3000) then
            Result := FALSE;
 
      end else begin
-        if target.Master = self then begin  //³» ºÎÇÏ
-           if HumAttackMode <> HAM_ALL then  //¸ğµÎ °ø°İ ÀÏ¶§¸¸ ºÎÇÏ°¡ °ø°İµÊ
+        if target.Master = self then begin  //ë‚´ ë¶€í•˜
+           if HumAttackMode <> HAM_ALL then  //ëª¨ë‘ ê³µê²© ì¼ë•Œë§Œ ë¶€í•˜ê°€ ê³µê²©ë¨
               Result := FALSE;
         end else begin
            if target.Master <> nil then
@@ -387,20 +387,20 @@ var
    hum: TUserHuman;
 begin
    Result := FALSE;
-   if BoDealing then exit;  //±³È¯Áß¿¡´Â ¹°°ÇÀ» ÁÖÀ» ¼ö ¾ø´Ù.
+   if BoDealing then exit;  //êµí™˜ì¤‘ì—ëŠ” ë¬¼ê±´ì„ ì£¼ì„ ìˆ˜ ì—†ë‹¤.
    pmi := PEnvir.GetItem (CX, CY);
    if pmi <> nil then begin
-      if CompareText (pmi.Name, '±İÀü') = 0 then begin
+      if CompareText (pmi.Name, 'ê¸ˆì „') = 0 then begin
          if PEnvir.DeleteFromMap (CX, CY, OS_ITEMOBJECT, TObject(pmi)) = 1 then begin
             if IncGold (pmi.Count) then begin
                SendRefMsg (RM_ITEMHIDE, 0, integer(pmi), CX, CY, '');
-               //·Î±×³²±è
-               AddUserLog ('Áİ±â_' +
+               //ë¡œê·¸ë‚¨ê¹€
+               AddUserLog ('ì¤ê¸°_' +
                            MapName + '_' +
                            IntToStr(CX) + '_' +
                            IntToStr(CY) + '_' +
                            UserName + '_' +
-                           '±İÀü_' +
+                           'ê¸ˆì „_' +
                            IntToStr(pmi.count));
                GoldChanged;
                Dispose (pmi);
@@ -416,9 +416,9 @@ begin
                if (ps <> nil) and IsAddWeightAvailable (UserEngine.GetStdItemWeight(pu.Index)) then begin
                   SendMsg (self, RM_ITEMHIDE, 0, integer(pmi), CX, CY, '');
                   AddItem (pu);
-                  //·Î±×³²±è
+                  //ë¡œê·¸ë‚¨ê¹€
                   if not IsCheapStuff (ps.StdMode) then
-                     AddUserLog ('Áİ±â_' +
+                     AddUserLog ('ì¤ê¸°_' +
                                  MapName + '_' +
                                  IntToStr(CX) + '_' +
                                  IntToStr(CY) + '_' +
@@ -557,7 +557,7 @@ int CPlayerObject::UpdateItemToDB(_LPTUSERITEMRCD lpMakeItemRcd, int nAction)
 
 	if ( !pRec->Execute( szQuery ) || pRec->GetRowCount() <= 0 )
 	{
-		InsertLogMsg(_T("UpdateItemToDB : °»½Å ¿À·ù"));
+		InsertLogMsg(_T("UpdateItemToDB : ê°±ì‹  ì˜¤ë¥˜"));
 		g_pConnGame->DestroyRecordset( pRec );
 
 		return 0;
@@ -616,11 +616,11 @@ begin
    hum := TUserHuman (UserEngine.GetUserHuman (whostr));
    if hum <> nil then begin
       if not hum.ReadyRun then begin
-         SysMsg (whostr + '´Ô¿¡°Ô ¸Ş¼¼Áö¸¦ Àü´Ş ÇÒ ¼ö ¾ø½À´Ï´Ù.', 0);
+         SysMsg (whostr + 'ë‹˜ì—ê²Œ ë©”ì„¸ì§€ë¥¼ ì „ë‹¬ í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.', 0);
          exit;
       end;
       if not hum.BoHearWhisper or hum.IsBlockWhisper (UserName) then begin
-         SysMsg (whostr + '´ÔÀº ±Ó¼Ó¸» °ÅºÎÁß ÀÔ´Ï´Ù.', 0);
+         SysMsg (whostr + 'ë‹˜ì€ ê·“ì†ë§ ê±°ë¶€ì¤‘ ì…ë‹ˆë‹¤.', 0);
          exit;
       end;
       hum.SendMsg (self, RM_WHISPER, 0, 0, 0, 0, UserName + '=> ' + saystr);
@@ -628,7 +628,7 @@ begin
       if UserEngine.FindOtherServerUser (whostr, svidx) then begin
          UserEngine.SendInterMsg (ISM_WHISPER, svidx, whostr + '/' + UserName + '=> ' + saystr);
       end else
-         SysMsg (whostr + '´ÔÀ» Ã£À» ¼ö ¾ø½À´Ï´Ù.', 0);
+         SysMsg (whostr + 'ë‹˜ì„ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.', 0);
    end;
 end;
 }
@@ -679,7 +679,7 @@ void CPlayerObject::WinExp(int nExp)
 		HasLevelUp(m_Ability.Level - 1);
 
 		AddBodyLuck (100);
-/*      AddUserLog ('·¾¾÷_' +
+/*      AddUserLog ('ë ™ì—…_' +
                   UserName + '_' +
                   IntToStr(Abil.Level) + '_' +
                   IntToStr(Abil.Exp)); */
@@ -734,18 +734,18 @@ void CPlayerObject::HasLevelUp(int nPrevLevel)
    RecalcLevelAbilitys();
 /*
 {$IFDEF FOR_ABIL_POINT}
-//4/16ÀÏ ºÎÅÍ Àû¿ë
+//4/16ì¼ ë¶€í„° ì ìš©
    if prevlevel + 1 = Abil.Level then begin
-      BonusPoint := BonusPoint + GetBonusPoint (Job, Abil.Level);  //·¾¾÷¿¡ µû¸¥ º¸³Ê½º
+      BonusPoint := BonusPoint + GetBonusPoint (Job, Abil.Level);  //ë ™ì—…ì— ë”°ë¥¸ ë³´ë„ˆìŠ¤
       SendMsg (self, RM_ADJUST_BONUS, 0, 0, 0, 0, '');
    end else begin
       if prevlevel <> Abil.Level then begin
-         //º¸³Ê½º Æ÷ÀÎÆ®¸¦ Ã³À½ºÎÅÍ ´Ù½Ã °è»êÇÑ´Ù.
+         //ë³´ë„ˆìŠ¤ í¬ì¸íŠ¸ë¥¼ ì²˜ìŒë¶€í„° ë‹¤ì‹œ ê³„ì‚°í•œë‹¤.
          BonusPoint := GetLevelBonusSum (Job, Abil.Level);
          FillChar (BonusAbil, sizeof(TNakedAbility), #0);
          FillChar (CurBonusAbil, sizeof(TNakedAbility), #0);
          //if prevlevel <> 0 then begin
-         RecalcLevelAbilitys;  //·¹º§¿¡ µû¸¥ ´É·ÂÄ¡¸¦ °è»êÇÑ´Ù.
+         RecalcLevelAbilitys;  //ë ˆë²¨ì— ë”°ë¥¸ ëŠ¥ë ¥ì¹˜ë¥¼ ê³„ì‚°í•œë‹¤.
          //end else begin
          //   RecalcLevelAbilitys_old;
          //   BonusPoint := 0;
@@ -768,7 +768,7 @@ void CPlayerObject::RecalcHitSpeed()
 	m_btHitPoint = 5;
 
    /*case Job of
-      2: SpeedPoint := DEFSPEED + BonusAbil.Speed + 3;  //µµ»ç´Â ±âº» ¹ÎÃ¸ÀÌ ³ô´Ù.
+      2: SpeedPoint := DEFSPEED + BonusAbil.Speed + 3;  //ë„ì‚¬ëŠ” ê¸°ë³¸ ë¯¼ì²©ì´ ë†’ë‹¤.
       else SpeedPoint := DEFSPEED + BonusAbil.Speed;
    end;*/
 	if (m_pUserInfo->GetJob() == 2)
@@ -849,7 +849,7 @@ void CPlayerObject::RecalcAbilitys()
 	m_btPoisonRecover	= 0;
 	m_btHealthRecover	= 0;
 	m_btSpellRecover	= 0;
-	m_btAntiMagic		= 1;   //±âº» 10%
+	m_btAntiMagic		= 1;   //ê¸°ë³¸ 10%
 	
 	m_sHitSpeed			= 0;
 
@@ -882,13 +882,13 @@ void CPlayerObject::RecalcAbilitys()
 				m_WAbility.WearWeight += g_pStdItemSpecial[lpUserItemRcd->nStdIndex].wWeight; 
 
 			if ( i == U_WEAPON )
-				m_AddAbility.WeaponStrong = (BYTE)g_pStdItemSpecial[lpUserItemRcd->nStdIndex].dwRSource; // ¹«±âÀÇ °­µµ. °­µµ°¡ ³ôÀ¸¸é Àß ¾È »Ç°³Áü
+				m_AddAbility.WeaponStrong = (BYTE)g_pStdItemSpecial[lpUserItemRcd->nStdIndex].dwRSource; // ë¬´ê¸°ì˜ ê°•ë„. ê°•ë„ê°€ ë†’ìœ¼ë©´ ì˜ ì•ˆ ë½€ê°œì§
 		}
 	}
 
 	m_WAbility.Weight	= m_pUserInfo->CalcBagWeight();
 
-	// BEGIN:Àº½Å¼ú
+	// BEGIN:ì€ì‹ ìˆ 
 	if ((m_fFixedHideMode) && (m_wStatusArr[STATE_TRANSPARENT] > 0))
 		m_fHumHideMode = TRUE;
 
@@ -909,7 +909,7 @@ void CPlayerObject::RecalcAbilitys()
 			AddRefMsg(RM_CHARSTATUSCHANGED, m_sHitSpeed/*wparam*/, m_nCharStatus, 0, 0, NULL);
 		}
 	}
-	// END:Àº½Å¼ú
+	// END:ì€ì‹ ìˆ 
 
 	RecalcHitSpeed();
 
@@ -951,10 +951,10 @@ void CPlayerObject::RecalcAbilitys()
 	m_WAbility.MC		= MAKEWORD(LOBYTE(m_AddAbility.MC)  + LOBYTE(m_Ability.MC),  HIBYTE(m_AddAbility.MC)  + HIBYTE(m_Ability.MC));
 	m_WAbility.SC		= MAKEWORD(LOBYTE(m_AddAbility.SC)  + LOBYTE(m_Ability.SC),  HIBYTE(m_AddAbility.SC)  + HIBYTE(m_Ability.SC));
 
-	if (m_wStatusArr[STATE_DEFENCEUP] > 0) // ¹æ¾î·Â »ó½Â
+	if (m_wStatusArr[STATE_DEFENCEUP] > 0) // ë°©ì–´ë ¥ ìƒìŠ¹
 		m_WAbility.AC = MAKEWORD(LOBYTE(m_WAbility.AC), HIBYTE(m_WAbility.AC) + 2 + (m_Ability.Level / 7));
 
-	if (m_wStatusArr[STATE_MAGDEFENCEUP] > 0) // ¸¶Ç×·Â »ó½Â
+	if (m_wStatusArr[STATE_MAGDEFENCEUP] > 0) // ë§ˆí•­ë ¥ ìƒìŠ¹
 		m_WAbility.MAC = MAKEWORD(LOBYTE(m_WAbility.MAC), HIBYTE(m_WAbility.MAC) + 2 + (m_Ability.Level / 7));
 
 	UpdateProcess(this, RM_CHARSTATUSCHANGED, m_sHitSpeed/*wparam*/, m_nCharStatus, 0, 0, NULL);
@@ -1083,7 +1083,7 @@ void CPlayerObject::RecalcLevelAbilitys()
 
 	switch (m_pUserInfo->m_THumanRcd.btJob)
 	{
-		case 2:		// µµ»ç
+		case 2:		// ë„ì‚¬ é“å£«
 		{
             m_Ability.MaxHP			= 14 + ROUND((nLevel / 6 + 2.5) * nLevel);
             m_Ability.MaxMP			= 13 + ROUND((nLevel / 8)* 2.2 * nLevel);
@@ -1104,7 +1104,7 @@ void CPlayerObject::RecalcLevelAbilitys()
 		
 			break;
 		}
-		case 1:		// ¼ú»ç
+		case 1:		// ìˆ ì‚¬ æ³•å¸ˆ
 		{
             m_Ability.MaxHP			= 14 + ROUND((nLevel / 15 + 1.8) * nLevel);
             m_Ability.MaxMP			= 13 + ROUND((nLevel / 5 + 2) * 2.2 * nLevel);
@@ -1122,7 +1122,7 @@ void CPlayerObject::RecalcLevelAbilitys()
 
 			break;
 		}
-		case 0:		// Àü»ç
+		case 0:		// ì „ì‚¬ æˆ˜å£«
 		{
             m_Ability.MaxHP			= 14 + ROUND((nLevel / 4 + 4) * nLevel);
             m_Ability.MaxMP			= 11 + (int)(nLevel * 2);
@@ -1295,7 +1295,7 @@ BOOL CPlayerObject::CheckTakeOnItem(WORD wWhere, _LPTUSERITEMRCD lpTItemRcd)
 	{
 		if (lpTItemRcd->szMakeIndex[0] != 'B') return FALSE;
 
-		if (g_pStdItemSpecial[lpTItemRcd->nStdIndex].wStdMode == 10)	// ³²ÀÚ¿Ê
+		if (g_pStdItemSpecial[lpTItemRcd->nStdIndex].wStdMode == 10)	// ë‚¨ìì˜·
 		{
 			if (m_tFeature.btGender != 0)
 			{
@@ -1306,7 +1306,7 @@ BOOL CPlayerObject::CheckTakeOnItem(WORD wWhere, _LPTUSERITEMRCD lpTItemRcd)
 				return FALSE;
 			}
 		}
-		else if (g_pStdItemSpecial[lpTItemRcd->nStdIndex].wStdMode == 11)	// ¿©ÀÚ¿Ê
+		else if (g_pStdItemSpecial[lpTItemRcd->nStdIndex].wStdMode == 11)	// ì—¬ìì˜·
 		{
 			if (m_tFeature.btGender != 1)
 			{
@@ -1558,7 +1558,7 @@ void CPlayerObject::Run()
 	if (RestoreHealSpell())
 		Die();
 
-	// ¼ÒÈ¯ ¿ÀºêÁ§Æ® °Ë»ç
+	// ì†Œí™˜ ì˜¤ë¸Œì íŠ¸ ê²€ì‚¬
 	if (m_xSlaveObjList.GetCount())
 	{
 		PLISTNODE pListNode = m_xSlaveObjList.GetHead();
@@ -1608,7 +1608,7 @@ void CPlayerObject::ServerGetButch(CCharObject* pCharObject, int nX, int nY, int
 
 					if (pAnimalObject->m_nBodyLeathery <= 0)
 					{
-	//               if (animal.RaceServer >= RC_ANIMAL) and (animal.RaceServer < RC_MONSTER) then begin  //»ç½¿°°ÀÌ °í±â¸¦ÁÖ´Â °Í¸¸, ÇØ°ñ·Î º¯ÇÔ
+	//               if (animal.RaceServer >= RC_ANIMAL) and (animal.RaceServer < RC_MONSTER) then begin  //ì‚¬ìŠ´ê°™ì´ ê³ ê¸°ë¥¼ì£¼ëŠ” ê²ƒë§Œ, í•´ê³¨ë¡œ ë³€í•¨
 	//                  animal.BoSkeleton := TRUE;
 	//                  animal.ApplyMeatQuality;
 	//                  animal.SendRefMsg (RM_SKELETON, animal.Dir, animal.CX, animal.CY, 0, '')
@@ -1617,7 +1617,7 @@ void CPlayerObject::ServerGetButch(CCharObject* pCharObject, int nX, int nY, int
 						pAnimalObject->AddRefMsg(RM_SKELETON, pAnimalObject->m_nDirection, pAnimalObject->m_nCurrX, pAnimalObject->m_nCurrY, 0, NULL);
 
 //						if (!pAnimalObject->TakeCretBagItems())
-//							SysMag("¾Æ¹«°Íµµ ¾òÁö ¸øÇß½À´Ï´Ù.", 0);
+//							SysMag("ì•„ë¬´ê²ƒë„ ì–»ì§€ ëª»í–ˆìŠµë‹ˆë‹¤.", 0);
 
 						pAnimalObject->m_nBodyLeathery = 50;
 					}
@@ -1738,14 +1738,14 @@ BOOL CPlayerObject::DoSpell(_LPTHUMANMAGICRCD	lptMagicRcd, int TargetX, int Targ
 
 	switch (lptMagicRcd->btMagicID)
 	{
-		case _SKILL_SHOWHP:			// Å½±âÆÄ¿¬
+		case _SKILL_SHOWHP:			// íƒê¸°íŒŒì—°
 		{
 			if (!DoShowHP(pTargetObject, pMagicInfo, lptMagicRcd->btLevel))
 				return FALSE;
 		
 			break;
 		}
-		case _SKILL_HEALLING:		// È¸º¹¼ú
+		case _SKILL_HEALLING:		// íšŒë³µìˆ 
 		{
 			if (!pTargetObject)
 			{
@@ -1764,14 +1764,14 @@ BOOL CPlayerObject::DoSpell(_LPTHUMANMAGICRCD	lptMagicRcd, int TargetX, int Targ
 #ifdef _DEBUG
 				char szMsg[64];
 
-				sprintf(szMsg, "%s È¸º¹½ÃÅ´ - PW:%d HP:%d", pTargetObject->m_szName, nPwr, pTargetObject->m_WAbility.HP);
+				sprintf(szMsg, "%s íšŒë³µì‹œí‚´ - PW:%d HP:%d", pTargetObject->m_szName, nPwr, pTargetObject->m_WAbility.HP);
 				SysMsg(szMsg, 0);
 #endif
 			}
 
 			break;
 		}
-		case _SKILL_BIGHEALLING:	// ´ëÈ¸º¹¼ú
+		case _SKILL_BIGHEALLING:	// ëŒ€íšŒë³µìˆ 
 		{
 			int nPwr = GetAttackPower(pMagicInfo->GetPower(pMagicInfo->MPow() + LOBYTE(m_WAbility.SC) * 2, lptMagicRcd->btLevel), 
 										(HIBYTE(m_WAbility.SC) - LOBYTE(m_WAbility.SC)) * 2 + 1);
@@ -1781,7 +1781,7 @@ BOOL CPlayerObject::DoSpell(_LPTHUMANMAGICRCD	lptMagicRcd, int TargetX, int Targ
 			
 			break;
 		}
-		case _SKILL_LIGHTENING:		// °­°İ
+		case _SKILL_LIGHTENING:		// ê°•ê²©
 		{
 			if (IsProperTarget(pTargetObject))
 			{
@@ -1806,8 +1806,8 @@ BOOL CPlayerObject::DoSpell(_LPTHUMANMAGICRCD	lptMagicRcd, int TargetX, int Targ
 
 			break;
 		}
-		case _SKILL_FIREBALL:		// È­¿°Àå
-		case _SKILL_FIREBALL2:		// ±İ°­È­¿°Àå 
+		case _SKILL_FIREBALL:		// í™”ì—¼ì¥
+		case _SKILL_FIREBALL2:		// ê¸ˆê°•í™”ì—¼ì¥ 
 		{
 			int nPwr = GetAttackPower(pMagicInfo->GetPower(pMagicInfo->MPow(), lptMagicRcd->btLevel) + LOBYTE(m_WAbility.MC), 
 										HIBYTE(m_WAbility.MC) - LOBYTE(m_WAbility.MC) + 1);
@@ -1822,10 +1822,10 @@ BOOL CPlayerObject::DoSpell(_LPTHUMANMAGICRCD	lptMagicRcd, int TargetX, int Targ
                          ShortInt(Hibyte(WAbil.MC)-Lobyte(WAbil.MC)) + 1
                       );
              //pwr := GetPower (MPow(pum)) + (Lobyte(WAbil.MC) + Random(Hibyte(WAbil.MC)-Lobyte(WAbil.MC) + 1));
-             //Å¸°Ù ¸ÂÀ½, ÈÄ¿¡ È¿°ú³ªÅ¸³²
+             //íƒ€ê²Ÿ ë§ìŒ, í›„ì— íš¨ê³¼ë‚˜íƒ€ë‚¨
              //target.SendDelayMsg (user, RM_MAGSTRUCK, 0, pwr, 0, 0, '', 1200 + _MAX(Abs(CX-xx),Abs(CY-yy)) * 50 );
           end;
-          //rm-delaymagic¿¡¼­ selecttargetÀ» Ã³¸®ÇÑ´Ù.
+          //rm-delaymagicì—ì„œ selecttargetì„ ì²˜ë¦¬í•œë‹¤.
           user.SendDelayMsg (user, RM_DELAYMAGIC, pwr, MakeLong(xx, yy), 2, integer(target), '', 600);
           if (target.RaceServer >= RC_ANIMAL) then train := TRUE;
        end else
@@ -1836,13 +1836,13 @@ BOOL CPlayerObject::DoSpell(_LPTHUMANMAGICRCD	lptMagicRcd, int TargetX, int Targ
     target := nil; */
 			break;
 		}
-		case _SKILL_FIREWIND:		// È­¿°Ç³
+		case _SKILL_FIREWIND:		// í™”ì—¼í’
 		{
 			if (MagPushArround(3) > 0) fTrain = TRUE;
 
 			break;
 		}
-		case _SKILL_FIRE:			// ¿°»çÀå
+		case _SKILL_FIRE:			// ì—¼ì‚¬ì¥
 		{
 			int nX = 0, nY = 0;
 
@@ -1861,7 +1861,7 @@ BOOL CPlayerObject::DoSpell(_LPTHUMANMAGICRCD	lptMagicRcd, int TargetX, int Targ
 
 			break;
 		}
-		case _SKILL_SHOOTLIGHTEN:	// ·ÚÀÎÀå
+		case _SKILL_SHOOTLIGHTEN:	// ë¢°ì¸ì¥
 		{
 			int nX = 0, nY = 0;
 
@@ -1880,14 +1880,14 @@ BOOL CPlayerObject::DoSpell(_LPTHUMANMAGICRCD	lptMagicRcd, int TargetX, int Targ
 
 			break;
 		}
-		case _SKILL_SHIELD:		// ÁÖ¼úÀÇ¸·
+		case _SKILL_SHIELD:		// ì£¼ìˆ ì˜ë§‰
 		{
 			if (MagBubbleDefenceUp(lptMagicRcd->btLevel, pMagicInfo->GetPower(15 + GetRPow(m_WAbility.MC), lptMagicRcd->btLevel)))
 				fTrain = TRUE;
 
 			break;
 		}
-		case _SKILL_EATTHFIRE:	// Áö¿°¼ú
+		case _SKILL_EATTHFIRE:	// ì§€ì—¼ìˆ 
 		{
 			int nPwr = GetAttackPower(pMagicInfo->GetPower(pMagicInfo->MPow(), lptMagicRcd->btLevel) + LOBYTE(m_WAbility.MC), 
 										HIBYTE(m_WAbility.MC) - LOBYTE(m_WAbility.MC) + 1);
@@ -1897,8 +1897,8 @@ BOOL CPlayerObject::DoSpell(_LPTHUMANMAGICRCD	lptMagicRcd, int TargetX, int Targ
 
 			break;
 		}
-		case _SKILL_FIREBOOM:	// Æø¿­ÆÄ
-		case _SKILL_SNOWWIND:	// ºù¼³Ç³
+		case _SKILL_FIREBOOM:	// í­ì—´íŒŒ
+		case _SKILL_SNOWWIND:	// ë¹™ì„¤í’
 		{
 			if (MagBigExplosion(GetAttackPower(pMagicInfo->GetPower(pMagicInfo->MPow(), lptMagicRcd->btLevel) + LOBYTE(m_WAbility.MC), 
 												HIBYTE(m_WAbility.MC) - LOBYTE(m_WAbility.MC) + 1), 
@@ -1926,7 +1926,7 @@ BOOL CPlayerObject::DoSpell(_LPTHUMANMAGICRCD	lptMagicRcd, int TargetX, int Targ
 
 					switch (lptMagicRcd->btMagicID)
 					{
-						case _SKILL_HANGMAJINBUB:	// Ç×¸¶Áø¹ı
+						case _SKILL_HANGMAJINBUB:	// í•­ë§ˆì§„ë²•
 						{
 							int nPwr = GetAttackPower(pMagicInfo->GetPower13(60, lptMagicRcd->btLevel) + 5 * LOBYTE(m_WAbility.SC),
 														5 * (HIBYTE(m_WAbility.SC) - LOBYTE(m_WAbility.SC)) + 1);
@@ -1936,7 +1936,7 @@ BOOL CPlayerObject::DoSpell(_LPTHUMANMAGICRCD	lptMagicRcd, int TargetX, int Targ
 
 							break;
 						}
-						case _SKILL_DEJIWONHO:		// ´ëÁö¿øÈ£
+						case _SKILL_DEJIWONHO:		// ëŒ€ì§€ì›í˜¸
 						{
 							int nPwr = GetAttackPower(pMagicInfo->GetPower13(60, lptMagicRcd->btLevel) + 5 * LOBYTE(m_WAbility.SC),
 														5 * (HIBYTE(m_WAbility.SC) - LOBYTE(m_WAbility.SC)) + 1);
@@ -1946,21 +1946,21 @@ BOOL CPlayerObject::DoSpell(_LPTHUMANMAGICRCD	lptMagicRcd, int TargetX, int Targ
 
 							break;
 						}
-						case _SKILL_CLOAK:			// Àº½Å¼ú
+						case _SKILL_CLOAK:			// ì€ì‹ ìˆ 
 						{
 							if (MagMakePrivateTransparent(pMagicInfo->GetPower13(30, lptMagicRcd->btLevel) + 3 * GetRPow(m_WAbility.SC)))
 								fTrain = TRUE;
 
 							break;
 						}
-						case _SKILL_BIGCLOAK:		// ´ëÀº½Å¼ú
+						case _SKILL_BIGCLOAK:		// ëŒ€ì€ì‹ ìˆ 
 						{
 							if (MagMakeGroupTransparent(TargetX, TargetY, pMagicInfo->GetPower13(30, lptMagicRcd->btLevel) + 3 * GetRPow(m_WAbility.SC)))
 								fTrain = TRUE;
 
 							break;
 						}
-						case _SKILL_FIRECHARM:		// Æø»ì°è
+						case _SKILL_FIRECHARM:		// í­ì‚´ê³„
 						{
 							int nPwr = GetAttackPower(pMagicInfo->GetPower(pMagicInfo->MPow(), lptMagicRcd->btLevel) + LOBYTE(m_WAbility.SC), 
 														HIBYTE(m_WAbility.SC) - LOBYTE(m_WAbility.SC) + 1);
@@ -1969,14 +1969,14 @@ BOOL CPlayerObject::DoSpell(_LPTHUMANMAGICRCD	lptMagicRcd, int TargetX, int Targ
 
 							break;
 						}
-						case _SKILL_HOLYSHIELD:		// °á°è
+						case _SKILL_HOLYSHIELD:		// ê²°ê³„
 						{
 							if (MagMakeHolyCurtain(pMagicInfo->GetPower13(40, lptMagicRcd->btLevel) + 3 * GetRPow(m_WAbility.SC), TargetX, TargetY) > 0)
 								fTrain = TRUE;
 
 							break;
 						}
-						case _SKILL_SKELLETON:		// ¹é°ñ¼ÒÈ¯¼ú
+						case _SKILL_SKELLETON:		// ë°±ê³¨ì†Œí™˜ìˆ 
 						{
 							int nX, nY;
 
@@ -1997,7 +1997,7 @@ BOOL CPlayerObject::DoSpell(_LPTHUMANMAGICRCD	lptMagicRcd, int TargetX, int Targ
 
 			break;
 		}
-		case _SKILL_SINSU:			// ½Å¼ö¼ÒÈ¯
+		case _SKILL_SINSU:			// ì‹ ìˆ˜ì†Œí™˜
 		{
 			if (_LPTGENERALITEMRCD lptItem = m_pUserInfo->CanUseBujuk())
 			{
@@ -2053,10 +2053,10 @@ BOOL CPlayerObject::DoSpell(_LPTHUMANMAGICRCD	lptMagicRcd, int TargetX, int Targ
       with user do begin
          if needfire then
             SendRefMsg (RM_MAGICFIRE, 0, MakeWord(pum.pDef.EffectType, pum.pDef.Effect), MakeLong(xx, yy), integer(target), '');
-         //¸ÂÀº »ó´ë
+         //ë§ì€ ìƒëŒ€
          if (pum.Level < 3) and train then
             if Abil.Level >= pum.pDef.NeedLevel[pum.Level] then begin
-               //¼ö·Ã·¹º§¿¡ µµ´ŞÇÑ °æ¿ì
+               //ìˆ˜ë ¨ë ˆë²¨ì— ë„ë‹¬í•œ ê²½ìš°
                user.TrainSkill (pum, 1 + Random(3));
                if not CheckMagicLevelup (pum) then
                   SendDelayMsg (user, RM_MAGIC_LVEXP, 0, pum.pDef.MagicId, pum.Level, pum.CurTrain, '', 1000);
@@ -2225,7 +2225,7 @@ void CPlayerObject::Operate()
 								// Debug Code
 								char szMsg[64];
 
-								sprintf(szMsg, "%s ¸¶¹ı ¸ÂÀ½ - PW:%d", pTargetObject->m_szName, nMagPower);
+								sprintf(szMsg, "%s ë§ˆë²• ë§ìŒ - PW:%d", pTargetObject->m_szName, nMagPower);
 								SysMsg(szMsg, 0);
 								// Debug Code
 

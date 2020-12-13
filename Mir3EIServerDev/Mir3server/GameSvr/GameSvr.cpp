@@ -1,4 +1,4 @@
-// GameSvr.cpp : Defines the entry point for the application.
+﻿// GameSvr.cpp : Defines the entry point for the application.
 //
 
 #include "stdafx.h"
@@ -189,6 +189,7 @@ BOOL InitInstance(HANDLE hInstance, int nCmdShow)
 
 	srand((unsigned)time(NULL));
 
+	/*
 	BYTE	btInstalled;
 
 	if (!jRegGetKey(_GAME_SERVER_REGISTRY, _TEXT("Installed"), (LPBYTE)&btInstalled))
@@ -199,12 +200,13 @@ BOOL InitInstance(HANDLE hInstance, int nCmdShow)
 
 	jRegGetKey(_GAME_SERVER_REGISTRY, _TEXT("Device"), (LPBYTE)wszDatabase);
 	WideCharToMultiByte(CP_ACP, 0, wszDatabase, -1, szDatabase, sizeof(szDatabase), NULL, NULL);
+	*/
 
 	g_MirDB.SetDiagRec( __cbDBMsg );
 	g_MirDB.Init();
 
-	g_pConnCommon	= g_MirDB.CreateConnection( "Mir2_Common", "sa", "prg" );
-	g_pConnGame		= g_MirDB.CreateConnection( szDatabase, "sa", "prg" );
+	g_pConnCommon	= g_MirDB.CreateConnection( "LEGENDOFMIR", "sa", "678169" );
+	g_pConnGame		= g_MirDB.CreateConnection( "LEGENDOFMIR", "sa", "678169" );
 
 	return TRUE;
 }

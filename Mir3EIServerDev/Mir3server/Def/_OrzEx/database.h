@@ -1,4 +1,4 @@
-
+О╩©
 
 /*
 	Date:
@@ -87,12 +87,12 @@ protected:
 	class CColumnInfo
 	{
 	public:
-		int  nColNameSize;			// дц╥Ё юл╦╖ е╘╠Б
-		char szColName[DB_MAXBUF];	// дц╥Ё юл╦╖
-		int  nColType;				// дц╥Ё е╦ют
-		int  nColSize;				// дц╥Ё е╘╠Б
-		int  nAllowDecimalDigit;	// 10аЬ╪Ж ╨╞╟Ф гЦ©К ©╘╨н
-		int  nAllowNull;			// Ён гЦ©К ©╘╨н
+		int  nColNameSize;			// Л╩╛К÷╪ Л²╢К╕└ М│╛Й╦╟
+		char szColName[DB_MAXBUF];	// Л╩╛К÷╪ Л²╢К╕└
+		int  nColType;				// Л╩╛К÷╪ М┐─Л·┘
+		int  nColSize;				// Л╩╛К÷╪ М│╛Й╦╟
+		int  nAllowDecimalDigit;	// 10Л╖└Л┬≤ КЁ─Й╡╫ М≈┬Л ╘ Л≈╛К╤─
+		int  nAllowNull;			// К└░ М≈┬Л ╘ Л≈╛К╤─
 
 	public:
 		CColumnInfo();
@@ -103,8 +103,8 @@ protected:
 	class CColumnData
 	{
 	public:
-		char *pData;				// ╣╔юлем
-		int  nDataSize;				// ╪Ь╪Ж ╣╔юлем е╘╠Б (гр╢Г╣х ╦ч╦П╦╝ е╘╠Б╟║ ╬ф╢т)
+		char *pData;				// К█╟Л²╢М└╟
+		int  nDataSize;				// Л┬°Л┬≤ К█╟Л²╢М└╟ М│╛Й╦╟ (М∙═К▀╧К░° К╘■К╙╗К╕╛ М│╛Й╦╟Й╟─ Л∙└К▀≤)
 
 	public:
 		CColumnData();

@@ -58,8 +58,10 @@ CMapInfo* InitDataInDatabase()
 	InitMerchantInfo();
 	InitMoveMapEventInfo();
 
+	
 	if (!jRegGetKey(_GAME_SERVER_REGISTRY, _TEXT("ServerNumber"), (LPBYTE)&nServerIndex))
 		return FALSE;
+	
 
 	return InitMapInfo(nServerIndex);
 }
