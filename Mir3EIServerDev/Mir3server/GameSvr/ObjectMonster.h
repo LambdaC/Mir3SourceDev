@@ -1,26 +1,26 @@
-
-#define _MONSTER_SANDMOB		3		// ¼®ÀåÀÎ
-#define _MONSTER_ROCKMAN		4		// »ç±«
-#define _MONSTER_RON			9		// ·Ğ
-#define _MONSTER_MINORNUMA		18		// ´©¸¶
-#define _ANIMAL_DEER			21		// »ç½¿
-#define _MONSTER_OMA			23		// ¿À¸¶
-#define _MONSTER_OMAKNIGHT		25		// ¿À¸¶Àü»ç
-#define _MONSTER_OMAWARRIOR		27		// ¿À¸¶¿ë»ç
-#define _MONSTER_SPITSPIDER		30		// Ä§°Å¹Ì
-#define _MONSTER_STICK			39		// ½ÄÀÎÃÊ
-#define _MONSTER_DUALAXE		42		// ½Öµµ³¢ÇØ°ñ
-#define _MONSTER_THONEDARK		74		// ´ÙÅ©
-#define _MONSTER_LIGHTZOMBI		78		// ¶óÀÌÆ®´× Á»ºñ
-#define _MONSTER_WHITESKELETON	94		// ¹é°ñ
-#define _MONSTER_BEEQUEEN		124		// ºñ¸·¿øÃæ
-#define _MONSTER_BEE			125		// ºñ¸·Ãæ
-#define _MONSTER_MAGUNGSA		143		// ¸¶±Ã»ç
-#define _MONSTER_SCULTURE1		145		// ÁÖ¸¶½ÅÀå
-#define _MONSTER_SCULTURE2		148		// ÁÖ¸¶½ÅÀå
-#define _MONSTER_SCULTUREKING	152		// ÁÖ¸¶¿Õ
-#define _MONSTER_ELFMONSTER		161		// ½Å¼ö
-#define _MONSTER_ELFWARRIOR		162		// ½Å¼ö º¯½ÅÈÄ
+ï»¿
+#define _MONSTER_SANDMOB		3		// ì„ì¥ì¸
+#define _MONSTER_ROCKMAN		4		// ì‚¬ê´´
+#define _MONSTER_RON			9		// ë¡ 
+#define _MONSTER_MINORNUMA		18		// ëˆ„ë§ˆ
+#define _ANIMAL_DEER			21		// ì‚¬ìŠ´
+#define _MONSTER_OMA			23		// ì˜¤ë§ˆ
+#define _MONSTER_OMAKNIGHT		25		// ì˜¤ë§ˆì „ì‚¬
+#define _MONSTER_OMAWARRIOR		27		// ì˜¤ë§ˆìš©ì‚¬
+#define _MONSTER_SPITSPIDER		30		// ì¹¨ê±°ë¯¸
+#define _MONSTER_STICK			39		// ì‹ì¸ì´ˆ
+#define _MONSTER_DUALAXE		42		// ìŒë„ë¼í•´ê³¨
+#define _MONSTER_THONEDARK		74		// ë‹¤í¬
+#define _MONSTER_LIGHTZOMBI		78		// ë¼ì´íŠ¸ë‹ ì¢€ë¹„
+#define _MONSTER_WHITESKELETON	94		// ë°±ê³¨
+#define _MONSTER_BEEQUEEN		124		// ë¹„ë§‰ì›ì¶©
+#define _MONSTER_BEE			125		// ë¹„ë§‰ì¶©
+#define _MONSTER_MAGUNGSA		143		// ë§ˆê¶ì‚¬
+#define _MONSTER_SCULTURE1		145		// ì£¼ë§ˆì‹ ì¥
+#define _MONSTER_SCULTURE2		148		// ì£¼ë§ˆì‹ ì¥
+#define _MONSTER_SCULTUREKING	152		// ì£¼ë§ˆì™•
+#define _MONSTER_ELFMONSTER		161		// ì‹ ìˆ˜
+#define _MONSTER_ELFWARRIOR		162		// ì‹ ìˆ˜ ë³€ì‹ í›„
 
 #define LA_UNDEAD				1
 
@@ -142,7 +142,7 @@ public:
 	int				m_nBodyLeathery;
 };
 
-// ´ß
+// ë‹­
 class CChickenObject : public CAnimalObject
 {
 public:
@@ -151,7 +151,7 @@ public:
 	virtual void	Run();
 };
 
-// ÁÖ¸¶½ÅÀå, ÁÖ¸¶È£¹ı
+// ì£¼ë§ˆì‹ ì¥, ì£¼ë§ˆí˜¸ë²•
 class CScultureObject : public CMonsterObject
 {
 public:
@@ -163,7 +163,7 @@ public:
 	virtual void	Run();
 };
 
-// ÁÖ¸¶¿Õ
+// ì£¼ë§ˆì™•
 class CScultureKingObject : public CMonsterObject
 {
 protected:
@@ -179,7 +179,7 @@ public:
 	virtual void	Run();
 };
 
-// ºñ¸·¿øÃæ
+// ë¹„ë§‰ì›ì¶©
 class CBeeQueen : public CMonsterObject
 {
 protected:
@@ -195,7 +195,7 @@ public:
 	virtual void	Run();
 };
 
-// ½Öµµ³¢ÇØ°ñ, ¸¶±Ã»ç
+// ìŒë„ë¼í•´ê³¨, ë§ˆê¶ì‚¬
 class CDualAxeObject : public CMonsterObject
 {
 protected:
@@ -211,7 +211,7 @@ public:
 	virtual void	Run();
 };
 
-// ¶óÀÌÆ®ºù Á»ºñ
+// ë¼ì´íŠ¸ë¹™ ì¢€ë¹„
 class CLightingZombiObject : public CMonsterObject
 {	   	
 public:
@@ -225,7 +225,7 @@ public:
 	virtual void	Run();
 };
 
-// ·Ğ
+// ë¡ 
 class CRonObject : public CGenneralMonObject
 {
 public:
@@ -234,21 +234,21 @@ public:
 	virtual void	Run();
 };
 
-// ÇÏ±Ş ´©¸¶
+// í•˜ê¸‰ ëˆ„ë§ˆ
 class CMinorNumaObject : public CMonsterObject
 {
 public:
 	virtual void	Run();
 };
 
-// ¿À¸¶ ½Ã¸®Áî
+// ì˜¤ë§ˆ ì‹œë¦¬ì¦ˆ
 class COmaObject : public CMonsterObject
 {
 public:
 	virtual void	Run();
 };
 
-// ½ÄÀÎÃÊ
+// ì‹ì¸ì´ˆ
 class CStickObject : public CMonsterObject
 {
 public:
@@ -258,7 +258,7 @@ public:
 };
 
 
-// ¸ğ·¡ ±«¹° (»ç±«)
+// ëª¨ë˜ ê´´ë¬¼ (ì‚¬ê´´)
 class CSandMobObject : public CMonsterObject
 {
 public:
@@ -269,7 +269,7 @@ public:
 	virtual void	Run();
 };
 
-// ¼®ÀåÀÎ
+// ì„ì¥ì¸
 class CRockManObject : public CMonsterObject
 {
 public:
@@ -278,7 +278,7 @@ public:
 	virtual void	Run();
 };
 
-// ¹é°ñ
+// ë°±ê³¨
 class CWhiteSkeleton : public CGenneralMonObject
 {
 protected:
@@ -292,7 +292,7 @@ public:
 	virtual void	Run();
 };
 
-// Ä§°Å¹Ì
+// ì¹¨ê±°ë¯¸
 class CSpitSpiderMonster : public CGenneralMonObject
 {
 public:
@@ -303,7 +303,7 @@ public:
 	virtual BOOL AttackTarget();
 };
 
-// ½Å¼ö º¯½ÅÀü
+// ì‹ ìˆ˜ ë³€ì‹ ì „
 class CElfMonster : public CMonsterObject
 {
 protected:
@@ -318,7 +318,7 @@ public:
 	virtual void	Run();
 };
 
-// ½Å¼ö º¯½ÅÈÄ
+// ì‹ ìˆ˜ ë³€ì‹ í›„
 class CElfWarriorMonster : public CSpitSpiderMonster
 {
 protected:

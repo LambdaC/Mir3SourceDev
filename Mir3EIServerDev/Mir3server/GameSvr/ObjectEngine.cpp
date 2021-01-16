@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 
 #define _RANGE_X			12
 #define _RANGE_Y			12
@@ -253,7 +253,7 @@ BOOL CCharObject::GetBackPosition(int &nX, int &nY)
 
 BOOL CCharObject::IsProperTarget(CCharObject* pTargetObject)
 {
-//	if target.BoSysopMode or target.BoStoneMode then  //¿î¿µÀÚ...
+//	if target.BoSysopMode or target.BoStoneMode then  //ìš´ì˜ì...
 //       Result := FALSE;
 
 	return TRUE;
@@ -277,8 +277,8 @@ BOOL CCharObject::IsFriend(CCharObject* pCharObject)
 /*   function IsFriend (cret: TCreature): Boolean;
    begin
       Result := FALSE;
-      if cret.RaceServer = RC_USERHUMAN then begin  //´ë»óÀÌ »ç¶÷ÀÎ °æ¿ì¸¸
-         //°ø°İÇüÅÂ ¼³Á¤¿¡ µû¶ó ´Ù¸§
+      if cret.RaceServer = RC_USERHUMAN then begin  //ëŒ€ìƒì´ ì‚¬ëŒì¸ ê²½ìš°ë§Œ
+         //ê³µê²©í˜•íƒœ ì„¤ì •ì— ë”°ë¼ ë‹¤ë¦„
          case HumAttackMode of
             HAM_ALL:  Result := TRUE;
             HAM_PEACE: Result := TRUE;
@@ -296,7 +296,7 @@ BOOL CCharObject::IsFriend(CCharObject* pCharObject)
                   if MyGuild <> nil then begin
                      if TGuild(MyGuild).IsMember(cret.UserName) then
                         Result := TRUE;
-                     if BoGuildWarArea and (cret.MyGuild <> nil) then begin  //¹®ÆÄÀü,°ø¼ºÀü Áö¿ª¿¡ ÀÖÀ½
+                     if BoGuildWarArea and (cret.MyGuild <> nil) then begin  //ë¬¸íŒŒì „,ê³µì„±ì „ ì§€ì—­ì— ìˆìŒ
                         if TGuild(MyGuild).IsAllyGuild(TGuild(cret.MyGuild)) then
                            Result := TRUE;
                      end;
@@ -305,9 +305,9 @@ BOOL CCharObject::IsFriend(CCharObject* pCharObject)
             HAM_PKATTACK:
                begin
                   if cret = self then Result := TRUE;
-                  if PKLevel >= 2 then begin //³»°¡ »¡°»ÀÌ
+                  if PKLevel >= 2 then begin //ë‚´ê°€ ë¹¨ê°±ì´
                      if cret.PKLevel < 2 then Result := TRUE;
-                  end else begin  //³»°¡ ÈòµÕÀÌ
+                  end else begin  //ë‚´ê°€ í°ë‘¥ì´
                      if cret.PKLevel >= 2 then Result := TRUE;
                   end;
                end;
@@ -376,7 +376,7 @@ BOOL CCharObject::RestoreHealSpell()
 		m_WAbility.MP = m_WAbility.MaxMP;
 	}
 
-	int n = (GetTickCount() - m_dwTickSec) / 20;  //ÃÊ´ç 50
+	int n = (GetTickCount() - m_dwTickSec) / 20;  //ì´ˆë‹¹ 50
 	
 	m_dwTickSec = GetTickCount();
 
@@ -423,14 +423,14 @@ BOOL CCharObject::RestoreHealSpell()
 			return TRUE;
 		}
 /*        if WAbil.HP = 0 then begin
-            if BoAbilRevival then begin //Àç»ı ´É·ÂÀÌ ÀÖ´Ù.
+            if BoAbilRevival then begin //ì¬ìƒ ëŠ¥ë ¥ì´ ìˆë‹¤.
                if GetTickCount - LatestRevivalTime > 60 * 1000 then begin
                   LatestRevivalTime := GetTickCount;
-                  //¹İÁö¸¦ ´â°Ô ÇÑ´Ù.
+                  //ë°˜ì§€ë¥¼ ë‹³ê²Œ í•œë‹¤.
                   ItemDamageRevivalRing;
                   WAbil.HP := WAbil.MaxHP;
                   HealthSpellChanged;
-                  SysMsg ('¹İÁöÀÇ ÈûÀ¸·Î ¸öÀÌ Àç»ıµÇ¾ú½À´Ï´Ù.', 1);
+                  SysMsg ('ë°˜ì§€ì˜ í˜ìœ¼ë¡œ ëª¸ì´ ì¬ìƒë˜ì—ˆìŠµë‹ˆë‹¤.', 1);
                end;
             end;
             if WAbil.HP = 0 then
@@ -621,9 +621,9 @@ begin
    ps := UserEngine.GetStdItem (ui.Index);
    if ps <> nil then begin
 
-      if ps.StdMode = 40 then begin //°í±â¸¦ ¶¥¿¡ ¶³¾î¶ß¸° °æ¿ì °í±â Ç°ÁúÀÌ ¶³¾îÁø´Ù.
-         idura := ui.Dura; //wordÀÌ¹Ç·Î.
-         idura := idura - 2000; //°í±â Ç°ÁúÀÌ ¶³¾îÁø´Ù.
+      if ps.StdMode = 40 then begin //ê³ ê¸°ë¥¼ ë•…ì— ë–¨ì–´ëœ¨ë¦° ê²½ìš° ê³ ê¸° í’ˆì§ˆì´ ë–¨ì–´ì§„ë‹¤.
+         idura := ui.Dura; //wordì´ë¯€ë¡œ.
+         idura := idura - 2000; //ê³ ê¸° í’ˆì§ˆì´ ë–¨ì–´ì§„ë‹¤.
          if idura < 0 then idura := 0;
          ui.Dura := idura;
       end;
@@ -632,20 +632,20 @@ begin
       pmi.UserItem := ui;
       pmi.Name := ps.Name;
       pmi.Looks := ps.Looks;
-      if ps.StdMode = 45 then begin  //ÁÖ»çÀ§, ¸ñÀç
+      if ps.StdMode = 45 then begin  //ì£¼ì‚¬ìœ„, ëª©ì¬
          pmi.Looks := GetRandomLook (pmi.Looks, ps.Shape);
       end;
       pmi.AniCount := ps.AniCount;
       pmi.Reserved := 0;
       pmi.Count := 1;
       GetDropPosition (CX, CY, scatterrange, dx, dy);
-      pr := Penvir.AddToMap (dx, dy, OS_ITEMOBJECT, TObject (pmi));  //ÇÑ¼¿¿¡ 5°³ ÀÌ»óÀÇ ¾ÆÀÌÅÛÀÌ ÀÖÀ¸¸é ½ÇÆĞÇÑ´Ù.
+      pr := Penvir.AddToMap (dx, dy, OS_ITEMOBJECT, TObject (pmi));  //í•œì…€ì— 5ê°œ ì´ìƒì˜ ì•„ì´í…œì´ ìˆìœ¼ë©´ ì‹¤íŒ¨í•œë‹¤.
       if pr = pmi then begin
-         //¾ÆÀÌÅÛÀº Ãß°¡ ¾Æ´Ï¸é ½ÇÆĞ..
+         //ì•„ì´í…œì€ ì¶”ê°€ ì•„ë‹ˆë©´ ì‹¤íŒ¨..
          SendRefMsg (RM_ITEMSHOW, pmi.Looks, integer(pmi), dx, dy, pmi.Name);
-         //¶³¾î¶ß¸²
-         if diedrop then logcap := '¶³±À_'
-         else logcap := '¹ö¸²_';
+         //ë–¨ì–´ëœ¨ë¦¼
+         if diedrop then logcap := 'ë–¨êµ¼_'
+         else logcap := 'ë²„ë¦¼_';
          if not IsCheapStuff (ps.StdMode) then
             AddUserLog (logcap +
                         MapName + '_' +
@@ -657,7 +657,7 @@ begin
                         IntToStr(ui.MakeIndex));
          Result := TRUE;
       end else begin
-         //½ÇÆĞÀÎ°æ¿ì
+         //ì‹¤íŒ¨ì¸ê²½ìš°
          Dispose (pmi);
       end;
    end;
@@ -693,11 +693,11 @@ void CCharObject::Run()
 					{
 						case STATE_DEFENCEUP:
 							fNeedRecalc = TRUE;
-							SysMsg("¹æ¾î·Â »ó½Â ÇØÁ¦", 1);
+							SysMsg("ë°©ì–´ë ¥ ìƒìŠ¹ í•´ì œ", 1);
 							break;
                         case STATE_MAGDEFENCEUP:
 							fNeedRecalc = TRUE;
-							SysMsg("¸¶Ç×·Â »ó½Â ÇØÁ¦", 1);
+							SysMsg("ë§ˆí•­ë ¥ ìƒìŠ¹ í•´ì œ", 1);
 							break;
 /*                        case STATE_TRANSPARENT:
                            begin
@@ -743,47 +743,47 @@ void CCharObject::Die()
    try
       boPK := FALSE;
       if (not BoVentureServer) and (not PEnvir.FightZone) and (not PEnvir.Fight3Zone) then begin
-         //PK±İÁö ±¸¿ªÀÎ °æ¿ì
+         //PKê¸ˆì§€ êµ¬ì—­ì¸ ê²½ìš°
          if (RaceServer = RC_USERHUMAN) and (LastHiter <> nil) and (PKLevel < 2) then begin
-            //Á×ÀºÀÚ°¡ »ç¶÷, ¶§¸°ÀÚ ÀÖÀ½, Á×ÀºÀÚ°¡ PK¾Æ´Ô
+            //ì£½ì€ìê°€ ì‚¬ëŒ, ë•Œë¦°ì ìˆìŒ, ì£½ì€ìê°€ PKì•„ë‹˜
             if LastHiter.RaceServer = RC_USERHUMAN then
                boPK := TRUE;
             if LastHiter.Master <> nil then
                if LastHiter.Master.RaceServer = RC_USERHUMAN then begin
-                  LastHiter := LastHiter.Master; //ÁÖÀÎÀÌ ¶§¸° °ÍÀ¸·Î °£ÁÖ
+                  LastHiter := LastHiter.Master; //ì£¼ì¸ì´ ë•Œë¦° ê²ƒìœ¼ë¡œ ê°„ì£¼
                   boPK := TRUE;
                end;
          end;
       end;
 
       if boPK and (LastHiter <> nil) then begin
-         //»ç¶÷ÀÌ Á×Àº °æ¿ì, ¸ğÇè¼­¹ö¿¡¼­´Â ÇØ´ç¾ÈµÊ
-         //»ç¶÷ÀÌ ¼±·®ÇÑ »ç¶÷À» Á×ÀÓ.
+         //ì‚¬ëŒì´ ì£½ì€ ê²½ìš°, ëª¨í—˜ì„œë²„ì—ì„œëŠ” í•´ë‹¹ì•ˆë¨
+         //ì‚¬ëŒì´ ì„ ëŸ‰í•œ ì‚¬ëŒì„ ì£½ì„.
 
-         //¹®ÆÄÀüÀ¸·Î Á×À½
+         //ë¬¸íŒŒì „ìœ¼ë¡œ ì£½ìŒ
          guildwarkill := FALSE;
          if (MyGuild <> nil) and (LastHiter.MyGuild <> nil) then begin
-            //µÑ´Ù ¹®ÆÄ¿¡ °¡ÀÔµÈ »óÅÂ¿¡¼­
-            if GetGuildRelation (self, LastHiter) = 2 then  //¹®ÆÄÀü ÁßÀÓ
-               guildwarkill := TRUE;  //¹®ÆÄÀüÀ¸·Î Á×À½, »¡°»ÀÌ ¾ÈµÊ
+            //ë‘˜ë‹¤ ë¬¸íŒŒì— ê°€ì…ëœ ìƒíƒœì—ì„œ
+            if GetGuildRelation (self, LastHiter) = 2 then  //ë¬¸íŒŒì „ ì¤‘ì„
+               guildwarkill := TRUE;  //ë¬¸íŒŒì „ìœ¼ë¡œ ì£½ìŒ, ë¹¨ê°±ì´ ì•ˆë¨
          end;
 
-         //°ø¼ºÀüÀ¸·Î Á×À½
+         //ê³µì„±ì „ìœ¼ë¡œ ì£½ìŒ
          if UserCastle.BoCastleUnderAttack then
             if (BoInFreePKArea) or (UserCastle.IsCastleWarArea (PEnvir, CX, CY)) then
                guildwarkill := TRUE;
 
-         if not guildwarkill then begin //¹®ÆÄÀüÀ¸·Î Á×À½
+         if not guildwarkill then begin //ë¬¸íŒŒì „ìœ¼ë¡œ ì£½ìŒ
             if not LastHiter.IsGoodKilling(self) then begin
                LastHiter.IncPkPoint (100); //
-               LastHiter.SysMsg ('´ç½ÅÀº »ìÀÎÀ» ÇÏ¿´½À´Ï´Ù.', 0);
-               //»ìÀÎÇÑ »ç¶÷ Çà¿î °¨¼Ò
+               LastHiter.SysMsg ('ë‹¹ì‹ ì€ ì‚´ì¸ì„ í•˜ì˜€ìŠµë‹ˆë‹¤.', 0);
+               //ì‚´ì¸í•œ ì‚¬ëŒ í–‰ìš´ ê°ì†Œ
                LastHiter.AddBodyLuck (-500);
-               if PkLevel < 1 then //Á×Àº »ç¶÷ÀÌ ÂøÇÑ »ç¶÷
-                  if Random(5) = 0 then //»ìÀÎÀ» ÇÏ¸é ¹«±â°¡ ÀúÁÖ¸¦ ¹Ş´Â´Ù.
+               if PkLevel < 1 then //ì£½ì€ ì‚¬ëŒì´ ì°©í•œ ì‚¬ëŒ
+                  if Random(5) = 0 then //ì‚´ì¸ì„ í•˜ë©´ ë¬´ê¸°ê°€ ì €ì£¼ë¥¼ ë°›ëŠ”ë‹¤.
                      LastHiter.MakeWeaponUnlock;
             end else
-               LastHiter.SysMsg ('[Á¤´ç¹æ¾î ±ÔÄ¢¿¡ ÀÇÇØ º¸È£µÊ]', 1);
+               LastHiter.SysMsg ('[ì •ë‹¹ë°©ì–´ ê·œì¹™ì— ì˜í•´ ë³´í˜¸ë¨]', 1);
          end;
 
       end;
@@ -794,44 +794,44 @@ void CCharObject::Die()
    try
       if (not PEnvir.FightZone) and
          (not PEnvir.Fight3Zone) and
-         (not BoAnimal) then begin //µ¿¹°ÀÌ¸é ½ä¾î¾ß °í±â°¡ ³ª¿Â´Ù.
+         (not BoAnimal) then begin //ë™ë¬¼ì´ë©´ ì°ì–´ì•¼ ê³ ê¸°ê°€ ë‚˜ì˜¨ë‹¤.
          DropUseItems;
          if (Master = nil) and (not BoNoItem) then
-            ScatterBagItems;  //ÁÖÀÎÀÖ´Â ¸÷Àº ¹°°ÇÀ» Èê¸®Áö ¾ÊÀ½
+            ScatterBagItems;  //ì£¼ì¸ìˆëŠ” ëª¹ì€ ë¬¼ê±´ì„ í˜ë¦¬ì§€ ì•ŠìŒ
          if (RaceServer >= RC_ANIMAL) and (Master = nil) and (not BoNoItem) then
             ScatterGolds;
-         //Á×Àº °æ¿ì Çà¿îÄ¡ °¨¼Ò
+         //ì£½ì€ ê²½ìš° í–‰ìš´ì¹˜ ê°ì†Œ
          AddBodyLuck ( - (50 - (50 - Abil.Level * 5)));
       end;
 
-      //¹®ÆÄ ´ëÀü Áß
+      //ë¬¸íŒŒ ëŒ€ì „ ì¤‘
       if PEnvir.Fight3Zone then begin
-         //3¹ø Á×¾îµµ µÇ´Â ´ë·ÃÀÎ °æ¿ì
+         //3ë²ˆ ì£½ì–´ë„ ë˜ëŠ” ëŒ€ë ¨ì¸ ê²½ìš°
          Inc (FightZoneDieCount);
          if MyGuild <> nil then begin
             TGuild(MyGuild).TeamFightWhoDead (UserName);
          end;
 
-         //Á¡¼ö °è»ê
+         //ì ìˆ˜ ê³„ì‚°
          if (LastHiter <> nil) then begin
             if (LastHiter.MyGuild <> nil) and (MyGuild <> nil) then begin
-               TGuild(LastHiter.MyGuild).TeamFightWhoWinPoint (LastHiter.UserName, 100);  //matchpoint Áõ°¡, °³ÀÎ¼ºÀû ±â·Ï
+               TGuild(LastHiter.MyGuild).TeamFightWhoWinPoint (LastHiter.UserName, 100);  //matchpoint ì¦ê°€, ê°œì¸ì„±ì  ê¸°ë¡
                str := TGuild(LastHiter.MyGuild).GuildName + ':' +
                       IntToStr(TGuild(LastHiter.MyGuild).MatchPoint) + '  ' +
                       TGuild(MyGuild).GuildName + ':' +
                       IntToStr(TGuild(MyGuild).MatchPoint);
-               UserEngine.CryCry (RM_CRY, PEnvir, CX, CY, 10000, '- ' + str);  //Çö¸Ê ÀüÃ¼¿¡°Ô ¾Ë¸°´Ù.
+               UserEngine.CryCry (RM_CRY, PEnvir, CX, CY, 10000, '- ' + str);  //í˜„ë§µ ì „ì²´ì—ê²Œ ì•Œë¦°ë‹¤.
             end;
          end;
       end;
 
-      //·Î±×¸¦ ³²±ä´Ù.
+      //ë¡œê·¸ë¥¼ ë‚¨ê¸´ë‹¤.
       if RaceServer = RC_USERHUMAN then begin
          if LastHiter <> nil then begin
             if LastHiter.RaceServer = RC_USERHUMAN then str := LastHiter.UserName
             else str := '#' + LastHiter.UserName;
          end else str := '####';
-         AddUserLog ('Á×À½_' +
+         AddUserLog ('ì£½ìŒ_' +
                      MapName + '_' +
                      IntToStr(CX) + '_' +
                      IntToStr(CY) + '_' +
@@ -1814,7 +1814,7 @@ void CCharObject::DamageSpell(int nVal)
 //			if (-) healing health
 void CCharObject::DamageHealth(int nDamage)
 {
-/*  º¸È£ÀÇ¹İÁö 
+/*  ë³´í˜¸ì˜ë°˜ì§€ 
 	if BoMagicShield and (damage > 0) and (WAbil.MP > 0) then begin
       spdam := Round (damage * 1.5);
       if integer(WAbil.MP) >= spdam then begin
@@ -1856,7 +1856,7 @@ int CCharObject::GetMagStruckDamage(int nDamage)
 
 	if (nDamage > 0)
 	{
-		if (m_fAbilMagBubbleDefence) // ÁÖ¼úÀÇ¸·
+		if (m_fAbilMagBubbleDefence) // ì£¼ìˆ ì˜ë§‰
 		{
 			nDamage = ROUND(nDamage / 100 * (m_btMagBubbleDefenceLevel + 2) * 8);
 			DamageBubbleDefence();
@@ -1890,11 +1890,11 @@ void CCharObject::StruckDamage(int nDamage)
 				
 				nDura	-= wDam;
 
-				if (nDura <= 0)	// ´â¾Æ ¾ø¾îÁü
+				if (nDura <= 0)	// ë‹³ì•„ ì—†ì–´ì§
 				{
 					lptDress->nDura = nDura = 0;
 
-//               hum.SendDelItem (UseItems[U_DRESS]); //Å¬¶óÀÌ¾ğÆ®¿¡ ¾ø¾îÁø°Å º¸³¿
+//               hum.SendDelItem (UseItems[U_DRESS]); //í´ë¼ì´ì–¸íŠ¸ì— ì—†ì–´ì§„ê±° ë³´ëƒ„
 					m_pUserInfo->SetEmptyDress();
 
 					AddProcess(this, RM_DURACHANGE, U_DRESS, nDura, lptDress->nDuraMax, 0); 
@@ -1922,11 +1922,11 @@ void CCharObject::StruckDamage(int nDamage)
 					
 					nDura	-= wDam;
 
-					if (nDura <= 0)	// ´â¾Æ ¾ø¾îÁü
+					if (nDura <= 0)	// ë‹³ì•„ ì—†ì–´ì§
 					{
 						lptUseItem->nDura = nDura = 0;
 
-	//               hum.SendDelItem (UseItems[U_DRESS]); //Å¬¶óÀÌ¾ğÆ®¿¡ ¾ø¾îÁø°Å º¸³¿
+	//               hum.SendDelItem (UseItems[U_DRESS]); //í´ë¼ì´ì–¸íŠ¸ì— ì—†ì–´ì§„ê±° ë³´ëƒ„
 						m_pUserInfo->SetEmptyUseItem(i);
 
 						AddProcess(this, RM_DURACHANGE, i, nDura, lptUseItem->nDuraMax, 0); 
@@ -1964,7 +1964,7 @@ int CCharObject::GetHitStruckDamage(int nDamage)
 
 	if (nDamage > 0)
 	{
-		if (m_fAbilMagBubbleDefence) // ÁÖ¼úÀÇ¸·
+		if (m_fAbilMagBubbleDefence) // ì£¼ìˆ ì˜ë§‰
 		{
 			nDamage = ROUND(nDamage / 100 * (m_btMagBubbleDefenceLevel + 2) * 8);
 			DamageBubbleDefence();
@@ -1994,12 +1994,12 @@ int CCharObject::GetAttackPower(int nDamage, int nVal)
 begin
    if val < 0 then val := 0;
    if Luck > 0 then begin
-      if Random(10 - _MIN(9,Luck)) = 0 then Result := damage + val //Çà¿îÀÎ°æ¿ì
+      if Random(10 - _MIN(9,Luck)) = 0 then Result := damage + val //í–‰ìš´ì¸ê²½ìš°
       else Result := damage + Random(val + 1);
    end else begin
       Result := damage + Random(val + 1);
       if Luck < 0 then begin
-         if Random(10 - _MAX(0,-Luck)) = 0 then Result := damage;  //ºÒ¿îÀÎ°æ¿ì
+         if Random(10 - _MAX(0,-Luck)) = 0 then Result := damage;  //ë¶ˆìš´ì¸ê²½ìš°
       end;
    end; */
 }
@@ -2017,10 +2017,10 @@ void CCharObject::DoDamageWeapon(int nDamage)
 			
 			nDura	-= nDamage;
 
-			if (nDura <= 0)	// ´â¾Æ ¾ø¾îÁü
+			if (nDura <= 0)	// ë‹³ì•„ ì—†ì–´ì§
 			{
 				lptWeapon->nDura = nDura = 0;
-//               hum.SendDelItem (UseItems[U_DRESS]); //Å¬¶óÀÌ¾ğÆ®¿¡ ¾ø¾îÁø°Å º¸³¿
+//               hum.SendDelItem (UseItems[U_DRESS]); //í´ë¼ì´ì–¸íŠ¸ì— ì—†ì–´ì§„ê±° ë³´ëƒ„
 
 				((CPlayerObject*)this)->RecalcAbilitys();
 
@@ -2141,12 +2141,12 @@ BOOL CCharObject::_Attack(WORD wHitMode, CCharObject* pObject)
 
 			if (m_wObjectType & _OBJECT_HUMAN)
 			{
-				sprintf(szMsg, "%s ¸ÂÀ½ - PW:%d HP:%d, ¹«±â³»±¸´âÀ½:%d", pObject->m_szName, nPower, pObject->m_WAbility.HP, nWeaponDamage);
+				sprintf(szMsg, "%s ë§ìŒ - PW:%d HP:%d, ë¬´ê¸°ë‚´êµ¬ë‹³ìŒ:%d", pObject->m_szName, nPower, pObject->m_WAbility.HP, nWeaponDamage);
 				SysMsg(szMsg, 0);
 			}
 			else if (pObject->m_wObjectType & _OBJECT_HUMAN)
 			{
-				sprintf(szMsg, "%s ¸ÂÀ½ - PW:%d HP:%d", pObject->m_szName, nPower, pObject->m_WAbility.HP);
+				sprintf(szMsg, "%s ë§ìŒ - PW:%d HP:%d", pObject->m_szName, nPower, pObject->m_WAbility.HP);
 				pObject->SysMsg(szMsg, 0);
 			}
 			// Debug Code
@@ -2229,7 +2229,7 @@ BOOL CCharObject::HitXY(WORD wIdent, int nX, int nY, int nDir, int nHitStyle)
 				}
 			}
 
-			if (m_pUserInfo->m_lpTMagicPowerHitSkill)		// ¿¹µµ °Ë¹ı
+			if (m_pUserInfo->m_lpTMagicPowerHitSkill)		// ì˜ˆë„ ê²€ë²•
 			{
 				m_pUserInfo->m_btAttackSkillCount--;
 
@@ -2347,7 +2347,7 @@ void CCharObject::DoMotaebo()
 
 /* **************************************************************************************
 
-										Å½±âÆÄ¿¬
+										íƒê¸°íŒŒì—° å¿ƒçµå¯ç¤º
 
    ************************************************************************************** */
 
@@ -2394,7 +2394,7 @@ void CCharObject::BreakOpenHealth()
 
 /* **************************************************************************************
 
-										¹«ÅÂº¸
+										ë¬´íƒœë³´ é‡è›®å†²æ’
 
    ************************************************************************************** */
 
@@ -2425,7 +2425,7 @@ int CCharObject::CharPushed(int nDir, int nPushCount)
 
 	return nResult;
 
-/*function  TCreature.CharPushed (ndir, pushcount: integer): integer;  //¾î¶² Èû¿¡ ÀÇÇØ¼­ ¹Ğ·Á³ª´Ù.
+/*function  TCreature.CharPushed (ndir, pushcount: integer): integer;  //ì–´ë–¤ í˜ì— ì˜í•´ì„œ ë°€ë ¤ë‚˜ë‹¤.
 var
    i, nx, ny, olddir, oldx, oldy: integer;
 begin
@@ -2436,14 +2436,14 @@ begin
    Dir := ndir;
    for i:=0 to pushcount-1 do begin
       GetFrontPosition (self, nx, ny);
-      if PEnvir.CanWalk (nx, ny, FALSE{°âÄ§Çã¿ë¾ÈÇÔ}) then begin
+      if PEnvir.CanWalk (nx, ny, FALSE{ê²¸ì¹¨í—ˆìš©ì•ˆí•¨}) then begin
          if PEnvir.MoveToMovingObject (CX, CY, self, nx, ny, FALSE) > 0 then begin
             CX := nx;
             CY := ny;
             SendRefMsg (RM_PUSH, GetBack(ndir), CX, CY, 0, '');
             Inc (Result);
             if RaceServer >= RC_ANIMAL then
-               WalkTime := WalkTime + 800; //¹Ğ¸®¸é¼­ ´Ê°Ô ¶§¸°´Ù.
+               WalkTime := WalkTime + 800; //ë°€ë¦¬ë©´ì„œ ëŠ¦ê²Œ ë•Œë¦°ë‹¤.
          end else
             break;
       end else
@@ -2456,7 +2456,7 @@ end;
 
 /* **************************************************************************************
 
-										È­¿°Ç³
+										í™”ì—¼í’ æŠ—æ‹’ç«ç¯
 
    ************************************************************************************** */
 
@@ -2515,7 +2515,7 @@ begin
          if (not cret.Death) and (cret <> user) then begin
             if (user.Abil.Level > cret.Abil.Level) and (not cret.StickMode) then begin
                levelgap := user.Abil.Level - cret.Abil.Level;
-               if (Random(20) < 6+pushlevel*3+levelgap) then begin  //¼ö·ÃÁ¤µµ¿¡ µû¶ó¼­
+               if (Random(20) < 6+pushlevel*3+levelgap) then begin  //ìˆ˜ë ¨ì •ë„ì— ë”°ë¼ì„œ
                   if user.IsProperTarget(cret) then begin
                      push := 1 + _MAX(0,pushlevel-1) + Random(2);
                      ndir := GetNextDirection (user.CX, user.CY, cret.CX, cret.CY);
@@ -2533,7 +2533,7 @@ end;
 
 /* **************************************************************************************
 
-										¿°»çÀå, ·ÚÀÎÀå
+										ì—¼ì‚¬ì¥, ë¢°ì¸ì¥ åœ°ç‹±ç«, ç–¾å…‰ç”µå½±
 
    ************************************************************************************** */
 
@@ -2585,10 +2585,10 @@ begin
       cret := TCreature (PEnvir.GetCreature (sx, sy, TRUE));
       if cret <> nil then begin
          //if (RaceServer = RC_USERHUMAN) and (cret.RaceServer = RC_USERHUMAN) and ((cret.InSafeZone) or (InSafeZone)) then
-         //   continue;  //¾ÈÀüÁö´ë
+         //   continue;  //ì•ˆì „ì§€ëŒ€
          if IsProperTarget (cret) then begin
-            if cret.AntiMagic <= Random(10) then begin  //¸¶¹ı È¸ÇÇ°¡ ÀÖÀ½
-               if undeadattack then  //¾ğµ¥µå ¸ó½ºÅÍ¿¡°Ô °ø°İ·Â °­È­ÀÎ °æ¿ì
+            if cret.AntiMagic <= Random(10) then begin  //ë§ˆë²• íšŒí”¼ê°€ ìˆìŒ
+               if undeadattack then  //ì–¸ë°ë“œ ëª¬ìŠ¤í„°ì—ê²Œ ê³µê²©ë ¥ ê°•í™”ì¸ ê²½ìš°
                   acpwr := Round (magpwr * 1.5)
                else
                   acpwr := magpwr;
@@ -2610,7 +2610,7 @@ end; */
 
 /* **************************************************************************************
 
-										ÁÖ¼úÀÇ¸·
+										ì£¼ìˆ ì˜ë§‰ é­”æ³•ç›¾
 
    ************************************************************************************** */
 
@@ -2650,7 +2650,7 @@ void CCharObject::DamageBubbleDefence()
 
 /* **************************************************************************************
 
-										Áö¿°¼ú
+										ì§€ì—¼ìˆ  ç«å¢™
 
    ************************************************************************************** */
 
@@ -2691,7 +2691,7 @@ int CCharObject::MagMakeFireCross(int nDamage, int nHTime, int nX, int nY)
 
 /* **************************************************************************************
 
-										°á°è
+										ê²°ê³„ å›°é­”å’’
 
    ************************************************************************************** */
 
@@ -2777,7 +2777,7 @@ int CCharObject::MagMakeHolyCurtain(int nHTime, int nX, int nY)
 
 /* **************************************************************************************
 
-										¾î°Ë¼ú
+										ì–´ê²€ìˆ  åˆºæ€å‰‘æœ¯
 
    ************************************************************************************** */
 
@@ -2819,7 +2819,7 @@ BOOL CCharObject::SwordLongAttack(int nDamage)
 #ifdef _DEBUG
 					char szMsg[64];
 
-					sprintf(szMsg, "%s ¾î°Ë ¸ÂÀ½ - PW:%d HP:%d", pTargetObject->m_szName, nDamage, pTargetObject->m_WAbility.HP);
+					sprintf(szMsg, "%s ì–´ê²€ ë§ìŒ - PW:%d HP:%d", pTargetObject->m_szName, nDamage, pTargetObject->m_WAbility.HP);
 					SysMsg(szMsg, 0);
 					// Debug Code
 #endif
@@ -2833,7 +2833,7 @@ BOOL CCharObject::SwordLongAttack(int nDamage)
 
 /* **************************************************************************************
 
-										¹İ¿ù°Ë¹ı
+										ë°˜ì›”ê²€ë²• åŠæœˆå¼¯åˆ€
 
    ************************************************************************************** */
 
@@ -2864,7 +2864,7 @@ BOOL CCharObject::SwordWideAttack(int nDamage)
 #ifdef _DEBUG
 					char szMsg[64];
 
-					sprintf(szMsg, "%s ¹İ¿ù ¸ÂÀ½ - PW:%d HP:%d", pTargetObject->m_szName, nDamage, pTargetObject->m_WAbility.HP);
+					sprintf(szMsg, "%s ë°˜ì›” ë§ìŒ - PW:%d HP:%d", pTargetObject->m_szName, nDamage, pTargetObject->m_WAbility.HP);
 					SysMsg(szMsg, 0);
 					// Debug Code
 #endif
@@ -2879,7 +2879,7 @@ BOOL CCharObject::SwordWideAttack(int nDamage)
 
 /* **************************************************************************************
 
-										·Ú¼³È­
+										ë¢°ì„¤í™” åœ°ç‹±é›·å…‰
 
    ************************************************************************************** */
 
@@ -2919,7 +2919,7 @@ BOOL CCharObject::MagElecBlizzard(int nPower)
 
 /* **************************************************************************************
 
-									ºù¼³Ç³, Æø¿­ÆÄ
+									ë¹™ì„¤í’, í­ì—´íŒŒ å†°å’†å“®ï¼Œ çˆ†è£‚ç«ç„°
 
    ************************************************************************************** */
 
@@ -2956,7 +2956,7 @@ BOOL CCharObject::MagBigExplosion(int nPower, int nX, int nY, int nWide)
 
 /* **************************************************************************************
 
-										´ëÈ¸º¹¼ú
+										ëŒ€íšŒë³µìˆ  ç¾¤ä½“æ²»ç–—æœ¯
 
    ************************************************************************************** */
 
@@ -3020,7 +3020,7 @@ end;
 
 /* **************************************************************************************
 
-										Ç×¸¶Áø¹ı, ´ëÁö¿øÈ£
+										í•­ë§ˆì§„ë²•, ëŒ€ì§€ì›í˜¸ å¹½çµç›¾ï¼ˆé­”é˜²ï¼‰ï¼Œç¥åœ£æˆ˜ç”²æœ¯ï¼ˆç‰©é˜²ï¼‰
 
    ************************************************************************************** */
 
@@ -3124,7 +3124,7 @@ BOOL CCharObject::MagMakeDefenceArea(int nX, int nY, int nRange, int nSec, int n
 
 /* **************************************************************************************
 
-										Àº½Å¼ú
+										ì€ì‹ ìˆ  éšèº«æœ¯
 
    ************************************************************************************** */
 
@@ -3173,7 +3173,7 @@ BOOL CCharObject::MagMakePrivateTransparent(int nHTime)
 
 /* **************************************************************************************
 
-										´ëÀº½Å¼ú
+										ëŒ€ì€ì‹ ìˆ  é›†ä½“éšèº«æœ¯
 
    ************************************************************************************** */
 
@@ -3212,7 +3212,7 @@ BOOL CCharObject::MagMakeGroupTransparent(int nX, int nY, int nHTime)
 
 /* **************************************************************************************
 
-										»çÀÚÀ±È¸
+										ì‚¬ììœ¤íšŒ åœ£è¨€æœ¯
 
    ************************************************************************************** */
 
