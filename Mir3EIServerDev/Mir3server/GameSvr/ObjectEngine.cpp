@@ -5,8 +5,8 @@
 
 #define _CACHE_TICK			500
 
-#define HEALTHFILLTICK		1500
-#define SPELLFILLTICK		800
+#define HEALTHFILLTICK		1500  // HP回复速率，1.5秒回复一次，回复量跟最大HP值有关
+#define SPELLFILLTICK		800   // MP回复速率，0.8秒回复一次，回复量跟最大MP值有关
 
 CMagicInfo*		GetMagicInfo(int nMagicID);
 CMirMap*		GetMap(char *pszMapName);
@@ -368,6 +368,9 @@ UINT CCharObject::GetCharStatus()
 	return (s | (m_nCharStatusEx & 0x000FFFFF));
 }
 
+/*
+* 计算HP和MP的回复量
+*/
 BOOL CCharObject::RestoreHealSpell()
 {
 	if (m_fIsNeverDie)
@@ -2107,6 +2110,7 @@ BOOL CCharObject::_Attack(WORD wHitMode, CCharObject* pObject)
 			nPower = 0;
 	}	
 
+	// nPower > 0 return TRUE, else return FALSE
 	if (nPower > 0)
 	{
 		nPower			= pObject->GetHitStruckDamage(nPower);
@@ -2164,9 +2168,12 @@ BOOL CCharObject::_Attack(WORD wHitMode, CCharObject* pObject)
 	return FALSE;
 }									   
 
+// 这里应该是朝某个点攻击吧，例如shift+左键进行攻击
+// 貌似玩家只能使用这种攻击方式
+// 那么估计玩家在客户端点击怪物攻击时，会转换成攻击某个点，然后发送给服务器
 BOOL CCharObject::HitXY(WORD wIdent, int nX, int nY, int nDir, int nHitStyle)
 {
-	if ((GetTickCount() - m_dwLatestHitTime) < 600)
+	if ((GetTickCount() - m_dwLatestHitTime) < 600) // 这个很奇怪。距离上次攻击超过0.6秒后，那么第一次攻击之后，0.6秒内可以再攻击一次，之后就不行了。
 		m_nHitTimeOverCount++;
 	else
 		m_nHitTimeOverCount = 0;
@@ -2175,12 +2182,13 @@ BOOL CCharObject::HitXY(WORD wIdent, int nX, int nY, int nDir, int nHitStyle)
 	{
 		if (m_nCurrX == nX && m_nCurrY == nY)
 		{
+			// 宽攻击并且使用的是半月
 			if (wIdent == CM_WIDEHIT && m_pUserInfo->m_lpTMagicBanwolSkill)
 			{
 				if (m_WAbility.MP > 0)
 				{
-					int nLevel		= m_pUserInfo->GetMagicRcdByID(_SKILL_BANWOL)->btLevel;
-					int nSpellPoint = GetMagicInfo(_SKILL_BANWOL)->GetSpellPoint(nLevel);
+					int nLevel		= m_pUserInfo->GetMagicRcdByID(_SKILL_BANWOL)->btLevel; // 获取技能等级
+					int nSpellPoint = GetMagicInfo(_SKILL_BANWOL)->GetSpellPoint(nLevel);	// 根据等级获取技能需要消耗的MP
 					DamageSpell(nSpellPoint);
 					HealthSpellChanged();
 				}
@@ -2199,14 +2207,16 @@ BOOL CCharObject::HitXY(WORD wIdent, int nX, int nY, int nDir, int nHitStyle)
 				{
 					SelectTarget(pObject);
 
-					m_dwHealthTick	-= 100;
+					// 不知道这些属性的用途是啥
+					m_dwHealthTick	-= 100; // 这么说来，还能为负的？也就说，一直被攻击，离下次回复时间点就越久
 					m_dwSpellTick	-= 100;
 					m_dwSpellTick	= _MAX(0, m_dwSpellTick);
-					m_btPerHealth	-= 2;
-					m_btPerSpell	-= 2;
+					m_btPerHealth	-= 2;  // 这个会影响HP和MP的回复值
+					m_btPerSpell	-= 2;  // 这个会影响HP和MP的回复值
 				}
 			}
 
+			// 攻击完成，通知被攻击者
 			if (m_wObjectType & _OBJECT_HUMAN)
 			{
 				switch (wIdent)
@@ -2229,6 +2239,9 @@ BOOL CCharObject::HitXY(WORD wIdent, int nX, int nY, int nDir, int nHitStyle)
 				}
 			}
 
+
+			// 这里应该是增加技能熟练度的处理
+			// 因为直到上面，攻击逻辑已经完成了，都发指令给被攻击者了
 			if (m_pUserInfo->m_lpTMagicPowerHitSkill)		// 예도 검법
 			{
 				m_pUserInfo->m_btAttackSkillCount--;

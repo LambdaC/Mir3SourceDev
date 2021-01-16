@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 class CTeamProcess;
 
 class CTeamHero : public CMyHero
@@ -8,19 +8,19 @@ public:
 	~CTeamHero(void);
 
 public:
-	//¶¯×÷º¯Êı,·¢ËÍMyHeroµÄĞĞ×ß,Ä§·¨ÃüÁî AutoTargeting(), OnLButtonDown()...µ÷ÓÃ
+	//åŠ¨ä½œå‡½æ•°,å‘é€MyHeroçš„è¡Œèµ°,é­”æ³•å‘½ä»¤ AutoTargeting(), OnLButtonDown()...è°ƒç”¨
 	virtual VOID  SetMotionState(BYTE bMtn, BYTE bDir, INT nMouseTargetID = NULL, BOOL bIsDead = FALSE, LPPOINT lpptPos = NULL, SHORT shSkill = -1);
 
-	//´¦Àí×´Ì¬¸Ä±ä
+	//å¤„ç†çŠ¶æ€æ”¹å˜
 	virtual BOOL UpdatePacketState();
 
-	//¸üĞÂÔË¶¯×´Ì¬,»æÖÆ¶¯×÷ºÍÌØĞ§,
+	//æ›´æ–°è¿åŠ¨çŠ¶æ€,ç»˜åˆ¶åŠ¨ä½œå’Œç‰¹æ•ˆ,
 	/*virtual*/ VOID UpdateMotionState(INT nLoopTime, BOOL bIsMoveTime);
 	/*virtual*/ BOOL UpdateMove(BOOL bIsMoveTime);
-	//ÍË»Øµ½Ç°Ò»¸ö×´Ì¬, ½ÓÊÕµ½"+FAIL"ĞĞ×ßÊ§°ÜÃüÁîºóµ÷ÓÃÕâ¸öº¯Êı
+	//é€€å›åˆ°å‰ä¸€ä¸ªçŠ¶æ€, æ¥æ”¶åˆ°"+FAIL"è¡Œèµ°å¤±è´¥å‘½ä»¤åè°ƒç”¨è¿™ä¸ªå‡½æ•°
 	/*virtual*/ BOOL  SetOldPosition();
 
-	//  Êó±êÏûÏ¢.
+	//  é¼ æ ‡æ¶ˆæ¯.
 	/*virtual*/ BOOL OnLButtonDown(POINT ptMouse, INT nTargetID = -1, BOOL bIsDead = FALSE, POINT* lpptTargetPos = NULL);
 //	virtual BOOL OnRButtonDown(POINT ptMouse);
 //	virtual BOOL OnKeyDown(WPARAM wParam, LPARAM lParam, POINT ptMouse, POINT ptTargetPos, INT nMosueTargetID, FEATURE stTargetFeature);

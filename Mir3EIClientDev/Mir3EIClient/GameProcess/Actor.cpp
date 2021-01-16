@@ -1,11 +1,11 @@
-/******************************************************************************************************************
+ï»¿/******************************************************************************************************************
                                                                                                                    
-	¸ğµâ¸í:																											
+	ëª¨ë“ˆëª…:																											
 																													
-	ÀÛ¼ºÀÚ:																											
-	ÀÛ¼ºÀÏ:																											
+	ì‘ì„±ì:																											
+	ì‘ì„±ì¼:																											
 																													
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤ ³»¿ë																						
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì • ë‚´ìš©																						
                                                                                                                    
 *******************************************************************************************************************/
 
@@ -22,15 +22,15 @@
 *******************************************************************************************************************/
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CActor::CActor()
+	í•¨ìˆ˜ëª… : CActor::CActor()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	Ãâ·Â   : 
+	ëª©ì    : 
+	ì¶œë ¥   : 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 CActor::CActor()
@@ -42,15 +42,15 @@ CActor::CActor()
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CActor::~CActor()
+	í•¨ìˆ˜ëª… : CActor::~CActor()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	Ãâ·Â   : 
+	ëª©ì    : 
+	ì¶œë ¥   : 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 CActor::~CActor()
@@ -152,7 +152,7 @@ VOID CActor::DestroyActor()
 	lpPacketMsg  = NULL;
 	shLeftMsgCnt = m_xPacketQueue.GetCount();
 
-	// ½×¿©ÀÖ´Â ÆĞÅ¶À» Áö¿î´Ù.
+	// ìŒ“ì—¬ìˆëŠ” íŒ¨í‚·ì„ ì§€ìš´ë‹¤.
 	if ( shLeftMsgCnt > 0 )
 	{
 		for ( nCnt = 0; nCnt < shLeftMsgCnt; nCnt++ )
@@ -165,7 +165,7 @@ VOID CActor::DestroyActor()
 		}
 	}
 
-	// ¸ğµçº¯¼ö¸¦ ÃÊ±âÈ­ ½ÃÄÑµĞ´Ù.
+	// ëª¨ë“ ë³€ìˆ˜ë¥¼ ì´ˆê¸°í™” ì‹œì¼œë‘”ë‹¤.
 //	InitActor();
 }
 
@@ -231,26 +231,26 @@ VOID CActor::DrawWithEffected(INT nX, INT nY, INT nXSize, INT nYSize, WORD* pwSr
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CActor::Create()
+	í•¨ìˆ˜ëª… : CActor::Create()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : CImageHandler* pxImgHandler
+	ëª©ì    : 
+	ì…ë ¥   : CImageHandler* pxImgHandler
 	         FEATURE stFeature
 	         BYTE bMtn
 	         WORD bDir
 	         WORD wPosX
 	         WORD wPosY
-	Ãâ·Â   : BOOL 
+	ì¶œë ¥   : BOOL 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 BOOL CActor::Create(CImageHandler* pxImgHandler, FEATURE* pstFeature, BYTE bMtn, WORD bDir, WORD wPosX, WORD wPosY)
 {
-	// Àü´ŞÀÎÀÚ Àû¿ë ¹× È®ÀÎ./////////////////////////////////////////////////////////////////////////////////
+	// ì „ë‹¬ì¸ì ì ìš© ë° í™•ì¸./////////////////////////////////////////////////////////////////////////////////
 	if ( /*(pstFeature->bGender >= 0 && pstFeature->bGender < _MAX_GENDER) && */(bDir >= 0 && bDir < _MAX_DIRECTION) )
 	{
 		switch ( pstFeature->bGender )
@@ -294,12 +294,12 @@ BOOL CActor::Create(CImageHandler* pxImgHandler, FEATURE* pstFeature, BYTE bMtn,
 				{
 					switch ( m_stFeature.bDress )
 					{
-					case 31:	// ½ÄÀÎÃÊ.
-					case 67:	// ÃË·æ½Å.
-					case 73:	// ºñ¸·¿øÃæ.
-					case 104:	// Àû¿ù¸¶.
+					case 31:	// ì‹ì¸ì´ˆ.
+					case 67:	// ì´‰ë£¡ì‹ .
+					case 73:	// ë¹„ë§‰ì›ì¶©.
+					case 104:	// ì ì›”ë§ˆ.
 						bDir = 0;
-					case 106:	// Æø¾È°Å¹Ì.
+					case 106:	// í­ì•ˆê±°ë¯¸.
 						bDir = 1;
 						break;
 					default:
@@ -322,7 +322,7 @@ BOOL CActor::Create(CImageHandler* pxImgHandler, FEATURE* pstFeature, BYTE bMtn,
 				else
 				{
 					m_bActorImgIdx = _IMAGE_NPC;
-					bDir++;		// bDirÀº 0ÀÌ µÉ¼öµµ ÀÖ±â¶§¹®ÀÌ´Ù.
+					bDir++;		// bDirì€ 0ì´ ë ìˆ˜ë„ ìˆê¸°ë•Œë¬¸ì´ë‹¤.
 					bDir = bDir/3;
 					m_dwFstFrame = g_xSpriteInfo.m_stNPCSpr[bMtn].wFstFrm + pstFeature->bDress*_MAX_NPC_FRAME + bDir*10;
 					m_dwEndFrame = m_dwFstFrame + g_xSpriteInfo.m_stNPCSpr[bMtn].wFrmCnt;
@@ -362,16 +362,16 @@ BOOL CActor::Create(CImageHandler* pxImgHandler, FEATURE* pstFeature, BYTE bMtn,
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CActor::CheckFeatureValidate()
+	í•¨ìˆ˜ëª… : CActor::CheckFeatureValidate()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : FEATURE stFeature
-	Ãâ·Â   : BOOL 
+	ëª©ì    : 
+	ì…ë ¥   : FEATURE stFeature
+	ì¶œë ¥   : BOOL 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 BOOL CActor::CheckFeatureValidate(FEATURE stFeature)
@@ -401,17 +401,17 @@ BOOL CActor::CheckFeatureValidate(FEATURE stFeature)
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CActor::ChangeFeature()
+	í•¨ìˆ˜ëª… : CActor::ChangeFeature()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : CImageHandler* pxImgHandler
+	ëª©ì    : 
+	ì…ë ¥   : CImageHandler* pxImgHandler
 	         FEATURE stFeature
-	Ãâ·Â   : BOOL 
+	ì¶œë ¥   : BOOL 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 BOOL CActor::ChangeFeature(FEATURE stFeature)
@@ -464,7 +464,7 @@ BOOL CActor::ChangeFeature(FEATURE stFeature)
 				}
 			}
 			break;
-		// NPC´Â ÇÁ·¹ÀÓÀÌ ÀÏÁ¤ÇÏÁö ¾ÊÀ¸¹Ç·Î µû·Î Àû¿ë½ÃÅ²´Ù.
+		// NPCëŠ” í”„ë ˆì„ì´ ì¼ì •í•˜ì§€ ì•Šìœ¼ë¯€ë¡œ ë”°ë¡œ ì ìš©ì‹œí‚¨ë‹¤.
 		case _GENDER_NPC:
 		default:
 			return FALSE;
@@ -482,17 +482,17 @@ BOOL CActor::ChangeFeature(FEATURE stFeature)
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CActor::SetMotionFrame()
+	í•¨ìˆ˜ëª… : CActor::SetMotionFrame()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : BYTE bMtn
+	ëª©ì    : 
+	ì…ë ¥   : BYTE bMtn
 	         BYTE bDir
-	Ãâ·Â   : BOOL 
+	ì¶œë ¥   : BOOL 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 BOOL CActor::SetMotionFrame(BYTE bMtn, BYTE bDir)
@@ -523,12 +523,12 @@ BOOL CActor::SetMotionFrame(BYTE bMtn, BYTE bDir)
 
 		switch ( m_stFeature.bDress )
 		{
-		case 31:	// ½ÄÀÎÃÊ.
-		case 67:	// ÃË·æ½Å.
-		case 73:	// ºñ¸·¿øÃæ.
-		case 104:	// Àû¿ù¸¶.
+		case 31:	// ì‹ì¸ì´ˆ.
+		case 67:	// ì´‰ë£¡ì‹ .
+		case 73:	// ë¹„ë§‰ì›ì¶©.
+		case 104:	// ì ì›”ë§ˆ.
 			bDir = 0;
-		case 106:	// Æø¾È°Å¹Ì.
+		case 106:	// í­ì•ˆê±°ë¯¸.
 			bDir = 1;
 			break;
 		default:
@@ -543,7 +543,7 @@ BOOL CActor::SetMotionFrame(BYTE bMtn, BYTE bDir)
 		break;
 	case _GENDER_NPC:
 		{
-			bDir++;		// bDirÀº 0ÀÌ µÉ¼öµµ ÀÖ±â¶§¹®ÀÌ´Ù.
+			bDir++;		// bDirì€ 0ì´ ë ìˆ˜ë„ ìˆê¸°ë•Œë¬¸ì´ë‹¤.
 			bDir = bDir/3;
 			m_dwFstFrame = g_xSpriteInfo.m_stNPCSpr[bMtn].wFstFrm + m_stFeature.bDress*_MAX_NPC_FRAME + bDir*10;
 			m_dwEndFrame = m_dwFstFrame + g_xSpriteInfo.m_stNPCSpr[bMtn].wFrmCnt;
@@ -588,11 +588,11 @@ VOID CActor::PlayActSound()
 		171,  33,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,	// 90 - 99
 	};
 
-	if ( m_dwCurrFrame == m_dwFstFrame+1 && m_bCurrMtn == _MT_MON_APPEAR )			// ³ªÅ¸³ª±â.
+	if ( m_dwCurrFrame == m_dwFstFrame+1 && m_bCurrMtn == _MT_MON_APPEAR )			// ë‚˜íƒ€ë‚˜ê¸°.
 	{
 		nWaveNum = 200 + nActorSndTbl[m_stFeature.bDress]*10;
 	}
-	else if ( (m_dwCurrFrame == m_dwFstFrame+1) && (m_bCurrMtn == _MT_MON_STAND || _MT_MON_WALK) )		// ¸ØÃçÀÖ±â.
+	else if ( (m_dwCurrFrame == m_dwFstFrame+1) && (m_bCurrMtn == _MT_MON_STAND || _MT_MON_WALK) )		// ë©ˆì¶°ìˆê¸°.
 	{
 		INT nRand = rand();
 
@@ -614,11 +614,11 @@ VOID CActor::PlayActSound()
 				nWaveNum = -1;
 		}
 	}
-	else if ( m_dwCurrFrame == m_dwFstFrame+1 && m_bCurrMtn == _MT_MON_ATTACK_A )	// ÀÏ¹İ°ø°İ1.
+	else if ( m_dwCurrFrame == m_dwFstFrame+1 && m_bCurrMtn == _MT_MON_ATTACK_A )	// ì¼ë°˜ê³µê²©1.
 	{
 		nWaveNum = 200 + nActorSndTbl[m_stFeature.bDress]*10 + 2;
 	}
-	else if ( m_dwCurrFrame == m_dwFstFrame+2 && m_bCurrMtn == _MT_MON_ATTACK_A )	// ÀÏ¹İ°ø°İ1.
+	else if ( m_dwCurrFrame == m_dwFstFrame+2 && m_bCurrMtn == _MT_MON_ATTACK_A )	// ì¼ë°˜ê³µê²©1.
 	{
 		nWaveNum = 200 + nActorSndTbl[m_stFeature.bDress]*10 + 3;
 	}
@@ -628,34 +628,34 @@ VOID CActor::PlayActSound()
 		{
 			switch ( m_stHitter.bWeapon )
 			{
-				case 21: case 24: // ´Ü°Ë, ºñ´Ü°Ë.
-				case 8: case 9: // ¸ñ°Ë, ¾Æ¸®¼ö¸ñ°Ë.
-				case 18:  case 22:  case 23:  case 26:  case 27:  case 28:  case 30:  // »ç¸ğ°Ë. Ã»µ¿°Ë. Ã¶°Ë. Ã»À½°Ë. º®»ç°Ë. Ãµ·É. °î¼º°Ë.
-				case 1:   case 4:  case 11:  case 13:  case 14:  case 20:  case 25:  case 29:  case 31:   // À¯¿ùµµ. ¹¬Ã»´ëµµ. À°ÇÕµµ. ±ºµµ. µµ·æº¸µµ. »ç°¢µµ. ¼¼Ã·µµ. ¿¹µµ. ÃÊÈ¥µµ.
+				case 21: case 24: // ë‹¨ê²€, ë¹„ë‹¨ê²€.
+				case 8: case 9: // ëª©ê²€, ì•„ë¦¬ìˆ˜ëª©ê²€.
+				case 18:  case 22:  case 23:  case 26:  case 27:  case 28:  case 30:  // ì‚¬ëª¨ê²€. ì²­ë™ê²€. ì² ê²€. ì²­ìŒê²€. ë²½ì‚¬ê²€. ì²œë ¹. ê³¡ì„±ê²€.
+				case 1:   case 4:  case 11:  case 13:  case 14:  case 20:  case 25:  case 29:  case 31:   // ìœ ì›”ë„. ë¬µì²­ëŒ€ë„. ìœ¡í•©ë„. êµ°ë„. ë„ë£¡ë³´ë„. ì‚¬ê°ë„. ì„¸ì²¨ë„. ì˜ˆë„. ì´ˆí˜¼ë„.
 					nWaveNum = 70;
 					break;
-				case 5:  case 10:  case 12: // »ïÀû´ëºÎ. Ã»µ¿µµ³¢. ¿¬ÀÚºÎ.
-				case 15:  // ÆÄ³úÁø´ç.
+				case 5:  case 10:  case 12: // ì‚¼ì ëŒ€ë¶€. ì²­ë™ë„ë¼. ì—°ìë¶€.
+				case 15:  // íŒŒë‡Œì§„ë‹¹.
 					nWaveNum = 71;
 					break;
-				case 2:  case 3:  case 6:  case 7: case 16:  case 17: case 19:  // »ïÁöÃ¢. ÃµÇü¸ñ. È«¾ÆÃ¢. °î±ªÀÌ. Ã»¸¶Ã¢, ¿ë¾ÆÀå. Á¦¸¶ºÀ
+				case 2:  case 3:  case 6:  case 7: case 16:  case 17: case 19:  // ì‚¼ì§€ì°½. ì²œí˜•ëª©. í™ì•„ì°½. ê³¡ê´­ì´. ì²­ë§ˆì°½, ìš©ì•„ì¥. ì œë§ˆë´‰
 					nWaveNum = 72;
 					break;
 				default:
-					nWaveNum = 73;	// ¸Ç¼Õ.
+					nWaveNum = 73;	// ë§¨ì†.
 					break;
 			}
 		}
 	}
-	else if ( m_dwCurrFrame == m_dwFstFrame+2 && m_bCurrMtn == _MT_MON_HITTED )		// ¸Â±â.
+	else if ( m_dwCurrFrame == m_dwFstFrame+2 && m_bCurrMtn == _MT_MON_HITTED )		// ë§ê¸°.
 	{
 		nWaveNum = 200 + nActorSndTbl[m_stFeature.bDress]*10 + 4;
 	}
-	else if ( m_dwCurrFrame == m_dwFstFrame+2 && m_bCurrMtn == _MT_MON_DIE )		// Á×±â1.
+	else if ( m_dwCurrFrame == m_dwFstFrame+2 && m_bCurrMtn == _MT_MON_DIE )		// ì£½ê¸°1.
 	{
 		nWaveNum = 200 + nActorSndTbl[m_stFeature.bDress]*10 + 5;
 	}
-	else if ( m_dwCurrFrame == m_dwFstFrame+3 && m_bCurrMtn == _MT_MON_DIE )		// Á×±â2.
+	else if ( m_dwCurrFrame == m_dwFstFrame+3 && m_bCurrMtn == _MT_MON_DIE )		// ì£½ê¸°2.
 	{
 		nWaveNum = 200 + nActorSndTbl[m_stFeature.bDress]*10 + 6;
 	}
@@ -669,15 +669,15 @@ VOID CActor::PlayActSound()
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CActor::SetMoving()
+	í•¨ìˆ˜ëª… : CActor::SetMoving()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	Ãâ·Â   : VOID 
+	ëª©ì    : 
+	ì¶œë ¥   : VOID 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 VOID CActor::SetMoving()
@@ -770,15 +770,15 @@ VOID CActor::SetMoving()
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CActor::SetBackStepMoving()
+	í•¨ìˆ˜ëª… : CActor::SetBackStepMoving()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	Ãâ·Â   : VOID 
+	ëª©ì    : 
+	ì¶œë ¥   : VOID 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 VOID CActor::SetBackStepMoving()
@@ -867,15 +867,15 @@ VOID CActor::SetBackStepMoving()
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CActor::SetMoved()
+	í•¨ìˆ˜ëª… : CActor::SetMoved()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	Ãâ·Â   : VOID 
+	ëª©ì    : 
+	ì¶œë ¥   : VOID 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 VOID CActor::SetMoved()
@@ -924,16 +924,16 @@ VOID CActor::SetMoved()
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CActor::OnCharDescPacket()
+	í•¨ìˆ˜ëª… : CActor::OnCharDescPacket()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : SM_WALK, SM_DEATH, SM_TURN, SM_RUN, SM_DIGUP ¸Ş½ÃÁö¿¡ »ç¿ëÇÑ´Ù.
-	ÀÔ·Â   : LPPACKETMSG lpPacketMsg
-	Ãâ·Â   : VOID 
+	ëª©ì    : SM_WALK, SM_DEATH, SM_TURN, SM_RUN, SM_DIGUP ë©”ì‹œì§€ì— ì‚¬ìš©í•œë‹¤.
+	ì…ë ¥   : LPPACKETMSG lpPacketMsg
+	ì¶œë ¥   : VOID 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 VOID CActor::OnCharDescPacket(LPPACKETMSG lpPacketMsg)
@@ -1019,7 +1019,7 @@ VOID CActor::OnTurn(LPPACKETMSG lpPacketMsg)
 	bDir		 = LOBYTE(lpPacketMsg->stDefMsg.wSeries);
 	m_bLightSize = HIBYTE(lpPacketMsg->stDefMsg.wSeries);
 
-	// ½ÄÀÎÃÊ.
+	// ì‹ì¸ì´ˆ.
 	if ( m_stFeature.bDress == 31 )
 		bDir = 0;
 
@@ -1027,13 +1027,13 @@ VOID CActor::OnTurn(LPPACKETMSG lpPacketMsg)
 
 	SetMotionFrame(_MT_MON_STAND, bDir);
 
-	if( m_nState & 0X1 )		// ¼®È­»óÅÂ.
+	if( m_nState & 0X1 )		// ì„í™”ìƒíƒœ.
 	{
 		switch ( m_stFeature.bDress )
 		{
-		case 83: //ÁÖ¸¶½ÅÀå.
-		case 84: //ÁÖ¸¶È£¹ı.
-		case 85: //ÁÖ¸¶¿Õ.
+		case 83: //ì£¼ë§ˆì‹ ì¥.
+		case 84: //ì£¼ë§ˆí˜¸ë²•.
+		case 85: //ì£¼ë§ˆì™•.
 			SetMotionFrame(_MT_MON_APPEAR, 0);
 			m_dwEndFrame = m_dwFstFrame + 1;
 			m_bCurrMtn = _MT_MON_STAND;
@@ -1057,10 +1057,10 @@ VOID CActor::OnDigup(LPPACKETMSG lpPacketMsg)
 	case 3: 
 		m_bReverse = TRUE;
 		break;
-	case 85: //ÁÖ¸¶¿Õ.
+	case 85: //ì£¼ë§ˆì™•.
 		bDir = 0;
 		break;
-	case 31: //½ÄÀÎÃÊ.		
+	case 31: //ì‹ì¸ì´ˆ.		
 		bDir = 0;
 		m_bReverse = TRUE;
 		break;
@@ -1099,7 +1099,7 @@ VOID CActor::OnDigDown(LPPACKETMSG lpPacketMsg)
 	case 3: 
 		m_bReverse = FALSE;
 		break;
-	case 31: //½ÄÀÎÃÊ.		
+	case 31: //ì‹ì¸ì´ˆ.		
 		bDir = 0;
 		m_bReverse = FALSE;
 		break;
@@ -1125,42 +1125,42 @@ VOID CActor::OnDeath(LPPACKETMSG lpPacketMsg)
 	}
 	else 
 	{
-		// ¸ó½ºÅÍÀÏ¶§.
+		// ëª¬ìŠ¤í„°ì¼ë•Œ.
 		if ( m_stFeature.bGender == _GENDER_MON )
 		{
 			CMagic* pxMagic;
 			switch ( m_stFeature.bDress )
 			{
-			case 4:		// ¼®ÀåÀÎ.
+			case 4:		// ì„ì¥ì¸.
 				pxMagic = new CMagic;
 				pxMagic->CreateMagic(_MONMAGIC_EXPLODE1, m_wPosX, m_wPosY, m_wPosX, m_wPosY, this);
 				g_xGameProc.m_xMagicList.AddNode(pxMagic);
 				break;
-			case  5:		// ¹ÙÄí°¡¸£³ª.
-			case  6:		// ¹ÙÀÚ¿ï.
-			case 11:		// ¸ğµğÁ¯.
-			case 19:		// ·¹µğ°¡¸£³ª.
+			case  5:		// ë°”ì¿ ê°€ë¥´ë‚˜.
+			case  6:		// ë°”ììš¸.
+			case 11:		// ëª¨ë””ì ¼.
+			case 19:		// ë ˆë””ê°€ë¥´ë‚˜.
 				pxMagic = new CMagic;
 				pxMagic->CreateMagic(_MONMAGIC_SINGI_DIE, m_wPosX, m_wPosY, m_wPosX, m_wPosY, this);
 				g_xGameProc.m_xMagicList.AddNode(pxMagic);
 /*				LoadEffect(&g_xGameProc.m_xImage, _MONMAGIC_DIE);
 				m_bUseSwordEffect = TRUE;
 */				break;
-			case 40:		// Çã¼ö¾Æºñ.
+			case 40:		// í—ˆìˆ˜ì•„ë¹„.
 				pxMagic = new CMagic;
 				pxMagic->CreateMagic(_MONMAGIC_HUSU_DIE, m_wPosX, m_wPosY, m_wPosX, m_wPosY, this);
 				g_xGameProc.m_xMagicList.AddNode(pxMagic);
 /*				LoadEffect(&g_xGameProc.m_xImage, _MONMAGIC_HUSU_DIE);
 				m_bUseSwordEffect = TRUE;
 */				break;
-			case 48:		// Á»ºñ.
+			case 48:		// ì¢€ë¹„.
 				pxMagic = new CMagic;
 				pxMagic->CreateMagic(_MONMAGIC_ZOMBIE_DIE, m_wPosX, m_wPosY, m_wPosX, m_wPosY, this);
 				g_xGameProc.m_xMagicList.AddNode(pxMagic);
 /*				LoadEffect(&g_xGameProc.m_xImage, _MONMAGIC_ZOMBIE_DIE);
 				m_bUseSwordEffect = TRUE;
 */				break;
-			case 99:		// ¹Ù¿À´Şµå.
+			case 99:		// ë°”ì˜¤ë‹¬ë“œ.
 				pxMagic = new CMagic;
 				pxMagic->CreateMagic(_MONMAGIC_BAODIE, m_wPosX, m_wPosY, m_wPosX, m_wPosY, this);
 				g_xGameProc.m_xMagicList.AddNode(pxMagic);
@@ -1205,25 +1205,25 @@ VOID CActor::OnStruck(LPPACKETMSG lpPacketMsg)
 	ChangeFeature(stFeature);
 	SetMotionFrame(_MT_MON_HITTED, m_bCurrDir);
 
-	// ¸ó½ºÅÍÀÏ¶§.
+	// ëª¬ìŠ¤í„°ì¼ë•Œ.
 	if ( m_stHitter.bGender == _GENDER_MON )
 	{
 		CMagic* pxMagic;
 		switch ( m_stHitter.bDress )
 		{
-		case 2:		// ÄÉÆÈ·ÎÇÁ.
+		case 2:		// ì¼€íŒ”ë¡œí”„.
 			pxMagic = new CMagic;
 			pxMagic->CreateMagic(_MONMAGIC_KEPAL, m_wPosX, m_wPosY, m_wPosX, m_wPosY, this);
 			g_xGameProc.m_xMagicList.AddNode(pxMagic);
 			break;
-		case 8:		// °©ÁÖ°³¹Ì.
-		case 14:	// º´¿ë°³¹Ì.
-		case 16:	// µå³­°³¹Ì.
+		case 8:		// ê°‘ì£¼ê°œë¯¸.
+		case 14:	// ë³‘ìš©ê°œë¯¸.
+		case 16:	// ë“œë‚œê°œë¯¸.
 			pxMagic = new CMagic;
 			pxMagic->CreateMagic(_MONMAGIC_GREATANT, m_wPosX, m_wPosY, m_wPosX, m_wPosY, this);
 			g_xGameProc.m_xMagicList.AddNode(pxMagic);
 			break;
-		case 67:	// ÃË·æ½Å.
+		case 67:	// ì´‰ë£¡ì‹ .
 			pxMagic = new CMagic;
 			pxMagic->CreateMagic(_MONMAGIC_BIGGINE_CHAR, m_wPosX, m_wPosY, m_wPosX, m_wPosY, this);
 			g_xGameProc.m_xMagicList.AddNode(pxMagic);
@@ -1254,7 +1254,7 @@ VOID CActor::OnLighting(LPPACKETMSG lpPacketMsg)
 
 	switch ( m_stFeature.bDress )
 	{
-	case 48:		// Á»ºñ. 8¹æÇâ.
+	case 48:		// ì¢€ë¹„. 8ë°©í–¥.
 		pxMagic = new CMagic;
 		pxMagic->CreateMagic(_MONMAGIC_ZOMBIE, m_wPosX, m_wPosY, m_wPosX, m_wPosY, this, nTargetID);
 		g_xGameProc.m_xMagicList.AddNode(pxMagic);
@@ -1282,19 +1282,19 @@ VOID CActor::OnFlyAxe(LPPACKETMSG lpPacketMsg)
 
 	switch ( m_stFeature.bDress )
 	{
-	case 33:				// ½Öµµ³¢ÇØ°ñ.
+	case 33:				// ìŒë„ë¼í•´ê³¨.
 		pxMagic = new CMagic;
 		pxMagic->CreateMagic(_MONMAGIC_DUALAXE, m_wPosX, m_wPosY, wTargetX, wTargetY, this, nTargetID);
 		g_xGameProc.m_xMagicList.AddNode(pxMagic);
 		SetMotionFrame(_MT_MON_ATTACK_A, m_bCurrDir);
 		break;
-	case 46:				// ´ÙÅ©.
+	case 46:				// ë‹¤í¬.
 		pxMagic = new CMagic;
 		pxMagic->CreateMagic(_MONMAGIC_CHIM, m_wPosX, m_wPosY, wTargetX, wTargetY, this, nTargetID);
 		g_xGameProc.m_xMagicList.AddNode(pxMagic);
 		SetMotionFrame(_MT_MON_ATTACK_A, m_bCurrDir);
 		break;
-	case 82:				// ¸¶±Ã»ç.
+	case 82:				// ë§ˆê¶ì‚¬.
 		pxMagic = new CMagic;
 		pxMagic->CreateMagic(_MONMAGIC_MAARROW, m_wPosX, m_wPosY, wTargetX, wTargetY, this, nTargetID);
 		g_xGameProc.m_xMagicList.AddNode(pxMagic);
@@ -1312,63 +1312,63 @@ VOID CActor::OnHit(LPPACKETMSG lpPacketMsg)
 	m_wPosY = lpPacketMsg->stDefMsg.wTag;
 	SetMotionFrame(_MT_MON_ATTACK_A, bDir);
 
-	// ¸ó½ºÅÍÀÏ¶§.
+	// ëª¬ìŠ¤í„°ì¼ë•Œ.
 	if ( m_stFeature.bGender == _GENDER_MON )
 	{
 		CMagic* pxMagic;
 		switch ( m_stFeature.bDress )
 		{
-		case 9:		// ·Ğ.
+		case 9:		// ë¡ .
 			pxMagic = new CMagic;
 			pxMagic->CreateMagic(_MONMAGIC_EXPLODE, m_wPosX, m_wPosY, m_wPosX, m_wPosY, this);
 			g_xGameProc.m_xMagicList.AddNode(pxMagic);
 			break;
-		case 5:		// ¹ÙÄí°¡¸£³ª.
+		case 5:		// ë°”ì¿ ê°€ë¥´ë‚˜.
 			pxMagic = new CMagic;
 			pxMagic->CreateMagic(_MONMAGIC_BLACK1, m_wPosX, m_wPosY, m_wPosX, m_wPosY, this);
 			g_xGameProc.m_xMagicList.AddNode(pxMagic);
 			break;
-		case 19:		// ·¹µğ°¡¸£³ª.
+		case 19:		// ë ˆë””ê°€ë¥´ë‚˜.
 			pxMagic = new CMagic;
 			pxMagic->CreateMagic(_MONMAGIC_RED1, m_wPosX, m_wPosY, m_wPosX, m_wPosY, this);
 			g_xGameProc.m_xMagicList.AddNode(pxMagic);
 			break;
-		case 45:		// ¿ì¸é±Í¿Õ. 
+		case 45:		// ìš°ë©´ê·€ì™•. 
 			pxMagic = new CMagic;
 			pxMagic->CreateMagic(_MONMAGIC_COWGHOST, m_wPosX, m_wPosY, m_wPosX, m_wPosY, this);
 			g_xGameProc.m_xMagicList.AddNode(pxMagic);
 			break;
-		case 90:		// ½Å¼ö.
+		case 90:		// ì‹ ìˆ˜.
 			pxMagic = new CMagic;
 			pxMagic->CreateMagic(_MONMAGIC_SINSU, m_wPosX, m_wPosY, m_wPosX, m_wPosY, this);
 			g_xGameProc.m_xMagicList.AddNode(pxMagic);
 			break;
-		case 43:		// È­¿°¿ì¸é±Í.
+		case 43:		// í™”ì—¼ìš°ë©´ê·€.
 			pxMagic = new CMagic;
 			pxMagic->CreateMagic(_MONMAGIC_COWFLAME, m_wPosX, m_wPosY, m_wPosX, m_wPosY, this);
 			g_xGameProc.m_xMagicList.AddNode(pxMagic);
 			break;
-		case 85:		// ÁÖ¸¶¿Õ.
+		case 85:		// ì£¼ë§ˆì™•.
 			pxMagic = new CMagic;
 			pxMagic->CreateMagic(_MONMAGIC_JUMAWANG, m_wPosX, m_wPosY, m_wPosX, m_wPosY, this);
 			g_xGameProc.m_xMagicList.AddNode(pxMagic);
 			break;
-		case 67:		// ÃË·æ½Å.
+		case 67:		// ì´‰ë£¡ì‹ .
 			pxMagic = new CMagic;
 			pxMagic->CreateMagic(_MONMAGIC_BIGGINE_ATT, m_wPosX, m_wPosY, m_wPosX, m_wPosY, this);
 			g_xGameProc.m_xMagicList.AddNode(pxMagic);
 			break;	
-		case 75:		// ½û±â³ª¹æ.
+		case 75:		// ìê¸°ë‚˜ë°©.
 			pxMagic = new CMagic;
 			pxMagic->CreateMagic(_MONMAGIC_SSEGI, m_wPosX, m_wPosY, m_wPosX, m_wPosY, this);
 			g_xGameProc.m_xMagicList.AddNode(pxMagic);
 			break;	
-		case 94:		// »ç¾î.
+		case 94:		// ì‚¬ì–´.
 			pxMagic = new CMagic;
 			pxMagic->CreateMagic(_MONMAGIC_SANDFISH, m_wPosX, m_wPosY, m_wPosX, m_wPosY, this);
 			g_xGameProc.m_xMagicList.AddNode(pxMagic);
 			break;	
-		case 98:		// »ó±Ş±«¹°.
+		case 98:		// ìƒê¸‰ê´´ë¬¼.
 			m_dwCurrEffectFrame = 50;
 			m_dwFstEffectFrame  = 50;
 			m_dwEndEffectFrame  = 60;
@@ -1415,15 +1415,15 @@ VOID CActor::StruckMsgReassign()
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CActor::UpdatePacketState()
+	í•¨ìˆ˜ëª… : CActor::UpdatePacketState()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	Ãâ·Â   : BOOL 
+	ëª©ì    : 
+	ì¶œë ¥   : BOOL 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 BOOL CActor::UpdatePacketState()
@@ -1483,18 +1483,18 @@ BOOL CActor::UpdatePacketState()
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CActor::LoadEffect()
+	í•¨ìˆ˜ëª… : CActor::LoadEffect()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : CImageHandler* pxImgHandler
+	ëª©ì    : 
+	ì…ë ¥   : CImageHandler* pxImgHandler
 	         WORD wEffectNum
 	         BYTE bDir
-	Ãâ·Â   : BOOL 
+	ì¶œë ¥   : BOOL 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 BOOL CActor::LoadEffect(CImageHandler* pxImgHandler, WORD wEffectNum, BYTE bDir)
@@ -1551,15 +1551,15 @@ BOOL CActor::LoadEffect(CImageHandler* pxImgHandler, WORD wEffectNum, BYTE bDir)
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CActor::DrawEffect()
+	í•¨ìˆ˜ëª… : CActor::DrawEffect()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	Ãâ·Â   : BOOL 
+	ëª©ì    : 
+	ì¶œë ¥   : BOOL 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 BOOL CActor::DrawEffect()
@@ -1628,7 +1628,7 @@ BOOL CActor::DrawEffect()
 					SetBlendRenderState(g_xMainWnd.Get3DDevice(), _BLEND_LIGHTINV, mtrl);
 //					g_xMainWnd.Get3DDevice()->DrawPrimitive(D3DPT_TRIANGLESTRIP, D3DFVF_VERTEX, m_avBoard, 4, NULL);
 
-					// ¿ø»óº¹±Í.
+					// ì›ìƒë³µê·€.
 					ZeroMemory(&mtrl, sizeof(mtrl));
 					mtrl.diffuse.r = mtrl.diffuse.g = mtrl.diffuse.b = 0.1f;
 					mtrl.ambient.r = mtrl.ambient.g = mtrl.ambient.b = 1.0f;
@@ -1691,20 +1691,20 @@ BOOL CActor::DrawEffect()
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CActor::UpdateMotionState()
+	í•¨ìˆ˜ëª… : CActor::UpdateMotionState()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : INT nLoopTime
+	ëª©ì    : 
+	ì…ë ¥   : INT nLoopTime
 	         SHORT shStartViewTileX
 	         SHORT shStartViewTileY
 	         SHORT shViewOffsetX
 	         SHORT shViewOffsetY
-	Ãâ·Â   : VOID 
+	ì¶œë ¥   : VOID 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 VOID CActor::UpdateMotionState(INT nLoopTime, BOOL bIsMoveTime)
@@ -1778,13 +1778,13 @@ VOID CActor::UpdateMotionState(INT nLoopTime, BOOL bIsMoveTime)
 
 			SetMotionFrame(_MT_MON_STAND, m_bCurrDir);
 
-			if( m_nState & 0X1 )		// ¼®È­»óÅÂ.
+			if( m_nState & 0X1 )		// ì„í™”ìƒíƒœ.
 			{
 				switch ( m_stFeature.bDress )
 				{
-				case 83: //ÁÖ¸¶½ÅÀå.
-				case 84: //ÁÖ¸¶È£¹ı.
-				case 85: //ÁÖ¸¶¿Õ.
+				case 83: //ì£¼ë§ˆì‹ ì¥.
+				case 84: //ì£¼ë§ˆí˜¸ë²•.
+				case 85: //ì£¼ë§ˆì™•.
 					SetMotionFrame(_MT_MON_APPEAR, 0);
 					m_dwEndFrame = m_dwFstFrame + 1;
 					m_bCurrMtn = _MT_MON_STAND;
@@ -1801,15 +1801,15 @@ VOID CActor::UpdateMotionState(INT nLoopTime, BOOL bIsMoveTime)
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CActor::UpdateMove(BOOL bIsMoveTime)
+	í•¨ìˆ˜ëª… : CActor::UpdateMove(BOOL bIsMoveTime)
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	Ãâ·Â   : BOOL
+	ëª©ì    : 
+	ì¶œë ¥   : BOOL
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 BOOL CActor::UpdateMove(BOOL bIsMoveTime)
@@ -1841,7 +1841,7 @@ BOOL CActor::UpdateMove(BOOL bIsMoveTime)
 			}
 		}
 
-		// ¿¬¼ÓÀûÀÎ ÇÁ·¹ÀÓ Áß¿¡¼­ ÇØ¾ßÇÒÀÏ.
+		// ì—°ì†ì ì¸ í”„ë ˆì„ ì¤‘ì—ì„œ í•´ì•¼í• ì¼.
 		if ( m_dwCurrFrame >= m_dwEndFrame )
 		{
 			m_dwCurrFrame = m_dwEndFrame - 1;
@@ -1882,22 +1882,22 @@ BOOL CActor::UpdateMove(BOOL bIsMoveTime)
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CActor::DrawActor()
+	í•¨ìˆ˜ëª… : CActor::DrawActor()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : BOOL bFocused
+	ëª©ì    : 
+	ì…ë ¥   : BOOL bFocused
 	         BOOL bShadowAblended
-	Ãâ·Â   : VOID 
+	ì¶œë ¥   : VOID 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 BOOL CActor::DrawActor(CMapHandler* pxMap, BOOL bFocused, BOOL bShadowAblended, BOOL bUseScrnPos, BOOL bDrawShadow)
 {
-	// ÁÂÇ¥Ã³¸®.
+	// ì¢Œí‘œì²˜ë¦¬.
 	if ( bUseScrnPos )
 	{
 		m_shScrnPosX = (m_wPosX - pxMap->m_shStartViewTileX) * _CELL_WIDTH + _VIEW_CELL_X_START - pxMap->m_shViewOffsetX + m_shShiftPixelX;
@@ -1966,7 +1966,7 @@ BOOL CActor::DrawActor(CMapHandler* pxMap, BOOL bFocused, BOOL bShadowAblended, 
 			BYTE bOpaRate = 70;
 			WORD wState   = GetCharState();
 
-			// ¸ó½ºÅÍ ±×¸²ÀÚ ÆÄÀÏ Àû¿ë.
+			// ëª¬ìŠ¤í„° ê·¸ë¦¼ì íŒŒì¼ ì ìš©.
 			if ( bDrawShadow )
 			{
 				CWHWilImageData* pxSahdowImage;
@@ -1992,10 +1992,10 @@ BOOL CActor::DrawActor(CMapHandler* pxMap, BOOL bFocused, BOOL bShadowAblended, 
 																   _CLIP_WIDTH, _CLIP_HEIGHT, 0XFFFF, 0XFFFF, bFocused);
 					}
 				}
-				// °è»êÇØ¼­ ±×¸®±â.
+				// ê³„ì‚°í•´ì„œ ê·¸ë¦¬ê¸°.
 				else
 				{
-					// ±×¸²ÀÚ¸¦ ±×¸°´Ù.
+					// ê·¸ë¦¼ìë¥¼ ê·¸ë¦°ë‹¤.
 					if ( m_wABlendDelay || wState==_STATE_ABLEND || bShadowAblended )
 					{
 						if ( bOpaRate < 0 && bOpaRate > 100 )		bOpaRate  = 0;
@@ -2055,15 +2055,15 @@ BOOL CActor::DrawActor(CMapHandler* pxMap, BOOL bFocused, BOOL bShadowAblended, 
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CActor::DrawHPBar()
+	í•¨ìˆ˜ëª… : CActor::DrawHPBar()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	Ãâ·Â   : VOID 
+	ëª©ì    : 
+	ì¶œë ¥   : VOID 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 VOID CActor::DrawHPBar()
@@ -2086,7 +2086,7 @@ VOID CActor::DrawHPBar()
 						rcHP,
 						(WORD*)g_xGameProc.m_xImage.m_xImageList[_IMAGE_PROGUSE].m_pbCurrImage);
 	}
-	//Êı×ÖÏÔÑª
+	//é‘’ä¿šé«æ²‚
 	if( m_wMAXHP > 0 && !m_bIsDead )
 	{
 		CHAR szHealth[32];
@@ -2102,15 +2102,15 @@ VOID CActor::DrawHPBar()
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CActor::DrawName()
+	í•¨ìˆ˜ëª… : CActor::DrawName()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	Ãâ·Â   : VOID 
+	ëª©ì    : 
+	ì¶œë ¥   : VOID 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 VOID CActor::DrawName()
@@ -2121,7 +2121,7 @@ VOID CActor::DrawName()
 	RECT rc = {m_rcActor.left + (m_rcActor.right-m_rcActor.left-sizeLen.cx)/2, m_rcActor.top + (m_rcActor.bottom-m_rcActor.top-sizeLen.cy)/2, 
 		       m_rcActor.left + (m_rcActor.right-m_rcActor.left+sizeLen.cx)/2, m_rcActor.top + (m_rcActor.bottom-m_rcActor.top+sizeLen.cy)/2};	
 	RECT rcLeft = {rc.left+1, rc.top-1, rc.right+1, rc.bottom-1};
-	g_xMainWnd.PutsHan(NULL, rc, RGB(10, 10, 10), RGB(0, 0, 0), m_szName);//ÒõÓ°
+	g_xMainWnd.PutsHan(NULL, rc, RGB(10, 10, 10), RGB(0, 0, 0), m_szName);//ï¥—ç·
 	g_xMainWnd.PutsHan(NULL, rcLeft, m_bIsDead ? RGB(0,0,0) : m_dwNameClr, RGB(0, 0, 0), m_szName);
 }
 
@@ -2220,7 +2220,7 @@ VOID CActor::ShowMessage(INT nLoopTime)
 				g_xMainWnd.Get3DDevice()->SetTexture(0, NULL);
 //				g_xMainWnd.Get3DDevice()->DrawPrimitive(D3DPT_TRIANGLESTRIP, D3DFVF_VERTEX, m_avBoard, 4, NULL);
 
-				// ¿ø»óº¹±Í.
+				// ì›ìƒë³µê·€.
 				ZeroMemory(&mtrl, sizeof(mtrl));
 				mtrl.diffuse.r = mtrl.diffuse.g = mtrl.diffuse.b = 0.1f;
 				mtrl.ambient.r = mtrl.ambient.g = mtrl.ambient.b = 1.0f;
@@ -2282,23 +2282,23 @@ VOID CActor::ShowMessage(INT nLoopTime)
 *******************************************************************************************************************/
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CNPC::DrawActor()
+	í•¨ìˆ˜ëª… : CNPC::DrawActor()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : CMapHandler* pxMap
+	ëª©ì    : 
+	ì…ë ¥   : CMapHandler* pxMap
 	         BOOL bFocused
 	         BOOL bShadowAblended
-	Ãâ·Â   : BOOL 
+	ì¶œë ¥   : BOOL 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 BOOL CNPC::DrawActor(CMapHandler* pxMap, BOOL bFocused, BOOL bShadowAblended, BOOL bUseScrnPos, BOOL bDrawShadow)
 {
-	// ÁÂÇ¥Ã³¸®.
+	// ì¢Œí‘œì²˜ë¦¬.
 	m_shScrnPosX = (m_wPosX - pxMap->m_shStartViewTileX) * _CELL_WIDTH + _VIEW_CELL_X_START - pxMap->m_shViewOffsetX + m_shShiftPixelX;
 	m_shScrnPosY = (m_wPosY - pxMap->m_shStartViewTileY) * _CELL_HEIGHT+ _VIEW_CELL_Y_START - pxMap->m_shViewOffsetY + m_shShiftPixelY;
 
@@ -2343,14 +2343,14 @@ BOOL CNPC::DrawActor(CMapHandler* pxMap, BOOL bFocused, BOOL bShadowAblended, BO
 			m_rcTargetRgn.bottom = m_rcActor.bottom;
 		}
 
-		// Ä³¸¯ÅÍ ±×¸²ÀÚ.
+		// ìºë¦­í„° ê·¸ë¦¼ì.
 		INT nStartX1 = m_shScrnPosX + shShadowPX;
 		INT nStartY1 = m_shScrnPosY + shShadowPY;
 
 		BYTE bOpaRate = 70;
 		WORD wState   = GetCharState();
 
-		// ±×¸²ÀÚ¸¦ ±×¸°´Ù.
+		// ê·¸ë¦¼ìë¥¼ ê·¸ë¦°ë‹¤.
 		if ( m_wABlendDelay || wState==_STATE_ABLEND )
 		{
 			bShadowAblended = TRUE;
@@ -2415,15 +2415,15 @@ VOID CNPC::OnHit(LPPACKETMSG lpPacketMsg)
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CNPC::UpdatePacketState()
+	í•¨ìˆ˜ëª… : CNPC::UpdatePacketState()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	Ãâ·Â   : BOOL 
+	ëª©ì    : 
+	ì¶œë ¥   : BOOL 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 BOOL CNPC::UpdatePacketState()
@@ -2470,17 +2470,17 @@ BOOL CNPC::UpdatePacketState()
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CNPC::UpdateMotionState()
+	í•¨ìˆ˜ëª… : CNPC::UpdateMotionState()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : INT nLoopTime
+	ëª©ì    : 
+	ì…ë ¥   : INT nLoopTime
 	         BOOL bIsMoveTime
-	Ãâ·Â   : VOID 
+	ì¶œë ¥   : VOID 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 VOID CNPC::UpdateMotionState(INT nLoopTime, BOOL bIsMoveTime)
@@ -2514,15 +2514,15 @@ VOID CNPC::UpdateMotionState(INT nLoopTime, BOOL bIsMoveTime)
 *******************************************************************************************************************/
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CHero::CHero()
+	í•¨ìˆ˜ëª… : CHero::CHero()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	Ãâ·Â   : 
+	ëª©ì    : 
+	ì¶œë ¥   : 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 CHero::CHero()
@@ -2534,15 +2534,15 @@ CHero::CHero()
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CHero::~CHero()
+	í•¨ìˆ˜ëª… : CHero::~CHero()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	Ãâ·Â   : 
+	ëª©ì    : 
+	ì¶œë ¥   : 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 CHero::~CHero()
@@ -2596,22 +2596,22 @@ VOID CHero::DestroyActor()
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CHero::Create()
+	í•¨ìˆ˜ëª… : CHero::Create()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : CImageHandler* pxImgHandler
+	ëª©ì    : 
+	ì…ë ¥   : CImageHandler* pxImgHandler
 	         WORD wActor
 	         BYTE bMtn
 	         WORD bDir
 	         WORD wPosX
 	         WORD wPosY
 	         FEATURE stFeature
-	Ãâ·Â   : BOOL 
+	ì¶œë ¥   : BOOL 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 BOOL CHero::Create(CImageHandler* pxImgHandler, BYTE bMtn, BYTE bDir, WORD wPosX, WORD wPosY, 
@@ -2677,24 +2677,24 @@ VOID CHero::PlayActSound()
 	{
 		switch ( m_stHitter.bWeapon )
 		{
-			case 21: case 24: // ´Ü°Ë, ºñ´Ü°Ë.
-			case 8: case 9: // ¸ñ°Ë, ¾Æ¸®¼ö¸ñ°Ë.
-			case 18:  case 22:  case 23:  case 26:  case 27:  case 28:  case 30:  // »ç¸ğ°Ë. Ã»µ¿°Ë. Ã¶°Ë. Ã»À½°Ë. º®»ç°Ë. Ãµ·É. °î¼º°Ë.
-			case 1:   case 4:  case 11:  case 13:  case 14:  case 20:  case 25:  case 29:  case 31:   // À¯¿ùµµ. ¹¬Ã»´ëµµ. À°ÇÕµµ. ±ºµµ. µµ·æº¸µµ. »ç°¢µµ. ¼¼Ã·µµ. ¿¹µµ. ÃÊÈ¥µµ.
+			case 21: case 24: // ë‹¨ê²€, ë¹„ë‹¨ê²€.
+			case 8: case 9: // ëª©ê²€, ì•„ë¦¬ìˆ˜ëª©ê²€.
+			case 18:  case 22:  case 23:  case 26:  case 27:  case 28:  case 30:  // ì‚¬ëª¨ê²€. ì²­ë™ê²€. ì² ê²€. ì²­ìŒê²€. ë²½ì‚¬ê²€. ì²œë ¹. ê³¡ì„±ê²€.
+			case 1:   case 4:  case 11:  case 13:  case 14:  case 20:  case 25:  case 29:  case 31:   // ìœ ì›”ë„. ë¬µì²­ëŒ€ë„. ìœ¡í•©ë„. êµ°ë„. ë„ë£¡ë³´ë„. ì‚¬ê°ë„. ì„¸ì²¨ë„. ì˜ˆë„. ì´ˆí˜¼ë„.
 				nWaveNum = 70;
 				break;
-			case 5:  case 10:  case 12: // »ïÀû´ëºÎ. Ã»µ¿µµ³¢. ¿¬ÀÚºÎ.
-			case 15:  // ÆÄ³úÁø´ç.
+			case 5:  case 10:  case 12: // ì‚¼ì ëŒ€ë¶€. ì²­ë™ë„ë¼. ì—°ìë¶€.
+			case 15:  // íŒŒë‡Œì§„ë‹¹.
 				nWaveNum = 71;
 				break;
-			case 2:  case 3:  case 6:  case 7: case 16:  case 17: case 19:  // »ïÁöÃ¢. ÃµÇü¸ñ. È«¾ÆÃ¢. °î±ªÀÌ. Ã»¸¶Ã¢, ¿ë¾ÆÀå. Á¦¸¶ºÀ
+			case 2:  case 3:  case 6:  case 7: case 16:  case 17: case 19:  // ì‚¼ì§€ì°½. ì²œí˜•ëª©. í™ì•„ì°½. ê³¡ê´­ì´. ì²­ë§ˆì°½, ìš©ì•„ì¥. ì œë§ˆë´‰
 				nWaveNum = 72;
 				break;
 			default:
-				nWaveNum = 73;	// ¸Ç¼Õ.
+				nWaveNum = 73;	// ë§¨ì†.
 				break;
 		}
-		if ( m_stFeature.bDress == 3 )		// ¹Ì°©ÁÖ.
+		if ( m_stFeature.bDress == 3 )		// ë¯¸ê°‘ì£¼.
 			nWaveNum += 10;
 	}
 	else if ( m_dwCurrFrame == m_dwFstFrame+2 && m_bCurrMtn == _MT_HITTED )
@@ -2739,29 +2739,29 @@ VOID CHero::PlayActSound()
 	{
 		switch ( m_stFeature.bWeapon )
 		{
-		case 21: case 24: // ´Ü°Ë, ºñ´Ü°Ë.
+		case 21: case 24: // ë‹¨ê²€, ë¹„ë‹¨ê²€.
 			nWaveNum = 50;
 			break;
-		case 8: case 9: // ¸ñ°Ë, ¾Æ¸®¼ö¸ñ°Ë.
+		case 8: case 9: // ëª©ê²€, ì•„ë¦¬ìˆ˜ëª©ê²€.
 			nWaveNum = 51;
 			break;
-		case 18:  case 22:  case 23:  case 26:  case 27:  case 28:  case 30:  // »ç¸ğ°Ë. Ã»µ¿°Ë. Ã¶°Ë. Ã»À½°Ë. º®»ç°Ë. Ãµ·É. °î¼º°Ë.
+		case 18:  case 22:  case 23:  case 26:  case 27:  case 28:  case 30:  // ì‚¬ëª¨ê²€. ì²­ë™ê²€. ì² ê²€. ì²­ìŒê²€. ë²½ì‚¬ê²€. ì²œë ¹. ê³¡ì„±ê²€.
 			nWaveNum = 52;
 			break;
-		case 1:   case 4:  case 11:  case 13:  case 14:  case 20:  case 25:  case 29:  case 31:   // À¯¿ùµµ. ¹¬Ã»´ëµµ. À°ÇÕµµ. ±ºµµ. µµ·æº¸µµ. »ç°¢µµ. ¼¼Ã·µµ. ¿¹µµ. ÃÊÈ¥µµ.
+		case 1:   case 4:  case 11:  case 13:  case 14:  case 20:  case 25:  case 29:  case 31:   // ìœ ì›”ë„. ë¬µì²­ëŒ€ë„. ìœ¡í•©ë„. êµ°ë„. ë„ë£¡ë³´ë„. ì‚¬ê°ë„. ì„¸ì²¨ë„. ì˜ˆë„. ì´ˆí˜¼ë„.
 			nWaveNum = 53;
 			break;
-		case 5:  case 10:  case 12: // »ïÀû´ëºÎ. Ã»µ¿µµ³¢. ¿¬ÀÚºÎ.
+		case 5:  case 10:  case 12: // ì‚¼ì ëŒ€ë¶€. ì²­ë™ë„ë¼. ì—°ìë¶€.
 			nWaveNum = 54;
 			break;
-		case 15:  // ÆÄ³úÁø´ç.
+		case 15:  // íŒŒë‡Œì§„ë‹¹.
 			nWaveNum = 55;
 			break;
-		case 2:  case 3:  case 6:  case 7: case 16:  case 17: case 19:  // »ïÁöÃ¢. ÃµÇü¸ñ. È«¾ÆÃ¢. °î±ªÀÌ. Ã»¸¶Ã¢, ¿ë¾ÆÀå. Á¦¸¶ºÀ
+		case 2:  case 3:  case 6:  case 7: case 16:  case 17: case 19:  // ì‚¼ì§€ì°½. ì²œí˜•ëª©. í™ì•„ì°½. ê³¡ê´­ì´. ì²­ë§ˆì°½, ìš©ì•„ì¥. ì œë§ˆë´‰
 			nWaveNum = 56;
 			break;
 		default:
-			nWaveNum = 57;	// ¸Ç¼Õ.
+			nWaveNum = 57;	// ë§¨ì†.
 			break;
 		}
 	}
@@ -2854,7 +2854,7 @@ VOID CHero::ShowShield()
 
 //					g_xMainWnd.Get3DDevice()->DrawPrimitive(D3DPT_TRIANGLESTRIP, D3DFVF_VERTEX, m_avBoard, 4, NULL);
 
-					// ¿ø»óº¹±Í.
+					// ì›ìƒë³µê·€.
 					ZeroMemory(&mtrl, sizeof(mtrl));
 					mtrl.diffuse.r = mtrl.diffuse.g = mtrl.diffuse.b = 0.1f;
 					mtrl.ambient.r = mtrl.ambient.g = mtrl.ambient.b = 1.0f;
@@ -2874,15 +2874,15 @@ VOID CHero::ShowShield()
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CHero::UpdateMove(BOOL bIsMoveTime)
+	í•¨ìˆ˜ëª… : CHero::UpdateMove(BOOL bIsMoveTime)
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	Ãâ·Â   : BOOL 
+	ëª©ì    : 
+	ì¶œë ¥   : BOOL 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 BOOL CHero::UpdateMove(BOOL bIsMoveTime)
@@ -2935,7 +2935,7 @@ BOOL CHero::UpdateMove(BOOL bIsMoveTime)
 			}
 		}
 
-		// ¿¬¼ÓÀûÀÎ ÇÁ·¹ÀÓ Áß¿¡¼­ ÇØ¾ßÇÒÀÏ.
+		// ì—°ì†ì ì¸ í”„ë ˆì„ ì¤‘ì—ì„œ í•´ì•¼í• ì¼.
 		if ( m_dwCurrFrame >= m_dwEndFrame )
 		{
 			m_dwCurrFrame = m_dwEndFrame - 1;
@@ -3001,7 +3001,7 @@ VOID CHero::OnCharDescPacket(LPPACKETMSG lpPacketMsg)
 
 VOID CHero::OnFeatureChanged(LPPACKETMSG lpPacketMsg)
 {
-	//Ò»¸öÊ¾·¶°ü
+	//å¯§ëª¸åˆ»ë €ê´€
 	//a0 76 c6 0b 29 00 01 1c 07 41 00 00 02 9d 39 04 6a 
 	FEATURE stFeature;
 	LONG nFeature	  = MAKELONG(lpPacketMsg->stDefMsg.wParam, lpPacketMsg->stDefMsg.wTag);
@@ -3207,33 +3207,33 @@ VOID CHero::OnStruck(LPPACKETMSG lpPacketMsg)
 		SetMotionFrame(_MT_MON_HITTED, m_bCurrDir);
 	}
 
-	// ¸ó½ºÅÍÀÏ¶§.
+	// ëª¬ìŠ¤í„°ì¼ë•Œ.
 	if ( m_stHitter.bGender == _GENDER_MON )
 	{
 		CMagic* pxMagic;
 		switch ( m_stHitter.bDress )
 		{
-		case 2:		// ÄÉÆÈ·ÎÇÁ.
+		case 2:		// ì¼€íŒ”ë¡œí”„.
 			pxMagic = new CMagic;
 			pxMagic->CreateMagic(_MONMAGIC_KEPAL, m_wPosX, m_wPosY, m_wPosX, m_wPosY, this, 0);
 			g_xGameProc.m_xMagicList.AddNode(pxMagic);
 			break;
-		case 8:		// °©ÁÖ°³¹Ì.
+		case 8:		// ê°‘ì£¼ê°œë¯¸.
 			pxMagic = new CMagic;
 			pxMagic->CreateMagic(_MONMAGIC_GREATANT, m_wPosX, m_wPosY, m_wPosX, m_wPosY, this);
 			g_xGameProc.m_xMagicList.AddNode(pxMagic);
 			break;
-		case 14:	// º´¿ë°³¹Ì.
+		case 14:	// ë³‘ìš©ê°œë¯¸.
 			pxMagic = new CMagic;
 			pxMagic->CreateMagic(_MONMAGIC_ANT, m_wPosX, m_wPosY, m_wPosX, m_wPosY, this);
 			g_xGameProc.m_xMagicList.AddNode(pxMagic);
 			break;
-		case 16:	// µå³­°³¹Ì.
+		case 16:	// ë“œë‚œê°œë¯¸.
 			pxMagic = new CMagic;
 			pxMagic->CreateMagic(_MONMAGIC_WORKANT, m_wPosX, m_wPosY, m_wPosX, m_wPosY, this);
 			g_xGameProc.m_xMagicList.AddNode(pxMagic);
 			break;
-		case 67:	// ÃË·æ½Å.
+		case 67:	// ì´‰ë£¡ì‹ .
 			pxMagic = new CMagic;
 			pxMagic->CreateMagic(_MONMAGIC_BIGGINE_CHAR, m_wPosX, m_wPosY, m_wPosX, m_wPosY, this);
 			g_xGameProc.m_xMagicList.AddNode(pxMagic);
@@ -3463,15 +3463,15 @@ VOID CHero::OnButch(LPPACKETMSG lpPacketMsg)
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CHero::UpdatePacketState()
+	í•¨ìˆ˜ëª… : CHero::UpdatePacketState()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	Ãâ·Â   : BOOL 
+	ëª©ì    : 
+	ì¶œë ¥   : BOOL 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 BOOL CHero::UpdatePacketState()
@@ -3538,17 +3538,17 @@ BOOL CHero::UpdatePacketState()
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CHero::UpdateMotionState()
+	í•¨ìˆ˜ëª… : CHero::UpdateMotionState()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : INT nLoopTime
+	ëª©ì    : 
+	ì…ë ¥   : INT nLoopTime
 	         BOOL bIsMoveTime
-	Ãâ·Â   : VOID 
+	ì¶œë ¥   : VOID 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 VOID CHero::UpdateMotionState(INT nLoopTime, BOOL bIsMoveTime)
@@ -3679,18 +3679,18 @@ VOID CHero::UpdateMotionState(INT nLoopTime, BOOL bIsMoveTime)
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CHero::ChangeFeature()
+	í•¨ìˆ˜ëª… : CHero::ChangeFeature()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : BYTE bGender, BYTE bWear, BYTE bHair, BYTE bWeapon;
-	ÀÔ·Â   : WORD wActor
+	ëª©ì    : BYTE bGender, BYTE bWear, BYTE bHair, BYTE bWeapon;
+	ì…ë ¥   : WORD wActor
 	         BYTE bHair
 	         BYTE bWeapon
-	Ãâ·Â   : BOOL 
+	ì¶œë ¥   : BOOL 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 BOOL CHero::ChangeFeature(FEATURE stFeature, FEATUREEX stFeatureEx)
@@ -3741,22 +3741,22 @@ BOOL CHero::ChangeFeature(FEATURE stFeature, FEATUREEX stFeatureEx)
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CHero::DrawActor()
+	í•¨ìˆ˜ëª… : CHero::DrawActor()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : BOOL bFocused
+	ëª©ì    : 
+	ì…ë ¥   : BOOL bFocused
 	         BOOL bShadowAblended
-	Ãâ·Â   : BOOL 
+	ì¶œë ¥   : BOOL 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 BOOL CHero::DrawActor(CMapHandler* pxMap, BOOL bFocused, BOOL bShadowAblended, BOOL bUseScrnPos, BOOL bDrawShadow)
 {
-	// ÁÂÇ¥Ã³¸®.
+	// ì¢Œí‘œì²˜ë¦¬.
 	if ( bUseScrnPos )
 	{
 		m_shScrnPosX = (m_wPosX - pxMap->m_shStartViewTileX) * _CELL_WIDTH + _VIEW_CELL_X_START - pxMap->m_shViewOffsetX + m_shShiftPixelX;
@@ -3770,9 +3770,9 @@ BOOL CHero::DrawActor(CMapHandler* pxMap, BOOL bFocused, BOOL bShadowAblended, B
 	SHORT	shPX, shPY;
 
 	//---------------------------------------------------------------------------------------------------------------//
-	// °¢ ÀÌ¹ÌÁö ¼¼ÆÃ¹× ÁÂÇ¥¿µ¿ª Ã¼Å©.
+	// ê° ì´ë¯¸ì§€ ì„¸íŒ…ë° ì¢Œí‘œì˜ì—­ ì²´í¬.
 	//---------------------------------------------------------------------------------------------------------------//
-	// ¸» Âí
+	// ë§ ì¯©
 	if ( m_stFeatureEx.bHorse != _HORSE_NONE && m_pxHorseImage != NULL )
 	{
 		if ( m_bCurrMtn >= _START_HORSE_MTN )
@@ -3788,7 +3788,7 @@ BOOL CHero::DrawActor(CMapHandler* pxMap, BOOL bFocused, BOOL bShadowAblended, B
 		}
 	} 
 
-	// ¹«±â. ÎäÆ÷
+	// ë¬´ê¸°. å¶ í¬
 	if ( m_stFeature.bWeapon != _WEAPON_NONE && m_pxWeaponImage != NULL )
 	{
 		if ( m_bCurrMtn < _MAX_WEAPON_MTN )
@@ -3843,7 +3843,7 @@ BOOL CHero::DrawActor(CMapHandler* pxMap, BOOL bFocused, BOOL bShadowAblended, B
 		}
 	}
 
-	// ¸Ó¸®.Í··¢Rect
+	// ë¨¸ë¦¬.åº«ë™Rect
 	if ( m_stFeature.bHair != _HAIR_NONE && m_pxHairImage != NULL )
 	{
 		m_dwCurrHairFrame = (m_stFeature.bHair*_MAX_HERO_FRAME-_MAX_HERO_FRAME)+(m_dwCurrFrame-(_MAX_HERO_FRAME*m_stFeature.bDress));
@@ -3857,12 +3857,12 @@ BOOL CHero::DrawActor(CMapHandler* pxMap, BOOL bFocused, BOOL bShadowAblended, B
 	}
 
 	//---------------------------------------------------------------------------------------------------------------//
-	// ±×¸²ÀÚ±×¸®±â.
+	// ê·¸ë¦¼ìê·¸ë¦¬ê¸°.
 	//---------------------------------------------------------------------------------------------------------------//
 	BYTE bOpaRate = 70;
 	WORD wState   = GetCharState();
 
-	// ¹«±â. ÎäÆ÷ draw weapon
+	// ë¬´ê¸°. å¶ í¬ draw weapon
 	if ( m_stFeature.bWeapon != _WEAPON_NONE && m_pxWeaponImage != NULL )
 	{
 		if ( m_bCurrMtn < _MAX_WEAPON_MTN )
@@ -3895,7 +3895,7 @@ BOOL CHero::DrawActor(CMapHandler* pxMap, BOOL bFocused, BOOL bShadowAblended, B
 		}
 	}
 
-	// ¸».draw horse
+	// ë§.draw horse
 	if ( m_stFeatureEx.bHorse != _HORSE_NONE && m_pxHorseImage != NULL )
 	{
 		if ( m_bCurrMtn >= _START_HORSE_MTN )
@@ -3957,7 +3957,7 @@ BOOL CHero::DrawActor(CMapHandler* pxMap, BOOL bFocused, BOOL bShadowAblended, B
 		}
 	}
 
-	// ¸Ó¸®´Â ±×¸²ÀÚ¸¦ ±×¸®Áö ¾Ê´Â´Ù.
+	// ë¨¸ë¦¬ëŠ” ê·¸ë¦¼ìë¥¼ ê·¸ë¦¬ì§€ ì•ŠëŠ”ë‹¤.
 	if ( m_wABlendDelay )		
 	{
 		bShadowAblended = TRUE;
@@ -3983,9 +3983,9 @@ BOOL CHero::DrawActor(CMapHandler* pxMap, BOOL bFocused, BOOL bShadowAblended, B
 	else if ( wState==_STATE_ABLEND )			bShadowAblended = TRUE;
 
 	//---------------------------------------------------------------------------------------------------------------//
-	// ÀÌ¹ÌÁö ±×¸®±â.
+	// ì´ë¯¸ì§€ ê·¸ë¦¬ê¸°.
 	//---------------------------------------------------------------------------------------------------------------//
-	// ¸». Âí
+	// ë§. ì¯©
 	if ( m_stFeatureEx.bHorse != _HORSE_NONE && m_pxHorseImage != NULL )
 	{
 		if ( m_bCurrMtn >= _START_HORSE_MTN )
@@ -3995,7 +3995,7 @@ BOOL CHero::DrawActor(CMapHandler* pxMap, BOOL bFocused, BOOL bShadowAblended, B
 		}
 	}
 
-	// ÎäÆ÷
+	// å¶ í¬
 	if ( m_stFeature.bWeapon != _WEAPON_NONE && m_pxWeaponImage != NULL && g_xSpriteInfo.m_bWOrder[(m_dwCurrFrame-(_MAX_HERO_FRAME*m_stFeature.bDress))] )
 	{
 		if ( m_bCurrMtn < _MAX_WEAPON_MTN )
@@ -4010,7 +4010,7 @@ BOOL CHero::DrawActor(CMapHandler* pxMap, BOOL bFocused, BOOL bShadowAblended, B
 */		}
 	}
 
-	// Ä³¸¯ÅÍ.
+	// ìºë¦­í„°.
 	if ( m_pxActorImage != NULL )
 	{
 		DrawWithEffected(m_rcActor.left, m_rcActor.top, m_pxActorImage->m_lpstNewCurrWilImageInfo->shWidth, m_pxActorImage->m_lpstNewCurrWilImageInfo->shHeight, (WORD*)m_pxActorImage->m_pbCurrImage,
@@ -4027,7 +4027,7 @@ BOOL CHero::DrawActor(CMapHandler* pxMap, BOOL bFocused, BOOL bShadowAblended, B
 
 	}			
 
-	// ¹«±â¸¦ ³ªÁß¿¡ ±×·Á¾ßµÉ ¹æÇâ.
+	// ë¬´ê¸°ë¥¼ ë‚˜ì¤‘ì— ê·¸ë ¤ì•¼ë  ë°©í–¥.
 	if ( m_stFeature.bWeapon != _WEAPON_NONE && m_pxWeaponImage != NULL && !g_xSpriteInfo.m_bWOrder[(m_dwCurrFrame-(_MAX_HERO_FRAME*m_stFeature.bDress))] ) 
 	{
 		if ( m_bCurrMtn < _MAX_WEAPON_MTN )
@@ -4096,15 +4096,15 @@ BOOL CHero::DrawActor(CMapHandler* pxMap, BOOL bFocused, BOOL bShadowAblended, B
 *******************************************************************************************************************/
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CMyHero::CMyHero()
+	í•¨ìˆ˜ëª… : CMyHero::CMyHero()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	Ãâ·Â   : 
+	ëª©ì    : 
+	ì¶œë ¥   : 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 CMyHero::CMyHero()
@@ -4116,15 +4116,15 @@ CMyHero::CMyHero()
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CMyHero::~CMyHero()
+	í•¨ìˆ˜ëª… : CMyHero::~CMyHero()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	Ãâ·Â   : 
+	ëª©ì    : 
+	ì¶œë ¥   : 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 CMyHero::~CMyHero()
@@ -4183,7 +4183,7 @@ VOID CMyHero::DestroyActor()
 	lpPacketMsg  = NULL;
 	shLeftMsgCnt = m_xPriorPacketQueue.GetCount();
 
-	// ½×¿©ÀÖ´Â ÆĞÅ¶À» Áö¿î´Ù.
+	// ìŒ“ì—¬ìˆëŠ” íŒ¨í‚·ì„ ì§€ìš´ë‹¤.
 	if ( shLeftMsgCnt > 0 )
 	{
 		for ( nCnt = 0; nCnt < shLeftMsgCnt; nCnt++ )
@@ -4215,16 +4215,16 @@ BOOL CMyHero::Create(CImageHandler* pxImgHandler, BYTE bMtn, BYTE bDir, WORD wPo
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CMyHero::SetMapHandler()
+	í•¨ìˆ˜ëª… : CMyHero::SetMapHandler()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : CMapHandler* pxMap
-	Ãâ·Â   : VOID 
+	ëª©ì    : 
+	ì…ë ¥   : CMapHandler* pxMap
+	ì¶œë ¥   : VOID 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 VOID CMyHero::SetMapHandler(CMapHandler* pxMap)
@@ -4250,15 +4250,15 @@ VOID CMyHero::OnHealthSpellChanged(LPPACKETMSG lpPacketMsg)
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CMyHero::UpdatePacketState()
+	í•¨ìˆ˜ëª… : CMyHero::UpdatePacketState()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	Ãâ·Â   : BOOL 
+	ëª©ì    : 
+	ì¶œë ¥   : BOOL 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 BOOL CMyHero::UpdatePacketState()
@@ -4362,15 +4362,15 @@ BOOL CMyHero::UpdatePacketState()
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CMyHero::SetOldPosition()
+	í•¨ìˆ˜ëª… : CMyHero::SetOldPosition()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	Ãâ·Â   : BOOL 
+	ëª©ì    : 
+	ì¶œë ¥   : BOOL 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 BOOL CMyHero::SetOldPosition()
@@ -4404,15 +4404,15 @@ BOOL CMyHero::SetOldPosition()
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CMyHero::CheckMyPostion()
+	í•¨ìˆ˜ëª… : CMyHero::CheckMyPostion()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	Ãâ·Â   : BOOL 
+	ëª©ì    : 
+	ì¶œë ¥   : BOOL 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 BOOL CMyHero::CheckMyPostion()
@@ -4429,15 +4429,15 @@ BOOL CMyHero::CheckMyPostion()
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CMyHero::AdjustMyPostion()
+	í•¨ìˆ˜ëª… : CMyHero::AdjustMyPostion()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	Ãâ·Â   : VOID 
+	ëª©ì    : 
+	ì¶œë ¥   : VOID 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 VOID CMyHero::AdjustMyPostion()
@@ -4453,18 +4453,18 @@ VOID CMyHero::AdjustMyPostion()
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CMyHero::SetMotionState()
+	í•¨ìˆ˜ëª… : CMyHero::SetMotionState()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : BYTE bMtn
+	ëª©ì    : 
+	ì…ë ¥   : BYTE bMtn
 	         BYTE bDir
 	         LPPOINT lpptTarget
-	Ãâ·Â   : VOID 
+	ì¶œë ¥   : VOID 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 VOID CMyHero::SetMotionState(BYTE bMtn, BYTE bDir, INT nMouseTargetID, BOOL bIsDead, LPPOINT lpptPos, SHORT shSkill)
@@ -4490,9 +4490,9 @@ VOID CMyHero::SetMotionState(BYTE bMtn, BYTE bDir, INT nMouseTargetID, BOOL bIsD
 						}
 					}
 
-					//Ïò·şÎñÆ÷·¢ËÍ
+					//å‘æœåŠ¡å™¨å‘é€
 					m_pSocketClient->SendRunMsg(CM_WALK, lpptPos->x, lpptPos->y, bDir);
-					m_bMotionLock = m_bInputLock = TRUE;//·¢ËÍĞĞ×ßÃüÁîºóËø¶¨ÔË¶¯
+					m_bMotionLock = m_bInputLock = TRUE;//å‘é€è¡Œèµ°å‘½ä»¤åé”å®šè¿åŠ¨
 					m_wOldPosX = m_wPosX;
 					m_wOldPosY = m_wPosY;
 					m_bOldDir  = m_bCurrDir;
@@ -4623,7 +4623,7 @@ VOID CMyHero::SetMotionState(BYTE bMtn, BYTE bDir, INT nMouseTargetID, BOOL bIsD
 				if ( lpptPos )		
 				{
 					m_pSocketClient->SendSpellMsg(shSkill, lpptPos->x, lpptPos->y, 0);
-					// ³å×²
+					// ë…‘æ—’
 					m_dwLastRushTime = timeGetTime();
 					m_bMotionLock = m_bInputLock = TRUE;
 					m_bWarMode	= TRUE;
@@ -4765,16 +4765,16 @@ VOID CMyHero::SetMotionState(BYTE bMtn, BYTE bDir, INT nMouseTargetID, BOOL bIsD
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CMyHero::UpdateMotionState()
+	í•¨ìˆ˜ëª… : CMyHero::UpdateMotionState()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : INT nLoopTime
-	Ãâ·Â   : VOID 
+	ëª©ì    : 
+	ì…ë ¥   : INT nLoopTime
+	ì¶œë ¥   : VOID 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 VOID CMyHero::UpdateMotionState(INT nLoopTime, BOOL bIsMoveTime)
@@ -4852,7 +4852,7 @@ VOID CMyHero::UpdateMotionState(INT nLoopTime, BOOL bIsMoveTime)
 
 			UpdatePacketState();
 
-			// ¿¬¼ÓÀûÀÎ ÇÁ·¹ÀÓ Áß¿¡¼­ ÇØ¾ßÇÒÀÏ.
+			// ì—°ì†ì ì¸ í”„ë ˆì„ ì¤‘ì—ì„œ í•´ì•¼í• ì¼.
 			if ( m_dwMotionLockTime > _MOTION_LOCKTIME )
 			{
 				m_dwMotionLockTime = 0;
@@ -4969,7 +4969,7 @@ VOID CMyHero::UpdateMotionState(INT nLoopTime, BOOL bIsMoveTime)
 				}
 				else if ( HIBYTE(GetKeyState(VK_LBUTTON)) )
 				{
-					//×ó¼ü
+					//ç’˜ìˆ©
 					OnLButtonDown(ptMouse);
 
 /*					LPARAM lParam = MAKELPARAM((WORD)ptMouse.x, (WORD)ptMouse.y);
@@ -5004,7 +5004,7 @@ VOID CMyHero::UpdateMotionState(INT nLoopTime, BOOL bIsMoveTime)
 
 			UpdatePacketState();
 
-			// ¿¬¼ÓÀûÀÎ ÇÁ·¹ÀÓ Áß¿¡¼­ ÇØ¾ßÇÒÀÏ.
+			// ì—°ì†ì ì¸ í”„ë ˆì„ ì¤‘ì—ì„œ í•´ì•¼í• ì¼.
 			if ( m_dwMotionLockTime > _MOTION_LOCKTIME )
 			{
 				m_dwMotionLockTime = 0;
@@ -5083,16 +5083,16 @@ VOID CMyHero::UpdateMotionState(INT nLoopTime, BOOL bIsMoveTime)
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CMyHero::UpdateMove(BOOL bIsMoveTime)
+	í•¨ìˆ˜ëª… : CMyHero::UpdateMove(BOOL bIsMoveTime)
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : BOOL bIsMoveTime
-	Ãâ·Â   : BOOL 
+	ëª©ì    : 
+	ì…ë ¥   : BOOL bIsMoveTime
+	ì¶œë ¥   : BOOL 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 BOOL CMyHero::UpdateMove(BOOL bIsMoveTime)
@@ -5151,7 +5151,7 @@ BOOL CMyHero::UpdateMove(BOOL bIsMoveTime)
 				}
 			}
 
-			// ¿¬¼ÓÀûÀÎ ÇÁ·¹ÀÓ Áß¿¡¼­ ÇØ¾ßÇÒÀÏ.
+			// ì—°ì†ì ì¸ í”„ë ˆì„ ì¤‘ì—ì„œ í•´ì•¼í• ì¼.
 			if ( m_dwCurrFrame >= m_dwEndFrame )
 			{
 				m_dwCurrFrame = m_dwEndFrame-1;
@@ -5171,7 +5171,7 @@ BOOL CMyHero::UpdateMove(BOOL bIsMoveTime)
 							m_shShiftPixelY	= 0;
 							m_shShiftTileX	= 0;
 							m_shShiftTileY	= 0;
-							// ÀÌµ¿ÈÄ ÁÂÇ¥È®ÀÎ.
+							// ì´ë™í›„ ì¢Œí‘œí™•ì¸.
 							if ( CheckMyPostion() == FALSE )
 								AdjustMyPostion();
 
@@ -5197,7 +5197,7 @@ BOOL CMyHero::UpdateMove(BOOL bIsMoveTime)
 
 							m_bBackStepFrame = 0;
 							m_bBackStepFrameCnt = 0;
-							// ÀÌµ¿ÈÄ ÁÂÇ¥È®ÀÎ.
+							// ì´ë™í›„ ì¢Œí‘œí™•ì¸.
 							if ( CheckMyPostion() == FALSE )
 								AdjustMyPostion();
 
@@ -5232,7 +5232,7 @@ BOOL CMyHero::UpdateMove(BOOL bIsMoveTime)
 							}
 							else	SetMotionFrame(_MT_HORSESTAND, m_bCurrDir);
 
-							// ÀÌµ¿ÈÄ ÁÂÇ¥È®ÀÎ.
+							// ì´ë™í›„ ì¢Œí‘œí™•ì¸.
 							if ( CheckMyPostion() == FALSE )
 								AdjustMyPostion();
 							POINT ptMouse;
@@ -5312,7 +5312,7 @@ BOOL CMyHero::UpdateMove(BOOL bIsMoveTime)
 				}
 			}
 
-			// ¿¬¼ÓÀûÀÎ ÇÁ·¹ÀÓ Áß¿¡¼­ ÇØ¾ßÇÒÀÏ.
+			// ì—°ì†ì ì¸ í”„ë ˆì„ ì¤‘ì—ì„œ í•´ì•¼í• ì¼.
 			if ( m_dwMotionLockTime > _MOTION_LOCKTIME )
 			{
 				m_dwMotionLockTime = 0;
@@ -5367,7 +5367,7 @@ BOOL CMyHero::UpdateMove(BOOL bIsMoveTime)
 							
 							SetMotionFrame(_MT_MON_STAND, m_bCurrDir);
 
-							// ÀÌµ¿ÈÄ ÁÂÇ¥È®ÀÎ.
+							// ì´ë™í›„ ì¢Œí‘œí™•ì¸.
 							if ( CheckMyPostion() == FALSE )
 								AdjustMyPostion();
 							POINT ptMouse;
@@ -5392,7 +5392,7 @@ BOOL CMyHero::UpdateMove(BOOL bIsMoveTime)
 				}
 			}
 
-			// ¿¬¼ÓÀûÀÎ ÇÁ·¹ÀÓ Áß¿¡¼­ ÇØ¾ßÇÒÀÏ.
+			// ì—°ì†ì ì¸ í”„ë ˆì„ ì¤‘ì—ì„œ í•´ì•¼í• ì¼.
 			if ( m_dwMotionLockTime > _MOTION_LOCKTIME )
 			{
 				m_dwMotionLockTime = 0;
@@ -5419,17 +5419,17 @@ BOOL CMyHero::UpdateMove(BOOL bIsMoveTime)
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CMyHero:DrawActor()
+	í•¨ìˆ˜ëª… : CMyHero:DrawActor()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : BOOL bFocused
+	ëª©ì    : 
+	ì…ë ¥   : BOOL bFocused
 	         BOOL bShadowAblended
-	Ãâ·Â   : BOOL 
+	ì¶œë ¥   : BOOL 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 BOOL CMyHero::DrawActor(BOOL bFocused, BOOL bShadowAblended, BOOL bUseScrnPos, BOOL bDrawShadow)
@@ -5461,17 +5461,17 @@ BOOL CMyHero::DrawActor(BOOL bFocused, BOOL bShadowAblended, BOOL bUseScrnPos, B
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CMyHero::CalcDirection()
+	í•¨ìˆ˜ëª… : CMyHero::CalcDirection()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : INT nTargetTileX
+	ëª©ì    : 
+	ì…ë ¥   : INT nTargetTileX
 	         INT nTargetTileY
-	Ãâ·Â   : 
+	ì¶œë ¥   : 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 BYTE CMyHero::CalcDirection(INT nTargetTileX, INT nTargetTileY)
@@ -5484,11 +5484,11 @@ BYTE CMyHero::CalcDirection(INT nTargetTileX, INT nTargetTileY)
 	BYTE	bDir;
 	rLineLength = (FLOAT)sqrt((float)nWidth*nWidth+nHeight*nHeight);
 	
-	// ±âº».
+	// ê¸°ë³¸.
 	// 7  0  1          
 	// 6     2
 	// 5  4  3
-	// ÀÏ´ÜÀº 4°³ÀÇ ºĞ¸é(90µµ±âÁØ)À¸·Î ³ª´©°í ºĞ¸é¿¡ ´ëÇÑ cos°ªÀ» Àû¿ëÇÑ´Ù.
+	// ì¼ë‹¨ì€ 4ê°œì˜ ë¶„ë©´(90ë„ê¸°ì¤€)ìœ¼ë¡œ ë‚˜ëˆ„ê³  ë¶„ë©´ì— ëŒ€í•œ cosê°’ì„ ì ìš©í•œë‹¤.
 	( nWidth >= 0 ) ?
 		( nHeight <  0 ? (rBottomInTriangle=(FLOAT)-nHeight, nDimension=0) : (rBottomInTriangle=(FLOAT) nWidth, nDimension=2) ):
 		( nHeight >= 0 ? (rBottomInTriangle=(FLOAT) nHeight, nDimension=4) : (rBottomInTriangle=(FLOAT)-nWidth, nDimension=6) );
@@ -5501,7 +5501,7 @@ BYTE CMyHero::CalcDirection(INT nTargetTileX, INT nTargetTileY)
 //	cos(0), cos(pi/8), cos(pi/4), cos(pi/2)
 	CONST FLOAT rCosVal8[4] = { 1.0f, 0.923880f, 0.707107f, 0.382683f };
 	
-	// °¢ºĞ¸éÀ» 3°³ÀÇ ¿µ¿ªÀ¸·Î ³ª´©¾î¼­ ¿µ¿ªÀ» ÀçÁ¶Á¤ÇÑ´Ù.
+	// ê°ë¶„ë©´ì„ 3ê°œì˜ ì˜ì—­ìœ¼ë¡œ ë‚˜ëˆ„ì–´ì„œ ì˜ì—­ì„ ì¬ì¡°ì •í•œë‹¤.
 	bDir = 0;
 	for ( INT nCnt = 0; nCnt < 4; nCnt++ )
 	{
@@ -5520,17 +5520,17 @@ BYTE CMyHero::CalcDirection(INT nTargetTileX, INT nTargetTileY)
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CMyHero::GetPosMouseToTile()
+	í•¨ìˆ˜ëª… : CMyHero::GetPosMouseToTile()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : INT nXPos
+	ëª©ì    : 
+	ì…ë ¥   : INT nXPos
 	         INT nYPos
-	Ãâ·Â   : POINT 
+	ì¶œë ¥   : POINT 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 POINT CMyHero::GetPosMouseToTile(INT nXPos, INT nYPos)
@@ -5599,22 +5599,22 @@ BOOL CMyHero::CanRun()
 
 
 //---------------------------------------------------------------------------------------------------------------//
-//  À¯Àú ÀÔ·ÂÇÔ¼ö.
+//  ìœ ì € ì…ë ¥í•¨ìˆ˜.
 //---------------------------------------------------------------------------------------------------------------//
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CMyHero::OnLButtonDown()
+	í•¨ìˆ˜ëª… : CMyHero::OnLButtonDown()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : POINT ptMouse
+	ëª©ì    : 
+	ì…ë ¥   : POINT ptMouse
 	         INT nTargetID
 	         POINT* lpptTargetPos
-	Ãâ·Â   : BOOL 
+	ì¶œë ¥   : BOOL 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 BOOL CMyHero::OnLButtonDown(POINT ptMouse, INT nTargetID, BOOL bIsDead, POINT* lpptTargetPos)
@@ -5659,7 +5659,7 @@ BOOL CMyHero::OnLButtonDown(POINT ptMouse, INT nTargetID, BOOL bIsDead, POINT* l
 			nLength = (INT)sqrt((float)(float)(m_wPosX-ptMouseTilePos.x)*(m_wPosX-ptMouseTilePos.x) + (m_wPosY-ptMouseTilePos.y)*(m_wPosY-ptMouseTilePos.y));
 
 
-		// 1. SHIFT.(°­Á¦ °ø°İ)
+		// 1. SHIFT.(ê°•ì œ ê³µê²©)
 		if ( HIBYTE(GetKeyState(VK_SHIFT)) )
 		{
 			if ( m_stFeatureEx.bHorse == _HORSE_NONE )
@@ -5668,7 +5668,7 @@ BOOL CMyHero::OnLButtonDown(POINT ptMouse, INT nTargetID, BOOL bIsDead, POINT* l
 				{
 					if ( m_stFeatureEx.bHorse == _HORSE_NONE && !bIsDead )
 					{
-						// °ø°İÇÑ´Ù.
+						// ê³µê²©í•œë‹¤.
 						ptTargetTile.x = m_wPosX;
 						ptTargetTile.y = m_wPosY;
 						SetMotionState(_MT_ONEHSWING, bDir, nTargetID, bIsDead, &ptTargetTile);
@@ -5682,30 +5682,30 @@ BOOL CMyHero::OnLButtonDown(POINT ptMouse, INT nTargetID, BOOL bIsDead, POINT* l
 				}
 			}
 		}
-		// 2. ALT.(½ä±â)
+		// 2. ALT.(ì°ê¸°)
 		else if ( HIBYTE(GetKeyState(VK_MENU)) )
 		{
 			SetMotionState(_MT_CUT, bDir, nTargetID, bIsDead, &ptTargetTile);
 		}
 		/*
-		// 3. Å¬¸¯ÇÑÅ¸ÀÏÀÌ ³» Ä³¸¯ÅÍ°¡ À§Ä¡ÇÑ °÷ÀÎ°¡?
+		// 3. í´ë¦­í•œíƒ€ì¼ì´ ë‚´ ìºë¦­í„°ê°€ ìœ„ì¹˜í•œ ê³³ì¸ê°€?
 		else if ()
 		{
-			// ¾ÆÀÌÅÛÀÌ ÀÖ´Â°¡?
+			// ì•„ì´í…œì´ ìˆëŠ”ê°€?
 			if ()
 			{
-				// ¾ÆÀÌÅÛÀ» Áİ´Â´Ù.
+				// ì•„ì´í…œì„ ì¤ëŠ”ë‹¤.
 			}
 		}*/
-		// 4. Å¬¸¯ÇÑ ÁÂÇ¥°¡ Actor ¿µ¿ª ¾È¿¡ ÀÖ´Â°¡?
+		// 4. í´ë¦­í•œ ì¢Œí‘œê°€ Actor ì˜ì—­ ì•ˆì— ìˆëŠ”ê°€?
 		else if ( nTargetID != -1 && lpptTargetPos )
 		{
-			//1. Å¸°Ù Å¸ÀÏÀÇ À§Ä¡°¡ 1Å¸ÀÏ ÀÌ³»ÀÎ°¡?
+			//1. íƒ€ê²Ÿ íƒ€ì¼ì˜ ìœ„ì¹˜ê°€ 1íƒ€ì¼ ì´ë‚´ì¸ê°€?
 			if ( nLength < 2 && nLength > 0 ) 
 			{
 				if ( m_stFeatureEx.bHorse == _HORSE_NONE && !bIsDead )
 				{
-					// °ø°İÇÑ´Ù.
+					// ê³µê²©í•œë‹¤.
 					ptTargetTile.x = m_wPosX;
 					ptTargetTile.y = m_wPosY;
 					bDir = CalcDirection(lpptTargetPos->x, lpptTargetPos->y);
@@ -5713,10 +5713,10 @@ BOOL CMyHero::OnLButtonDown(POINT ptMouse, INT nTargetID, BOOL bIsDead, POINT* l
 
 				}
 			}
-			// Actor°¡ ÀÖ´Â ¹æÇâÀ¸·Î ÀÌµ¿ °¡´ÉÇÑ°¡?(¸Ê¼Ó¼ºÃ¼Å©) 
+			// Actorê°€ ìˆëŠ” ë°©í–¥ìœ¼ë¡œ ì´ë™ ê°€ëŠ¥í•œê°€?(ë§µì†ì„±ì²´í¬) 
 			else if ( m_pxMap->GetNextTileCanMove(m_wPosX, m_wPosY, bDir, 1, &ptTargetTile) && nLength > 0)
 			{
-				// 1Å¸ÀÏ ÀÌµ¿ÇÑ´Ù.
+				// 1íƒ€ì¼ ì´ë™í•œë‹¤.
 				if ( m_stFeatureEx.bHorse == _HORSE_NONE )		SetMotionState(_MT_WALK, bDir, nTargetID, bIsDead, &ptTargetTile);
 				else											SetMotionState(_MT_HORSEWALK, bDir, nTargetID, bIsDead, &ptTargetTile);
 			}
@@ -5728,15 +5728,15 @@ BOOL CMyHero::OnLButtonDown(POINT ptMouse, INT nTargetID, BOOL bIsDead, POINT* l
 			}
 		
 		}
-		// 6. ÇöÀç ¸¶¿ì½ºÅ¸ÀÏ¹æÇâÀ¸·Î ÀÌµ¿ °¡´ÉÇÑ°¡?(¸Ê¼Ó¼ºÃ¼Å©)
+		// 6. í˜„ì¬ ë§ˆìš°ìŠ¤íƒ€ì¼ë°©í–¥ìœ¼ë¡œ ì´ë™ ê°€ëŠ¥í•œê°€?(ë§µì†ì„±ì²´í¬)
 		else if ( m_pxMap->GetNextTileCanMove(m_wPosX, m_wPosY, bDir, 1, &ptTargetTile) && nLength > 0 )
 		{
-			// 1Å¸ÀÏ ÀÌµ¿ÇÑ´Ù.
+			// 1íƒ€ì¼ ì´ë™í•œë‹¤.
 			if ( m_stFeatureEx.bHorse == _HORSE_NONE )			SetMotionState(_MT_WALK, bDir, nTargetID, bIsDead, &ptTargetTile);
 			else												SetMotionState(_MT_HORSEWALK, bDir, nTargetID, bIsDead, &ptTargetTile);
 
 		}
-		// 7. ÀÌµ¿ ÇÒ¼ö ¾ø´Ù¸é ÁÖº¯¿¡ ÀÌµ¿ÇÒ¼ö ÀÖ´Â Å¸ÀÏÀ» Ã£¾Æ³»¾î ¸ñÀû Å¸ÀÏ°úÀÇ °¡Àå °¡±î¿î Å¸ÀÏÀ» Ã£¾Æ³½´Ù.
+		// 7. ì´ë™ í• ìˆ˜ ì—†ë‹¤ë©´ ì£¼ë³€ì— ì´ë™í• ìˆ˜ ìˆëŠ” íƒ€ì¼ì„ ì°¾ì•„ë‚´ì–´ ëª©ì  íƒ€ì¼ê³¼ì˜ ê°€ì¥ ê°€ê¹Œìš´ íƒ€ì¼ì„ ì°¾ì•„ë‚¸ë‹¤.
 		else if ( !m_pxMap->GetNextTileCanMove(m_wPosX, m_wPosY, bDir, 1, &ptTargetTile) )
 		{
 			INT nSelectedDir = -1;
@@ -5758,7 +5758,7 @@ BOOL CMyHero::OnLButtonDown(POINT ptMouse, INT nTargetID, BOOL bIsDead, POINT* l
 
 			if ( nSelectedDir != -1 && nDistance > 0 )
 			{
-				// 1Å¸ÀÏ ÀÌµ¿ÇÑ´Ù.
+				// 1íƒ€ì¼ ì´ë™í•œë‹¤.
 				m_pxMap->GetNextTileCanMove(m_wPosX, m_wPosY, nSelectedDir, 1, &ptTargetTile);
 				if ( m_stFeatureEx.bHorse == _HORSE_NONE )		SetMotionState(_MT_WALK, nSelectedDir, nTargetID, bIsDead, &ptTargetTile);
 				else											SetMotionState(_MT_HORSEWALK, nSelectedDir, nTargetID, bIsDead, &ptTargetTile);
@@ -5783,16 +5783,16 @@ BOOL CMyHero::OnLButtonDown(POINT ptMouse, INT nTargetID, BOOL bIsDead, POINT* l
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CMyHero::OnRButtonDown()
+	í•¨ìˆ˜ëª… : CMyHero::OnRButtonDown()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : POINT ptMouse
-	Ãâ·Â   : BOOL 
+	ëª©ì    : 
+	ì…ë ¥   : POINT ptMouse
+	ì¶œë ¥   : BOOL 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 BOOL CMyHero::OnRButtonDown(POINT ptMouse)
@@ -5819,39 +5819,39 @@ BOOL CMyHero::OnRButtonDown(POINT ptMouse)
 		ptMouseTilePos = GetPosMouseToTile(ptMouse.x, ptMouse.y);
 		bDir		   = CalcDirection(ptMouseTilePos.x, ptMouseTilePos.y);			
 
-		//1. Å¸°Ù Å¸ÀÏÀÇ À§Ä¡°¡ 1Å¸ÀÏ ÀÌ³»ÀÎ°¡?
+		//1. íƒ€ê²Ÿ íƒ€ì¼ì˜ ìœ„ì¹˜ê°€ 1íƒ€ì¼ ì´ë‚´ì¸ê°€?
 		if ( (INT)(sqrt((float)(m_wPosX-ptMouseTilePos.x)*(m_wPosX-ptMouseTilePos.x) + (m_wPosY-ptMouseTilePos.y)*(m_wPosY-ptMouseTilePos.y)))
 			 < 2 ) 
 		{
-			// ¹æÇâÀ» ¹Ù²Û´Ù.
+			// ë°©í–¥ì„ ë°”ê¾¼ë‹¤.
 			if ( m_stFeatureEx.bHorse == _HORSE_NONE )		SetMotionState(_MT_STAND, bDir);
 			else											SetMotionState(_MT_HORSESTAND, bDir);
 		}
-		//2. ¿òÁ÷ÀÎ´Ù.
+		//2. ì›€ì§ì¸ë‹¤.
 		else
 		{
-			// ´Ş¸±¼ö ÀÖÀ»¶§.
+			// ë‹¬ë¦´ìˆ˜ ìˆì„ë•Œ.
 			if ( m_bCanRun )
 			{
 				m_bCanRun = FALSE;
 
 				if ( m_stFeatureEx.bHorse != _HORSE_NONE )
 				{
-					// ¸ñÀûÁöÅ¸ÀÏ°úÀÇ ¹æÇâÀ¸·Î 1, 2, 3Å¸ÀÏÂ°ÀÇ À§Ä¡¿¡ ¹æÇØ¹°ÀÌ ¾øÀ»¶§.
+					// ëª©ì ì§€íƒ€ì¼ê³¼ì˜ ë°©í–¥ìœ¼ë¡œ 1, 2, 3íƒ€ì¼ì§¸ì˜ ìœ„ì¹˜ì— ë°©í•´ë¬¼ì´ ì—†ì„ë•Œ.
 					if ( m_pxMap->GetNextTileCanMove(m_wPosX, m_wPosY, bDir, 1, &ptTargetTile) && 
 						 m_pxMap->GetNextTileCanMove(m_wPosX, m_wPosY, bDir, 2, &ptTargetTile) &&
 						 m_pxMap->GetNextTileCanMove(m_wPosX, m_wPosY, bDir, 3, &ptTargetTile) )
 					{
-						// 3Å¸ÀÏ ÀÌµ¿ÇÑ´Ù.
+						// 3íƒ€ì¼ ì´ë™í•œë‹¤.
 						m_pxMap->GetNextTileCanMove(m_wPosX, m_wPosY, bDir, 3, &ptTargetTile);
 						SetMotionState(_MT_HORSERUN, bDir, 0, FALSE, &ptTargetTile);
 					}
-					// ¸ñÀûÁöÅ¸ÀÏ°úÀÇ ¹æÇâÀ¸·Î 1Å¸ÀÏÂ°ÀÇ À§Ä¡¿¡ ¹æÇØ¹°ÀÌ ¾øÀ»¶§.
+					// ëª©ì ì§€íƒ€ì¼ê³¼ì˜ ë°©í–¥ìœ¼ë¡œ 1íƒ€ì¼ì§¸ì˜ ìœ„ì¹˜ì— ë°©í•´ë¬¼ì´ ì—†ì„ë•Œ.
 					else if ( m_pxMap->GetNextTileCanMove(m_wPosX, m_wPosY, bDir, 1, &ptTargetTile) )
 					{
 						SetMotionState(_MT_HORSEWALK, bDir, 0, FALSE, &ptTargetTile);
 					}
-					// ¸ñÀûÁöÅ¸ÀÏ°úÀÇ ¹æÇâÀ¸·Î 1Å¸ÀÏÂ°ÀÇ À§Ä¡¿¡ ¹æÇØ¹°ÀÌ ÀÖÀ»¶§.
+					// ëª©ì ì§€íƒ€ì¼ê³¼ì˜ ë°©í–¥ìœ¼ë¡œ 1íƒ€ì¼ì§¸ì˜ ìœ„ì¹˜ì— ë°©í•´ë¬¼ì´ ìˆì„ë•Œ.
 					else
 					{
 						INT nSelectedDir = -1;
@@ -5872,7 +5872,7 @@ BOOL CMyHero::OnRButtonDown(POINT ptMouse)
 						}
 						if ( nSelectedDir != -1 )
 						{
-							// 1Å¸ÀÏ ÀÌµ¿ÇÑ´Ù.
+							// 1íƒ€ì¼ ì´ë™í•œë‹¤.
 							m_pxMap->GetNextTileCanMove(m_wPosX, m_wPosY, nSelectedDir, 1, &ptTargetTile);
 							SetMotionState(_MT_HORSEWALK, nSelectedDir, 0, FALSE, &ptTargetTile);
 						}
@@ -5882,23 +5882,23 @@ BOOL CMyHero::OnRButtonDown(POINT ptMouse)
 						}
 					}
 				}
-				// ¸»À» ¾ÈÅ¸°í ÀÖÀ»¶§.
+				// ë§ì„ ì•ˆíƒ€ê³  ìˆì„ë•Œ.
 				else
 				{
-					// ¸ñÀûÁöÅ¸ÀÏ°úÀÇ ¹æÇâÀ¸·Î 1, 2Å¸ÀÏÂ°ÀÇ À§Ä¡¿¡ ¹æÇØ¹°ÀÌ ¾øÀ»¶§.
+					// ëª©ì ì§€íƒ€ì¼ê³¼ì˜ ë°©í–¥ìœ¼ë¡œ 1, 2íƒ€ì¼ì§¸ì˜ ìœ„ì¹˜ì— ë°©í•´ë¬¼ì´ ì—†ì„ë•Œ.
 					if ( m_pxMap->GetNextTileCanMove(m_wPosX, m_wPosY, bDir, 1, &ptTargetTile) && 
 						 m_pxMap->GetNextTileCanMove(m_wPosX, m_wPosY, bDir, 2, &ptTargetTile) )
 					{
-						// 2Å¸ÀÏ ÀÌµ¿ÇÑ´Ù.
+						// 2íƒ€ì¼ ì´ë™í•œë‹¤.
 						m_pxMap->GetNextTileCanMove(m_wPosX, m_wPosY, bDir, 2, &ptTargetTile);
 						SetMotionState(_MT_RUN, bDir, 0, FALSE, &ptTargetTile);
 					}
-					// ¸ñÀûÁöÅ¸ÀÏ°úÀÇ ¹æÇâÀ¸·Î 1Å¸ÀÏÂ°ÀÇ À§Ä¡¿¡ ¹æÇØ¹°ÀÌ ¾øÀ»¶§.
+					// ëª©ì ì§€íƒ€ì¼ê³¼ì˜ ë°©í–¥ìœ¼ë¡œ 1íƒ€ì¼ì§¸ì˜ ìœ„ì¹˜ì— ë°©í•´ë¬¼ì´ ì—†ì„ë•Œ.
 					else if ( m_pxMap->GetNextTileCanMove(m_wPosX, m_wPosY, bDir, 1, &ptTargetTile) )
 					{
 						SetMotionState(_MT_WALK, bDir, 0, FALSE, &ptTargetTile);
 					}
-					// ¸ñÀûÁöÅ¸ÀÏ°úÀÇ ¹æÇâÀ¸·Î 1Å¸ÀÏÂ°ÀÇ À§Ä¡¿¡ ¹æÇØ¹°ÀÌ ÀÖÀ»¶§.
+					// ëª©ì ì§€íƒ€ì¼ê³¼ì˜ ë°©í–¥ìœ¼ë¡œ 1íƒ€ì¼ì§¸ì˜ ìœ„ì¹˜ì— ë°©í•´ë¬¼ì´ ìˆì„ë•Œ.
 					else
 					{
 						INT nSelectedDir = -1;
@@ -5919,7 +5919,7 @@ BOOL CMyHero::OnRButtonDown(POINT ptMouse)
 						}
 						if ( nSelectedDir != -1 )
 						{
-							// 1Å¸ÀÏ ÀÌµ¿ÇÑ´Ù.
+							// 1íƒ€ì¼ ì´ë™í•œë‹¤.
 							m_pxMap->GetNextTileCanMove(m_wPosX, m_wPosY, nSelectedDir, 1, &ptTargetTile);
 							SetMotionState(_MT_WALK, nSelectedDir, 0, FALSE, &ptTargetTile);
 						}
@@ -5932,14 +5932,14 @@ BOOL CMyHero::OnRButtonDown(POINT ptMouse)
 			}
 			else
 			{
-				// ¸ñÀûÁöÅ¸ÀÏ°úÀÇ ¹æÇâÀ¸·Î 1Å¸ÀÏÂ°ÀÇ À§Ä¡¿¡ ¹æÇØ¹°ÀÌ ¾øÀ»¶§.
+				// ëª©ì ì§€íƒ€ì¼ê³¼ì˜ ë°©í–¥ìœ¼ë¡œ 1íƒ€ì¼ì§¸ì˜ ìœ„ì¹˜ì— ë°©í•´ë¬¼ì´ ì—†ì„ë•Œ.
 				if ( m_pxMap->GetNextTileCanMove(m_wPosX, m_wPosY, bDir, 1, &ptTargetTile) )
 				{
 					if ( m_stFeatureEx.bHorse == _HORSE_NONE )		SetMotionState(_MT_WALK, bDir, 0, FALSE, &ptTargetTile);
 					else											SetMotionState(_MT_HORSEWALK, bDir, 0, FALSE, &ptTargetTile);
 
 				}
-				// ¸ñÀûÁöÅ¸ÀÏ°úÀÇ ¹æÇâÀ¸·Î 1Å¸ÀÏÂ°ÀÇ À§Ä¡¿¡ ¹æÇØ¹°ÀÌ ÀÖÀ»¶§.
+				// ëª©ì ì§€íƒ€ì¼ê³¼ì˜ ë°©í–¥ìœ¼ë¡œ 1íƒ€ì¼ì§¸ì˜ ìœ„ì¹˜ì— ë°©í•´ë¬¼ì´ ìˆì„ë•Œ.
 				else
 				{
 					INT nSelectedDir = -1;
@@ -5960,7 +5960,7 @@ BOOL CMyHero::OnRButtonDown(POINT ptMouse)
 					}
 					if ( nSelectedDir != -1 )
 					{
-						// 1Å¸ÀÏ ÀÌµ¿ÇÑ´Ù.
+						// 1íƒ€ì¼ ì´ë™í•œë‹¤.
 						m_pxMap->GetNextTileCanMove(m_wPosX, m_wPosY, nSelectedDir, 1, &ptTargetTile);
 						if ( m_stFeatureEx.bHorse == _HORSE_NONE )	SetMotionState(_MT_WALK, nSelectedDir, 0, FALSE, &ptTargetTile);
 						else										SetMotionState(_MT_HORSEWALK, nSelectedDir, 0, FALSE, &ptTargetTile);
@@ -6032,12 +6032,12 @@ VOID CMyHero::SetMagic(LPCLIENTMAGICRCD	pstMagic, BYTE bKeyNum, BYTE bDir, INT n
 
 	switch ( m_shCurrMagicID )
 	{
-	// ¿°È­°á.
+	// ì—¼í™”ê²°.
 	case _SKILL_FIRESWORD:
         if ( dwCurrTick - m_dwLastFireHitTime > 10000 )
 			m_pSocketClient->SendSpellMsg(m_shCurrMagicID, 0, 0, nTargetID);
 		break;
-	// ¿°È­°áÀÌ¿ÜÀÇ °Ë¹ı.
+	// ì—¼í™”ê²°ì´ì™¸ì˜ ê²€ë²•.
 	case _SKILL_BANWOL:
 	case _SKILL_ERGUM:
         if ( dwCurrTick - m_dwLastSpellTime > 200 )
@@ -6049,7 +6049,7 @@ VOID CMyHero::SetMagic(LPCLIENTMAGICRCD	pstMagic, BYTE bKeyNum, BYTE bDir, INT n
 		break;
 	}
 
-	// °ø°İ¸¶¹ıÀÏ¶§ Á¢¼ÓÁ¾·á ¸øÇÏ°ÔÇÏ´Â Delay.
+	// ê³µê²©ë§ˆë²•ì¼ë•Œ ì ‘ì†ì¢…ë£Œ ëª»í•˜ê²Œí•˜ëŠ” Delay.
 	switch ( m_shCurrMagicID )
 	{
 	case _SKILL_MOOTEBO:	case _SKILL_FIRESWORD:		case _SKILL_BANWOL:		case _SKILL_ERGUM:			case _SKILL_FIRECHARM:
@@ -6059,7 +6059,7 @@ VOID CMyHero::SetMagic(LPCLIENTMAGICRCD	pstMagic, BYTE bKeyNum, BYTE bDir, INT n
 		break;
 	}
 
-	// »ç¶÷À» °ø°İÇßÀ»¶§ ¿òÁ÷ÀÓ ÆĞ³ÎÆ¼ Delay.
+	// ì‚¬ëŒì„ ê³µê²©í–ˆì„ë•Œ ì›€ì§ì„ íŒ¨ë„í‹° Delay.
 	m_wMagicPKDelayTime = 0;
 	if ( nTargetID )
 	{
@@ -6071,18 +6071,18 @@ VOID CMyHero::SetMagic(LPCLIENTMAGICRCD	pstMagic, BYTE bKeyNum, BYTE bDir, INT n
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CMyHero::OnKeyDown()
+	í•¨ìˆ˜ëª… : CMyHero::OnKeyDown()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : WPARAM wParam
+	ëª©ì    : 
+	ì…ë ¥   : WPARAM wParam
 	         LPARAM lParam
 	         POINT ptMouse
-	Ãâ·Â   : BOOL 
+	ì¶œë ¥   : BOOL 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 BOOL CMyHero::OnKeyDown(WPARAM wParam, LPARAM lParam, POINT ptMouse, POINT ptTargetPos, INT nMosueTargetID, FEATURE stTargetFeature)
@@ -6131,10 +6131,10 @@ BOOL CMyHero::OnKeyDown(WPARAM wParam, LPARAM lParam, POINT ptMouse, POINT ptTar
 	}
 
 	dwCurrTick = timeGetTime();
-	// ¸¶¹ıÀÌ¿ë°¡´É Delay Time Check.
+	// ë§ˆë²•ì´ìš©ê°€ëŠ¥ Delay Time Check.
 	if ( dwCurrTick - m_dwLastSpellTime > 500 + m_wMagicDelayTime )
 	{
-		// ¸¶¹ıÀÌ Á¦´ë·Î ¼¼ÆÃµÇ¾ú´ÂÁö Check.
+		// ë§ˆë²•ì´ ì œëŒ€ë¡œ ì„¸íŒ…ë˜ì—ˆëŠ”ì§€ Check.
 		if ( bMagicKey )
 		{
 			if ( nMosueTargetID == NULL )	ptMouseTilePos = GetPosMouseToTile(ptMouse.x, ptMouse.y);
@@ -6151,7 +6151,7 @@ BOOL CMyHero::OnKeyDown(WPARAM wParam, LPARAM lParam, POINT ptMouse, POINT ptTar
 					SetMagic(pstMagic, bMagicKey, bDir, nMosueTargetID, stTargetFeature, ptMouseTilePos);
 				}
 				else
-					g_xGameProc.m_xInterface.m_xClientSysMsg.AddSysMsg("Ä§·¨²»×ã");
+					g_xGameProc.m_xInterface.m_xClientSysMsg.AddSysMsg("ì¹¨ë¬ê¼‡ç’ƒ");
 			}
 		}
 	}
@@ -6167,11 +6167,11 @@ VOID CMyHero::DrawName()
 	RECT rc = {m_rcActor.left + (m_rcActor.right-m_rcActor.left-sizeLen.cx)/2, m_rcActor.top + (m_rcActor.bottom-m_rcActor.top-sizeLen.cy)/2, 
 		m_rcActor.left + (m_rcActor.right-m_rcActor.left+sizeLen.cx)/2, m_rcActor.top + (m_rcActor.bottom-m_rcActor.top+sizeLen.cy)/2};	
 	RECT rcLeft = {rc.left+1, rc.top-1, rc.right+1, rc.bottom-1};
-	g_xMainWnd.PutsHan(NULL, rc, RGB(10, 10, 10), RGB(0, 0, 0), m_szName);//ÒõÓ°
+	g_xMainWnd.PutsHan(NULL, rc, RGB(10, 10, 10), RGB(0, 0, 0), m_szName);//ï¥—ç·
 	g_xMainWnd.PutsHan(NULL, rcLeft, m_bActive ? RGB(0,255,0) : m_dwNameClr, RGB(0, 0, 0), m_szName);
 
 	//FOR DEBUG
-	//»æÖÆ×Ô¼ºµÄ×ø±ê
+	//ì‚¥é½¡è±ì„±ë¨éºŸê¹ƒ
 	CHAR szPos[32];
 	sprintf( szPos, "%d,%d", m_wPosX, m_wPosY );
 	sizeLen = g_xMainWnd.GetStrLength(NULL, NULL, szPos);

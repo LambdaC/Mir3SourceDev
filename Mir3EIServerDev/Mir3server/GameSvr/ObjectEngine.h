@@ -146,6 +146,7 @@ public:
 	WORD	m_wEarth;
 };
 
+// 戴着装备所增加的属性
 class CObjectAddAbility	// 아이템 착용으로 늘어나는 능력치
 {
 public:
@@ -196,7 +197,7 @@ public:
 	CWHList<CVisibleObject*>	m_xVisibleObjectList;
 	CWHList<CVisibleMapItem*>	m_xVisibleItemList;
 	CWHList<CVisibleEvent*>		m_xVisibleEventList;
-	CWHList<CCharObject*>		m_xCacheObjectList;
+	CWHList<CCharObject*>		m_xCacheObjectList;  //不知道保存了那些对象
 	DWORD						m_dwCacheTick;
 
 	int							m_nViewRange;
@@ -209,8 +210,8 @@ public:
 	char						m_szName[14];
 
 	CObjectAbility				m_Ability;
-	CObjectAbility				m_WAbility;
-	CObjectAddAbility			m_AddAbility;
+	CObjectAbility				m_WAbility;	
+	CObjectAddAbility			m_AddAbility;  // 穿戴装备所增加的属性
 
 	UINT						m_nCharStatusEx;
 	UINT						m_nCharStatus;
@@ -244,8 +245,8 @@ public:
 	DWORD						m_dwOpenHealthTime;
 	DWORD						m_dwIncHealthSpellTime;
 
-	DWORD						m_dwHealthTick;
-	DWORD						m_dwSpellTick;
+	DWORD						m_dwHealthTick;	// HP回复计时器
+	DWORD						m_dwSpellTick;	// MP回复计时器
 	DWORD						m_dwTickSec;
 
 	WORD						m_IncHealing;

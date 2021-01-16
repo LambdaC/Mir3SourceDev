@@ -2115,6 +2115,8 @@ BOOL CPlayerObject::MakeSlave(int nMonRace, int nX, int nY, int nLevel, int nMax
 	return FALSE;
 }
 
+// NOTE:玩家操作，处理玩家操作的入口
+// TODO: 暂时不知道从哪里调用
 void CPlayerObject::Operate()
 {
 	if (!m_pUserInfo) return;
@@ -2683,6 +2685,7 @@ void CPlayerObject::Operate()
 					}
 					case RM_HIT:
 					{
+						// 到这里，说明该对象是被攻击者
 						if (lpProcessMsg->pCharObject != this)
 						{
 							fnMakeDefMessage(&DefMsg, SM_HIT, (int)lpProcessMsg->pCharObject, 

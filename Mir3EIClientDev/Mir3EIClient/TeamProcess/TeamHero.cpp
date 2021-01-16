@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include ".\teamhero.h"
 
 CTeamHero::CTeamHero(void)
@@ -41,7 +41,7 @@ BOOL CTeamHero::OnLButtonDown(POINT ptMouse, INT nTargetID, BOOL bIsDead, POINT*
 		ptMouseTilePos = GetPosMouseToTile(ptMouse.x, ptMouse.y);
 		bDir		   = CalcDirection(ptMouseTilePos.x, ptMouseTilePos.y);
 
-		//Èç¹ûÔÚÔ­µØ(Í¬Ò»¸öCell),±£³Ö·½Ïò²»±ä
+		//å¦‚æœåœ¨åŸåœ°(åŒä¸€ä¸ªCell),ä¿æŒæ–¹å‘ä¸å˜
 		if ( m_wPosX == ptMouseTilePos.x && m_wPosY == ptMouseTilePos.y )
 			bDir = m_bCurrDir;
 
@@ -52,16 +52,16 @@ BOOL CTeamHero::OnLButtonDown(POINT ptMouse, INT nTargetID, BOOL bIsDead, POINT*
 			nLength = (INT)sqrt((float)(float)(m_wPosX-ptMouseTilePos.x)*(m_wPosX-ptMouseTilePos.x) + (m_wPosY-ptMouseTilePos.y)*(m_wPosY-ptMouseTilePos.y));
 
 
-		// 1. SHIFT.(³¤¾à¹¥»÷,¾àÀëÎª2)
+		// 1. SHIFT.(é•¿è·æ”»å‡»,è·ç¦»ä¸º2)
 		if ( HIBYTE(GetKeyState(VK_SHIFT)) )
 		{
 			if ( m_stFeatureEx.bHorse == _HORSE_NONE )
 			{
-				if ( m_bUseErgum && ((CTeamProcess*)m_pGameProc)->TargetInLongAttack(bDir)/*¼ì²éÊÇ·ñÔÚ³¤¾à¹¥»÷·¶Î§ÄÚ*/ )
+				if ( m_bUseErgum && ((CTeamProcess*)m_pGameProc)->TargetInLongAttack(bDir)/*æ£€æŸ¥æ˜¯å¦åœ¨é•¿è·æ”»å‡»èŒƒå›´å†…*/ )
 				{
 					if ( m_stFeatureEx.bHorse == _HORSE_NONE && !bIsDead )
 					{
-						// °ø°İÇÑ´Ù.
+						// ê³µê²©í•œë‹¤
 						ptTargetTile.x = m_wPosX;
 						ptTargetTile.y = m_wPosY;
 						SetMotionState(_MT_ONEHSWING, bDir, nTargetID, bIsDead, &ptTargetTile);
@@ -76,21 +76,21 @@ BOOL CTeamHero::OnLButtonDown(POINT ptMouse, INT nTargetID, BOOL bIsDead, POINT*
 			}
 		}
 
-		// 2. ALT.(½ä±â)
+		// 2. ALT.(ì°ê¸°)
 		else if ( HIBYTE(GetKeyState(VK_MENU)) )
 		{
 			SetMotionState(_MT_CUT, bDir, nTargetID, bIsDead, &ptTargetTile);
 		}
 
-		// 4. Èç¹ûÑ¡ÖĞÄ¿±ê, ¹¥»÷!
+		// 4. å¦‚æœé€‰ä¸­ç›®æ ‡, æ”»å‡»!
 		else if ( nTargetID != -1 && lpptTargetPos )
 		{
-			//1. ¶Ì¾à¹¥»÷
+			//1. çŸ­è·æ”»å‡»
 			if ( nLength == 1 /*nLength < 2 && nLength > 0*/ ) 
 			{
 				if ( m_stFeatureEx.bHorse == _HORSE_NONE && !bIsDead )
 				{
-					// °ø°İÇÑ´Ù.
+					// ë˜¬ì•½ë¬‘ìƒŒ
 					ptTargetTile.x = m_wPosX;
 					ptTargetTile.y = m_wPosY;
 					bDir = CalcDirection(lpptTargetPos->x, lpptTargetPos->y);
@@ -98,10 +98,10 @@ BOOL CTeamHero::OnLButtonDown(POINT ptMouse, INT nTargetID, BOOL bIsDead, POINT*
 
 				}
 			}
-			// ¾àÀë²»¹»,ÒÆ¶¯! 
+			// è·ç¦»ä¸å¤Ÿ,ç§»åŠ¨! 
 			else if ( m_pxMap->GetNextTileCanMove(m_wPosX, m_wPosY, bDir, 1, &ptTargetTile) && nLength > 0)
 			{
-				// 1Å¸ÀÏ ÀÌµ¿ÇÑ´Ù.
+				// 1íƒ€ì¼ ì´ë™í•œë‹¤.
 				if ( m_stFeatureEx.bHorse == _HORSE_NONE )		SetMotionState(_MT_WALK, bDir, nTargetID, bIsDead, &ptTargetTile);
 				else											SetMotionState(_MT_HORSEWALK, bDir, nTargetID, bIsDead, &ptTargetTile);
 			}
@@ -113,15 +113,15 @@ BOOL CTeamHero::OnLButtonDown(POINT ptMouse, INT nTargetID, BOOL bIsDead, POINT*
 			}
 
 		}
-		// 6. °´ÕÕÑ¡¶¨µÄ·½Ïò ÒÆ¶¯ 1 ¸ö¾àÀë
+		// 6. æŒ‰ç…§é€‰å®šçš„æ–¹å‘ ç§»åŠ¨ 1 ä¸ªè·ç¦»
 		else if ( m_pxMap->GetNextTileCanMove(m_wPosX, m_wPosY, bDir, 1, &ptTargetTile) && nLength > 0 )
 		{
-			// 1Å¸ÀÏ ÀÌµ¿ÇÑ´Ù.
+			// 1íƒ€ì¼ ì´ë™í•œë‹¤.
 			if ( m_stFeatureEx.bHorse == _HORSE_NONE )			SetMotionState(_MT_WALK, bDir, nTargetID, bIsDead, &ptTargetTile);
 			else												SetMotionState(_MT_HORSEWALK, bDir, nTargetID, bIsDead, &ptTargetTile);
 
 		}
-		// 7. Èç¹û²»ÄÜ°´ÕÕÊó±ê·½ÏòÒÆ¶¯,³¢ÊÔ¶à¸ö·½ÏòÒÆ¶¯
+		// 7. å¦‚æœä¸èƒ½æŒ‰ç…§é¼ æ ‡æ–¹å‘ç§»åŠ¨,å°è¯•å¤šä¸ªæ–¹å‘ç§»åŠ¨
 		else if ( !m_pxMap->GetNextTileCanMove(m_wPosX, m_wPosY, bDir, 1, &ptTargetTile) )
 		{
 			INT nSelectedDir = -1;
@@ -143,7 +143,7 @@ BOOL CTeamHero::OnLButtonDown(POINT ptMouse, INT nTargetID, BOOL bIsDead, POINT*
 
 			if ( nSelectedDir != -1 && nDistance > 0 )
 			{
-				// 1Å¸ÀÏ ÀÌµ¿ÇÑ´Ù.
+				// 1íƒ€ì¼ ì´ë™í•œë‹¤.
 				m_pxMap->GetNextTileCanMove(m_wPosX, m_wPosY, nSelectedDir, 1, &ptTargetTile);
 				if ( m_stFeatureEx.bHorse == _HORSE_NONE )		SetMotionState(_MT_WALK, nSelectedDir, nTargetID, bIsDead, &ptTargetTile);
 				else											SetMotionState(_MT_HORSEWALK, nSelectedDir, nTargetID, bIsDead, &ptTargetTile);
@@ -185,9 +185,9 @@ VOID CTeamHero::SetMotionState(BYTE bMtn, BYTE bDir, INT nMouseTargetID, BOOL bI
 						}
 					}
 
-					//Ïò·şÎñÆ÷·¢ËÍ
+					//å‘æœåŠ¡å™¨å‘é€
 					m_pSocketClient->SendRunMsg(CM_WALK, lpptPos->x, lpptPos->y, bDir);
-					m_bMotionLock = m_bInputLock = TRUE;//·¢ËÍĞĞ×ßÃüÁîºóËø¶¨ÔË¶¯
+					m_bMotionLock = m_bInputLock = TRUE;//å‘é€è¡Œèµ°å‘½ä»¤åé”å®šè¿åŠ¨
 					m_wOldPosX = m_wPosX;
 					m_wOldPosY = m_wPosY;
 					m_bOldDir  = m_bCurrDir;
@@ -318,7 +318,7 @@ VOID CTeamHero::SetMotionState(BYTE bMtn, BYTE bDir, INT nMouseTargetID, BOOL bI
 				if ( lpptPos )		
 				{
 					m_pSocketClient->SendSpellMsg(shSkill, lpptPos->x, lpptPos->y, 0);
-					// ³å×²
+					// å†²æ’
 					m_dwLastRushTime = timeGetTime();
 					m_bMotionLock = m_bInputLock = TRUE;
 					m_bWarMode	= TRUE;
@@ -470,7 +470,7 @@ VOID CTeamHero::UpdateMotionState(INT nLoopTime, BOOL bIsMoveTime)
 
 			UpdatePacketState();
 
-			// ¿¬¼ÓÀûÀÎ ÇÁ·¹ÀÓ Áß¿¡¼­ ÇØ¾ßÇÒÀÏ.
+			// ì—°ì†ì ì¸ í”„ë ˆì„ ì¤‘ì—ì„œ í•´ì•¼í• ì¼.
 			if ( m_dwMotionLockTime > _MOTION_LOCKTIME )
 			{
 				m_dwMotionLockTime = 0;
@@ -593,7 +593,7 @@ VOID CTeamHero::UpdateMotionState(INT nLoopTime, BOOL bIsMoveTime)
 				}
 				else if ( HIBYTE(GetKeyState(VK_LBUTTON)) )
 				{
-					//×ó¼ü
+					//å·¦é”®
 					OnLButtonDown(ptMouse);
 
 					/*					LPARAM lParam = MAKELPARAM((WORD)ptMouse.x, (WORD)ptMouse.y);
@@ -643,7 +643,7 @@ BOOL CTeamHero::UpdateMove(BOOL bIsMoveTime)
 //					}
 //			}
 //
-//			// ¿¬¼ÓÀûÀÎ ÇÁ·¹ÀÓ Áß¿¡¼­ ÇØ¾ßÇÒÀÏ.
+//			// ì—°ì†ì ì¸ í”„ë ˆì„ ì¤‘ì—ì„œ í•´ì•¼í• ì¼.
 //			if ( m_dwCurrFrame >= m_dwEndFrame )
 //			{
 //				m_dwCurrFrame = m_dwEndFrame-1;
@@ -663,7 +663,7 @@ BOOL CTeamHero::UpdateMove(BOOL bIsMoveTime)
 //							m_shShiftPixelY	= 0;
 //							m_shShiftTileX	= 0;
 //							m_shShiftTileY	= 0;
-//							// ÀÌµ¿ÈÄ ÁÂÇ¥È®ÀÎ.
+//							// ææ‚¼é¥¶ è°…é’çŠ¬ç‰¢.
 //							if ( CheckMyPostion() == FALSE )
 //								AdjustMyPostion();
 //
@@ -689,7 +689,7 @@ BOOL CTeamHero::UpdateMove(BOOL bIsMoveTime)
 //
 //							m_bBackStepFrame = 0;
 //							m_bBackStepFrameCnt = 0;
-//							// ÀÌµ¿ÈÄ ÁÂÇ¥È®ÀÎ.
+//							// ì´ë™í›„ ì¢Œí‘œí™•ì¸.
 //							if ( CheckMyPostion() == FALSE )
 //								AdjustMyPostion();
 //
@@ -724,7 +724,7 @@ BOOL CTeamHero::UpdateMove(BOOL bIsMoveTime)
 //							}
 //							else	SetMotionFrame(_MT_HORSESTAND, m_bCurrDir);
 //
-//							// ÀÌµ¿ÈÄ ÁÂÇ¥È®ÀÎ.
+//							// ì´ë™í›„ ì¢Œí‘œí™•ì¸.
 //							if ( CheckMyPostion() == FALSE )
 //								AdjustMyPostion();
 //							POINT ptMouse;
@@ -765,7 +765,7 @@ BOOL CTeamHero::UpdateMove(BOOL bIsMoveTime)
 //								else	SetMotionFrame(_MT_STAND, m_bCurrDir);
 //							}
 //							else	SetMotionFrame(_MT_HORSESTAND, m_bCurrDir);
-//
+//							// ì´ë™í›„ ì¢Œí‘œí™•ì¸.
 //							if ( CheckMyPostion() == FALSE )
 //								AdjustMyPostion();
 //							POINT ptMouse;
@@ -804,7 +804,7 @@ BOOL CTeamHero::UpdateMove(BOOL bIsMoveTime)
 //				}
 //			}
 //
-//			// ¿¬¼ÓÀûÀÎ ÇÁ·¹ÀÓ Áß¿¡¼­ ÇØ¾ßÇÒÀÏ.
+//			// ì—°ì†ì ì¸ í”„ë ˆì„ ì¤‘ì—ì„œ í•´ì•¼í• ì¼.
 //			if ( m_dwMotionLockTime > _MOTION_LOCKTIME )
 //			{
 //				m_dwMotionLockTime = 0;

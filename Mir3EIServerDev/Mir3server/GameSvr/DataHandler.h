@@ -29,7 +29,7 @@ typedef struct tagCELLINFO
 }CELLINFO, *LPCELLINFO;
 #pragma pack(8)
 
-#define OS_MOVINGOBJECT		1
+#define OS_MOVINGOBJECT		1  //可移动的对象？怪物？
 #define OS_ITEMOBJECT		2
 #define OS_EVENTOBJECT		3
 #define OS_GATEOBJECT		4

@@ -1,63 +1,66 @@
-#ifndef _MAGIC_HANDLER
+ï»¿#ifndef _MAGIC_HANDLER
 #define _MAGIC_HANDLER
 
-#define _SKILL_BANWOL				0			// ¹İ¿ù.
-#define _SKILL_AMYOUNSUL			1			// ¾Ï¿¬¼ú.
-#define _SKILL_FIREWIND				2			// È­¿°Ç³.
-#define _SKILL_HANGMAJINBUB			3			// Ç×¸¶Áø¹ı.
-#define _SKILL_DEJIWONHO			4			// ´ëÁö¿øÈ£.
-#define _SKILL_FIRE					5			// ¿°»çÀå.
-#define _SKILL_MOOTEBO				6			// ¹«ÅÂº¸.
+#define _SKILL_BANWOL				0			// ë°˜ì›”.			åŠæœˆå¼¯åˆ€
+#define _SKILL_AMYOUNSUL			1			// ì•”ì—°ìˆ .		æ–½æ¯’æœ¯ 
+#define _SKILL_FIREWIND				2			// í™”ì—¼í’.		æŠ—æ‹’ç«ç¯
+#define _SKILL_HANGMAJINBUB			3			// í•­ë§ˆì§„ë²•.		å¹½çµç›¾
+#define _SKILL_DEJIWONHO			4			// ëŒ€ì§€ì›í˜¸.		ç¥åœ£æˆ˜ç”²æœ¯
+#define _SKILL_FIRE					5			// ì—¼ì‚¬ì¥.		åœ°ç‹±ç«
+#define _SKILL_MOOTEBO				6			// ë¬´íƒœë³´.		é‡è›®å†²æ’
 
-#define _SKILL_TAMMING				7			// ·ÚÈ¥°İ.
-#define _SKILL_SPACEMOVE			8			// ¾Æ°øÇà¹ı.
-#define _SKILL_KILLUNDEAD			9			// »çÀÚÀ±È¸.
+#define _SKILL_TAMMING				7			// ë¢°í˜¼ê²©.		è¯±æƒ‘ä¹‹å…‰
+#define _SKILL_SPACEMOVE			8			// ì•„ê³µí–‰ë²•.		ç¬æ¯ç§»åŠ¨
+#define _SKILL_KILLUNDEAD			9			// ì‚¬ììœ¤íšŒ.		åœ£è¨€æœ¯
 
-#define _SKILL_FIREBALL				10			// È­¿°Àå.
-#define _SKILL_HEALLING				11			// È¸º¹¼ú.
-#define _SKILL_HOLYSHIELD			12			// °á°è.
-#define _SKILL_BIGHEALLING			13			// ´ëÈ¸º¹.
-#define _SKILL_LIGHTFLOWER			14			// ·Ú¼³È­.
-#define _SKILL_SHOOTLIGHTEN			15			// ·ÚÀÎÀå.
-#define _SKILL_SKELLETON			16			// ¹é°ñ¼ÒÈ¯¼ú.
-#define _SKILL_SNOWWIND				17			// ºù¼³Ç³.
-#define _SKILL_BIGCLOAK				18			// ´ëÀº½Å.
-#define _SKILL_SHIELD				19			// ÁÖ¼úÀÇ¸·.
-#define _SKILL_SHOWHP				20			// Å½±âÆÄ¿¬.
-#define _SKILL_EATTHFIRE			21			// Áö¿°¼ú.
-#define _SKILL_FIRECHARM			22			// Æø»ì°è.
-#define _SKILL_FIREBOOM				23			// Æø¿­ÆÄ.
-#define _SKILL_FIREBALL2			24			// ±İ°­È­¿°Àå.
-#define _SKILL_YEDO					25			// ¿¹µµ.
-#define _SKILL_ERGUM				26			// ¾î°Ë¼ú.
-#define _SKILL_LIGHTENING			27			// °­°İ.
-#define _SKILL_FIRESWORD			28			// ¿°È­°á.
-#define _SKILL_CLOAK				29			// Àº½Å.
-#define _SKILL_SINSU				30			// ½Å¼ö¼ÒÈ¯.
-#define _SKILL_ILKWANG				31			// ÀÏ±¤°Ë¹ı.
-#define _SKILL_ONESWORD				32			// ¿Ü¼ö°Ë¹ı.
+#define _SKILL_FIREBALL				10			// í™”ì—¼ì¥.		ç«çƒæœ¯
+#define _SKILL_HEALLING				11			// íšŒë³µìˆ .		æ²»æ„ˆæœ¯
+#define _SKILL_HOLYSHIELD			12			// ê²°ê³„.			å›°é­”å’’
+#define _SKILL_BIGHEALLING			13			// ëŒ€íšŒë³µ.		ç¾¤ä½“æ²»ç–—æœ¯
+#define _SKILL_LIGHTFLOWER			14			// ë¢°ì„¤í™”.		åœ°ç‹±é›·å…‰
+#define _SKILL_SHOOTLIGHTEN			15			// ë¢°ì¸ì¥.		ç–¾å…‰ç”µå½±
+#define _SKILL_SKELLETON			16			// ë°±ê³¨ì†Œí™˜ìˆ .	å¬å”¤éª·é«…
+#define _SKILL_SNOWWIND				17			// ë¹™ì„¤í’.		å†°å’†å“®
+#define _SKILL_BIGCLOAK				18			// ëŒ€ì€ì‹ .		é›†ä½“éšèº«æœ¯
+#define _SKILL_SHIELD				19			// ì£¼ìˆ ì˜ë§‰.		é­”æ³•ç›¾
+#define _SKILL_SHOWHP				20			// íƒê¸°íŒŒì—°.		å¿ƒçµå¯ç¤º
+#define _SKILL_EATTHFIRE			21			// ì§€ì—¼ìˆ .		ç«å¢™
+#define _SKILL_FIRECHARM			22			// í­ì‚´ê³„.		çµé­‚ç«ç¬¦
+#define _SKILL_FIREBOOM				23			// í­ì—´íŒŒ.		çˆ†è£‚ç«ç„°
+#define _SKILL_FIREBALL2			24			// ê¸ˆê°•í™”ì—¼ì¥.	å¤§ç«çƒ
+#define _SKILL_YEDO					25			// ì˜ˆë„.			æ”»æ€å‰‘æœ¯
+#define _SKILL_ERGUM				26			// ì–´ê²€ìˆ .		åˆºæ€å‰‘æœ¯
+#define _SKILL_LIGHTENING			27			// ê°•ê²©.			é›·ç”µæœ¯
+#define _SKILL_FIRESWORD			28			// ì—¼í™”ê²°.		çƒˆç«å‰‘æ³•
+#define _SKILL_CLOAK				29			// ì€ì‹ .			éšèº«æœ¯
+#define _SKILL_SINSU				30			// ì‹ ìˆ˜ì†Œí™˜.		å¬å”¤ç¥å…½
+#define _SKILL_ILKWANG				31			// ì¼ê´‘ê²€ë²•.		ç²¾ç¥åŠ›æˆ˜æ³•
+#define _SKILL_ONESWORD				32			// ì™¸ìˆ˜ê²€ë²•.		åŸºæœ¬å‰‘æœ¯
 
 class CMagicInfo
 {
+	/*
+	* FLD_XXX å¯¹åº”æ•°æ®åº“è¡¨çš„å±æ€§
+	*/
 public:
-	int		nIndex;
-	char	szName[13];
+	int		nIndex;			// FLD_INDEX
+	char	szName[13];		// FLD_NAME
 	
-	short	sEffectType;
-	short	sEffect;
-	short	sSpell;
-	short	sPower;
-	short	sMaxPower;
-	short	sDefSpell;
-	short	sDefPower;
-	short	sDefMaxPower;
+	short	sEffectType;	// FLD_EFFECTTYPE
+	short	sEffect;		// FLD_EFFECT
+	short	sSpell;			// FLD_SPELL
+	short	sPower;			// FLD_POWER
+	short	sMaxPower;		// FLD_MAXPOWER
+	short	sDefSpell;		// FLD_DEFSPELL
+	short	sDefPower;		// FLD_DEFPOWER
+	short	sDefMaxPower;	// FLD_DEFMAXPOWER
 	
-	short	sJob;
+	short	sJob;			// FLD_JOB
 
-	short	sNeed[3];
-	int		nTrain[3];
+	short	sNeed[3];		// FLD_NEEDL1 FLD_NEEDL2 FLD_NEEDL3
+	int		nTrain[3];		// FLD_L1TRAIN FLD_L2TRAIN FLD_L3TRAIN
 	
-	short	sDelay;
+	short	sDelay;			// FLD_DELAY
 
 public:
 	int		GetPower13(int nPwr, int nLevel);
@@ -66,6 +69,7 @@ public:
 	__inline int MPow() 
 		{ if ((sDefMaxPower - sDefPower) > 0) return sDefPower + (rand() % (sDefMaxPower - sDefPower)); 
 			else return sDefPower; }
+	// è·å–éœ€è¦æ¶ˆè€—çš„MP
 	__inline int GetSpellPoint(int nLevel)
 		{ return ROUND(sSpell / (3/*MaxTrainLevel*/ + 1) * (nLevel + 1)) + sDefSpell; }
 	__inline int GetPower(int nPwr, int nLevel)

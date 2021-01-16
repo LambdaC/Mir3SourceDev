@@ -1,4 +1,4 @@
-
+ï»¿
 #ifndef _LEGENDOFMIR2_PROTCOL
 #define _LEGENDOFMIR2_PROTCOL
 
@@ -16,26 +16,26 @@
 
 #define	SM_VERSION_AVAILABLE	500			//
 #define	SM_CERTIFICATION_FAIL	501			//  Fail
-#define SM_ID_NOTFOUND			502			//	ID ¾øÀ½
-#define	SM_PASSWD_FAIL			503			//	ÆÐ½º¿öµå Æ²¸²
-#define	SM_NEWID_SUCCESS		504			//	»õ¾ÆÀÌµð Àß ¸¸µé¾î Á³À½
-#define	SM_NEWID_FAIL			505			//	»õ¾ÆÀÌµð ¸¸µé±â ½ÇÆÐ
-#define	SM_CHGPASSWD_SUCCESS	506			//	ÆÐ½º¿öµå ¹Ù²Ù±â ¼º°ø
-#define	SM_CHGPASSWD_FAIL		507			//	ÆÐ½º¿öµå ¹Ù²Ù±â ½ÇÆÐ
-#define	SM_QUERYCHR				520			//	Ä³¸¯¸®½ºÆ®
-#define	SM_NEWCHR_SUCCESS		521			//	ÄÉ¸¯ÅÍ »ý¼º ¼º°ø
-#define	SM_NEWCHR_FAIL			522			//	ÄÉ¸¯ÅÍ »ý¼º ½ÇÆÐ
-#define	SM_DELCHR_SUCCESS		523			//	ÄÉ¸¯ÅÍ »èÁ¦ ¼º°ø
-#define	SM_DELCHR_FAIL			524			//	ÄÉ¸¯ÅÍ »èÁ¦ ½ÇÆÐ
-#define	SM_STARTPLAY			525			//	°³ÀÓ½ÃÀÛ
-#define	SM_STARTFAIL			526			//	°³ÀÓ½ÃÀÛ ½ÇÆÐ
-#define	SM_QUERYCHR_FAIL		527			//	ÄÉ¸¯ÅÍ Á¤º¸ ÀÐ¾î¿À±â ½ÇÆÐ
-#define	SM_OUTOFCONNECTION		528			//	¿¬°á ÇØÁ¦µÊ
-#define	SM_PASSOK_SELECTSERVER	529			//	Password°¡ ¸ÂÀ¸¹Ç·Î  ¼­¹ö SelectionÀ¸·Î ³Ñ¾î°¨(¼­¹ö List¹× ÃÖ±Ù Á¢¼Ó¼­¹ö ÀÚ·á)
-#define	SM_SELECTSERVER_OK		530			//	¼­¹ö¼±ÅÃ (Á¢¼Ó ¹ö¼­ IPµîÀÇ Á¤º¸°¡ µé¾î°¨)
-#define	SM_NEEDUPDATE_ACCOUNT	531			//	°èÁ¤ÀÇ Á¤º¸¸¦ ´Ù½Ã ÀÔ·ÂÇÏ±â ¹Ù¶÷ Ã¢..
-#define	SM_UPDATEID_SUCCESS		532			//	°èÁ¤Á¤º¸ °»½Å ¼º°ø
-#define	SM_UPDATEID_FAIL		533			//	°èÁ¤Á¤º¸ °»½Å ½ÇÆÐ
+#define SM_ID_NOTFOUND			502			//	ID ì—†ìŒ
+#define	SM_PASSWD_FAIL			503			//	íŒ¨ìŠ¤ì›Œë“œ í‹€ë¦¼
+#define	SM_NEWID_SUCCESS		504			//	ìƒˆì•„ì´ë”” ìž˜ ë§Œë“¤ì–´ ì¡ŒìŒ
+#define	SM_NEWID_FAIL			505			//	ìƒˆì•„ì´ë”” ë§Œë“¤ê¸° ì‹¤íŒ¨
+#define	SM_CHGPASSWD_SUCCESS	506			//	íŒ¨ìŠ¤ì›Œë“œ ë°”ê¾¸ê¸° ì„±ê³µ
+#define	SM_CHGPASSWD_FAIL		507			//	íŒ¨ìŠ¤ì›Œë“œ ë°”ê¾¸ê¸° ì‹¤íŒ¨
+#define	SM_QUERYCHR				520			//	ìºë¦­ë¦¬ìŠ¤íŠ¸
+#define	SM_NEWCHR_SUCCESS		521			//	ì¼€ë¦­í„° ìƒì„± ì„±ê³µ
+#define	SM_NEWCHR_FAIL			522			//	ì¼€ë¦­í„° ìƒì„± ì‹¤íŒ¨
+#define	SM_DELCHR_SUCCESS		523			//	ì¼€ë¦­í„° ì‚­ì œ ì„±ê³µ
+#define	SM_DELCHR_FAIL			524			//	ì¼€ë¦­í„° ì‚­ì œ ì‹¤íŒ¨
+#define	SM_STARTPLAY			525			//	ê°œìž„ì‹œìž‘
+#define	SM_STARTFAIL			526			//	ê°œìž„ì‹œìž‘ ì‹¤íŒ¨
+#define	SM_QUERYCHR_FAIL		527			//	ì¼€ë¦­í„° ì •ë³´ ì½ì–´ì˜¤ê¸° ì‹¤íŒ¨
+#define	SM_OUTOFCONNECTION		528			//	ì—°ê²° í•´ì œë¨
+#define	SM_PASSOK_SELECTSERVER	529			//	Passwordê°€ ë§žìœ¼ë¯€ë¡œ  ì„œë²„ Selectionìœ¼ë¡œ ë„˜ì–´ê°(ì„œë²„ Listë° ìµœê·¼ ì ‘ì†ì„œë²„ ìžë£Œ)
+#define	SM_SELECTSERVER_OK		530			//	ì„œë²„ì„ íƒ (ì ‘ì† ë²„ì„œ IPë“±ì˜ ì •ë³´ê°€ ë“¤ì–´ê°)
+#define	SM_NEEDUPDATE_ACCOUNT	531			//	ê³„ì •ì˜ ì •ë³´ë¥¼ ë‹¤ì‹œ ìž…ë ¥í•˜ê¸° ë°”ëžŒ ì°½..
+#define	SM_UPDATEID_SUCCESS		532			//	ê³„ì •ì •ë³´ ê°±ì‹  ì„±ê³µ
+#define	SM_UPDATEID_FAIL		533			//	ê³„ì •ì •ë³´ ê°±ì‹  ì‹¤íŒ¨
 
 
 // For login process
@@ -134,7 +134,7 @@ typedef	struct	tagFileListHeader
 }FileListHeader;
 
 ////////////////////////////////////////////
-#define WM_BUTTONCLICK				WM_USER + 500	// Button Class°¡ Click Event ¸¦ ¹Þ¾ÒÀ» °æ¿ì
-#define WM_MOUSEON					WM_USER + 501	// Button Class°¡ mouse on Event ¸¦ ¹Þ¾ÒÀ» °æ¿ì
+#define WM_BUTTONCLICK				WM_USER + 500	// Button Classê°€ Click Event ë¥¼ ë°›ì•˜ì„ ê²½ìš°
+#define WM_MOUSEON					WM_USER + 501	// Button Classê°€ mouse on Event ë¥¼ ë°›ì•˜ì„ ê²½ìš°
 
 #endif
