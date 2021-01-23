@@ -69,7 +69,7 @@ public:
 	__inline int MPow() 
 		{ if ((sDefMaxPower - sDefPower) > 0) return sDefPower + (rand() % (sDefMaxPower - sDefPower)); 
 			else return sDefPower; }
-	// 获取需要消耗的MP
+	// 根据技能等级来获取需要消耗的MP
 	__inline int GetSpellPoint(int nLevel)
 		{ return ROUND(sSpell / (3/*MaxTrainLevel*/ + 1) * (nLevel + 1)) + sDefSpell; }
 	__inline int GetPower(int nPwr, int nLevel)

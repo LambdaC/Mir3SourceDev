@@ -1953,6 +1953,7 @@ void CCharObject::StruckDamage(int nDamage)
 	}
 }
 
+// 获取减免后的伤害，比如防御值等等
 int CCharObject::GetHitStruckDamage(int nDamage)
 {
 	int nArmor;
@@ -2040,10 +2041,12 @@ void CCharObject::DoDamageWeapon(int nDamage)
 	}
 }
 
+// wHitMode: 攻击模式
+// pObject: 被攻击者
 BOOL CCharObject::_Attack(WORD wHitMode, CCharObject* pObject)
 {
 	int nPower	= GetAttackPower(LOBYTE(m_WAbility.DC), (HIBYTE(m_WAbility.DC) - LOBYTE(m_WAbility.DC)));
-	int nSecPwr	= 0;
+	int nSecPwr	= 0;	// 第二个格子的伤害，用于刺杀剑术这类的技能，还有半月弯刀这种
 	int nWeaponDamage;
 
 	if (pObject)
@@ -2100,7 +2103,7 @@ BOOL CCharObject::_Attack(WORD wHitMode, CCharObject* pObject)
 	{
 		if (IsProperTarget(pObject))
 		{
-			if (pObject->m_btHitPoint > 0)
+			if (pObject->m_btHitPoint > 0) // 这里应该是BUG，看样子，应该是根据被攻击者的敏捷度和攻击者的准确度来判断是否击中
 			{
 				if (m_btHitPoint < rand() % pObject->m_btSpeedPoint)
 					nPower = 0;
@@ -2182,7 +2185,7 @@ BOOL CCharObject::HitXY(WORD wIdent, int nX, int nY, int nDir, int nHitStyle)
 	{
 		if (m_nCurrX == nX && m_nCurrY == nY)
 		{
-			// 宽攻击并且使用的是半月
+			// 宽攻击并且使用的是半月弯刀
 			if (wIdent == CM_WIDEHIT && m_pUserInfo->m_lpTMagicBanwolSkill)
 			{
 				if (m_WAbility.MP > 0)
@@ -2207,7 +2210,6 @@ BOOL CCharObject::HitXY(WORD wIdent, int nX, int nY, int nDir, int nHitStyle)
 				{
 					SelectTarget(pObject);
 
-					// 不知道这些属性的用途是啥
 					m_dwHealthTick	-= 100; // 这么说来，还能为负的？也就说，一直被攻击，离下次回复时间点就越久
 					m_dwSpellTick	-= 100;
 					m_dwSpellTick	= _MAX(0, m_dwSpellTick);
@@ -2240,8 +2242,13 @@ BOOL CCharObject::HitXY(WORD wIdent, int nX, int nY, int nDir, int nHitStyle)
 			}
 
 
-			// 这里应该是增加技能熟练度的处理
-			// 因为直到上面，攻击逻辑已经完成了，都发指令给被攻击者了
+			// 攻杀剑术相关
+			// 这里计算攻杀剑术的触发概率
+			// 0级，7下必出一次
+			// 1级，6下必出一次
+			// 2级，5下必出一次
+			// 3级，4下必出一次
+			// 触发之后，不会马上重置，要一直把剩下的打完
 			if (m_pUserInfo->m_lpTMagicPowerHitSkill)		// 예도 검법
 			{
 				m_pUserInfo->m_btAttackSkillCount--;
@@ -2311,6 +2318,8 @@ CCharObject* CCharObject::AddCreatureSysop(int nX, int nY, CMonRaceInfo* pMonRac
 	return (CCharObject*)pMonObject;
 }
 
+
+// 使用野蛮冲撞
 void CCharObject::DoMotaebo()
 {
 	int nFrontX, nFrontY;

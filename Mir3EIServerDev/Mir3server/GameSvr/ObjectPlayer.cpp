@@ -1633,11 +1633,14 @@ void CPlayerObject::ServerGetButch(CCharObject* pCharObject, int nX, int nY, int
 	AddRefMsg(RM_BUTCH, nDir, m_nCurrX, m_nCurrY, 0, NULL);
 }
 
+
+// 使用技能
+// nKey: 技能快捷键
 BOOL CPlayerObject::SpellXY(int nKey, int nTargetX, int nTargetY, int nTargetObj)
 {
 	if (!m_pUserInfo) return FALSE;
 
-	_LPTHUMANMAGICRCD	lptMagicRcd = m_pUserInfo->GetMagicRcdByKey(nKey);
+	_LPTHUMANMAGICRCD	lptMagicRcd = m_pUserInfo->GetMagicRcdByKey(nKey); // 通过快捷键映射来找到要使用的技能的索引
 	
 	if (lptMagicRcd)
 	{
@@ -1649,7 +1652,7 @@ BOOL CPlayerObject::SpellXY(int nKey, int nTargetX, int nTargetY, int nTargetObj
 
 			switch (lptMagicRcd->btMagicID)
 			{
-				case _SKILL_ERGUM:
+				case _SKILL_ERGUM: // 切换刺杀剑术
 				{
 					if (!m_pUserInfo->m_fLongHitSkill)
 					{
@@ -1664,7 +1667,7 @@ BOOL CPlayerObject::SpellXY(int nKey, int nTargetX, int nTargetY, int nTargetObj
 
 					return TRUE;
 				}
-				case _SKILL_BANWOL:
+				case _SKILL_BANWOL: // 切换半月弯刀
 				{
 					if (!m_pUserInfo->m_fWideHitSkill)
 					{
@@ -1679,7 +1682,7 @@ BOOL CPlayerObject::SpellXY(int nKey, int nTargetX, int nTargetY, int nTargetObj
 
 					return TRUE;
 				}
-				case _SKILL_FIRESWORD:
+				case _SKILL_FIRESWORD: // 使用烈火剑法
 				{
 					if (m_pUserInfo->AllowFireHitSkill())
 					{
@@ -1728,6 +1731,8 @@ BOOL CPlayerObject::SpellXY(int nKey, int nTargetX, int nTargetY, int nTargetObj
 	return FALSE;	
 }
 
+
+// 使用技能
 BOOL CPlayerObject::DoSpell(_LPTHUMANMAGICRCD	lptMagicRcd, int TargetX, int TargetY, CCharObject* pTargetObject)
 {
 	BOOL fTrain = FALSE;
@@ -2196,6 +2201,7 @@ void CPlayerObject::Operate()
 					}
 					case RM_MAGHEALING:
 					{
+						// 最大回复量只有300
 						if (m_IncHealing + lpProcessMsg->lParam1 < 300)
 						{
 							m_IncHealing	+= (BYTE)lpProcessMsg->lParam1;

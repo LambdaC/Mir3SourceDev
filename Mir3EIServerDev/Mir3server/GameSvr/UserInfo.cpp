@@ -424,12 +424,13 @@ void CUserInfo::AllowWideHitSkill(BOOL fFlag)
 	m_pxPlayerObject->SysMsg(szMsg, 1);
 }
 
+// ≈–∂œƒ‹∑Ò π”√¡“ªΩ£∑®£®10√ÎCD£©
 BOOL CUserInfo::AllowFireHitSkill()
 {
 	TCHAR	szText[128];
 	char	szMsg[128];
 
-	if (GetTickCount() - m_dwLatestFireHitTime > 10 * 1000)
+	if (GetTickCount() - m_dwLatestFireHitTime > 10 * 1000) // 10√Îcd
 	{
 		m_fFireHitSkill			= TRUE;
 		m_dwLatestFireHitTime	= GetTickCount();

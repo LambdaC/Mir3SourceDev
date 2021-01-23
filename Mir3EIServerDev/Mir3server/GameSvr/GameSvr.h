@@ -96,22 +96,22 @@ public:
 	CWHList<_LPTHUMANMAGICRCD>		m_lpTMagicRcd;
 	CWHList<_LPTUSERITEMRCD>		m_lpTItemRcd;
 
-	_LPTHUMANMAGICRCD				m_lpTMagicErgumSkill;
-	BOOL							m_fLongHitSkill;
-	_LPTHUMANMAGICRCD				m_lpTMagicBanwolSkill;
-	BOOL							m_fWideHitSkill;
-	_LPTHUMANMAGICRCD				m_lpTMagicFireSwordSkill;
-	BOOL							m_fFireHitSkill;
-	DWORD							m_dwLatestFireHitTime;
+	_LPTHUMANMAGICRCD				m_lpTMagicErgumSkill;		// 刺杀剑术
+	BOOL							m_fLongHitSkill;			// 是否使用刺杀剑术
+	_LPTHUMANMAGICRCD				m_lpTMagicBanwolSkill;		// 半月弯刀
+	BOOL							m_fWideHitSkill;			// 是否使用半月弯刀
+	_LPTHUMANMAGICRCD				m_lpTMagicFireSwordSkill;	// 烈火剑法
+	BOOL							m_fFireHitSkill;			// 能否使用烈火剑法
+	DWORD							m_dwLatestFireHitTime;		// 上次使用烈火剑法的时间
 	
-	_LPTHUMANMAGICRCD				m_lpTMagicOneSwordSkill;
-	_LPTHUMANMAGICRCD				m_lpTMagicIlkwangSkill;
+	_LPTHUMANMAGICRCD				m_lpTMagicOneSwordSkill;	// 基本剑术
+	_LPTHUMANMAGICRCD				m_lpTMagicIlkwangSkill;		// 精神力战法
 
-	_LPTHUMANMAGICRCD				m_lpTMagicPowerHitSkill;
-	BOOL							m_fPowerHitSkill;
+	_LPTHUMANMAGICRCD				m_lpTMagicPowerHitSkill;	// 攻杀剑术
+	BOOL							m_fPowerHitSkill;			// 是否触发攻杀剑术
 
-	BYTE							m_btAttackSkillCount;
-	BYTE							m_btAttackSkillPointCount;
+	BYTE							m_btAttackSkillCount;		// 7 - 攻杀剑术的等级
+	BYTE							m_btAttackSkillPointCount;  // 随机一个数对m_btAttackSkillCount求模
 
 	_LPTHORSERCD					m_lpTHorseRcd;
 

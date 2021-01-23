@@ -40,9 +40,9 @@
 #define POISON_DONTMOVE				4
 #define POISON_STONE				5
 #define STATE_TRANSPARENT			8
-#define STATE_DEFENCEUP				9
-#define STATE_MAGDEFENCEUP			10
-#define STATE_BUBBLEDEFENCEUP		11
+#define STATE_DEFENCEUP				9			// 神圣战甲术BUFF
+#define STATE_MAGDEFENCEUP			10			// 幽灵盾BUFF：
+#define STATE_BUBBLEDEFENCEUP		11			// 魔法盾BUFF
 
 #define	STATE_STONE_MODE			0x00000001;
 #define	STATE_OPENHEATH				0x00000002;  //체력 공개상태
@@ -218,18 +218,18 @@ public:
 
 	short						m_sHitSpeed;
 	
-	int							m_nHitDouble;
+	int							m_nHitDouble; // 烈火剑法伤害系数
 
 	DWORD						m_dwWalkTime;
 
-	WORD						m_wStatusArr[MAX_STATUS_ATTRIBUTE];
-	DWORD						m_dwStatusTime[MAX_STATUS_ATTRIBUTE];
+	WORD						m_wStatusArr[MAX_STATUS_ATTRIBUTE];		// buff
+	DWORD						m_dwStatusTime[MAX_STATUS_ATTRIBUTE];	// buff持续时间
 
-	BYTE						m_btHitPlus;
+	BYTE						m_btHitPlus;	// 攻杀剑术增加的额外伤害
 
 	BYTE						m_btAntiMagic;
-	BYTE						m_btHitPoint;
-	BYTE						m_btSpeedPoint;
+	BYTE						m_btHitPoint;		// 准确度
+	BYTE						m_btSpeedPoint;		// 敏捷度?
 	BYTE						m_btAntiPoison;
 	BYTE						m_btPoisonRecover;
 	BYTE						m_btHealthRecover;
@@ -256,8 +256,8 @@ public:
 	WORD						m_IncSpell;
 	BYTE						m_btPerSpell;
 
-	BOOL						m_fAbilMagBubbleDefence;
-	BYTE						m_btMagBubbleDefenceLevel;
+	BOOL						m_fAbilMagBubbleDefence;	// 是否开启魔法盾
+	BYTE						m_btMagBubbleDefenceLevel;	// 魔法盾等级
 
 	BOOL						m_fInspector;
 	BOOL						m_fFastTrain;
