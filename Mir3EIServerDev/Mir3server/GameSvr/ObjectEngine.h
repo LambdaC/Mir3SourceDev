@@ -6,7 +6,7 @@
 #include "../def/_orzex/queue.h"
 
 
-#define DEFSPEED					14
+#define DEFSPEED					14			// 现在默认的敏捷为15了
 
 #define _CHAT_COLOR1				0			//RGB(  0,   0,   0); // 투과색.
 #define _CHAT_COLOR2				1			//RGB( 10,  10,  10); // 검정색.

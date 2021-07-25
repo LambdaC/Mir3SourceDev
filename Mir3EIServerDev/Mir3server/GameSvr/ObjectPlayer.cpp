@@ -765,14 +765,14 @@ void CPlayerObject::RecalcHitSpeed()
 	m_nHitDouble = 0;
 
 	/*HitPoint := DEFHIT + BonusAbil.Hit;*/
-	m_btHitPoint = 5;
+	m_btHitPoint = 5;		// 准确
 
    /*case Job of
       2: SpeedPoint := DEFSPEED + BonusAbil.Speed + 3;  //도사는 기본 민첩이 높다.
       else SpeedPoint := DEFSPEED + BonusAbil.Speed;
    end;*/
 	if (m_pUserInfo->GetJob() == 2)
-		m_btSpeedPoint = DEFSPEED + 3;
+		m_btSpeedPoint = DEFSPEED + 3; // 道士加多3点敏捷
 	else
 		m_btSpeedPoint = DEFSPEED;
 
