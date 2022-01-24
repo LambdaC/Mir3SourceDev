@@ -178,34 +178,34 @@ BOOL CMonsterObject::IsProperTarget(CCharObject* pTargetObject)
 				fFlag = TRUE;
 		}
 /*			if (
-         //ÁÖÀÎÀÌ ÀÖ´Â ¸÷
+         //ì£¼ì¸ì´ ìˆëŠ” ëª¹
          //if (target.RaceServer >= RC_ANIMAL) and (target.Master = nil) then
          //   Result := TRUE;
          if (Master.LastHiter = target) or (Master.ExpHiter = target) or (Master.TargetCret = target) then
             Result := TRUE;
          if target.TargetCret <> nil then begin
-            if (target.TargetCret = Master) or  //ÁÖÀÎÀ» °ø°İ
-               (target.TargetCret.Master = Master) and (target.RaceServer <> 0) //µ¿·á¸¦ °ø°İ, »ç¶÷ÀÎ°æ¿ì Á¦¿Ü
+            if (target.TargetCret = Master) or  //ì£¼ì¸ì„ ê³µê²©
+               (target.TargetCret.Master = Master) and (target.RaceServer <> 0) //ë™ë£Œë¥¼ ê³µê²©, ì‚¬ëŒì¸ê²½ìš° ì œì™¸
             then
                Result := TRUE;
          end; */
 		if (pTargetObject->m_pTargetObject == this)
 			fFlag = TRUE;
-/*         if (target.TargetCret = self) and (target.RaceServer >= RC_ANIMAL) then  //¸÷ÀÌ¸é¼­ ÀÚ½ÅÀ» °ø°İÇÏ´Â ÀÚ
+/*         if (target.TargetCret = self) and (target.RaceServer >= RC_ANIMAL) then  //ëª¹ì´ë©´ì„œ ìì‹ ì„ ê³µê²©í•˜ëŠ” ì
             Result := TRUE;
-         if target.Master <> nil then begin  //»ó´ë°¡ ¼ÒÈ¯¸÷
+         if target.Master <> nil then begin  //ìƒëŒ€ê°€ ì†Œí™˜ëª¹
             if (target.Master = Master.LastHiter) or (target.Master = Master.TargetCret) then
                Result := TRUE;
          end;
-         if target.Master = Master then Result := FALSE;  //ÁÖÀÎÀÌ °°À¸¸é °ø°İ¾ÈÇÔ
-         if target.BoHolySeize then Result := FALSE;  //°á°è¿¡ °É·Á ÀÖÀ¸¸é °ø°İ¾ÈÇÔ
+         if target.Master = Master then Result := FALSE;  //ì£¼ì¸ì´ ê°™ìœ¼ë©´ ê³µê²©ì•ˆí•¨
+         if target.BoHolySeize then Result := FALSE;  //ê²°ê³„ì— ê±¸ë ¤ ìˆìœ¼ë©´ ê³µê²©ì•ˆí•¨
          if Master.BoSlaveRelax then Result := FALSE;
-         if target.RaceServer = RC_USERHUMAN then begin  //»ó´ë°¡ »ç¶÷ÀÎ °æ¿ì
-            if (Master.InSafeZone) or (target.InSafeZone) then begin  //ÁÖÀÎÀÌ ¾ÈÀüÁö´ë¿¡ ÀÖ°Å³ª, »ó´ë°¡ ¾ÈÀüÁö´ë¿¡ ÀÖ´Â °æ¿ì
+         if target.RaceServer = RC_USERHUMAN then begin  //ìƒëŒ€ê°€ ì‚¬ëŒì¸ ê²½ìš°
+            if (Master.InSafeZone) or (target.InSafeZone) then begin  //ì£¼ì¸ì´ ì•ˆì „ì§€ëŒ€ì— ìˆê±°ë‚˜, ìƒëŒ€ê°€ ì•ˆì „ì§€ëŒ€ì— ìˆëŠ” ê²½ìš°
                Result := FALSE;
             end;
          end;
-         BreakCrazyMode;  //ÁÖÀÎÀÖ´Â ¸÷.. */
+         BreakCrazyMode;  //ì£¼ì¸ìˆëŠ” ëª¹.. */
 	}
 	else
 	{
@@ -217,13 +217,13 @@ BOOL CMonsterObject::IsProperTarget(CCharObject* pTargetObject)
 
 /*         if target.RaceServer = RC_USERHUMAN then
             Result := TRUE;
-         if (RaceServer > RC_PEACENPC) and (RaceServer < RC_ANIMAL) then begin //°ø°İ·ÂÀ» °¡Áø NPC´Â ¾Æ¹«³ª °ø°İÇÑ´Ù.
+         if (RaceServer > RC_PEACENPC) and (RaceServer < RC_ANIMAL) then begin //ê³µê²©ë ¥ì„ ê°€ì§„ NPCëŠ” ì•„ë¬´ë‚˜ ê³µê²©í•œë‹¤.
             Result := TRUE;
          end;
          if target.Master <> nil then
             Result := TRUE; */
 
-//		if BoCrazyMode then  //¹ÌÄ§, ¾Æ¹«³ª °ø°İ, Àû ¾È°¡¸²... (¼ÒÈ¯¸÷¿¡°Ôµµ ÅëÇÑ´Ù.)
+//		if BoCrazyMode then  //ë¯¸ì¹¨, ì•„ë¬´ë‚˜ ê³µê²©, ì  ì•ˆê°€ë¦¼... (ì†Œí™˜ëª¹ì—ê²Œë„ í†µí•œë‹¤.)
   //       Result := TRUE;
 	}
 
@@ -320,34 +320,34 @@ void CMonsterObject::Die()
 
 	CCharObject::Die();
 /*   try
-      //¸÷À» Á×ÀÎ °æ¿ì.  °æÇèÄ¡¸¦ ¾ò´Â´Ù.
+      //ëª¹ì„ ì£½ì¸ ê²½ìš°.  ê²½í—˜ì¹˜ë¥¼ ì–»ëŠ”ë‹¤.
       if (RaceServer <> RC_USERHUMAN) and (LastHiter <> nil) then begin
-         //¸¶Áö¸· ¶§¸°ÀÚ°¡ »ç¶÷ÀÌ¾î¾ß ÇÔ.
-         if ExpHiter <> nil then begin //°æÇèÄ¡¸¦ ¸Ô´Â »ç¶÷.. ¸ÕÀú ¶§¸®±â ½ÃÀÛÇÑ »ç¶÷
+         //ë§ˆì§€ë§‰ ë•Œë¦°ìê°€ ì‚¬ëŒì´ì–´ì•¼ í•¨.
+         if ExpHiter <> nil then begin //ê²½í—˜ì¹˜ë¥¼ ë¨¹ëŠ” ì‚¬ëŒ.. ë¨¼ì € ë•Œë¦¬ê¸° ì‹œì‘í•œ ì‚¬ëŒ
             if ExpHiter.RaceServer = RC_USERHUMAN then begin
-               //ÃÖ´ë Ã¼·Â ¸¸Å­, »ó´ëÀÇ ·¹º§¿¡ ºñ·ÊÇØ¼­ °æÇèÄ¡¸¦ ¾ò´Â´Ù.
+               //ìµœëŒ€ ì²´ë ¥ ë§Œí¼, ìƒëŒ€ì˜ ë ˆë²¨ì— ë¹„ë¡€í•´ì„œ ê²½í—˜ì¹˜ë¥¼ ì–»ëŠ”ë‹¤.
                exp := ExpHiter.CalcGetExp (self.Abil.Level, self.FightExp);
                if not BoVentureServer then begin
                   ExpHiter.GainExp (exp);
                end else begin
-                  //¸ğÇè¼­¹ö¿¡¼­´Â Á¡¼ö°¡ ¿Ã¶ó°£´Ù.
+                  //ëª¨í—˜ì„œë²„ì—ì„œëŠ” ì ìˆ˜ê°€ ì˜¬ë¼ê°„ë‹¤.
                end;
             end else begin
-               if ExpHiter.Master <> nil then begin //¶§¸°³ğÀÌ ¼ÒÈ¯¸÷
-                  //ºÎÇÏµµ °æÇèÄ¡¸¦ ¸ÔÀ½
-                  ExpHiter.GainSlaveExp (self.Abil.Level);  //»ó´ëÀÇ ·¹º§¸¸Å­ °æÇèÀ» ¸ÔÀ½
-                  //ÁÖÀÎÀÌ °æÇèÄ¡¸¦ ¸Ô´Â´Ù.
+               if ExpHiter.Master <> nil then begin //ë•Œë¦°ë†ˆì´ ì†Œí™˜ëª¹
+                  //ë¶€í•˜ë„ ê²½í—˜ì¹˜ë¥¼ ë¨¹ìŒ
+                  ExpHiter.GainSlaveExp (self.Abil.Level);  //ìƒëŒ€ì˜ ë ˆë²¨ë§Œí¼ ê²½í—˜ì„ ë¨¹ìŒ
+                  //ì£¼ì¸ì´ ê²½í—˜ì¹˜ë¥¼ ë¨¹ëŠ”ë‹¤.
                   exp := ExpHiter.Master.CalcGetExp (self.Abil.Level, self.FightExp);
                   if not BoVentureServer then begin
-                     ExpHiter.Master.GainExp (exp); //¼ÒÈ¯¼ö¸¦ ºÎ¸®´Â »ç¶÷ÀÌ ¸Ô´Â´Ù.
+                     ExpHiter.Master.GainExp (exp); //ì†Œí™˜ìˆ˜ë¥¼ ë¶€ë¦¬ëŠ” ì‚¬ëŒì´ ë¨¹ëŠ”ë‹¤.
                   end else begin
-                     //¸ğÇè¼­¹ö¿¡¼­´Â Á¡¼ö°¡ ¿Ã¶ó°£´Ù.
+                     //ëª¨í—˜ì„œë²„ì—ì„œëŠ” ì ìˆ˜ê°€ ì˜¬ë¼ê°„ë‹¤.
                   end;
                end;
             end;
          end else
             if LastHiter.RaceServer = RC_USERHUMAN then begin
-               //ÃÖ´ë Ã¼·Â ¸¸Å­, »ó´ëÀÇ ·¹º§¿¡ ºñ·ÊÇØ¼­ °æÇèÄ¡¸¦ ¾ò´Â´Ù.
+               //ìµœëŒ€ ì²´ë ¥ ë§Œí¼, ìƒëŒ€ì˜ ë ˆë²¨ì— ë¹„ë¡€í•´ì„œ ê²½í—˜ì¹˜ë¥¼ ì–»ëŠ”ë‹¤.
                exp := LastHiter.CalcGetExp (self.Abil.Level, self.FightExp);
                if not BoVentureServer then begin
                   LastHiter.GainExp (exp);
@@ -382,7 +382,7 @@ void CMonsterObject::ScatterBagItems()
 	}
 }
 /*
-procedure TCreature.ScatterBagItems;    //Á×¾î¼­ °¡¹æ¿¡ ¾ÆÀÌÅÛÀ» Èê¸².. ÀüºÎ Èê¸°´Ù.
+procedure TCreature.ScatterBagItems;    //ì£½ì–´ì„œ ê°€ë°©ì— ì•„ì´í…œì„ í˜ë¦¼.. ì „ë¶€ í˜ë¦°ë‹¤.
 var
    i, dropwide: integer;
    pu: PTUserItem;
@@ -394,8 +394,8 @@ begin
    boDropall := TRUE;
    if RaceServer = RC_USERHUMAN then begin
       dropwide := 2;
-      if PKLevel < 2 then boDropall := FALSE; //»ç¶÷Àº 1/3È®·ü·Î ¶³±º´Ù.
-      //»¡°»ÀÌ´Â ´Ù ¶³±º´Ù.
+      if PKLevel < 2 then boDropall := FALSE; //ì‚¬ëŒì€ 1/3í™•ë¥ ë¡œ ë–¨êµ°ë‹¤.
+      //ë¹¨ê°±ì´ëŠ” ë‹¤ ë–¨êµ°ë‹¤.
    end else
       dropwide := 3;
 
@@ -406,7 +406,7 @@ begin
                pu := PTUserItem(ItemList[i]);
                if RaceServer = RC_USERHUMAN then begin
                   if dellist = nil then dellist := TStringList.Create;
-                  //¶³¾î¶ß¸° ¾ÆÀÌÅÛÀ» Å¬¶óÀÌ¾ğÆ®¿¡ ¾Ë¸².
+                  //ë–¨ì–´ëœ¨ë¦° ì•„ì´í…œì„ í´ë¼ì´ì–¸íŠ¸ì— ì•Œë¦¼.
                   dellist.AddObject(UserEngine.GetStdItemName (pu.Index), TObject(pu.MakeIndex));
                end;
                Dispose(PTUserItem(ItemList[i]));
@@ -416,7 +416,7 @@ begin
       end;
       if dellist <> nil then begin
          SendMsg (self, RM_DELITEMS, 0, integer(dellist), 0, 0, '');
-         //dellist´Â rm_delitem¿¡¼­ free ½ÃÄÑ¾ß ÇÑ´Ù.
+         //dellistëŠ” rm_delitemì—ì„œ free ì‹œì¼œì•¼ í•œë‹¤.
       end;
    except
       MainOutMessage ('[Exception] TCreature.ScatterBagItems');
@@ -587,10 +587,10 @@ begin
       for i:=0 to list.Count-1 do begin
          pmi := PTMonItemInfo(list[i]);
          if pmi.SelPoint >= Random(pmi.MaxPoint) then begin
-            if CompareText(pmi.ItemName, 'µ·') = 0 then begin
+            if CompareText(pmi.ItemName, 'ëˆ') = 0 then begin
                mon.Gold := (pmi.Count div 2) + Random(pmi.Count);
             end else begin
-               //À¯´ÏÅ© ¾ÆÀÌÅÛ ÀÌº¥Æ®....
+               //ìœ ë‹ˆí¬ ì•„ì´í…œ ì´ë²¤íŠ¸....
                iname := '';
                ////if (BoUniqueItemEvent) and (not mon.BoAnimal) then begin
                ////   if GetUniqueEvnetItemName (iname, numb) then begin
@@ -602,17 +602,17 @@ begin
 
                new (pu);
                if CopyToUserItemFromName (iname, pu^) then begin
-                  //³»±¸¼ºÀÌ º¯°æµÇ¾î ÀÖÀ½..
+                  //ë‚´êµ¬ì„±ì´ ë³€ê²½ë˜ì–´ ìˆìŒ..
                   pu.Dura := Round ((pu.DuraMax / 100) * (20+Random(80)));
 
                   pstd := GetStdItem (pu.Index);
                   ////if pstd <> nil then
-                  ////   if pstd.StdMode = 50 then begin  //»óÇ°±Ç
+                  ////   if pstd.StdMode = 50 then begin  //ìƒí’ˆê¶Œ
                   ////      pu.Dura := numb;
                   ////   end;
 
-                  //³·Àº È®·ü·Î
-                  //¾ÆÀÌÅÛÀÇ ¾÷±×·¡ÀÌµåµÈ ³»¿ë Àû¿ë
+                  //ë‚®ì€ í™•ë¥ ë¡œ
+                  //ì•„ì´í…œì˜ ì—…ê·¸ë˜ì´ë“œëœ ë‚´ìš© ì ìš©
                   if Random(10) = 0 then
                      RandomUpgradeItem (pu);
 
@@ -824,7 +824,7 @@ void CMonsterObject::GotoTargetXY()
 		}
 
 //		char szTemp[64];
-//		sprintf(szTemp, "ÀÌ ³ğ %s ¾ß °Å±â ¼¸°Å¶ó... ÇÏÇÏÇÏ", m_pTargetObject->m_szName);
+//		sprintf(szTemp, "ì´ ë†ˆ %s ì•¼ ê±°ê¸° ì„¯ê±°ë¼... í•˜í•˜í•˜", m_pTargetObject->m_szName);
 //		AddRefMsg(RM_MONSTERSAY, 0, 0, 0, 0, szTemp);
 
 		int nOldX = m_nCurrX;
@@ -870,11 +870,11 @@ begin
          SelectTarget (hiter);
    end;
    if BoAnimal then begin
-      MeatQuality := MeatQuality - Random (300);  //µ¿¹°ÀÌ ¸ÂÀ¸¸é ¸ÂÀ» ¼ö·Ï °í±â Ç°ÁúÀÌ ¶³¾îÁü
+      MeatQuality := MeatQuality - Random (300);  //ë™ë¬¼ì´ ë§ìœ¼ë©´ ë§ì„ ìˆ˜ë¡ ê³ ê¸° í’ˆì§ˆì´ ë–¨ì–´ì§
       if MeatQuality < 0 then MeatQuality := 0;
    end;
    if Abil.Level < 50 then
-      HitTime  := HitTime + (150 - _MIN(130, Abil.Level * 4)); //ÇÑ¹æ¿¡ ms¾¿ ´Ê°Ô ¶§¸°´Ù.
+      HitTime  := HitTime + (150 - _MIN(130, Abil.Level * 4)); //í•œë°©ì— msì”© ëŠ¦ê²Œ ë•Œë¦°ë‹¤.
    //WalkTime := WalkTime + (300 - _MIN(200, (Abil.Level div 5) * 20));
 end;
 */
@@ -981,8 +981,8 @@ void CMonsterObject::Operate()
 						HealthSpellChanged();
 						AddRefMsg(RM_STRUCK_MAG, nVal, m_WAbility.HP, m_WAbility.MP, (int)lpProcessMsg->pCharObject, NULL);
 						
-//                  if BoAnimal then begin //°í±â°¡ ³ª¿À´Â µ¿¹°ÀÎ °æ¿ì..
- //                   MeatQuality := MeatQuality - v1 * 1000;  //¸¶¹ıÀ» ¸ÂÀ¸¸é °í±âÁúÀÌ Ä¡¸íÀûÀ¸·Î ³ªºüÁø´Ù.
+//                  if BoAnimal then begin //ê³ ê¸°ê°€ ë‚˜ì˜¤ëŠ” ë™ë¬¼ì¸ ê²½ìš°..
+ //                   MeatQuality := MeatQuality - v1 * 1000;  //ë§ˆë²•ì„ ë§ìœ¼ë©´ ê³ ê¸°ì§ˆì´ ì¹˜ëª…ì ìœ¼ë¡œ ë‚˜ë¹ ì§„ë‹¤.
 //                  end;
 						SetLastHiter(lpProcessMsg->pCharObject);
 //						Struck(lpProcessMsg->pCharObject);
@@ -1309,7 +1309,7 @@ void CMonsterObject::Run()
 						}
 					}
 
-/*               //ÁÖÀÎ°ú ³Ê¹« ¶³¾îÁ® ÀÖÀ¸¸é...
+/*               //ì£¼ì¸ê³¼ ë„ˆë¬´ ë–¨ì–´ì ¸ ìˆìœ¼ë©´...
                if (not Master.BoSlaveRelax) and
                   ((PEnvir <> Master.PEnvir) or
                    (abs(CX-Master.CX) > 20) or
@@ -1338,7 +1338,7 @@ void CMonsterObject::Run()
 
 /*         if Master <> nil then begin
             if Master.BoSlaveRelax then begin
-               //ÁÖÀÎÀÌ ÈŞ½ÄÇÏ¶ó°í ÇÔ...
+               //ì£¼ì¸ì´ íœ´ì‹í•˜ë¼ê³  í•¨...
                inherited Run;
                exit;
             end;
@@ -1416,7 +1416,7 @@ BOOL CMonsterObject::CheckComeOut(int nValue)
 
 /* **************************************************************************************
 
-		ÀÏ¹İ ¸ó½ºÅÍ
+		ì¼ë°˜ ëª¬ìŠ¤í„°
 
    ************************************************************************************** */
 
@@ -1436,7 +1436,7 @@ void CGenneralMonObject::Run()
 
 /* **************************************************************************************
 
-		´ß
+		ë‹­
 
    ************************************************************************************** */
 
@@ -1452,7 +1452,7 @@ void CChickenObject::Run()
 
 /* **************************************************************************************
 
-		ÁÖ¸¶È£¹ı, ÁÖ¸¶½ÅÀå
+		ì£¼ë§ˆí˜¸ë²•, ì£¼ë§ˆì‹ ì¥
 
    ************************************************************************************** */
 
@@ -1542,7 +1542,7 @@ void CScultureObject::Run()
 
 /* **************************************************************************************
 
-		ÁÖ¸¶¿Õ
+		ì£¼ë§ˆì™•
 
    ************************************************************************************** */
 
@@ -1562,7 +1562,7 @@ CScultureKingObject::CScultureKingObject()
 void CScultureKingObject::CallSlave()
 {
 	static const int MaxSlaveList = 4;
-	static int SlaveList[MaxSlaveList] = { 143/*¸¶±Ã»ç*/, 145/*ÁÖ¸¶½ÅÀå*/, 148/* ÁÖ¸¶È£¹ı */, 126/*½û±â³ª¹æ*/ };
+	static int SlaveList[MaxSlaveList] = { 143/*ë§ˆê¶ì‚¬*/, 145/*ì£¼ë§ˆì‹ ì¥*/, 148/* ì£¼ë§ˆí˜¸ë²• */, 126/*ìê¸°ë‚˜ë°©*/ };
 
 	int				nCount = 6 + (rand() % 6);
 	int				nMonRace;
@@ -1655,7 +1655,7 @@ void CScultureKingObject::Run()
 
 /* **************************************************************************************
 
-		ºñ¸·¿øÃæ
+		ë¹„ë§‰ì›ì¶©
 
    ************************************************************************************** */
 
@@ -1762,7 +1762,7 @@ void CBeeQueen::Run()
 
 /* **************************************************************************************
 
-		½Öµµ³¢ ÇØ°ñ, ¸¶±Ã»ç
+		ìŒë„ë¼ í•´ê³¨, ë§ˆê¶ì‚¬
 
    ************************************************************************************** */
 
@@ -1774,7 +1774,7 @@ CDualAxeObject::CDualAxeObject(int nChainShotCount)
 
 void CDualAxeObject::FlyAxeAttack(CCharObject* pTargetObject)
 {
-//   if PEnvir.CanFly (CX, CY, targ.CX, targ.CY) then begin //µµ³¢°¡ ³¯¾Æ°¥¼ö ÀÖ´ÂÁö.
+//   if PEnvir.CanFly (CX, CY, targ.CX, targ.CY) then begin //ë„ë¼ê°€ ë‚ ì•„ê°ˆìˆ˜ ìˆëŠ”ì§€.
 	int nDamage;
 	int nDir	= GetNextDirection(pTargetObject->m_nCurrX, pTargetObject->m_nCurrY);
 
@@ -1853,7 +1853,7 @@ void CDualAxeObject::Run()
 
 		if (GetTickCount() - m_dwWalkTime > m_dwNextWalkTime)
 		{
-			// µµ¸Á°¡´Â ÄÚµå Ãß°¡
+			// ë„ë§ê°€ëŠ” ì½”ë“œ ì¶”ê°€
 		}
 	}
 
@@ -1862,7 +1862,7 @@ void CDualAxeObject::Run()
 
 /* **************************************************************************************
 
-		¶óÀÌÆ®´× Á»ºñ
+		ë¼ì´íŠ¸ë‹ ì¢€ë¹„
 
    ************************************************************************************** */
 
@@ -1933,7 +1933,7 @@ void CLightingZombiObject::Run()
 
 /* **************************************************************************************
 
-		·Ğ
+		ë¡ 
 
    ************************************************************************************** */
 
@@ -1990,7 +1990,7 @@ void CRonObject::Run()
 
 /* **************************************************************************************
 
-		ÇÏ±Ş ´©¸¶
+		í•˜ê¸‰ ëˆ„ë§ˆ
 
    ************************************************************************************** */
 
@@ -2010,7 +2010,7 @@ void CMinorNumaObject::Run()
 
 /* **************************************************************************************
 
-		¿À¸¶ ½Ã¸®Áî 
+		ì˜¤ë§ˆ ì‹œë¦¬ì¦ˆ 
 
    ************************************************************************************** */
 
@@ -2030,7 +2030,7 @@ void COmaObject::Run()
 
 /* **************************************************************************************
 
-		°ñ·¥(¼®ÀåÀÎ)
+		ê³¨ë¨(ì„ì¥ì¸)
 
    ************************************************************************************** */
 
@@ -2071,7 +2071,7 @@ void CRockManObject::Run()
 
 /* **************************************************************************************
 
-		½ÄÀÎÃÊ
+		ì‹ì¸ì´ˆ
 
    ************************************************************************************** */
 
@@ -2123,7 +2123,7 @@ void CStickObject::Run()
 
 /* **************************************************************************************
 
-		¸ğ·¡ ±«¹°(»ç³ú)
+		ëª¨ë˜ ê´´ë¬¼(ì‚¬ë‡Œ)
 
    ************************************************************************************** */
 
@@ -2177,7 +2177,7 @@ void CSandMobObject::Run()
 
 /* **************************************************************************************
 
-		¹é°ñ
+		ë°±ê³¨
 
    ************************************************************************************** */
 
@@ -2212,7 +2212,7 @@ void CWhiteSkeleton::Run()
 
 /* **************************************************************************************
 
-		½Å¼ö (¹ø½ÅÀü)
+		ì‹ ìˆ˜ (ë²ˆì‹ ì „)
 
    ************************************************************************************** */
 
@@ -2244,7 +2244,7 @@ begin
    //Appear;
    //ResetElfMon;
    RecalcAbilitys;
-   WalkTime := WalkTime + 800; //º¯½ÅÈÄ ¾à°£ µô·¹ÀÌ ÀÖÀ½
+   WalkTime := WalkTime + 800; //ë³€ì‹ í›„ ì•½ê°„ ë”œë ˆì´ ìˆìŒ
 end;
 */
 }
@@ -2296,7 +2296,7 @@ void CElfMonster::Run()
 
 /* **************************************************************************************
 
-		½Å¼ö (º¯½ÅÈÄ)
+		ì‹ ìˆ˜ (ë³€ì‹ í›„)
 
    ************************************************************************************** */
 
@@ -2328,7 +2328,7 @@ begin
    //Appear;
    //ResetElfMon;
    RecalcAbilitys;
-   WalkTime := WalkTime + 800; //º¯½ÅÈÄ ¾à°£ µô·¹ÀÌ ÀÖÀ½
+   WalkTime := WalkTime + 800; //ë³€ì‹ í›„ ì•½ê°„ ë”œë ˆì´ ìˆìŒ
 end;
 */
 }
@@ -2383,7 +2383,7 @@ void CElfWarriorMonster::Run()
 
 /* **************************************************************************************
 
-		Ä§°Å¹Ì
+		ì¹¨ê±°ë¯¸
 
    ************************************************************************************** */
 
@@ -2435,11 +2435,11 @@ void CSpitSpiderMonster::SpitAttack(int nDir)
 																	pCharObject->m_WAbility.MaxHP, (int)this, NULL, 300);
 
 /*                        if BoUsePoison then begin
-                           //Ã¼·ÂÀÌ °¨¼ÒÇÏ´Â µ¶¿¡ Áßµ¶ µÈ´Ù.
+                           //ì²´ë ¥ì´ ê°ì†Œí•˜ëŠ” ë…ì— ì¤‘ë… ëœë‹¤.
                            if Random(20 + cret.AntiPoison) = 0 then
-                              cret.MakePoison (POISON_DECHEALTH, 30, 1);   //Ã¼·ÂÀÌ °¨¼Ò
+                              cret.MakePoison (POISON_DECHEALTH, 30, 1);   //ì²´ë ¥ì´ ê°ì†Œ
                            //if Random(2) = 0 then
-                           //   cret.MakePoison (POISON_STONE, 5);   //¸¶ºñ
+                           //   cret.MakePoison (POISON_STONE, 5);   //ë§ˆë¹„
                         end; */
 
 								}
