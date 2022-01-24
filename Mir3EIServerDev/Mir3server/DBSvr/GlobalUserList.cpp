@@ -12,7 +12,7 @@ CGlobalUserList::CGlobalUserList()
 : m_fixedMemory( GLOBALLIST_MAXLIST )
 {
 	if ( !m_listUser.InitHashTable( GLOBALLIST_MAXBUCKET, IHT_ROUNDUP ) )
-		throw CError( "CGlobalUserList::CGlobalUserList ÇØ½¬Å×ÀÌºí »ı¼º ½ÇÆĞ" );
+		throw CError( "CGlobalUserList::CGlobalUserList í•´ì‰¬í…Œì´ë¸” ìƒì„± ì‹¤íŒ¨" );
 
 	m_listUser.SetGetKeyFunction( __cbGetKey );
 }
