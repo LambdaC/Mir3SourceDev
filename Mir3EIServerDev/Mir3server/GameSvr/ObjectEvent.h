@@ -1,10 +1,10 @@
 
-#define ET_DIGOUTZOMBI    1  //Á»ºñ°¡ ¶¥ÆÄ°í ³ª¿Â ÈçÀû
-#define ET_MINE           2  //±¤¼®ÀÌ ¸ÅÀåµÇ¾î ÀÖÀ½
-#define ET_PILESTONES     3  //µ¹¹«´õ±â
-#define ET_HOLYCURTAIN    4  //°á°è
+#define ET_DIGOUTZOMBI    1  //ì¢€ë¹„ê°€ ë•…íŒŒê³  ë‚˜ì˜¨ í”ì 
+#define ET_MINE           2  //ê´‘ì„ì´ ë§¤ìž¥ë˜ì–´ ìžˆìŒ
+#define ET_PILESTONES     3  //ëŒë¬´ë”ê¸°
+#define ET_HOLYCURTAIN    4  //ê²°ê³„
 #define ET_FIRE           5
-#define ET_SCULPEICE      6  //ÁÖ¸¶¿ÕÀÇ µ¹±úÁø Á¶°¢
+#define ET_SCULPEICE      6  //ì£¼ë§ˆì™•ì˜ ëŒê¹¨ì§„ ì¡°ê°
 
 class CEvent
 {
