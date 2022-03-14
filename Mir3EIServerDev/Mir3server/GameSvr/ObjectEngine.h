@@ -210,7 +210,7 @@ public:
 	char						m_szName[14];
 
 	CObjectAbility				m_Ability; //基础属性，如果是玩家的话，在ObjectPlayer.cpp::CPlayerObject::RecalcLevelAbilitys()方法中根据职业和等级初始化；如果是怪的话，在ObjectMonster.cpp::CMonsterObject::Initialize()方法中根据配置初始化
-	CObjectAbility				m_WAbility;	
+	CObjectAbility				m_WAbility;	// 基础属性+装备属性+各种buff之后的总属性。在ObjectPlayer.cpp::CPlayerObject::RecalcLevelAbilitys()计算。
 	CObjectAddAbility			m_AddAbility;  // 穿戴装备所增加的属性
 
 	UINT						m_nCharStatusEx;

@@ -882,13 +882,13 @@ void CPlayerObject::RecalcAbilitys()
 				m_WAbility.WearWeight += g_pStdItemSpecial[lpUserItemRcd->nStdIndex].wWeight; 
 
 			if ( i == U_WEAPON )
-				m_AddAbility.WeaponStrong = (BYTE)g_pStdItemSpecial[lpUserItemRcd->nStdIndex].dwRSource; // 무기의 강도. 강도가 높으면 잘 안 뽀개짐
+				m_AddAbility.WeaponStrong = (BYTE)g_pStdItemSpecial[lpUserItemRcd->nStdIndex].dwRSource; // 무기의 강도. 강도가 높으면 잘 안 뽀개짐(武器的强度。强度高时不开裂)
 		}
 	}
 
 	m_WAbility.Weight	= m_pUserInfo->CalcBagWeight();
 
-	// BEGIN:은신술
+	// BEGIN:은신술(隐身术)
 	if ((m_fFixedHideMode) && (m_wStatusArr[STATE_TRANSPARENT] > 0))
 		m_fHumHideMode = TRUE;
 
@@ -951,10 +951,10 @@ void CPlayerObject::RecalcAbilitys()
 	m_WAbility.MC		= MAKEWORD(LOBYTE(m_AddAbility.MC)  + LOBYTE(m_Ability.MC),  HIBYTE(m_AddAbility.MC)  + HIBYTE(m_Ability.MC));
 	m_WAbility.SC		= MAKEWORD(LOBYTE(m_AddAbility.SC)  + LOBYTE(m_Ability.SC),  HIBYTE(m_AddAbility.SC)  + HIBYTE(m_Ability.SC));
 
-	if (m_wStatusArr[STATE_DEFENCEUP] > 0) // 방어력 상승
+	if (m_wStatusArr[STATE_DEFENCEUP] > 0) // 방어력 상승(提高防御能力) 神圣战甲术Buff
 		m_WAbility.AC = MAKEWORD(LOBYTE(m_WAbility.AC), HIBYTE(m_WAbility.AC) + 2 + (m_Ability.Level / 7));
 
-	if (m_wStatusArr[STATE_MAGDEFENCEUP] > 0) // 마항력 상승
+	if (m_wStatusArr[STATE_MAGDEFENCEUP] > 0) // 마항력 상승 幽灵盾Buff
 		m_WAbility.MAC = MAKEWORD(LOBYTE(m_WAbility.MAC), HIBYTE(m_WAbility.MAC) + 2 + (m_Ability.Level / 7));
 
 	UpdateProcess(this, RM_CHARSTATUSCHANGED, m_sHitSpeed/*wparam*/, m_nCharStatus, 0, 0, NULL);

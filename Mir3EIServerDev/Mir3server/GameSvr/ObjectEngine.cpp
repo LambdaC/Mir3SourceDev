@@ -1968,7 +1968,7 @@ int CCharObject::GetHitStruckDamage(int nDamage)
 
 	if (nDamage > 0)
 	{
-		if (m_fAbilMagBubbleDefence) // 주술의막
+		if (m_fAbilMagBubbleDefence) // 주술의막(魔法盾)
 		{
 			nDamage = ROUND(nDamage / 100 * (m_btMagBubbleDefenceLevel + 2) * 8);
 			DamageBubbleDefence();
@@ -1998,12 +1998,12 @@ int CCharObject::GetAttackPower(int nDamage, int nVal)
 begin
    if val < 0 then val := 0;
    if Luck > 0 then begin
-      if Random(10 - _MIN(9,Luck)) = 0 then Result := damage + val //행운인경우
+      if Random(10 - _MIN(9,Luck)) = 0 then Result := damage + val //행운인경우 (运气好)
       else Result := damage + Random(val + 1);
    end else begin
       Result := damage + Random(val + 1);
       if Luck < 0 then begin
-         if Random(10 - _MAX(0,-Luck)) = 0 then Result := damage;  //불운인경우
+         if Random(10 - _MAX(0,-Luck)) = 0 then Result := damage;  //불운인경우 (运气不好)
       end;
    end; */
 }
@@ -2045,7 +2045,7 @@ void CCharObject::DoDamageWeapon(int nDamage)
 // pObject: 被攻击者
 BOOL CCharObject::_Attack(WORD wHitMode, CCharObject* pObject)
 {
-	int nPower	= GetAttackPower(LOBYTE(m_WAbility.DC), (HIBYTE(m_WAbility.DC) - LOBYTE(m_WAbility.DC)));
+	int nPower	= GetAttackPower(LOBYTE(m_WAbility.DC), (HIBYTE(m_WAbility.DC) - LOBYTE(m_WAbility.DC))); // 攻击力范围内随机一个值（没考虑运气）
 	int nSecPwr	= 0;	// 第二个格子的伤害，用于刺杀剑术这类的技能，还有半月弯刀这种
 	int nWeaponDamage;
 
