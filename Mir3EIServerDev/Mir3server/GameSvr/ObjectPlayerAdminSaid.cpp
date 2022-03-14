@@ -99,11 +99,11 @@ BOOL CPlayerObject::ProcessForAdminSaid(char *pszMsg)
 
 		switch (IDS_COMMAND_MONGEN + nCommand)
 		{
-			case IDS_COMMAND_MONGEN:						//"∏˜¡®"
+			case IDS_COMMAND_MONGEN:						//"Î™πÏ††"
 				if (pszParam1 && pszParam2)
 					CmdCallMakeMonster(pszParam1, pszParam2);
 				break;
-			case IDS_COMMAND_INSPECTOR:						//"∞®Ω√¿⁄"
+			case IDS_COMMAND_INSPECTOR:						//"Í∞êÏãúÏûê"
 			{
 				TCHAR	wszMsg[64];
 				char	szMsg[64];
@@ -120,9 +120,9 @@ BOOL CPlayerObject::ProcessForAdminSaid(char *pszMsg)
 
 				break;
 			}
-			case IDS_COMMAND_ADMIN:							//"øÓøµ¿⁄"
+			case IDS_COMMAND_ADMIN:							//"Ïö¥ÏòÅÏûê"
 				break;
-			case IDS_COMMAND_INVINCIBILITY:					//"π´¿˚"
+			case IDS_COMMAND_INVINCIBILITY:					//"Î¨¥Ï†Å"
 			{
 				TCHAR	wszMsg[64];
 				char	szMsg[64];
@@ -139,13 +139,13 @@ BOOL CPlayerObject::ProcessForAdminSaid(char *pszMsg)
 
 				break;
 			}
-			case IDS_COMMAND_ATTACK:						//"∞¯∞›"
+			case IDS_COMMAND_ATTACK:						//"Í≥µÍ≤©"
 				break;
-			case IDS_COMMAND_MOVE:							//"¿Ãµø"
+			case IDS_COMMAND_MOVE:							//"Ïù¥Îèô"
 				if (pszParam1)
 					CmdRandomSpaceMove(pszParam1);
 				break;
-			case IDS_COMMAND_CHANGELEVEL:					//"∑π∫ß¡∂¡§"
+			case IDS_COMMAND_CHANGELEVEL:					//"Î†àÎ≤®Ï°∞Ï†ï"
 			{
 				if (pszParam1)
 				{
@@ -154,11 +154,11 @@ BOOL CPlayerObject::ProcessForAdminSaid(char *pszMsg)
 				}
 				break;
 			}
-			case IDS_COMMAND_MOVEFREESTYLE:					//"¿⁄¿Ø¿Ãµø"
+			case IDS_COMMAND_MOVEFREESTYLE:					//"ÏûêÏú†Ïù¥Îèô"
 				if (pszParam1 && pszParam2 && pszParam3)
 					CmdFreeSpaceMove(pszParam1, pszParam2, pszParam3);
 				break;
-			case IDS_COMMAND_MAP:							//"∏ "
+			case IDS_COMMAND_MAP:							//"Îßµ"
 			{
 				char szMsg[64];
 
@@ -169,82 +169,82 @@ BOOL CPlayerObject::ProcessForAdminSaid(char *pszMsg)
 				
 				break;
 			}
-			case IDS_COMMAND_LEVEL:							//"∑æ"
+			case IDS_COMMAND_LEVEL:							//"Î†ô"
 				break;
-			case IDS_COMMAND_MONLEVEL:						//"∏˜∑æ"
+			case IDS_COMMAND_MONLEVEL:						//"Î™πÎ†ô"
 				CmdSendMonsterLevelInfos();
 				break;
-			case IDS_COMMAND_RECALL:						//"º“»Ø"
+			case IDS_COMMAND_RECALL:						//"ÏÜåÌôò"
 				break;
-			case IDS_COMMAND_NUMOFMON:						//"∏˜ºˆ"
+			case IDS_COMMAND_NUMOFMON:						//"Î™πÏàò"
 				break;
-			case IDS_COMMAND_NUMOFHUMAN:					//"ªÁ∂˜ºˆ"
+			case IDS_COMMAND_NUMOFHUMAN:					//"ÏÇ¨ÎûåÏàò"
 				break;
-			case IDS_COMMAND_SABUKMONEY:					//"ªÁ∫œº∫µ∑"
+			case IDS_COMMAND_SABUKMONEY:					//"ÏÇ¨Î∂ÅÏÑ±Îèà"
 				break;
 			case IDS_COMMAND_KICK:							//"Kick"
 				break;
-			case IDS_COMMAND_KICK2:							//"≈±"
+			case IDS_COMMAND_KICK2:							//"ÌÇ•"
 				break;
-			case IDS_COMMAND_TING:							//"∆√"
+			case IDS_COMMAND_TING:							//"ÌåÖ"
 				break;
-			case IDS_COMMAND_KINGTING:						//"ø’∆√"
+			case IDS_COMMAND_KINGTING:						//"ÏôïÌåÖ"
 				break;
-			case IDS_COMMAND_LUCKYVALUE:					//"«‡øÓ∞™"
+			case IDS_COMMAND_LUCKYVALUE:					//"ÌñâÏö¥Í∞í"
 				break;
-			case IDS_COMMANT_SHUTUP:						//"√§±›"
+			case IDS_COMMANT_SHUTUP:						//"Ï±ÑÍ∏à"
 				break;
-			case IDS_COMMAND_TALK:							//"√§±›«ÿ¡¶"
+			case IDS_COMMAND_TALK:							//"Ï±ÑÍ∏àÌï¥Ï†ú"
 				break;
-			case IDS_COMMAND_SHUTUPMAN:						//"√§±›¿⁄"
+			case IDS_COMMAND_SHUTUPMAN:						//"Ï±ÑÍ∏àÏûê"
 				break;
 			case IDS_COMMAND_RELOADADMIN:					//"ReloadAdmin"
 				break;
-			case IDS_COMMAND_RELOADABUSIVE:					//"øÂº≥¡§∫∏¿–±‚"
+			case IDS_COMMAND_RELOADABUSIVE:					//"ÏöïÏÑ§Ï†ïÎ≥¥ÏùΩÍ∏∞"
 				break;
-			case IDS_COMMAND_MOOTAEBO:						//"π´≈¬∫∏"
+			case IDS_COMMAND_MOOTAEBO:						//"Î¨¥ÌÉúÎ≥¥"
 				break;
-			case IDS_COMMAND_BACKWALK:						//"µﬁ∞…¿Ω"
+			case IDS_COMMAND_BACKWALK:						//"Îí∑Í±∏Ïùå"
 				break;
-			case IDS_COMMAND_GAIN:							//"ª˝ªÍ"
+			case IDS_COMMAND_GAIN:							//"ÏÉùÏÇ∞"
 				if (pszParam1 && pszParam2)
 					CmdMakeItem(pszParam1, pszParam2);
 				break;
-			case IDS_COMMAND_DELGOLD:						//"µ∑ªË¡¶"
+			case IDS_COMMAND_DELGOLD:						//"ÎèàÏÇ≠Ï†ú"
 				break;
-			case IDS_COMMAND_ADDGOLD:						//"µ∑√ﬂ∞°"
+			case IDS_COMMAND_ADDGOLD:						//"ÎèàÏ∂îÍ∞Ä"
 				break;
-			case IDS_COMMAND_GOOD:							//"π∞∞«"
+			case IDS_COMMAND_GOOD:							//"Î¨ºÍ±¥"
 				break;
-			case IDS_COMMAND_OTHERDELGOLD:					//"≈∏¿Œµ∑ªË¡¶"
+			case IDS_COMMAND_OTHERDELGOLD:					//"ÌÉÄÏù∏ÎèàÏÇ≠Ï†ú"
 				break;
-			case IDS_COMMAND_OTHERADDGOLD:					//"≈∏¿Œµ∑√ﬂ∞°"
+			case IDS_COMMAND_OTHERADDGOLD:					//"ÌÉÄÏù∏ÎèàÏ∂îÍ∞Ä"
 				break;
-			case IDS_COMMAND_OTHERLEVELUP:					//"≈∏¿Œ∑π∫ß¡∂¡§"
+			case IDS_COMMAND_OTHERLEVELUP:					//"ÌÉÄÏù∏Î†àÎ≤®Ï°∞Ï†ï"
 				break;
-			case IDS_COMMAND_OTHEREXPUP:					//"≈∏¿Œ∞Ê«Ëƒ°¡∂¡§"
+			case IDS_COMMAND_OTHEREXPUP:					//"ÌÉÄÏù∏Í≤ΩÌóòÏπòÏ°∞Ï†ï"
 				break;
-			case IDS_COMMAND_WEAPONDUR:						//"π´±‚≥ª±∏¡∂¡§"
+			case IDS_COMMAND_WEAPONDUR:						//"Î¨¥Í∏∞ÎÇ¥Íµ¨Ï°∞Ï†ï"
 				break;
-			case IDS_COMMAND_PARDON:						//"∏È¡À"
+			case IDS_COMMAND_PARDON:						//"Î©¥Ï£Ñ"
 				break;
-			case IDS_COMMAND_PKPOINT:						//"««ƒ…¿Ã¡°ºˆ"
+			case IDS_COMMAND_PKPOINT:						//"ÌîºÏºÄÏù¥Ï†êÏàò"
 				break;
-			case IDS_COMMAND_PKPOINTUP:						//"««ƒ…¿Ã¡°ºˆ¡ı∞°"
+			case IDS_COMMAND_PKPOINTUP:						//"ÌîºÏºÄÏù¥Ï†êÏàòÏ¶ùÍ∞Ä"
 				break;
-			case IDS_COMMAND_CHANGELUCKY:					//"«‡øÓ∫Ø∞Ê"
+			case IDS_COMMAND_CHANGELUCKY:					//"ÌñâÏö¥Î≥ÄÍ≤Ω"
 				break;
-			case IDS_COMMAND_SKILLUP:						//"π´∞¯ºˆ∑√"
+			case IDS_COMMAND_SKILLUP:						//"Î¨¥Í≥µÏàòÎ†®"
 				if (pszParam1 && pszParam2)
 					CmdMakeFullSkill(pszParam1, pszParam2);
 				break;
-			case IDS_COMMAND_OTHERSKILLUP:					//"≈∏¿Œπ´∞¯ºˆ∑√"
+			case IDS_COMMAND_OTHERSKILLUP:					//"ÌÉÄÏù∏Î¨¥Í≥µÏàòÎ†®"
 				break;
-			case IDS_COMMAND_DELSKILL:						//"π´∞¯ªË¡¶«œ±‚"
+			case IDS_COMMAND_DELSKILL:						//"Î¨¥Í≥µÏÇ≠Ï†úÌïòÍ∏∞"
 				break;
-			case IDS_COMMAND_OTHERDELSKILL:					//"≈∏¿Œπ´∞¯ªË¡¶«œ±‚"
+			case IDS_COMMAND_OTHERDELSKILL:					//"ÌÉÄÏù∏Î¨¥Í≥µÏÇ≠Ï†úÌïòÍ∏∞"
 				break;
-			case IDS_COMMAND_CHGJOB:						//"¿¸æ˜"
+			case IDS_COMMAND_CHGJOB:						//"Ï†ÑÏóÖ"
 			{
 				if (pszParam1)
 				{
@@ -254,7 +254,7 @@ BOOL CPlayerObject::ProcessForAdminSaid(char *pszMsg)
 			
 				break;
 			}
-			case IDS_COMMAND_CHGGENDER:						//"∆Æ∑£Ω∫¡®¥ı"
+			case IDS_COMMAND_CHGGENDER:						//"Ìä∏ÎûúÏä§Ï††Îçî"
 			{
 				if (m_pUserInfo->m_THumanRcd.btGender == 0) m_pUserInfo->m_THumanRcd.btGender = m_tFeature.btGender = 1;
 				else m_pUserInfo->m_THumanRcd.btGender = m_tFeature.btGender = 0;
@@ -263,26 +263,26 @@ BOOL CPlayerObject::ProcessForAdminSaid(char *pszMsg)
 
 				break;
 			}
-			case IDS_COMMAND_COLOR:							//"ªˆ"
+			case IDS_COMMAND_COLOR:							//"ÏÉâ"
 				break;
-			case IDS_COMMAND_MONRECALL:						//"∏˜º“»Ø"
+			case IDS_COMMAND_MONRECALL:						//"Î™πÏÜåÌôò"
 			{
 				if (pszParam1 && pszParam2)
 					CmdCallMakeSlaveMonster(pszParam1, pszParam2);
 
 				break;
 			}
-			case IDS_COMMAND_MISSION:						//"πÃº«"
+			case IDS_COMMAND_MISSION:						//"ÎØ∏ÏÖò"
 				break;
-			case IDS_COMMAND_GENPOS:						//"¡®∞˜"
+			case IDS_COMMAND_GENPOS:						//"Ï††Í≥≥"
 			{
 				if (pszParam1 && pszParam2 && pszParam3 && pszParam4)
 					CmdCallMakeMonsterXY(pszParam1, pszParam2, pszParam3, pszParam4);
 				break;
 			}
-			case IDS_COMMAND_TRANSPARENCY:					//"≈ı∏Ì"
+			case IDS_COMMAND_TRANSPARENCY:					//"Ìà¨Î™Ö"
 				break;
-			case IDS_COMMAND_CIVILWAR:						//"∞≠¡¶∞¯º∫¿¸"
+			case IDS_COMMAND_CIVILWAR:						//"Í∞ïÏ†úÍ≥µÏÑ±Ï†Ñ"
 				break;
 			case IDS_COMMAND_DYEINGHAIR:
 				if (pszParam1)
@@ -296,11 +296,11 @@ BOOL CPlayerObject::ProcessForAdminSaid(char *pszMsg)
 				if (pszParam1)
 					CmdHairStyle(pszParam1);
 				break;
-			case IDS_COMMAND_RESERVED3:						// æ∆¿Ã≈€¿Ã∏ß
+			case IDS_COMMAND_RESERVED3:						// ÏïÑÏù¥ÌÖúÏù¥Î¶Ñ
 				if (pszParam1 && pszParam2)
 					CmdChangeItemPrefix(pszParam1, pszParam2);
 				break;
-			case IDS_COMMAND_RESERVED4:						// ∞•π´∏Æ
+			case IDS_COMMAND_RESERVED4:						// Í∞àÎ¨¥Î¶¨
 			{
 				TCHAR	wszMsg[64];
 				char	szMsg[64];
