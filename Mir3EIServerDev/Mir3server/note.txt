@@ -1,0 +1,30 @@
+攻击逻辑：
+GameSvr\ObjectEngine.cpp
+CCharObject::_Attack
+
+玩家触发的话：
+CPlayerObject::Operate() --> CCharObject::HitXY() --> CCharObject::_Attack()
+(ObjectPlayer.cpp --> ObjectEngine.cpp --> ObjectEngine.cpp)
+
+攻击类型：
+CM_HIT（普通攻击）
+CM_LONGHIT（刺杀）
+CM_WIDEHIT（半月）
+CM_FIREHIT（烈火）
+CM_POWERHIT（攻杀）
+
+
+
+GameSvr
+代码入口：
+WinMain（GameSvr.cpp）
+根据Windows编程框架，主要的逻辑处理函数：
+MainWndProc（MainWndProc.cpp）
+初始化数据库操作：
+OnCommand()->InitDataInDatabase() （MainWndProc.cpp）
+
+DBSvr
+代码入口：
+WinMain（DBSvr.cpp）
+数据开始处理的地方：
+InitInstance（DBSvr.cpp）-- 连接数据库使用的是ODBC技术。
