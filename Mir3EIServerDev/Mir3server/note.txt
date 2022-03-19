@@ -17,19 +17,28 @@ CM_POWERHIT（攻杀）
 
 GameSvr
 代码入口：
-WinMain（GameSvr.cpp）
+    WinMain（GameSvr.cpp）
+
 根据Windows编程框架，主要的逻辑处理函数：
-MainWndProc（MainWndProc.cpp）
+    MainWndProc（MainWndProc.cpp）
+
 初始化数据库操作：
-OnCommand()->InitDataInDatabase() （MainWndProc.cpp）
+    OnCommand()->InitDataInDatabase() （MainWndProc.cpp）
+
+怪物信息的读取：
+    Handler_CommonDB.cpp::InitMonRaceInfo() // 从数据库中读取怪物配置数据并缓存在全局变量g_pMonRaceInfo中
+实例化怪物的时候：
+    ObjectMonster.cpp::CMonsterObject::Initialize() // 在该方法中初始化怪物的属性
+
 
 DBSvr
 代码入口：
-WinMain（DBSvr.cpp）
+    WinMain（DBSvr.cpp）
+
 数据开始处理的地方：
-InitInstance（DBSvr.cpp）-- 连接数据库使用的是ODBC技术。
+    InitInstance（DBSvr.cpp）-- 连接数据库使用的是ODBC技术。
 
 普通攻击计算方式（没有技能的加成）：
-1.在攻击力范围内随机一个值，即伤害值（没考虑运气值的影响）
-2.随机一个数对被攻击者的敏捷值进行求模， 如果求模后的值比攻击者的准确值大，那么伤害值变为0，也就是攻击失败
-3.如果攻击未失败，计算被攻击者的防御值，如果最小防御值大于最大防御值，那么防御值等于最小防御值，否则在防御值范围内随机一个防御值，最终伤害值=伤害值-防御值。（没考虑技能减伤和加伤影响，比如魔法盾,红毒）
+    1.在攻击力范围内随机一个值，即伤害值（没考虑运气值的影响）
+    2.随机一个数对被攻击者的敏捷值进行求模， 如果求模后的值比攻击者的准确值大，那么伤害值变为0，也就是攻击失败
+    3.如果攻击未失败，计算被攻击者的防御值，如果最小防御值大于最大防御值，那么防御值等于最小防御值，否则在防御值范围内随机一个防御值，最终伤害值=伤害值-防御值。（没考虑技能减伤和加伤影响，比如魔法盾,红毒）
