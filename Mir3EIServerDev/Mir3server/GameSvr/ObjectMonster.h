@@ -41,7 +41,7 @@ public:
 	DWORD							m_dwNextWalkTime;
 
 	DWORD							m_dwHitTime;
-	DWORD							m_dwNextHitTime;
+	DWORD							m_dwNextHitTime;  // 攻击速度/攻击间隔
 	DWORD							m_dwThinkTime;
 	DWORD							m_dwSearchEnemyTime;
 	

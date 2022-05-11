@@ -10,38 +10,38 @@ CMonsterObject* AddCreature(CMirMap* pMap, int nX, int nY, int nMonRace, BOOL fS
 	{
 		case _ANIMAL_DEER:
 			pMonsterObject = (CMonsterObject*)new CAnimalObject; break;
-		case _MONSTER_STICK:		// Ωƒ¿Œ√ 
+		case _MONSTER_STICK:		// ÏãùÏù∏Ï¥à
 			pMonsterObject = (CMonsterObject*)new CStickObject; break;
-		case _MONSTER_SANDMOB:		// ºÆ¿Â¿Œ
+		case _MONSTER_SANDMOB:		// ÏÑùÏû•Ïù∏
 			pMonsterObject = (CMonsterObject*)new CSandMobObject; break;
-		case _MONSTER_RON:			// ∑–
+		case _MONSTER_RON:			// Î°†
 			pMonsterObject = (CMonsterObject*)new CRonObject; break;
-		case _MONSTER_SCULTURE1:	// ¡÷∏∂Ω≈¿Â, ¡÷∏∂»£π˝
+		case _MONSTER_SCULTURE1:	// Ï£ºÎßàÏã†Ïû•, Ï£ºÎßàÌò∏Î≤ï
 		case _MONSTER_SCULTURE2:
 			pMonsterObject = (CMonsterObject*)new CScultureObject; break;
-		case _MONSTER_BEEQUEEN:		// ∫Ò∏∑ø¯√Ê
+		case _MONSTER_BEEQUEEN:		// ÎπÑÎßâÏõêÏ∂©
 			pMonsterObject = (CMonsterObject*)new CBeeQueen; break;
-		case _MONSTER_SCULTUREKING: // ¡÷∏∂ø’
+		case _MONSTER_SCULTUREKING: // Ï£ºÎßàÏôï
 			pMonsterObject = (CMonsterObject*)new CScultureKingObject; break;
-		case _MONSTER_DUALAXE:		// Ω÷µµ≥¢«ÿ∞Ò
+		case _MONSTER_DUALAXE:		// ÏåçÎèÑÎÅºÌï¥Í≥®
 			pMonsterObject = (CMonsterObject*)new CDualAxeObject; break;
-		case _MONSTER_MAGUNGSA:		// ∏∂±√ªÁ
+		case _MONSTER_MAGUNGSA:		// ÎßàÍ∂ÅÏÇ¨
 			pMonsterObject = (CMonsterObject*)new CDualAxeObject(6); break;
-		case _MONSTER_THONEDARK:	// ¥Ÿ≈©
+		case _MONSTER_THONEDARK:	// Îã§ÌÅ¨
 			pMonsterObject = (CMonsterObject*)new CDualAxeObject(3); break;
 		case _MONSTER_LIGHTZOMBI:
 			pMonsterObject = (CMonsterObject*)new CLightingZombiObject; break;
-		case _MONSTER_ROCKMAN:		// ªÁ±´
+		case _MONSTER_ROCKMAN:		// ÏÇ¨Í¥¥
 			pMonsterObject = (CMonsterObject*)new CRockManObject; break;
 		case _MONSTER_MINORNUMA:
 			pMonsterObject = (CMonsterObject*)new CMinorNumaObject; break;
-		case _MONSTER_WHITESKELETON:	// πÈ∞Ò
+		case _MONSTER_WHITESKELETON:	// Î∞±Í≥®
 			pMonsterObject = (CMonsterObject*)new CWhiteSkeleton; break;
-		case _MONSTER_ELFMONSTER:		// Ω≈ºˆ ∫ØΩ≈ ¿¸ 
+		case _MONSTER_ELFMONSTER:		// Ïã†Ïàò Î≥ÄÏã† Ï†Ñ 
 			pMonsterObject = (CMonsterObject*)new CElfMonster; break;			
-		case _MONSTER_ELFWARRIOR:		// Ω≈ºˆ ∫ØΩ≈ »ƒ 
+		case _MONSTER_ELFWARRIOR:		// Ïã†Ïàò Î≥ÄÏã† ÌõÑ 
 			pMonsterObject = (CMonsterObject*)new CElfWarriorMonster; break;
-		case _MONSTER_SPITSPIDER:		// ƒß∞≈πÃ
+		case _MONSTER_SPITSPIDER:		// Ïπ®Í±∞ÎØ∏
 			pMonsterObject = (CMonsterObject*)new CSpitSpiderMonster; break;
 		case _MONSTER_OMA:
 		case _MONSTER_OMAKNIGHT:
@@ -102,7 +102,7 @@ DWORD GetZenTime(DWORD dwZenTime)
 	{
 		return dwZenTime;
 /*      if ztime < 30 * 60 * 1000 then begin
-         r := (GetUserCount - UserFullCount) / ZenFastStep;  //∏≈ 200∏Ì¿Ã ¥√∂ß∏∂¥Ÿ 10%æø ∏˜¿ª ¥ı ¡® Ω√≈¥
+         r := (GetUserCount - UserFullCount) / ZenFastStep;  //Îß§ 200Î™ÖÏù¥ ÎäòÎïåÎßàÎã§ 10%Ïî© Î™πÏùÑ Îçî Ï†† ÏãúÌÇ¥
          if r > 0 then begin
             if r > 6 then r := 6;
             Result := ztime - Round ((ztime/10) * r);

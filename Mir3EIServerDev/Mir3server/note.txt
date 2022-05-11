@@ -30,6 +30,9 @@ GameSvr
 实例化怪物的时候：
     ObjectMonster.cpp::CMonsterObject::Initialize() // 在该方法中初始化怪物的属性
 
+生怪处理：
+	ProcessMonster.cpp::RegenMonster(CMonsterGenInfo* pMonGenInfo, int nCount);
+
 
 DBSvr
 代码入口：
