@@ -60,9 +60,9 @@ void CStdItemSpecial::GetUpgradeStdItem(_LPTCLIENTITEMRCD lpClientItemRcd, _LPTU
 		{
 			lpClientItemRcd->tStdItem.wDC		= MAKEWORD(g_pStdItemWeapon[nIdx].wDC, g_pStdItemWeapon[nIdx].wDC2 + lpUserItemRcd->btValue[0]);
 			lpClientItemRcd->tStdItem.wMC		= MAKEWORD(g_pStdItemWeapon[nIdx].wMC, g_pStdItemWeapon[nIdx].wMC2 + lpUserItemRcd->btValue[1]);
-			lpClientItemRcd->tStdItem.wSC		= MAKEWORD(g_pStdItemWeapon[nIdx].wSC, g_pStdItemWeapon[nIdx].wSC2 + lpUserItemRcd->btValue[2]);										//3:Çà¿î, 4:ÀúÁÖ
-			lpClientItemRcd->tStdItem.wAC		= MAKEWORD(g_pStdItemWeapon[nIdx].wAC + lpUserItemRcd->btValue[3], g_pStdItemWeapon[nIdx].wAC2 + lpUserItemRcd->btValue[5]);			//Á¤È®
-			lpClientItemRcd->tStdItem.wMAC		= MAKEWORD(g_pStdItemWeapon[nIdx].wMAC + lpUserItemRcd->btValue[4], g_pStdItemWeapon[nIdx].wMAC2 + lpUserItemRcd->btValue[6]);		//°ø°İ¼Óµµ(-/+)
+			lpClientItemRcd->tStdItem.wSC		= MAKEWORD(g_pStdItemWeapon[nIdx].wSC, g_pStdItemWeapon[nIdx].wSC2 + lpUserItemRcd->btValue[2]);										//3:í–‰ìš´, 4:ì €ì£¼
+			lpClientItemRcd->tStdItem.wAC		= MAKEWORD(g_pStdItemWeapon[nIdx].wAC + lpUserItemRcd->btValue[3], g_pStdItemWeapon[nIdx].wAC2 + lpUserItemRcd->btValue[5]);			//ì •í™•
+			lpClientItemRcd->tStdItem.wMAC		= MAKEWORD(g_pStdItemWeapon[nIdx].wMAC + lpUserItemRcd->btValue[4], g_pStdItemWeapon[nIdx].wMAC2 + lpUserItemRcd->btValue[6]);		//ê³µê²©ì†ë„(-/+)
 			lpClientItemRcd->tStdItem.btSource	= (BYTE)lpUserItemRcd->btValue[7];
 
 			if (lpUserItemRcd->btValue[10]) lpClientItemRcd->tStdItem.btNeedIdentify = 0x01;
@@ -97,9 +97,9 @@ void CStdItemSpecial::GetUpgradeStdItem(_LPTCLIENTITEMRCD lpClientItemRcd, _LPTU
 		{
 			lpClientItemRcd->tStdItem.wDC		= MAKEWORD(wDC, wDC2 + lpUserItemRcd->btValue[0]);
 			lpClientItemRcd->tStdItem.wMC		= MAKEWORD(wMC, wMC2 + lpUserItemRcd->btValue[1]);
-			lpClientItemRcd->tStdItem.wSC		= MAKEWORD(wSC, wSC2 + lpUserItemRcd->btValue[2]); //3:Çà¿î, 4:ÀúÁÖ
-			lpClientItemRcd->tStdItem.wAC		= MAKEWORD(wAC + lpUserItemRcd->btValue[3], wAC2 + lpUserItemRcd->btValue[5]);  //Á¤È®
-			lpClientItemRcd->tStdItem.wMAC		= MAKEWORD(wMAC + lpUserItemRcd->btValue[4], wMAC2 + lpUserItemRcd->btValue[6]);  //°ø°İ¼Óµµ(-/+)
+			lpClientItemRcd->tStdItem.wSC		= MAKEWORD(wSC, wSC2 + lpUserItemRcd->btValue[2]); //3:í–‰ìš´ï¼ˆå¹¸è¿ï¼‰, 4:ì €ì£¼ï¼ˆè¯…å’’ï¼‰
+			lpClientItemRcd->tStdItem.wAC		= MAKEWORD(wAC + lpUserItemRcd->btValue[3], wAC2 + lpUserItemRcd->btValue[5]);  //ì •í™•ï¼ˆå‡†ç¡®ï¼‰
+			lpClientItemRcd->tStdItem.wMAC		= MAKEWORD(wMAC + lpUserItemRcd->btValue[4], wMAC2 + lpUserItemRcd->btValue[6]);  //ê³µê²©ì†ë„(-/+)
 			lpClientItemRcd->tStdItem.btSource	= lpUserItemRcd->btValue[7];
 		//	if (lpMakeItemRcd->btValue[10])
 		//		lptWeaponItem->NeedIdentify := 0x01;
@@ -145,14 +145,14 @@ void CStdItemSpecial::UpgradeRandomItem(BYTE* btValue, WORD &nDura, WORD &nDuraM
 
 	switch (btType)
 	{
-		case 0:	// ¹«±â
+		case 0:	// ë¬´ê¸° æ­¦å™¨
 		{
-			// ÆÄ±« ¿É¼Ç
+			// íŒŒê´´ ì˜µì…˜
 			nUpgrade = GetUpgrade(12, 15);
 			if (rand() % 15 == 0) 
 				btValue[0] = 1 + nUpgrade;	// DC
 
-			// °ø°İ ¼Óµµ
+			// ê³µê²© ì†ë„
 			nUpgrade = GetUpgrade(12, 15);
 			if (rand() % 20 == 0)
 			{
@@ -160,28 +160,28 @@ void CStdItemSpecial::UpgradeRandomItem(BYTE* btValue, WORD &nDura, WORD &nDuraM
 
 				if (nIncp > 0)
 				{
-					if (rand() % 3 != 0) btValue[6] = nIncp;	// °ø°İ ¼Óµµ (-)
+					if (rand() % 3 != 0) btValue[6] = nIncp;	// ê³µê²© ì†ë„ (-)
 					else
-						btValue[6] = 10 + nIncp; // °ø°İ ¼Óµµ (+)
+						btValue[6] = 10 + nIncp; // ê³µê²© ì†ë„ (+)
 				}
 			}
 
-			// ¸¶·Â
+			// ë§ˆë ¥
 			nUpgrade = GetUpgrade(12, 15);
 			if (rand() % 15 == 0) 
 				btValue[1] = 1 + nUpgrade;	// MC
 
-			// µµ·Â
+			// ë„ë ¥
 			nUpgrade = GetUpgrade(12, 15);
 			if (rand() % 15 == 0) 
 				btValue[2] = 1 + nUpgrade;	// SC
 
-			// Á¤È®
+			// ì •í™•
 			nUpgrade = GetUpgrade(12, 15);
 			if (rand() % 24 == 0) 
-				btValue[5] = 1 + ((int)nUpgrade / 2);	// Á¤È® (+)
+				btValue[5] = 1 + ((int)nUpgrade / 2);	// ì •í™• (+)
 
-			// ³»±¸
+			// ë‚´êµ¬
 			nUpgrade = GetUpgrade(12, 12);
 			if (rand() % 3 < 2)
 			{
@@ -191,41 +191,41 @@ void CStdItemSpecial::UpgradeRandomItem(BYTE* btValue, WORD &nDura, WORD &nDuraM
 				nDura		= _MIN(65000, nDura + nVal);
 			}
 
-			// °­µµ
+			// ê°•ë„
 			nUpgrade = GetUpgrade(12, 15);
 			if (rand() % 10 == 0) 
 				btValue[7] = 1 + ((int)nUpgrade / 2);
 
 			break;
 		}
-		case 1:	// ¹æ¾î±¸·ù
+		case 1:	// ë°©ì–´êµ¬ë¥˜ ç›”ç”²
 		{
-			//¹æ¾î
+			//ë°©ì–´
 			nUpgrade = GetUpgrade(6, 15);
 			if (rand() % 40 == 0) 
 				btValue[0] = 1 + nUpgrade;	// AC
 
-			//¸¶Ç×
+			//ë§ˆí•­
 			nUpgrade = GetUpgrade(6, 15);
 			if (rand() % 40 == 0) 
 				btValue[1] = 1 + nUpgrade;	// MAC
 
-			//ÆÄ±«
+			//íŒŒê´´
 			nUpgrade = GetUpgrade(6, 20);
 			if (rand() % 40 == 0) 
 				btValue[2] = 1 + nUpgrade;	// DC
 
-			//¸¶¹ı
+			//ë§ˆë²•
 			nUpgrade = GetUpgrade(6, 20);
 			if (rand() % 40 == 0) 
 				btValue[3] = 1 + nUpgrade;	// MC
 
-			//µµ·Â
+			//ë„ë ¥
 			nUpgrade = GetUpgrade(6, 20);
 			if (rand() % 40 == 0) 
 				btValue[4] = 1 + nUpgrade;	// SC
 
-			//³»±¸
+			//ë‚´êµ¬
 			nUpgrade = GetUpgrade(6, 10);
 			if (rand() % 8 < 6)
 			{
@@ -237,34 +237,34 @@ void CStdItemSpecial::UpgradeRandomItem(BYTE* btValue, WORD &nDura, WORD &nDuraM
 
 			break;
 		}
-		case 2:	// ¹İÁö, ÆÈÁö, ¸ñ°ÉÀÌ
+		case 2:	// ë°˜ì§€, íŒ”ì§€, ëª©ê±¸ì´ æˆ’æŒ‡ï¼Œæ‰‹é•¯ï¼Œé¡¹é“¾
 		{
-			// Á¤È®
+			// ì •í™•
 			nUpgrade = GetUpgrade(6, 30);
 			if (rand() % 60 == 0) 
 				btValue[0] = 1 + nUpgrade;	// AC(HIT)
 
-			//¹ÎÃ¸
+			//ë¯¼ì²©
 			nUpgrade = GetUpgrade(6, 30);
 			if (rand() % 60 == 0) 
 				btValue[1] = 1 + nUpgrade;	// MAC(SPEED)
 
-			//ÆÄ±«
+			//íŒŒê´´
 			nUpgrade = GetUpgrade(6, 20);
 			if (rand() % 30 == 0) 
 				btValue[2] = 1 + nUpgrade;	// DC
 
-			//¸¶¹ı
+			//ë§ˆë²•
 			nUpgrade = GetUpgrade(6, 20);
 			if (rand() % 30 == 0) 
 				btValue[3] = 1 + nUpgrade;	// MC
 
-			//µµ·Â
+			//ë„ë ¥
 			nUpgrade = GetUpgrade(6, 20);
 			if (rand() % 30 == 0) 
 				btValue[4] = 1 + nUpgrade;	// SC
 
-			//³»±¸
+			//ë‚´êµ¬
 			nUpgrade = GetUpgrade(6, 12);
 			if (rand() % 20 < 15)
 			{
@@ -288,12 +288,12 @@ void CStdItemSpecial::ApplyItemParameters(CObjectAddAbility *m_pAddAbility)
             m_pAddAbility->HIT			= m_pAddAbility->HIT + wAC2;
 
             if (wMAC2 > 10)
-               m_pAddAbility->HitSpeed	= m_pAddAbility->HitSpeed + wMAC2 - 10; //°ø°İ¼Óµµ (+)
+               m_pAddAbility->HitSpeed	= m_pAddAbility->HitSpeed + wMAC2 - 10; //ê³µê²©ì†ë„ (+)
             else
-               m_pAddAbility->HitSpeed	= m_pAddAbility->HitSpeed - wMAC2; //°ø°İ¼Óµµ (-)
+               m_pAddAbility->HitSpeed	= m_pAddAbility->HitSpeed - wMAC2; //ê³µê²©ì†ë„ (-)
 
-            m_pAddAbility->Luck			= m_pAddAbility->Luck + wAC;   //°ÔÀÓ»óÀÇ ÀÌº¥Æ®¸¦ ÅëÇØ ºÙÀ½
-            m_pAddAbility->UnLuck		= m_pAddAbility->UnLuck + wMAC;  //°ÔÀÓ»óÀÇ ÀÌº¥Æ®¸¦ ÅëÇØ ºÙÀ½(ÇÇÄÉÀÌ)
+            m_pAddAbility->Luck			= m_pAddAbility->Luck + wAC;   //ê²Œì„ìƒì˜ ì´ë²¤íŠ¸ë¥¼ í†µí•´ ë¶™ìŒ
+            m_pAddAbility->UnLuck		= m_pAddAbility->UnLuck + wMAC;  //ê²Œì„ìƒì˜ ì´ë²¤íŠ¸ë¥¼ í†µí•´ ë¶™ìŒ(í”¼ì¼€ì´)
 
 			break;
 		}
@@ -308,23 +308,23 @@ void CStdItemSpecial::ApplyItemParameters(CObjectAddAbility *m_pAddAbility)
 		{
 			switch (wStdMode)
 			{
-				case 21: //¸ñ°ÉÀÌ
+				case 21: //ëª©ê±¸ì´
 					m_pAddAbility->AntiMagic	+= wAC2;
 					m_pAddAbility->UnLuck		+= wMAC;
 					m_pAddAbility->Luck			+= wMAC2;
 					break;
-				case 22: //¸ñ°ÉÀÌ
-				case 41: //ÆÈÂî
+				case 22: //ëª©ê±¸ì´
+				case 41: //íŒ”ì°Œ
 					m_pAddAbility->HIT			+= wAC2;
 					m_pAddAbility->SPEED		+= wMAC2;
 					break;
-				case 23: //¸ñ°ÉÀÌ
+				case 23: //ëª©ê±¸ì´
 					m_pAddAbility->HealthRecover	+= wAC2;
 					m_pAddAbility->SpellRecover		+= wMAC2;
 					m_pAddAbility->HitSpeed			+= wAC;
 					m_pAddAbility->HitSpeed			-= wMAC;
 					break;
-				case 32: //¹İÁö
+				case 32: //ë°˜ì§€
 					m_pAddAbility->AntiPoison		+= wAC2;
 					m_pAddAbility->PoisonRecover	+= wMAC2;
 					m_pAddAbility->HitSpeed			+= wAC;
