@@ -1,11 +1,11 @@
 /******************************************************************************************************************
                                                                                                                    
-	¸ğµâ¸í:																											
+	ëª¨ë“ˆëª…:																											
 																													
-	ÀÛ¼ºÀÚ:																											
-	ÀÛ¼ºÀÏ:																											
+	ì‘ì„±ì:																											
+	ì‘ì„±ì¼:																											
 																													
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤ ³»¿ë																						
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì • ë‚´ìš©																						
                                                                                                                    
 *******************************************************************************************************************/
 #include "StdAfx.h"
@@ -16,15 +16,15 @@ extern char*					g_pszFileList[150];
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CMapHandler::CMapHandler()
+	í•¨ìˆ˜ëª… : CMapHandler::CMapHandler()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	Ãâ·Â   : 
+	ëª©ì    : 
+	ì¶œë ¥   : 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 CMapHandler::CMapHandler()
@@ -36,15 +36,15 @@ CMapHandler::CMapHandler()
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CMapHandler::~CMapHandler()
+	í•¨ìˆ˜ëª… : CMapHandler::~CMapHandler()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	Ãâ·Â   : 
+	ëª©ì    : 
+	ì¶œë ¥   : 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 CMapHandler::~CMapHandler()
@@ -56,15 +56,15 @@ CMapHandler::~CMapHandler()
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CMapHandler::InitMapHandler()
+	í•¨ìˆ˜ëª… : CMapHandler::InitMapHandler()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	Ãâ·Â   : VOID 
+	ëª©ì    : 
+	ì¶œë ¥   : VOID 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 VOID CMapHandler::InitMapHandler()
@@ -111,15 +111,15 @@ VOID CMapHandler::LoadMapHandler(CHAR* szMapFile, CImageHandler* pxImgHandler, I
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CMapHandler::DestroyMapHandler()
+	í•¨ìˆ˜ëª… : CMapHandler::DestroyMapHandler()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	Ãâ·Â   : VOID 
+	ëª©ì    : 
+	ì¶œë ¥   : VOID 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 VOID CMapHandler::DestroyMapHandler()
@@ -154,7 +154,7 @@ void ExFileIdx(int& n)
 		sub     edx, ecx
 		sar     edx, 3
 		mov     eax, edx
-		shr     eax, 1Fh	;·ûºÅÎ»
+		shr     eax, 1Fh	;ë¥œëµ€è²«
 		add     edx, eax
 		add     ecx, edx
 		mov     m, ecx
@@ -166,15 +166,15 @@ void ExFileIdx(int& n)
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CMapHandler::LoadNewMapBuffer()
+	í•¨ìˆ˜ëª… : CMapHandler::LoadNewMapBuffer()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	Ãâ·Â   : VOID 
+	ëª©ì    : 
+	ì¶œë ¥   : VOID 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 VOID CMapHandler::LoadNewMapBuffer()
@@ -196,7 +196,7 @@ VOID CMapHandler::LoadNewMapBuffer()
 			nImgIdx = m_pstTileInfo[(nYCnt/2) + (nXCnt/2)*m_stMapFileHeader.shHeight/2].wTileIdx;
 
 			//////////////////////////////////////////////////////////////////////////
-			//ydq ÊÔÑé,²âÊÔmir3µÄ·½·¨
+			//ydq æ¡¿ï¤š,ê¿æ¡¿mir3ë¨ë ˜ë¬
 			ExFileIdx(nFileIdx);
 			if( (nFileIdx % 14) > 2 )
 				continue;
@@ -224,16 +224,16 @@ VOID CMapHandler::LoadNewMapBuffer()
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CMapHandler::LoadMapData()
+	í•¨ìˆ˜ëª… : CMapHandler::LoadMapData()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : CHAR* szMapFile
-	Ãâ·Â   : BOOL 
+	ëª©ì    : 
+	ì…ë ¥   : CHAR* szMapFile
+	ì¶œë ¥   : BOOL 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 BOOL CMapHandler::LoadMapData(CHAR* szMapFile)
@@ -305,15 +305,15 @@ BOOL CMapHandler::LoadMapData(CHAR* szMapFile)
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CMapHandler::LoadMapImage(CImageHandler* pxImgHandler)
+	í•¨ìˆ˜ëª… : CMapHandler::LoadMapImage(CImageHandler* pxImgHandler)
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	Ãâ·Â   : VOID 
+	ëª©ì    : 
+	ì¶œë ¥   : VOID 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 VOID CMapHandler::LoadMapImage(CImageHandler* pxImgHandler)
@@ -340,15 +340,15 @@ VOID CMapHandler::LoadMapImage(CImageHandler* pxImgHandler)
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CMapHandler::FreeMapData()
+	í•¨ìˆ˜ëª… : CMapHandler::FreeMapData()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	Ãâ·Â   : VOID 
+	ëª©ì    : 
+	ì¶œë ¥   : VOID 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 VOID CMapHandler::FreeMapData()
@@ -370,18 +370,18 @@ VOID CMapHandler::FreeMapData()
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CMapHandler::ScrollMap()
+	í•¨ìˆ˜ëª… : CMapHandler::ScrollMap()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : INT nCharDir
+	ëª©ì    : 
+	ì…ë ¥   : INT nCharDir
 	         INT nCharFrame
 	         INT nSpeed
-	Ãâ·Â   : VOID 
+	ì¶œë ¥   : VOID 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 VOID CMapHandler::ScrollMap(INT nCharDir, INT nCharFrame, INT nSpeed)
@@ -390,38 +390,38 @@ VOID CMapHandler::ScrollMap(INT nCharDir, INT nCharFrame, INT nSpeed)
 
 	switch ( nCharDir )
 	{
-	// Á÷¼± À§·Î ÀÌµ¿.
+	// ì§ì„  ìœ„ë¡œ ì´ë™.
 	case _DIRECTION_LIST_1:	
 		m_shViewOffsetY = -(m_ptMovePixelArray[nCharFrame].y * nSpeed);		
 		break;
-	// ¿À¸¥ÂÊÀ§·Î ÀÌµ¿.
+	// ì˜¤ë¥¸ìª½ìœ„ë¡œ ì´ë™.
 	case _DIRECTION_LIST_2:
 		m_shViewOffsetX =  (m_ptMovePixelArray[nCharFrame].x * nSpeed);
 		m_shViewOffsetY = -(m_ptMovePixelArray[nCharFrame].y * nSpeed);
 		break;
-	// ¿À¸¥ÂÊÀ¸·Î ÀÌµ¿.
+	// ì˜¤ë¥¸ìª½ìœ¼ë¡œ ì´ë™.
 	case _DIRECTION_LIST_3:
 		m_shViewOffsetX =  (m_ptMovePixelArray[nCharFrame].x * nSpeed);
 		break;
-	// ¿À¸¥ÂÊ¾Æ·¡·Î ÀÌµ¿.
+	// ì˜¤ë¥¸ìª½ì•„ë˜ë¡œ ì´ë™.
 	case _DIRECTION_LIST_4:
 		m_shViewOffsetX =  (m_ptMovePixelArray[nCharFrame].x * nSpeed);
 		m_shViewOffsetY =  (m_ptMovePixelArray[nCharFrame].y * nSpeed);
 		break;
-	// Á÷¼± ¾Æ·¡·Î ÀÌµ¿.
+	// ì§ì„  ì•„ë˜ë¡œ ì´ë™.
 	case _DIRECTION_LIST_5:
 		m_shViewOffsetY =  (m_ptMovePixelArray[nCharFrame].y * nSpeed);
 		break;
-	// ¿ŞÂÊ¾Æ·¡·Î ÀÌµ¿.
+	// ì™¼ìª½ì•„ë˜ë¡œ ì´ë™.
 	case _DIRECTION_LIST_6:
 		m_shViewOffsetX = -(m_ptMovePixelArray[nCharFrame].x * nSpeed);
 		m_shViewOffsetY =  (m_ptMovePixelArray[nCharFrame].y * nSpeed);
 		break;
-	// ¿ŞÂÊÀ¸·Î ÀÌµ¿.
+	// ì™¼ìª½ìœ¼ë¡œ ì´ë™.
 	case _DIRECTION_LIST_7:
 		m_shViewOffsetX = -(m_ptMovePixelArray[nCharFrame].x * nSpeed);
 		break;
-	// ¿ŞÂÊÀ§·Î ÀÌµ¿.
+	// ì™¼ìª½ìœ„ë¡œ ì´ë™.
 	case _DIRECTION_LIST_8:
 		m_shViewOffsetX = -(m_ptMovePixelArray[nCharFrame].x * nSpeed);
 		m_shViewOffsetY = -(m_ptMovePixelArray[nCharFrame].y * nSpeed);
@@ -438,38 +438,38 @@ VOID CMapHandler::ScrollMap(INT nCharDir, WORD wCurrDelay, WORD wMoveDelay, INT 
 
 	switch ( nCharDir )
 	{
-	// Á÷¼± À§·Î ÀÌµ¿.
+	// ì§ì„  ìœ„ë¡œ ì´ë™.
 	case _DIRECTION_LIST_1:	
 		m_shViewOffsetY -= (SHORT)-fViewOffSetY;
 		break;
-	// ¿À¸¥ÂÊÀ§·Î ÀÌµ¿.
+	// ì˜¤ë¥¸ìª½ìœ„ë¡œ ì´ë™.
 	case _DIRECTION_LIST_2:
 		m_shViewOffsetX = (SHORT)fViewOffSetX;
 		m_shViewOffsetY = (SHORT)-fViewOffSetY;
 		break;
-	// ¿À¸¥ÂÊÀ¸·Î ÀÌµ¿.
+	// ì˜¤ë¥¸ìª½ìœ¼ë¡œ ì´ë™.
 	case _DIRECTION_LIST_3:
 		m_shViewOffsetX = (SHORT)fViewOffSetX;
 		break;
-	// ¿À¸¥ÂÊ¾Æ·¡·Î ÀÌµ¿.
+	// ì˜¤ë¥¸ìª½ì•„ë˜ë¡œ ì´ë™.
 	case _DIRECTION_LIST_4:
 		m_shViewOffsetX = (SHORT)fViewOffSetX;
 		m_shViewOffsetY = (SHORT)fViewOffSetY;
 		break;
-	// Á÷¼± ¾Æ·¡·Î ÀÌµ¿.
+	// ì§ì„  ì•„ë˜ë¡œ ì´ë™.
 	case _DIRECTION_LIST_5:
 		m_shViewOffsetY = (SHORT)fViewOffSetY;
 		break;
-	// ¿ŞÂÊ¾Æ·¡·Î ÀÌµ¿.
+	// ì™¼ìª½ì•„ë˜ë¡œ ì´ë™.
 	case _DIRECTION_LIST_6:
 		m_shViewOffsetX = (SHORT)-fViewOffSetX;
 		m_shViewOffsetY = (SHORT)fViewOffSetY;
 		break;
-	// ¿ŞÂÊÀ¸·Î ÀÌµ¿.
+	// ì™¼ìª½ìœ¼ë¡œ ì´ë™.
 	case _DIRECTION_LIST_7:
 		m_shViewOffsetX = (SHORT)-fViewOffSetX;
 		break;
-	// ¿ŞÂÊÀ§·Î ÀÌµ¿.
+	// ì™¼ìª½ìœ„ë¡œ ì´ë™.
 	case _DIRECTION_LIST_8:
 		m_shViewOffsetX = (SHORT)fViewOffSetX;
 		m_shViewOffsetY = (SHORT)-fViewOffSetY;
@@ -481,17 +481,17 @@ VOID CMapHandler::ScrollMap(INT nCharDir, WORD wCurrDelay, WORD wMoveDelay, INT 
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CMapHandler::DrawBaseTile()
+	í•¨ìˆ˜ëª… : CMapHandler::DrawBaseTile()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : INT nX
+	ëª©ì    : 
+	ì…ë ¥   : INT nX
 	         INT nY
-	Ãâ·Â   : VOID 
+	ì¶œë ¥   : VOID 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 VOID CMapHandler::DrawBaseTile(INT nX, INT nY)
@@ -506,7 +506,7 @@ VOID CMapHandler::DrawBaseTile(INT nX, INT nY)
 		nImgIdx = m_pstTileInfo[(nY/2) + (nX/2)*m_stMapFileHeader.shHeight/2].wTileIdx;
 
 		//////////////////////////////////////////////////////////////////////////
-		//ydq ÊÔÑé,²âÊÔmir3µÄ·½·¨
+		//ydq æ¡¿ï¤š,ê¿æ¡¿mir3ë¨ë ˜ë¬
 		ExFileIdx(nFileIdx);
 		if( (nFileIdx % 14) > 2 )
 			return;
@@ -533,17 +533,17 @@ VOID CMapHandler::DrawBaseTile(INT nX, INT nY)
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CMapHandler::DrawOpenDoor()
+	í•¨ìˆ˜ëª… : CMapHandler::DrawOpenDoor()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : INT nX
+	ëª©ì    : 
+	ì…ë ¥   : INT nX
 	         INT nY
-	Ãâ·Â   : VOID 
+	ì¶œë ¥   : VOID 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 /*VOID CMapHandler::DrawOpenDoor(INT nX, INT nY)
@@ -562,7 +562,7 @@ VOID CMapHandler::DrawBaseTile(INT nX, INT nY)
 					if ( nX == wPosX && nY == wPosY )
 					{
 						WORD wImgIndex = m_pstDoorInfo[nCnt].pstDoorImgInfo[nLoop].wImageNum;						
-						// ±×¸²À» ±×¸°´Ù.
+						// ê·¸ë¦¼ì„ ê·¸ë¦°ë‹¤.
 
 						// ".\\Data\\housesc.wil"
 						m_pxTileImg[4].NewSetIndex(wImgIndex);
@@ -605,7 +605,7 @@ BOOL CMapHandler::GetDoorState(INT nX, INT nY)
 		 !(m_pstCellInfo[nX + nY*m_stMapFileHeader.shWidth].wLigntNEvent & 0X08) )
 		return FALSE;
 
-	// ¹®ÀÌ¿­·ÁÀÖ´Ù.
+	// ë¬¸ì´ì—´ë ¤ìˆë‹¤.
 	return TRUE;
 }
 
@@ -711,17 +711,17 @@ INT CMapHandler::GetDoorImgIdx(INT nX, INT nY)
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CMapHandler::SetMovedTileBuffer()
+	í•¨ìˆ˜ëª… : CMapHandler::SetMovedTileBuffer()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : SHORT shMovedTileX
+	ëª©ì    : 
+	ì…ë ¥   : SHORT shMovedTileX
 	         SHORT shMovedTileY
-	Ãâ·Â   : VOID 
+	ì¶œë ¥   : VOID 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 VOID CMapHandler::SetMovedTileBuffer(SHORT shMovedTileX, SHORT shMovedTileY)
@@ -733,15 +733,15 @@ VOID CMapHandler::SetMovedTileBuffer(SHORT shMovedTileX, SHORT shMovedTileY)
 
 	INT nX, nY;
 
-	// ÇöÀç Å¸ÀÏ¹öÆÛ¿¡ ÀÖ´Â ¸Ş¸ğ¸®¸¦ ¾Ë¸Â°Ô ÀÌµ¿½ÃÅ°°í Ãß°¡µÇ´Â±×¸²À» ±×¸°´Ù.
-	// ¼¿´ÜÀ§°¡ ¾Æ´Ñ Å¸ÀÏ´ÜÀ§·Î ¾÷µ¥ÀÌÆ®ÇÑ´Ù.
+	// í˜„ì¬ íƒ€ì¼ë²„í¼ì— ìˆëŠ” ë©”ëª¨ë¦¬ë¥¼ ì•Œë§ê²Œ ì´ë™ì‹œí‚¤ê³  ì¶”ê°€ë˜ëŠ”ê·¸ë¦¼ì„ ê·¸ë¦°ë‹¤.
+	// ì…€ë‹¨ìœ„ê°€ ì•„ë‹Œ íƒ€ì¼ë‹¨ìœ„ë¡œ ì—…ë°ì´íŠ¸í•œë‹¤.
 
-	// ÇöÀç YÅ¸ÀÏÀÌ°Å³ª, ¾Æ·¡·Î °¥¶§.
+	// í˜„ì¬ Yíƒ€ì¼ì´ê±°ë‚˜, ì•„ë˜ë¡œ ê°ˆë•Œ.
 	if ( shMovedTileY >= 0 )
 	{
 		if ( shMovedTileX >= 0 )
 		{
-			// ¿À¸¥ÂÊÀ¸·Î °¥¶§.
+			// ì˜¤ë¥¸ìª½ìœ¼ë¡œ ê°ˆë•Œ.
 			for ( INT nYCnt = 0; nYCnt < _VIEW_CELL_Y_COUNT*_CELL_HEIGHT-_CELL_HEIGHT*shMovedTileY; nYCnt++ )
 			{
 				memmove(&m_wSavedMapBuffer[(nYCnt*_VIEW_CELL_X_COUNT*_CELL_WIDTH)], 
@@ -749,9 +749,9 @@ VOID CMapHandler::SetMovedTileBuffer(SHORT shMovedTileX, SHORT shMovedTileY)
 						sizeof(WORD)*_CELL_WIDTH*(_VIEW_CELL_X_COUNT-shMovedTileX));
 			}
 
-			// ±×¸²»óÀ¸·Î ¿À¸¥ÂÊ°ú ¾Æ·¡ºÎºĞÀÇ Å¸ÀÏÀ» °»½ÅÇØÁà¾ßÇÑ´Ù.
-			// ±âº»Å¸ÀÏÀº 2¼¿·Î ÀÌ·ïÁ®ÀÖ°í (¿À¸¥ÂÊ°ú ¾Æ·¡´Â 1¼¿¸¸ÀÇ ¿©À¯)¸¦ °¡Áö±â ¶§¹®¿¡ 1¼¿¾¿À» ´õ ÀĞ¾îÁà¼­ °»½ÅÀ» ½ÃÅ²´Ù.
-			// ¾Æ·¡¿Í °°Àº ÇüÅÂÀÌ´Ù. '1'Àº memmove·Î ¿Å°ÜÁø µ¥ÀÌÅ¸ÀÌ°í 'o'°¡ »õ·Î °»½Å½ÃÅ³ Å¸ÀÏ±×¸²µ¥ÀÌÅ¸ÀÌ´Ù. '0'Àº ´õÀĞ¾îÁÙ µ¥ÀÌÅ¸ÀÌ´Ù.
+			// ê·¸ë¦¼ìƒìœ¼ë¡œ ì˜¤ë¥¸ìª½ê³¼ ì•„ë˜ë¶€ë¶„ì˜ íƒ€ì¼ì„ ê°±ì‹ í•´ì¤˜ì•¼í•œë‹¤.
+			// ê¸°ë³¸íƒ€ì¼ì€ 2ì…€ë¡œ ì´ë¤„ì ¸ìˆê³  (ì˜¤ë¥¸ìª½ê³¼ ì•„ë˜ëŠ” 1ì…€ë§Œì˜ ì—¬ìœ )ë¥¼ ê°€ì§€ê¸° ë•Œë¬¸ì— 1ì…€ì”©ì„ ë” ì½ì–´ì¤˜ì„œ ê°±ì‹ ì„ ì‹œí‚¨ë‹¤.
+			// ì•„ë˜ì™€ ê°™ì€ í˜•íƒœì´ë‹¤. '1'ì€ memmoveë¡œ ì˜®ê²¨ì§„ ë°ì´íƒ€ì´ê³  'o'ê°€ ìƒˆë¡œ ê°±ì‹ ì‹œí‚¬ íƒ€ì¼ê·¸ë¦¼ë°ì´íƒ€ì´ë‹¤. '0'ì€ ë”ì½ì–´ì¤„ ë°ì´íƒ€ì´ë‹¤.
 			// 11111111111111...0o
 			// 11111111111111...0o
 			// 11111111111111...0o
@@ -760,7 +760,7 @@ VOID CMapHandler::SetMovedTileBuffer(SHORT shMovedTileX, SHORT shMovedTileY)
 			// 00000000000000...0o
 			// oooooooooooooo...oo
 			
-			// ±âº»Å¸ÀÏ °»½Å.
+			// ê¸°ë³¸íƒ€ì¼ ê°±ì‹ .
 			for ( nX = m_shStartViewTileX+_VIEW_CELL_X_COUNT-shMovedTileX-1; nX < m_shStartViewTileX+_VIEW_CELL_X_COUNT; nX++ )
 				for ( nY = m_shStartViewTileY; nY < m_shStartViewTileY+_VIEW_CELL_Y_COUNT; nY++ )		
 				{
@@ -774,8 +774,8 @@ VOID CMapHandler::SetMovedTileBuffer(SHORT shMovedTileX, SHORT shMovedTileY)
 		}
 		else
 		{
-			// ¿ŞÂÊÀ¸·Î °¥¶§.
-			// ¿ŞÂÊ°ú ¾Æ·¡ºÎºĞÀÇ Å¸ÀÏÀ» °»½Å.
+			// ì™¼ìª½ìœ¼ë¡œ ê°ˆë•Œ.
+			// ì™¼ìª½ê³¼ ì•„ë˜ë¶€ë¶„ì˜ íƒ€ì¼ì„ ê°±ì‹ .
 			// o11111111111111...1
 			// o11111111111111...1
 			// o11111111111111...1
@@ -784,8 +784,8 @@ VOID CMapHandler::SetMovedTileBuffer(SHORT shMovedTileX, SHORT shMovedTileY)
 			// o00000000000000...0
 			// ooooooooooooooo...o
 
-			// ±âº»Å¸ÀÏ °»½Å.
-			// ÁÂÃøÀº 2Å¸ÀÏÀÇ ¿©À¯¸¦ °¡Áö¹Ç·Î 1¼¿¾¿¸¸ ÀĞ°í, ¾Æ·¡·Î´Â ÇÑÅ¸ÀÏ¸¸ÀÇ ¿©À¯¸¦ °¡Áö¹Ç·Î ¾Æ·¡·Î´Â 1¼¿¾¿À» ´õ ÀĞ¾îÁØ´Ù.
+			// ê¸°ë³¸íƒ€ì¼ ê°±ì‹ .
+			// ì¢Œì¸¡ì€ 2íƒ€ì¼ì˜ ì—¬ìœ ë¥¼ ê°€ì§€ë¯€ë¡œ 1ì…€ì”©ë§Œ ì½ê³ , ì•„ë˜ë¡œëŠ” í•œíƒ€ì¼ë§Œì˜ ì—¬ìœ ë¥¼ ê°€ì§€ë¯€ë¡œ ì•„ë˜ë¡œëŠ” 1ì…€ì”©ì„ ë” ì½ì–´ì¤€ë‹¤.
 			for ( INT nYCnt = 0; nYCnt < _VIEW_CELL_Y_COUNT*_CELL_HEIGHT-_CELL_HEIGHT*shMovedTileY; nYCnt++ )
 			{
 				memmove(&m_wSavedMapBuffer[(nYCnt*_VIEW_CELL_X_COUNT*_CELL_WIDTH)+_CELL_WIDTH*(-shMovedTileX)], 
@@ -804,12 +804,12 @@ VOID CMapHandler::SetMovedTileBuffer(SHORT shMovedTileX, SHORT shMovedTileY)
 				}
 		}
 	}
-	// À§·Î °¥¶§.
+	// ìœ„ë¡œ ê°ˆë•Œ.
 	else
 	{
 		if ( shMovedTileX >= 0 )
 		{
-			// ¿À¸¥ÂÊÀ¸·Î °¥¶§.
+			// ì˜¤ë¥¸ìª½ìœ¼ë¡œ ê°ˆë•Œ.
 
 			// ooooooooooooo...0o
 			// 1111111111111...0o
@@ -840,7 +840,7 @@ VOID CMapHandler::SetMovedTileBuffer(SHORT shMovedTileX, SHORT shMovedTileY)
 		{
 			for ( INT nYCnt = (_VIEW_CELL_Y_COUNT*_CELL_HEIGHT)+(_CELL_HEIGHT*shMovedTileY)-1; nYCnt >= 0 ; nYCnt-- )
 			{
-				// ¿ŞÂÊÀ¸·Î °¥¶§.
+				// ì™¼ìª½ìœ¼ë¡œ ê°ˆë•Œ.
 				memmove(&m_wSavedMapBuffer[((nYCnt+_CELL_HEIGHT*(-shMovedTileY))*_VIEW_CELL_X_COUNT*_CELL_WIDTH)+_CELL_WIDTH*(-shMovedTileX)], 
  						&m_wSavedMapBuffer[(nYCnt*_VIEW_CELL_X_COUNT*_CELL_WIDTH)], sizeof(WORD)*_CELL_WIDTH*(_VIEW_CELL_X_COUNT-(-shMovedTileX)));
 			}
@@ -996,7 +996,7 @@ BOOL CMapHandler::GetNextTileCanMove(INT nXPos, INT nYPos, BYTE bDir, INT nGap, 
 	if ( bCanMove != _CAN_WALK )
 		return FALSE;
 
-	//¼ì²éÊÇ·ñÓĞActor
+	//ì‡±ê¿´è§’ë¤ å”Actor
 	if ( g_xGameProc.m_xActorList.GetCounter() != 0 )
 	{
 		g_xGameProc.m_xActorList.MoveCurrentToTop();
@@ -1150,11 +1150,11 @@ BYTE CMapHandler::CalcDirection16(WORD wFireTileX, WORD wFireTileY, WORD wDestTi
 	BYTE	bDir;
 	rLineLength = (FLOAT)sqrt((float)nWidth*nWidth+(float)nHeight*nHeight);
 	
-	// ±âº».
+	// ê¸°ë³¸.
 	// 7  0  1          
 	// 6     2
 	// 5  4  3
-	// ÀÏ´ÜÀº 4°³ÀÇ ºĞ¸é(90µµ±âÁØ)À¸·Î ³ª´©°í ºĞ¸é¿¡ ´ëÇÑ cos°ªÀ» Àû¿ëÇÑ´Ù.
+	// ì¼ë‹¨ì€ 4ê°œì˜ ë¶„ë©´(90ë„ê¸°ì¤€)ìœ¼ë¡œ ë‚˜ëˆ„ê³  ë¶„ë©´ì— ëŒ€í•œ cosê°’ì„ ì ìš©í•œë‹¤.
 	( nWidth >= 0 ) ?
 		( nHeight <  0 ? (rBottomInTriangle=(FLOAT)-nHeight, nDimension=0) : (rBottomInTriangle=(FLOAT) nWidth, nDimension=4) ):
 		( nHeight >= 0 ? (rBottomInTriangle=(FLOAT) nHeight, nDimension=8) : (rBottomInTriangle=(FLOAT)-nWidth, nDimension=12) );
@@ -1166,7 +1166,7 @@ BYTE CMapHandler::CalcDirection16(WORD wFireTileX, WORD wFireTileY, WORD wDestTi
 
 	CONST FLOAT rCosVal16[8] = { 1.0f, 0.980785f, 0.923880f, 0.831470f, 0.707107f, 0.555570f, 0.382683f, 0.195090f };
 	
-	// °¢ºĞ¸éÀ» 3°³ÀÇ ¿µ¿ªÀ¸·Î ³ª´©¾î¼­ ¿µ¿ªÀ» ÀçÁ¶Á¤ÇÑ´Ù.
+	// ê°ë¶„ë©´ì„ 3ê°œì˜ ì˜ì—­ìœ¼ë¡œ ë‚˜ëˆ„ì–´ì„œ ì˜ì—­ì„ ì¬ì¡°ì •í•œë‹¤.
 	bDir = 0;
 	for ( INT nCnt = 0; nCnt < 8; nCnt++ )
 	{
@@ -1192,11 +1192,11 @@ BYTE CMapHandler::CalcDirection8(WORD wFireTileX, WORD wFireTileY, WORD wDestTil
 	BYTE	bDir;
 	rLineLength = (FLOAT)sqrt((float)nWidth*nWidth+(float)nHeight*nHeight);
 	
-	// ±âº».
+	// ê¸°ë³¸.
 	// 7  0  1          
 	// 6     2
 	// 5  4  3
-	// ÀÏ´ÜÀº 4°³ÀÇ ºĞ¸é(90µµ±âÁØ)À¸·Î ³ª´©°í ºĞ¸é¿¡ ´ëÇÑ cos°ªÀ» Àû¿ëÇÑ´Ù.
+	// ì¼ë‹¨ì€ 4ê°œì˜ ë¶„ë©´(90ë„ê¸°ì¤€)ìœ¼ë¡œ ë‚˜ëˆ„ê³  ë¶„ë©´ì— ëŒ€í•œ cosê°’ì„ ì ìš©í•œë‹¤.
 	( nWidth >= 0 ) ?
 		( nHeight <  0 ? (rBottomInTriangle=(FLOAT)-nHeight, nDimension=0) : (rBottomInTriangle=(FLOAT) nWidth, nDimension=2) ):
 		( nHeight >= 0 ? (rBottomInTriangle=(FLOAT) nHeight, nDimension=4) : (rBottomInTriangle=(FLOAT)-nWidth, nDimension=6) );
@@ -1209,7 +1209,7 @@ BYTE CMapHandler::CalcDirection8(WORD wFireTileX, WORD wFireTileY, WORD wDestTil
 //	cos(0), cos(pi/8), cos(pi/4), cos(pi/2)
 	CONST FLOAT rCosVal8[4] = { 1.0f, 0.923880f, 0.707107f, 0.382683f };
 	
-	// °¢ºĞ¸éÀ» 3°³ÀÇ ¿µ¿ªÀ¸·Î ³ª´©¾î¼­ ¿µ¿ªÀ» ÀçÁ¶Á¤ÇÑ´Ù.
+	// ê°ë¶„ë©´ì„ 3ê°œì˜ ì˜ì—­ìœ¼ë¡œ ë‚˜ëˆ„ì–´ì„œ ì˜ì—­ì„ ì¬ì¡°ì •í•œë‹¤.
 	bDir = 0;
 	for ( INT nCnt = 0; nCnt < 4; nCnt++ )
 	{
@@ -1238,10 +1238,10 @@ VOID CMapHandler::DrawOneCellObjTile(INT nX, INT nY)
 
 	INT		nObjFileIdx, nImgIdx;
 
-	// ¿ÀºêÁ§Æ®°¡ ÀÖÀ»¶§.
+	// ì˜¤ë¸Œì íŠ¸ê°€ ìˆì„ë•Œ.
 	if ( m_pstCellInfo[nY + nX*m_stMapFileHeader.shHeight].cFileIdx != -1 )
 	{
-		// ¿ÀºêÁ§Æ®1ÀÌ ÀÖÀ»¶§.
+		// ì˜¤ë¸Œì íŠ¸1ì´ ìˆì„ë•Œ.
 		if ( m_pstCellInfo[nY + nX*m_stMapFileHeader.shHeight].shObj1 != -1 )
 		{
 			nObjFileIdx = (m_pstCellInfo[nY + nX*m_stMapFileHeader.shHeight].cFileIdx & 0XF0) >> 4;
@@ -1261,7 +1261,7 @@ VOID CMapHandler::DrawOneCellObjTile(INT nX, INT nY)
 							_CLIP_WIDTH, _CLIP_HEIGHT);
 			}
 		}
-		// ¿ÀºêÁ§Æ®2°¡ ÀÖÀ»¶§.
+		// ì˜¤ë¸Œì íŠ¸2ê°€ ìˆì„ë•Œ.
 		if ( m_pstCellInfo[nY + nX*m_stMapFileHeader.shHeight].shObj2 != -1 )
 		{
 			nObjFileIdx = (m_pstCellInfo[nY + nX*m_stMapFileHeader.shHeight].cFileIdx & 0X0F);
@@ -1293,10 +1293,10 @@ BOOL CMapHandler::DrawOneCellOverObjTile(INT nX, INT nY)
 
 	INT		nObjFileIdx, nImgIdx;
 
-	// ¿ÀºêÁ§Æ®°¡ ÀÖÀ»¶§.
+	// ì˜¤ë¸Œì íŠ¸ê°€ ìˆì„ë•Œ.
 	if ( m_pstCellInfo[nY + nX*m_stMapFileHeader.shHeight].cFileIdx != -1 )
 	{
-		// ¿ÀºêÁ§Æ®1ÀÌ ÀÖÀ»¶§.
+		// ì˜¤ë¸Œì íŠ¸1ì´ ìˆì„ë•Œ.
 		if ( m_pstCellInfo[nY + nX*m_stMapFileHeader.shHeight].shObj1 != -1 )
 		{
 			nObjFileIdx = (m_pstCellInfo[nY + nX*m_stMapFileHeader.shHeight].cFileIdx & 0XF0) >> 4;
@@ -1317,7 +1317,7 @@ BOOL CMapHandler::DrawOneCellOverObjTile(INT nX, INT nY)
 				return TRUE;
 			}
 		}
-		// ¿ÀºêÁ§Æ®2°¡ ÀÖÀ»¶§.
+		// ì˜¤ë¸Œì íŠ¸2ê°€ ìˆì„ë•Œ.
 		if ( m_pstCellInfo[nY + nX*m_stMapFileHeader.shHeight].shObj2 != -1 )
 		{
 			nObjFileIdx = (m_pstCellInfo[nY + nX*m_stMapFileHeader.shHeight].cFileIdx & 0X0F);
@@ -1346,17 +1346,17 @@ BOOL CMapHandler::DrawOneCellOverObjTile(INT nX, INT nY)
 
 /******************************************************************************************************************
 
-	ÇÔ¼ö¸í : CMapHandler::DrawSMTile()
+	í•¨ìˆ˜ëª… : CMapHandler::DrawSMTile()
 
-	ÀÛ¼ºÀÚ : 
-	ÀÛ¼ºÀÏ : 
+	ì‘ì„±ì : 
+	ì‘ì„±ì¼ : 
 
-	¸ñÀû   : 
-	ÀÔ·Â   : INT nX
+	ëª©ì    : 
+	ì…ë ¥   : INT nX
 	         INT nY
-	Ãâ·Â   : VOID 
+	ì¶œë ¥   : VOID 
 
-	[ÀÏÀÚ][¼öÁ¤ÀÚ] : ¼öÁ¤³»¿ë
+	[ì¼ì][ìˆ˜ì •ì] : ìˆ˜ì •ë‚´ìš©
 
 *******************************************************************************************************************/
 /*
@@ -1366,7 +1366,7 @@ VOID CMapHandler::DrawSMTile(INT nX, INT nY)
 	if ( nX >= m_stMapFileHeader.wWidth || nY >= m_stMapFileHeader.wHeight || nX < 0 || nY < 0 )
 		return; 
 	nObjImgIdx = (m_lpstCellInfo[nY + nX*m_stMapFileHeader.wHeight].bArea * 10000) + (m_lpstCellInfo[nY + nX*m_stMapFileHeader.wHeight].wFrImgIdx & 0x7FFF) - 1;
-	if (m_lpstCellInfo[nY + nX*m_stMapFileHeader.wHeight].bArea < 8 )//<---------------??????????3¹ø¸Ê¿¡ ¾È¾²¸é ¿¡·¯³²
+	if (m_lpstCellInfo[nY + nX*m_stMapFileHeader.wHeight].bArea < 8 )//<---------------??????????3ë²ˆë§µì— ì•ˆì“°ë©´ ì—ëŸ¬ë‚¨
 	{
 		nMidImgIdx = m_lpstCellInfo[nY + nX*m_stMapFileHeader.wHeight].wMidImgIdx - 1;
 		if ( nMidImgIdx >= 0 && nMidImgIdx < 938 && nY < m_shStartViewTileY+_VIEW_CELL_Y_COUNT )

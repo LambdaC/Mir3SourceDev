@@ -13,14 +13,14 @@ typedef struct tagMESSAGEBODYWL
 {
 	LONG	lParam1;
 	LONG	lParam2;
-	LONG	nTag1;			// ¶§¸°³ð ID.(SM_STRUCKÀÏ¶§).
+	LONG	nTag1;			// ë•Œë¦°ë†ˆ ID.(SM_STRUCKì¼ë•Œ).
 	LONG	nTag2;
 }MESSAGEBODYWL, *LPMESSAGEBODYWL;
 typedef struct tagMESSAGEBODYW
 {
 	WORD	wParam1;
 	WORD	wParam2;
-	WORD	wTag1;			// ¶§¸°³ð ID.(SM_STRUCKÀÏ¶§).
+	WORD	wTag1;			// ë•Œë¦°ë†ˆ ID.(SM_STRUCKì¼ë•Œ).
 	WORD	wTag2;
 }MESSAGEBODYW, *LPMESSAGEBODYW;
 
@@ -46,55 +46,55 @@ class CActor
 private:
 public:
 	DWORD				m_dwIdentity;					// ID Index From Server.
-	CHAR				m_szName[64];					// Ä³¸¯ÅÍ³ª ¸ó½ºÅÍÀÇ ÀÌ¸§.
+	CHAR				m_szName[64];					// ìºë¦­í„°ë‚˜ ëª¬ìŠ¤í„°ì˜ ì´ë¦„.
 	CHAR				m_szGuildName[64];
 
-	FEATURE				m_stFeature;					// Ä³¸¯ÅÍÀÇ ¿ÜÇüÀ» °áÁ¤Áþ´Â´Ù.
-	BYTE				m_bActorImgIdx;					// ÇöÀç Actor°¡ °¡Áú ÀÌ¹ÌÁö±¸Á¶Ã¼ÀÇ ¹øÈ£.
-	BYTE				m_bEffectImgIdx;				// ÇöÀç Actor°¡ °¡Áú ÀÌ¹ÌÁö±¸Á¶Ã¼ÀÇ ¹øÈ£.
-	CWHWilImageData*	m_pxActorImage;					// ÀÌ¹ÌÁö¸¦ ¾ò¾î¿Ã Æ÷ÀÎÅÍµé.
-	RECT				m_rcActor;						// ÇöÀç ½ºÅ©¸°»óÀÇActorÀÇ »ç°¢ ¿µ¿ª.
-	RECT				m_rcTargetRgn;					// ÇöÀç ActorÀÇ Å¸°Ù¿µ¿ª.
+	FEATURE				m_stFeature;					// ìºë¦­í„°ì˜ ì™¸í˜•ì„ ê²°ì •ì§“ëŠ”ë‹¤.
+	BYTE				m_bActorImgIdx;					// í˜„ìž¬ Actorê°€ ê°€ì§ˆ ì´ë¯¸ì§€êµ¬ì¡°ì²´ì˜ ë²ˆí˜¸.
+	BYTE				m_bEffectImgIdx;				// í˜„ìž¬ Actorê°€ ê°€ì§ˆ ì´ë¯¸ì§€êµ¬ì¡°ì²´ì˜ ë²ˆí˜¸.
+	CWHWilImageData*	m_pxActorImage;					// ì´ë¯¸ì§€ë¥¼ ì–»ì–´ì˜¬ í¬ì¸í„°ë“¤.
+	RECT				m_rcActor;						// í˜„ìž¬ ìŠ¤í¬ë¦°ìƒì˜Actorì˜ ì‚¬ê° ì˜ì—­.
+	RECT				m_rcTargetRgn;					// í˜„ìž¬ Actorì˜ íƒ€ê²Ÿì˜ì—­.
 
-	DWORD				m_dwFstFrame;					// ÇöÀç µ¿ÀÛÀÇ ½ÃÀÛ ÇÁ·¹ÀÓ.
-	DWORD				m_dwEndFrame;					// ÇöÀç µ¿ÀÛÀÇ ¸¶Áö¸·ÇÁ·¹ÀÓ.
-	WORD				m_wDelay;						// ÇöÀç µ¿ÀÛ¿¡ ´ëÇÑ Áö¿¬½Ã°£.
+	DWORD				m_dwFstFrame;					// í˜„ìž¬ ë™ìž‘ì˜ ì‹œìž‘ í”„ë ˆìž„.
+	DWORD				m_dwEndFrame;					// í˜„ìž¬ ë™ìž‘ì˜ ë§ˆì§€ë§‰í”„ë ˆìž„.
+	WORD				m_wDelay;						// í˜„ìž¬ ë™ìž‘ì— ëŒ€í•œ ì§€ì—°ì‹œê°„.
 
-	BYTE				m_bCurrMtn;						// ÇöÀç µ¿ÀÛ.
-	BYTE				m_bCurrDir;						// ÇöÀç ¹æÇâ.
-	BYTE				m_bMoveDir;						// ÇöÀç ¹æÇâ.
-	DWORD				m_dwCurrFrame;					// ÇöÀç ÇÁ·¹ÀÓ.
-	WORD				m_wCurrDelay;					// ÇöÀç Áö¿¬½Ã°£.
+	BYTE				m_bCurrMtn;						// í˜„ìž¬ ë™ìž‘.
+	BYTE				m_bCurrDir;						// í˜„ìž¬ ë°©í–¥.
+	BYTE				m_bMoveDir;						// í˜„ìž¬ ë°©í–¥.
+	DWORD				m_dwCurrFrame;					// í˜„ìž¬ í”„ë ˆìž„.
+	WORD				m_wCurrDelay;					// í˜„ìž¬ ì§€ì—°ì‹œê°„.
 
-	WORD				m_wOldPosX;						// ÇöÀç Çàµ¿ÀÌ ÀÖ±âÀüÀÇ Å¸ÀÏXÁÂÇ¥.
+	WORD				m_wOldPosX;						// í˜„ìž¬ í–‰ë™ì´ ìžˆê¸°ì „ì˜ íƒ€ì¼Xì¢Œí‘œ.
 	WORD				m_wOldPosY;
-	BYTE				m_bOldDir;						// ÇöÀç Çàµ¿ÀÌ ÀÖ±âÀüÀÇ ¹æÇâ.
-	WORD				m_wPosX;						// Å¸ÀÏ XÁÂÇ¥.
-	WORD				m_wPosY;						// Å¸ÀÏ YÁÂÇ¥.
-	SHORT				m_shShiftPixelX;				// ÇöÀç ÀÚ½ÅÀÇ Å¸ÀÏ¿¡¼­ XÃà¸¸Å­ ÀÌµ¿ÇÑ ÇÈ¼¿ÀÇ °Å¸®.
-	SHORT				m_shShiftPixelY;				// ÇöÀç ÀÚ½ÅÀÇ Å¸ÀÏ¿¡¼­ YÃà¸¸Å­ ÀÌµ¿ÇÑ ÇÈ¼¿ÀÇ °Å¸®.
-	SHORT				m_shShiftTileX;					// ÇöÀç ÀÚ½ÅÀÇ Å¸ÀÏ¿¡¼­ XÃà¸¸Å­ ÀÌµ¿ÇÑ Å¸ÀÏÀÇ °Å¸®.
-	SHORT				m_shShiftTileY;					// ÇöÀç ÀÚ½ÅÀÇ Å¸ÀÏ¿¡¼­ YÃà¸¸Å­ ÀÌµ¿ÇÑ Å¸ÀÏÀÇ °Å¸®.
-	SHORT				m_shScrnPosX;					// Áß½ÉÁ¡À» °í·ÁÇÏÁö ¾ÊÀº È­¸é»óÀÇ XÁÂÇ¥.
-	SHORT				m_shScrnPosY;					// Áß½ÉÁ¡À» °í·ÁÇÏÁö ¾ÊÀº È­¸é»óÀÇ YÁÂÇ¥.
-	BYTE				m_bMoveSpeed;					// ÀÌµ¿¼Óµµ.
+	BYTE				m_bOldDir;						// í˜„ìž¬ í–‰ë™ì´ ìžˆê¸°ì „ì˜ ë°©í–¥.
+	WORD				m_wPosX;						// íƒ€ì¼ Xì¢Œí‘œ.
+	WORD				m_wPosY;						// íƒ€ì¼ Yì¢Œí‘œ.
+	SHORT				m_shShiftPixelX;				// í˜„ìž¬ ìžì‹ ì˜ íƒ€ì¼ì—ì„œ Xì¶•ë§Œí¼ ì´ë™í•œ í”½ì…€ì˜ ê±°ë¦¬.
+	SHORT				m_shShiftPixelY;				// í˜„ìž¬ ìžì‹ ì˜ íƒ€ì¼ì—ì„œ Yì¶•ë§Œí¼ ì´ë™í•œ í”½ì…€ì˜ ê±°ë¦¬.
+	SHORT				m_shShiftTileX;					// í˜„ìž¬ ìžì‹ ì˜ íƒ€ì¼ì—ì„œ Xì¶•ë§Œí¼ ì´ë™í•œ íƒ€ì¼ì˜ ê±°ë¦¬.
+	SHORT				m_shShiftTileY;					// í˜„ìž¬ ìžì‹ ì˜ íƒ€ì¼ì—ì„œ Yì¶•ë§Œí¼ ì´ë™í•œ íƒ€ì¼ì˜ ê±°ë¦¬.
+	SHORT				m_shScrnPosX;					// ì¤‘ì‹¬ì ì„ ê³ ë ¤í•˜ì§€ ì•Šì€ í™”ë©´ìƒì˜ Xì¢Œí‘œ.
+	SHORT				m_shScrnPosY;					// ì¤‘ì‹¬ì ì„ ê³ ë ¤í•˜ì§€ ì•Šì€ í™”ë©´ìƒì˜ Yì¢Œí‘œ.
+	BYTE				m_bMoveSpeed;					// ì´ë™ì†ë„.
 
-	CWHQueue			m_xPacketQueue;					// Actor°¡ Ã³¸®ÇØ¾ßµÉ ¸Þ½ÃÁö¸¦ ÀúÀåÇÏ°í ÀÖ´Â Å¥.
-	BOOL				m_bMsgHurryCheck;				// ¸Þ½ÃÁö°¡ 2°³ÀÌ»ó ½×¿©ÀÖÀ»¶§´Â ÇÁ·¹ÀÓÀ» 1ÇÁ·¹ÀÓ¾¿À» °Ç³Ê¶Ú´Ù.
+	CWHQueue			m_xPacketQueue;					// Actorê°€ ì²˜ë¦¬í•´ì•¼ë  ë©”ì‹œì§€ë¥¼ ì €ìž¥í•˜ê³  ìžˆëŠ” í.
+	BOOL				m_bMsgHurryCheck;				// ë©”ì‹œì§€ê°€ 2ê°œì´ìƒ ìŒ“ì—¬ìžˆì„ë•ŒëŠ” í”„ë ˆìž„ì„ 1í”„ë ˆìž„ì”©ì„ ê±´ë„ˆë›´ë‹¤.
 
 	BYTE				m_bBackStepFrame;
 	BYTE				m_bBackStepFrameCnt;
 
-	DWORD				m_dwCurrEffectFrame;			// Ä³¸¯ÅÍ EffectÇöÀç ÇÁ·¹ÀÓ.
-	DWORD				m_dwFstEffectFrame;				// Ä³¸¯ÅÍ EffectÃ³À½ ÇÁ·¹ÀÓ.
-	DWORD				m_dwEndEffectFrame;				// Ä³¸¯ÅÍ Effect¸¶Áö¸· ÇÁ·¹ÀÓ.
+	DWORD				m_dwCurrEffectFrame;			// ìºë¦­í„° Effectí˜„ìž¬ í”„ë ˆìž„.
+	DWORD				m_dwFstEffectFrame;				// ìºë¦­í„° Effectì²˜ìŒ í”„ë ˆìž„.
+	DWORD				m_dwEndEffectFrame;				// ìºë¦­í„° Effectë§ˆì§€ë§‰ í”„ë ˆìž„.
 	BYTE				m_bEffectFrame;
 	BYTE				m_bEffectFrameCnt;
-	BYTE				m_bLightRadius[2];				// ±¤¿ø ³Êºñ.
-	BYTE				m_bLightColor [2][3];			// ±¤¿ø »ö.
+	BYTE				m_bLightRadius[2];				// ê´‘ì› ë„ˆë¹„.
+	BYTE				m_bLightColor [2][3];			// ê´‘ì› ìƒ‰.
 
-	BOOL				m_bUseEffect;					// ÀÌÆåÆ®ÇÁ·¹ÀÓÀ» »ç¿ë.
-	BOOL				m_bUseSwordEffect;				// °Ë¹ýÈ¿°ú »ç¿ë.
+	BOOL				m_bUseEffect;					// ì´íŽ™íŠ¸í”„ë ˆìž„ì„ ì‚¬ìš©.
+	BOOL				m_bUseSwordEffect;				// ê²€ë²•íš¨ê³¼ ì‚¬ìš©.
 
 	BOOL				m_bWarMode;
 	DWORD				m_dwWarModeTime;
@@ -105,7 +105,7 @@ public:
 	WORD				m_wMP;
 	BOOL				m_bOpenHealth;
 
-	BYTE				m_bLightSize;					// ActorÁÖº¯ÀÇ ±¤¿øÅ©±â.
+	BYTE				m_bLightSize;					// Actorì£¼ë³€ì˜ ê´‘ì›í¬ê¸°.
 
 //	D3DVERTEX			m_avBoard[4];
 
@@ -133,12 +133,12 @@ public:
 
 	INT					m_nDividedChatLine;
 	DWORD				m_wCurrChatDelay;
-	CHAR				m_szChatMsg[MAX_PATH];			// Ã¤ÆÃ¸Þ½ÃÁö.
-	CHAR				m_szChatMsgArg[5][MAX_PATH];	// Ã¤ÆÃ¸Þ½ÃÁö¸¦ 5°³ÀÇ ½ºÆ®¸µÀ¸·Î ±¸ºÐÇÑ°Í.
+	CHAR				m_szChatMsg[MAX_PATH];			// ì±„íŒ…ë©”ì‹œì§€.
+	CHAR				m_szChatMsgArg[5][MAX_PATH];	// ì±„íŒ…ë©”ì‹œì§€ë¥¼ 5ê°œì˜ ìŠ¤íŠ¸ë§ìœ¼ë¡œ êµ¬ë¶„í•œê²ƒ.
 
 public:
 //---------------------------------------------------------------------------------------------------------------//
-// »ý¼ºÀÚ ¹× ¼Ò¸êÀÚ.
+// ìƒì„±ìž ë° ì†Œë©¸ìž.
 	CActor();
 	~CActor();
 
@@ -147,21 +147,21 @@ public:
 //---------------------------------------------------------------------------------------------------------------//
 
 //---------------------------------------------------------------------------------------------------------------//
-// »ý¼º.
+// ìƒì„±.
 	virtual BOOL Create(CImageHandler* pxImgHandler, FEATURE* pstFeature, BYTE bMtn, WORD bDir, WORD wPosX, WORD wPosY);
 //---------------------------------------------------------------------------------------------------------------//
 
 	BOOL LoadEffect(CImageHandler* pxImgHandler, WORD wEffectNum, BYTE bDir = 0);
 	VOID DrawWithEffected(INT nx, INT nY, INT nXSize, INT nYSize, WORD* pwSrc, WORD wChooseColor1 = 0XFFFF, WORD wChooseColor2 = 0XFFFF, BOOL bFocused = FALSE, BYTE bOpa = 50, WORD wState = _STATE_NOTUSED);
 //---------------------------------------------------------------------------------------------------------------//
-// ÇÁ·¹ÀÓ ¼³Á¤°ü·Ã.
+// í”„ë ˆìž„ ì„¤ì •ê´€ë ¨.
 	BOOL	CheckFeatureValidate(FEATURE stFeature);
 	BOOL	ChangeFeature(FEATURE stFeature);
 	virtual BOOL SetMotionFrame(BYTE bMtn, BYTE bDir);
 //---------------------------------------------------------------------------------------------------------------//
 
 //---------------------------------------------------------------------------------------------------------------//
-// Ä³¸¯ÅÍ ÀÌµ¿.
+// ìºë¦­í„° ì´ë™.
 	VOID SetMoving();
 	VOID SetBackStepMoving();
 	VOID SetMoved();
@@ -175,12 +175,12 @@ public:
 	virtual VOID PlayActSound();
 
 //---------------------------------------------------------------------------------------------------------------//
-// µ¿ÀÛ ÁøÇà.
+// ë™ìž‘ ì§„í–‰.
 	virtual BOOL UpdatePacketState();
 	virtual VOID UpdateMotionState(INT nLoopTime, BOOL bIsMoveTime);
 	virtual BOOL UpdateMove(BOOL bIsMoveTime);
 
-// À¯Çüº° ÆÐÅ¶»óÅÂÀû¿ë.
+// ìœ í˜•ë³„ íŒ¨í‚·ìƒíƒœì ìš©.
 	virtual VOID OnCharDescPacket(LPPACKETMSG lpPacketMsg);
 	virtual VOID OnUserName(LPPACKETMSG lpPacketMsg);
 	virtual VOID OnChangeNameClr(LPPACKETMSG lpPacketMsg);
@@ -258,7 +258,7 @@ public:
 //	BYTE		wHairColor;
 //	BYTE		wDressColor;
 //}FEATUREEX, *LPFEATUREEX;
-//ydq 7-24 ÊÔÊÔ¸ÄµÄÐ§¹û
+//ydq 7-24 æ¡¿æ¡¿ë§£ë¨æ§»ë²Ž
 typedef struct tagFEATUREEX
 {
 	BYTE		bHorse;
@@ -273,9 +273,9 @@ private:
 public:
 	FEATUREEX			m_stFeatureEx;
 
-	BYTE				m_bWeaponImgIdx;				// ÇöÀç Actor ¹«±â°¡ °¡Áú ÀÌ¹ÌÁö±¸Á¶Ã¼ÀÇ ¹øÈ£.
-	BYTE				m_bHairImgIdx;					// ÇöÀç Actor ¸Ó¸®°¡ °¡Áú ÀÌ¹ÌÁö±¸Á¶Ã¼ÀÇ ¹øÈ£.
-	BYTE				m_bHorseImgIdx;					// ÇöÀç Actor ¸»ÀÌ   °¡Áú ÀÌ¹ÌÁö±¸Á¶Ã¼ÀÇ ¹øÈ£.
+	BYTE				m_bWeaponImgIdx;				// í˜„ìž¬ Actor ë¬´ê¸°ê°€ ê°€ì§ˆ ì´ë¯¸ì§€êµ¬ì¡°ì²´ì˜ ë²ˆí˜¸.
+	BYTE				m_bHairImgIdx;					// í˜„ìž¬ Actor ë¨¸ë¦¬ê°€ ê°€ì§ˆ ì´ë¯¸ì§€êµ¬ì¡°ì²´ì˜ ë²ˆí˜¸.
+	BYTE				m_bHorseImgIdx;					// í˜„ìž¬ Actor ë§ì´   ê°€ì§ˆ ì´ë¯¸ì§€êµ¬ì¡°ì²´ì˜ ë²ˆí˜¸.
 
 	BYTE				m_bYedoCnt;
 	BYTE				m_bFireHitCnt;
@@ -340,27 +340,27 @@ public:
 
 
 /*
-"ac" ·ÀÓùÁ¦ÏÂÏÞ
-"ac2" ·ÀÓùÁ¦ÉÏÏÞ
-"mac" Ä§·ÀÏÂÏÞ
-"mac2" Ä§·ÀÉÏÏÞ
-"dc" ÎïÀí¹¥»÷Á¦ÏÂÏÞ 
-"dc2" ÎïÀí¹¥»÷Á¦ÉÏÏÞ ³¬¹ýÁË255´øÔÚÉíÉÏ¹¥»÷ÊÇ»á¼õ³É0
-"mc" Ä§·¨¹¥»÷Á¦ÏÂÏÞ
-"mc2" Ä§·¨¹¥»÷Á¦ÉÏÏÞ
-"sc" µÀÊõÏÂÏÞ
-"sc2" µÀÊõÉÏÏÞ
-"needlevel" ÐèÒªµÈ¼¶
-"price" ¼Û¸ñ
+"ac" ë å¾’ì œè‹ŸæŽ˜
+"ac2" ë å¾’ì œï¿½é¾œï¿½
+"mac" ì¹¨ë è‹ŸæŽ˜
+"mac2" ì¹¨ë ï¿½é¾œï¿½
+"dc" è† ìž¿ë¬‘ìƒŒì œè‹ŸæŽ˜ 
+"dc2" è† ìž¿ë¬‘ìƒŒì œï¿½é¾œï¿½ ë‚šë²•ì£„255ë˜çž³ï¿½çˆµçƒï¿½ìƒŒè§’ì‚”ìˆ‘ëƒ¥0
+"mc" ì¹¨ëž¬ë¬‘ìƒŒì œè‹ŸæŽ˜
+"mc2" ì¹¨ëž¬ë¬‘ìƒŒì œï¿½é¾œï¿½
+"sc" ë›æ¸›è‹ŸæŽ˜
+"sc2" ë›æ¸›ï¿½é¾œï¿½
+"needlevel" çŸœï¤«ëœì„¬
+"price" ì†¡ëª©
 
 
-(9)ÎïÆ·ÊÇÊ×ÊÎÊ±£º
-"ac2" ±íÊ¾×¼È·
-"mac2" ±íÊ¾Ãô½Ý
-"ac" ±íÊ¾·ÀÓùÏÂÏÞ
-"ac2" ±íÊ¾·ÀÓùÉÏÏÞ
-"mac" ±íÊ¾Ä§ÓùÏÂÏÞ
-"mac2" ±íÊ¾Ä§ÓùÉÏÏÞ
+(9)è† í‹”è§’çœ‹å¹²ç‚ï¼š
+"ac2" ê¹Šåˆ»ç¡«íš…
+"mac2" ê¹Šåˆ»ì¸ŒìŒ¥
+"ac" ê¹Šåˆ»ë å¾’è‹ŸæŽ˜
+"ac2" ê¹Šåˆ»ë å¾’ï¿½é¾œï¿½
+"mac" ê¹Šåˆ»ì¹¨å¾’è‹ŸæŽ˜
+"mac2" ê¹Šåˆ»ì¹¨å¾’ï¿½é¾œï¿½
 */
 
 
@@ -378,11 +378,11 @@ public:
 typedef struct tagACTORABILITY
 {
 	BYTE	bLevel;
-    WORD	wAC;		//·ÀÓùÁ¦
-    WORD	wMAC;		//Ä§·À
-	WORD	wDC;		//ÎïÀí¹¥»÷Á¦
-    WORD	wMC;		//Ä§·¨¹¥»÷Á¦
-    WORD	wSC;		//µÀÊõ
+    WORD	wAC;		//ë å¾’ì œ
+    WORD	wMAC;		//ì¹¨ë 
+	WORD	wDC;		//è† ìž¿ë¬‘ìƒŒì œ
+    WORD	wMC;		//ì¹¨ëž¬ë¬‘ìƒŒì œ
+    WORD	wSC;		//ë›æ¸›
 	WORD	wHP;
 	WORD	wMP;
     WORD	wMaxHP;
@@ -400,13 +400,13 @@ typedef struct tagACTORABILITY
 
 typedef struct tagACTORSUBABILITY
 {
-	WORD wAntiMagic;		// ¸¶¹ýÈ¸ÇÇ.
-	BYTE bHitPoint;			// Á¤È®.
-	BYTE bSpeedPoint;		// ¹ÎÃ¸.
-	BYTE bAntiPoison;		// Áßµ¶È¸ÇÇ.
-	BYTE bPoisonRecover;	// Áßµ¶È¸º¹.
-	BYTE bHealthRecover;	// Ã¼·ÂÈ¸º¹.
-	BYTE bSpellRecover;		// ¸¶·ÂÈ¸º¹.
+	WORD wAntiMagic;		// ë§ˆë²•íšŒí”¼.
+	BYTE bHitPoint;			// ì •í™•.
+	BYTE bSpeedPoint;		// ë¯¼ì²©.
+	BYTE bAntiPoison;		// ì¤‘ë…íšŒí”¼.
+	BYTE bPoisonRecover;	// ì¤‘ë…íšŒë³µ.
+	BYTE bHealthRecover;	// ì²´ë ¥íšŒë³µ.
+	BYTE bSpellRecover;		// ë§ˆë ¥íšŒë³µ.
 }ACTORSUBABILITY, *LPACTORSUBABILITY;
 #pragma pack(8)
 
@@ -414,10 +414,10 @@ class CMyHero : public CHero
 {
 public:
 
-	//  Ëø¶¨
+	//  å‚‘ë•
 	DWORD			m_dwMotionLockTime;
-	BOOL			m_bInputLock;				// ÊäÈëËø¶¨
-	BOOL			m_bMotionLock;				// Ëø¶¨ÔË¶¯,SetMotionState()¼ÓËø, UpdateMotionState()½âËø,Ò²¾ÍÊÇÔÚÕâÒ»¶ÎÊ±¼äÄÚ²»ÏìÓ¦Êó±êÏûÏ¢
+	BOOL			m_bInputLock;				// æ¸´í™å‚‘ë•
+	BOOL			m_bMotionLock;				// å‚‘ë•é “ë•¡,SetMotionState()ì†å‚‘, UpdateMotionState()ì©å‚‘,ï¤®ì•Žè§’çž³ä¾¶å¯§ë™ˆç‚ì‡Œì½”ê¼‡æ²å£‡æŸ‘ê¹ƒï¤†å£
 
 	CMapHandler*	m_pxMap;
 	BOOL			m_bCanRun;
@@ -427,21 +427,21 @@ public:
 	BYTE		    m_bJob;
 	UINT			m_nGlod;
 
-	CWHQueue		m_xPriorPacketQueue;					// Actor°¡ Ã³¸®ÇØ¾ßµÉ ¸Þ½ÃÁö¸¦ ÀúÀåÇÏ°í ÀÖ´Â Å¥.
+	CWHQueue		m_xPriorPacketQueue;					// Actorê°€ ì²˜ë¦¬í•´ì•¼ë  ë©”ì‹œì§€ë¥¼ ì €ìž¥í•˜ê³  ìžˆëŠ” í.
 
-	//  ¶¯×÷ÑÓ³Ù.
-	DWORD			m_dwLastHitTime;						// ×î½ü¹¥»÷Ê±¼ä
-	DWORD			m_dwLastSpellTime;						// ×î½üÊ¹ÓÃ·ûÖäµÄÊ±¼ä
-	DWORD			m_dwLastMagicTime;						// ×î½üÊ¹ÓÃÄ§·¨µÄÊ±¼ä
-	DWORD			m_dwLastStruckTime;						// ×î½ü±»¹¥»÷Ê±¼ä
-	DWORD			m_dwLastPKStruckTime;					// PKÊ±¼ä,Ö÷Òª²»ÈÃÉ±ÈË¾ÍÅÜ»òÏÂÏß
-	DWORD			m_dwLastRushTime;						// ³å×²Ê±¼ä(×î½üÊ¹ÓÃÄ§·¨³å×²Ê±¼ä)
-	DWORD			m_dwLastFireHitTime;					// Ê¹ÓÃÄ§·¨»ðÇòµÄÊ±¼ä
+	//  ë•¡é±—å„ºë„¨.
+	DWORD			m_dwLastHitTime;						// é›¢ì¤ë¬‘ìƒŒç‚ì‡Œ
+	DWORD			m_dwLastSpellTime;						// é›¢ì¤è³ˆç—°ë¥œéº“ë¨ç‚ì‡Œ
+	DWORD			m_dwLastMagicTime;						// é›¢ì¤è³ˆç—°ì¹¨ëž¬ë¨ç‚ì‡Œ
+	DWORD			m_dwLastStruckTime;						// é›¢ì¤êµ³ë¬‘ìƒŒç‚ì‡Œ
+	DWORD			m_dwLastPKStruckTime;					// PKç‚ì‡Œ,å¯®ï¤«ê¼‡íš»ï¿½ê¶é±‡è€ƒç—…æ®„ì«ï¿½
+	DWORD			m_dwLastRushTime;						// ë…‘æ—’ç‚ì‡Œ(é›¢ì¤è³ˆç—°ì¹¨ëž¬ë…‘æ—’ç‚ì‡Œ)
+	DWORD			m_dwLastFireHitTime;					// è³ˆç—°ì¹¨ëž¬ì‚½í—·ë¨ç‚ì‡Œ
 
-	WORD			m_wMagicPKDelayTime;					// Ä§·¨PKÊ±¼ä
-	WORD			m_wMagicDelayTime;						// Ä§·¨ÑÓ³Ù
+	WORD			m_wMagicPKDelayTime;					// ì¹¨ëž¬PKç‚ì‡Œ
+	WORD			m_wMagicDelayTime;						// ì¹¨ëž¬å„ºë„¨
 
-	BOOL			m_bActive;//ÊÇ·ñÏìÓ¦ÓÃ»§ÏûÏ¢
+	BOOL			m_bActive;//è§’ë¤ æ²å£‡ç—°ë¹µï¤†å£
 
 public:
 	CMyHero();
@@ -452,37 +452,37 @@ public:
 
 	VOID  SetMapHandler(CMapHandler* pxMap);
 	
-	//¶¯×÷º¯Êý,·¢ËÍMyHeroµÄÐÐ×ß,Ä§·¨ÃüÁî AutoTargeting(), OnLButtonDown()...µ÷ÓÃ
+	//ë•¡é±—ë³€é‘’,ëž™ç®‡MyHeroë¨ï¤‰æµ¬,ì¹¨ëž¬ì¸±ì¦ˆ AutoTargeting(), OnLButtonDown()...ë”§ç—°
 	virtual VOID  SetMotionState(BYTE bMtn, BYTE bDir, INT nMouseTargetID = NULL, BOOL bIsDead = FALSE, LPPOINT lpptPos = NULL, SHORT shSkill = -1);
-	//Ê¹ÓÃÄ§·¨,µ÷ÓÃSetMotionState()Íê³ÉÄ§·¨¶¯×÷
+	//è³ˆç—°ì¹¨ëž¬,ë”§ç—°SetMotionState()ä¾›ëƒ¥ì¹¨ëž¬ë•¡é±—
 	VOID  SetMagic(LPCLIENTMAGICRCD	pstMagic, BYTE bKeyNum, BYTE bDir, INT nTargetID, FEATURE stTargetFeature, POINT ptTargetPos);
-	//ÍË»Øµ½Ç°Ò»¸ö×´Ì¬, ½ÓÊÕµ½"+FAIL"ÐÐ×ßÊ§°ÜÃüÁîºóµ÷ÓÃÕâ¸öº¯Êý
+	//è—ì€¼ë•í’ˆå¯§ëª¸æ¦´æª„, ìŒˆæ¾—ë•"+FAIL"ï¤‰æµ¬å‘µê²¨ì¸±ì¦ˆë¹ˆë”§ç—°ä¾¶ëª¸ë³€é‘’
 	virtual BOOL  SetOldPosition();
 
-	//¼ì²éMyHeroÊÇ·ñÔÚÆÁÄ»ÕýÖÐ,Ò²¾ÍÊÇ¼ì²éÊÇ·ñÐèÒªÒÆ¶¯µØÍ¼
+	//ì‡±ê¿´MyHeroè§’ë¤ çž³íŒìº¥æ”£æ«“,ï¤®ì•Žè§’ì‡±ê¿´è§’ë¤ çŸœï¤«ï¤³ë•¡ë’ˆæš 
 	BOOL  CheckMyPostion();
-	//ÒÆ¶¯µØÍ¼,Ïàµ±ÓÚÒÆ¶¯MyHero  ScrollMap()ÒÆ¶¯µØÍ¼µÄÆ«ÒÆÁ¿À´ÒÆ¶¯µØÍ¼,·¶Î§ÔÚÒ»¸öTileÄÚ.
+	//ï¤³ë•¡ë’ˆæš ,å®®ëŽ é»¨ï¤³ë•¡MyHero  ScrollMap()ï¤³ë•¡ë’ˆæš ë¨íŠ¤ï¤³ì¢†ìœ±ï¤³ë•¡ë’ˆæš ,ë €é‹çž³å¯§ëª¸Tileì½”.
 	VOID  AdjustMyPostion();
-	//¼ÆËã·½Ïò
+	//ì…•ç‚¬ë ˜è•¨
 	BYTE  CalcDirection(INT nTargetTileX, INT nTargetTileY);
-	//½«Êó±ê×ø±ê»»³ÉµØÍ¼×ø±ê
+	//ì‰¥æŸ‘ê¹ƒéºŸê¹ƒë»£ëƒ¥ë’ˆæš éºŸê¹ƒ
 	POINT GetPosMouseToTile(INT nXPos, INT nYPos);
 
 	virtual BOOL Create(CImageHandler* pxImgHandler, BYTE bMtn, BYTE bDir, WORD wPosX, WORD wPosY, FEATURE* pstFeature, FEATUREEX* pstFeatureEx);
 	virtual VOID OnHealthSpellChanged(LPPACKETMSG lpPacketMsg);
 
-	//´¦Àí×´Ì¬¸Ä±ä
+	//ë‡¹ìž¿æ¦´æª„ë§£ê¸´
 	virtual BOOL UpdatePacketState();
-	//¸üÐÂÔË¶¯×´Ì¬,»æÖÆ¶¯×÷ºÍÌØÐ§,CheckMappedData()µ÷ÓÃUpdateMotionState()»æÖÆ³ýMyHeroµÄ¶¯×÷,
-	//RenderScene()µ÷ÓÃUpdateMotionState()»æÖÆMyHeroµÄ¶¯×÷, UpdateMotionState()µ÷ÓÃUpdateMove()ÊµÏÖÒÆ¶¯¶¯×÷,ºÍÁ¬ÐøÒÆ¶¯
+	//ë«˜åŠ¤é “ë•¡æ¦´æª„,ì‚¥é½¡ë•¡é±—ëµ¨æ™¯æ§»,CheckMappedData()ë”§ç—°UpdateMotionState()ì‚¥é½¡ë‡œMyHeroë¨ë•¡é±—,
+	//RenderScene()ë”§ç—°UpdateMotionState()ì‚¥é½¡MyHeroë¨ë•¡é±—, UpdateMotionState()ë”§ç—°UpdateMove()èŒ„å›ï¤³ë•¡ë•¡é±—,ëµ¨ì ¯å´Žï¤³ë•¡
 	virtual VOID UpdateMotionState(INT nLoopTime, BOOL bIsMoveTime);
-	//»æÖÆÒÆ¶¯, ²¢¼ì²éÊó±ê×´Ì¬,ÊµÏÖÁ¬ÐøÒÆ¶¯
+	//ì‚¥é½¡ï¤³ë•¡, ê¹»ì‡±ê¿´æŸ‘ê¹ƒæ¦´æª„,èŒ„å›ì ¯å´Žï¤³ë•¡
 	virtual BOOL UpdateMove(BOOL bIsMoveTime);
 
 	virtual BOOL DrawActor(BOOL bFocused = FALSE, BOOL bShadowAblended = FALSE, 
 		                   BOOL bUseScrnPos = FALSE, BOOL bDrawShadow = TRUE);
 
-	//¸Ä±äÍâ¹Û
+	//ë§£ê¸´æ£ë°–
 	__inline virtual BOOL ChangeFeature(FEATURE stFeature, FEATUREEX stFeatureEx)
 	{
 		if ( m_bIsMon )		
@@ -499,24 +499,24 @@ public:
 
 
 	
-	BOOL CanNextHit();						// ÅÐ¶ÏÑÓ³ÙÊ±¼äÀ´ÅÐ¶ÏÊÇ·ñ¿ÉÒÔ¹¥»÷,ºÍm_stAbility.bLevelÒ²¹Ò¹³
+	BOOL CanNextHit();						// í„¸ë™¤å„ºë„¨ç‚ì‡Œìœ±í„¸ë™¤è§’ë¤ ì˜µï¥€ë¬‘ìƒŒ,ëµ¨m_stAbility.bLevelï¤®ë°ˆë­„
 	BOOL CanWalk();							//  if ( timeGetTime() - m_dwLastSpellTime < m_wMagicPKDelayTime )	return TRUE;
 	BOOL CanRun();							// (timeGetTime() - m_dwLastPKStruckTime < 3000) || (timeGetTime() - m_dwLastSpellTime < m_wMagicPKDelayTime )
 
 	
-	//  Êó±êÏûÏ¢.
+	//  æŸ‘ê¹ƒï¤†å£.
 	virtual BOOL OnLButtonDown(POINT ptMouse, INT nTargetID = -1, BOOL bIsDead = FALSE, POINT* lpptTargetPos = NULL);
 	virtual BOOL OnRButtonDown(POINT ptMouse);
 	virtual BOOL OnKeyDown(WPARAM wParam, LPARAM lParam, POINT ptMouse, POINT ptTargetPos, INT nMosueTargetID, FEATURE stTargetFeature);
 
 	VOID DrawName();
 
-	//´¦Àí¶àÈËÊÂ¼þÌí¼ÓµÄº¯ÊýºÍ±äÁ¿
+	//ë‡¹ìž¿ëœ©í›™æ…¤ìˆ­è­¦ì†ë¨ë³€é‘’ëµ¨ê¸´ì¢†
 	VOID	SetSocket(CClientSocket* pSocket) { m_pSocketClient = pSocket;}
-	VOID	SetProc( CWHDefProcess* pProc ){ m_pGameProc = pProc; }//ÉèÖÃ¹ØÁªµÄ´¦ÀíÀà
+	VOID	SetProc( CWHDefProcess* pProc ){ m_pGameProc = pProc; }//ï¿½é˜®ì²«è »ã•ìº‘â•‚è³‡ï¿½
 protected:
-	CClientSocket*	m_pSocketClient;//socketÁ¬½Ó
-	CWHDefProcess*	m_pGameProc;//¹ØÁªµÄ´¦ÀíÀà
+	CClientSocket*	m_pSocketClient;//socketì ¯ìŒˆ
+	CWHDefProcess*	m_pGameProc;//ë°‘ì ¬ë¨ë‡¹ìž¿ìžš
 };
 
 
