@@ -1,0 +1,19 @@
+g_pMonRaceInfo与数据库字段对应关系：
+    szMonName       -- FLD_NAME
+    nMonRace        -- FLD_RACE
+    nAppear         -- FLD_APPR
+    btUndead        -- FLD_UNDEAD
+    Level           -- FLD_LEVEL
+    AC              -- FLD_AC
+    MAC             -- FLD_MAC
+    DC(WORD)        -- FLD_DC, FLD_MAXDC
+    dwAttackSpeed   -- FLD_ATTACKSPEED
+    dwWalkSpeed     -- FLD_WALKSPEED
+    Speed           -- FLD_SPEED
+    Hit             -- FLD_HIT
+    ViewRange       -- FLD_VIEWRANGE
+    wRaceIndex      -- FLD_RACEINDEX
+
+CMonsterObject属性与g_pMonRaceInfo字段的对应关系：
+    m_dwNextHitTime     -- dwAttackSpeed 作用：攻击间隔时间，单位：毫秒
+    m_dwNextWalkTime    -- dwWalkSpeed 作用：移动间隔时间，单位：毫秒
